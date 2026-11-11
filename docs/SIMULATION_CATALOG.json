@@ -1,0 +1,1079 @@
+{
+ "generatedBy": "tools/build-catalog.mjs",
+ "count": 28,
+ "simulations": [
+  {
+   "id": "T02.L1",
+   "learningObject": "T02.L1",
+   "theme": "T02",
+   "title": {
+    "en": "Tectonic plate map: locate and identify plates (54 plates, 8 major highlighted)",
+    "hi": "विवर्तनिक प्लेट मानचित्र: प्लेटों की पहचान"
+   },
+   "modality": "map",
+   "implementation": "src/modules/geography/tectonics.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T02.L2",
+   "learningObject": "T02.L2",
+   "theme": "T02",
+   "title": {
+    "en": "Plate boundary explorer: convergent, divergent, transform (3D + 2D fallback)",
+    "hi": "प्लेट सीमा अन्वेषक"
+   },
+   "modality": "3d",
+   "implementation": "src/modules/geography/tectonics.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T02.L3",
+   "learningObject": "T02.L3",
+   "theme": "T02",
+   "title": {
+    "en": "Earth interior cutaway (layers, depth, state; not to scale)",
+    "hi": "पृथ्वी के आंतरिक भाग का काट-चित्र"
+   },
+   "modality": "diagram",
+   "implementation": "src/modules/geography/tectonics.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T02.L4",
+   "learningObject": "T02.L4",
+   "theme": "T02",
+   "title": {
+    "en": "Weathering, erosion and deposition sandbox; agents of gradation"
+   },
+   "modality": "sandbox",
+   "engine": "src/engines/domain/terrain.js",
+   "implementation": "src/modules/geography/labs-earth.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Explain how weathering, erosion and deposition reshape land, and how rock type, rainfall, vegetation and the agent of gradation change the result.",
+    "hi": "समझाएँ कि अपक्षय, अपरदन और निक्षेपण भूमि को कैसे बदलते हैं, और चट्टान का प्रकार, वर्षा, वनस्पति तथा अपरदन-कारक परिणाम को कैसे प्रभावित करते हैं।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "agent",
+     "type": "chips",
+     "label": {
+      "en": "Agent of gradation",
+      "hi": "अपरदन का कारक"
+     }
+    },
+    {
+     "id": "rock",
+     "type": "chips",
+     "label": {
+      "en": "Rock type",
+      "hi": "चट्टान का प्रकार"
+     }
+    },
+    {
+     "id": "rain",
+     "type": "slider",
+     "label": {
+      "en": "Rainfall",
+      "hi": "वर्षा"
+     }
+    },
+    {
+     "id": "veg",
+     "type": "slider",
+     "label": {
+      "en": "Vegetation cover",
+      "hi": "वनस्पति आवरण"
+     }
+    },
+    {
+     "id": "years",
+     "type": "slider",
+     "label": {
+      "en": "Time passed (years)",
+      "hi": "बीता समय (वर्ष)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 3,
+   "predictions": 2,
+   "exitQuestions": 2,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T03.L1",
+   "learningObject": "T03.L1",
+   "theme": "T03",
+   "title": {
+    "en": "Atmospheric cutaway: layers and composition"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/atmosphere.js",
+   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Describe the layers of the atmosphere and show how temperature, air pressure and the amount of air change with altitude.",
+    "hi": "वायुमंडल की परतों का वर्णन करें और दिखाएँ कि ऊँचाई के साथ तापमान, वायुदाब और वायु की मात्रा कैसे बदलती है।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "alt",
+     "type": "slider",
+     "label": {
+      "en": "Altitude (km)",
+      "hi": "ऊँचाई (किमी)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 3,
+   "predictions": 2,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T03.L4",
+   "learningObject": "T03.L4",
+   "theme": "T03",
+   "title": {
+    "en": "Land-sea heating and local wind model"
+   },
+   "modality": "sandbox",
+   "engine": "src/engines/domain/atmosphere.js",
+   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Explain why the wind near a coast reverses between day and night using the different heating of land and sea.",
+    "hi": "भूमि और समुद्र के असमान तापन के आधार पर समझाएँ कि तट के पास हवा दिन और रात में क्यों उलट जाती है।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "hour",
+     "type": "slider",
+     "label": {
+      "en": "Time of day",
+      "hi": "दिन का समय"
+     }
+    },
+    {
+     "id": "cloud",
+     "type": "slider",
+     "label": {
+      "en": "Cloud cover",
+      "hi": "बादल आवरण"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 2,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T04.L1",
+   "learningObject": "T04.L1",
+   "theme": "T04",
+   "title": {
+    "en": "Deep-time timeline: 2 million years to early cities; archaeological ages"
+   },
+   "modality": "timeline",
+   "implementation": "src/modules/history/early-humans.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T04.L2",
+   "learningObject": "T04.L2",
+   "theme": "T04",
+   "title": {
+    "en": "Archaeological tool gallery and evidence-vs-inference investigation"
+   },
+   "modality": "evidence",
+   "implementation": "src/modules/history/early-humans.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T06.L3",
+   "learningObject": "T06.L3",
+   "theme": "T06",
+   "title": {
+    "en": "Parliamentary vs presidential institutional flow"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/institutions.js",
+   "implementation": "src/modules/politics/labs-politics.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare how the executive and the legislature are related in a parliamentary and a presidential system, and what happens when the government loses the legislature’s support.",
+    "hi": "संसदीय और अध्यक्षीय प्रणालियों में कार्यपालिका और विधायिका के संबंध की तुलना करें, और सरकार के विधायिका का समर्थन खोने पर क्या होता है।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "system",
+     "type": "chips",
+     "label": {
+      "en": "System",
+      "hi": "प्रणाली"
+     }
+    },
+    {
+     "id": "support",
+     "type": "slider",
+     "label": {
+      "en": "Legislators (out of 100) who support the government",
+      "hi": "सरकार का समर्थन करने वाले विधायक (100 में से)"
+     }
+    },
+    {
+     "id": "vote",
+     "type": "toggle",
+     "label": {
+      "en": "Hold a vote of no confidence",
+      "hi": "अविश्वास प्रस्ताव पर मतदान कराएँ"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T07.L2",
+   "learningObject": "T07.L2",
+   "theme": "T07",
+   "title": {
+    "en": "Fictional election sandbox: compare electoral systems on one vote set"
+   },
+   "modality": "sandbox",
+   "implementation": "src/modules/politics/elections.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T07.L4",
+   "learningObject": "T07.L4",
+   "theme": "T07",
+   "title": {
+    "en": "Coalition negotiation and Anti-Defection case analysis (fictional)"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/election.js",
+   "implementation": "src/modules/politics/labs-politics.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Find which parties can form a government when no party wins a majority of seats, and see how the electoral system changes the possibilities.",
+    "hi": "पता करें कि जब किसी दल को सीटों का बहुमत नहीं मिलता तो कौन-से दल मिलकर सरकार बना सकते हैं, और चुनाव-प्रणाली संभावनाओं को कैसे बदलती है।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "system",
+     "type": "chips",
+     "label": {
+      "en": "Electoral system",
+      "hi": "चुनाव-प्रणाली"
+     }
+    },
+    {
+     "id": "swing",
+     "type": "slider",
+     "label": {
+      "en": "Vote swing from R to B (points)",
+      "hi": "R से B की ओर मत-झुकाव (अंक)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T08.L2",
+   "learningObject": "T08.L2",
+   "theme": "T08",
+   "title": {
+    "en": "Production possibility frontier explorer"
+   },
+   "modality": "graph",
+   "engine": "src/engines/domain/market.js",
+   "implementation": "src/modules/economics/labs-econ.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Use a production possibility frontier to show scarcity, choice and opportunity cost: producing more of one good means giving up some of another.",
+    "hi": "उत्पादन संभावना वक्र से दुर्लभता, चयन और अवसर-लागत दिखाएँ: एक वस्तु अधिक बनाने का अर्थ दूसरी का कुछ त्यागना है।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "a",
+     "type": "slider",
+     "label": {
+      "en": "Wheat grown (tonnes)",
+      "hi": "उगाया गया गेहूँ (टन)"
+     }
+    },
+    {
+     "id": "b",
+     "type": "slider",
+     "label": {
+      "en": "Vegetables grown (tonnes)",
+      "hi": "उगाई गई सब्ज़ियाँ (टन)"
+     }
+    },
+    {
+     "id": "tech",
+     "type": "toggle",
+     "label": {
+      "en": "Better seeds and tools (+30% capacity)",
+      "hi": "बेहतर बीज और औज़ार (+30% क्षमता)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T09.L1",
+   "learningObject": "T09.L1",
+   "theme": "T09",
+   "title": {
+    "en": "Market lab: demand, supply, equilibrium, surplus and shortage (live graph + table)",
+    "hi": "बाज़ार प्रयोगशाला"
+   },
+   "modality": "graph",
+   "implementation": "src/modules/economics/price-puzzle.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T09.L2",
+   "learningObject": "T09.L2",
+   "theme": "T09",
+   "title": {
+    "en": "Price-ceiling lab: shortage and black-market pressure",
+    "hi": "कीमत सीमा प्रयोगशाला"
+   },
+   "modality": "graph",
+   "implementation": "src/modules/economics/price-puzzle.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T09.L3",
+   "learningObject": "T09.L3",
+   "theme": "T09",
+   "title": {
+    "en": "Real-world deviations: necessity, luxury, perishable, expectations",
+    "hi": "वास्तविक-जगत के विचलन"
+   },
+   "modality": "scenario",
+   "implementation": "src/modules/economics/price-puzzle.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T09.L4",
+   "learningObject": "T09.L4",
+   "theme": "T09",
+   "title": {
+    "en": "Externality lab: private vs social cost (pollution)",
+    "hi": "बाह्यता प्रयोगशाला"
+   },
+   "modality": "graph",
+   "implementation": "src/modules/economics/price-puzzle.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T09.L5",
+   "learningObject": "T09.L5",
+   "theme": "T09",
+   "title": {
+    "en": "Public goods: classify and free-rider street-light challenge",
+    "hi": "सार्वजनिक वस्तुएँ"
+   },
+   "modality": "scenario",
+   "implementation": "src/modules/economics/price-puzzle.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T09.L6",
+   "learningObject": "T09.L6",
+   "theme": "T09",
+   "title": {
+    "en": "Information-asymmetry cards (used-goods inquiry)",
+    "hi": "सूचना असमानता"
+   },
+   "modality": "inquiry",
+   "implementation": "src/modules/economics/price-puzzle.js",
+   "kit": null,
+   "status": "implemented",
+   "qaPassed": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "note": "hand-built module that predates lab-kit"
+  },
+  {
+   "id": "T10.L2",
+   "learningObject": "T10.L2",
+   "theme": "T10",
+   "title": {
+    "en": "Waves vs tides vs currents comparison; global current explorer"
+   },
+   "modality": "sandbox",
+   "engine": "src/engines/domain/ocean.js",
+   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Explain how the Moon and Sun produce tides and why the tidal range is largest at new and full moon (spring tides) and smallest at the quarters (neap tides).",
+    "hi": "समझाएँ कि चंद्रमा और सूर्य ज्वार कैसे बनाते हैं और अमावस्या-पूर्णिमा पर ज्वारीय परिसर (वृहत् ज्वार) सबसे अधिक तथा अष्टमी पर (निम्न ज्वार) सबसे कम क्यों होता है।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "phase",
+     "type": "chips",
+     "label": {
+      "en": "Moon phase",
+      "hi": "चंद्र कला"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T10.L4",
+   "learningObject": "T10.L4",
+   "theme": "T10",
+   "title": {
+    "en": "Cyclone and tsunami cross-sections; coastal evacuation scenario"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/ocean.js",
+   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Calculate how fast a tsunami travels, why it slows near the coast, and how much time a community has to evacuate after a warning.",
+    "hi": "गणना करें कि सुनामी कितनी तेज़ चलती है, तट के पास क्यों धीमी हो जाती है, और चेतावनी के बाद समुदाय के पास निकलने के लिए कितना समय है।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "depth",
+     "type": "slider",
+     "label": {
+      "en": "Ocean depth (m)",
+      "hi": "महासागर की गहराई (मी)"
+     }
+    },
+    {
+     "id": "dist",
+     "type": "slider",
+     "label": {
+      "en": "Distance to the coast (km)",
+      "hi": "तट तक दूरी (किमी)"
+     }
+    },
+    {
+     "id": "siren",
+     "type": "slider",
+     "label": {
+      "en": "Minutes needed to reach high ground",
+      "hi": "ऊँचे स्थान तक पहुँचने के लिए आवश्यक मिनट"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T11.L3",
+   "learningObject": "T11.L3",
+   "theme": "T11",
+   "title": {
+    "en": "Forest management and ecotourism-capacity scenario"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/ecosystem.js",
+   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Decide how much of a forest can be harvested each year without destroying it, using regrowth and the maximum sustainable yield.",
+    "hi": "पुनर्वृद्धि और अधिकतम धारणीय उपज के आधार पर तय करें कि वन को नष्ट किए बिना हर वर्ष कितना काटा जा सकता है।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "harvest",
+     "type": "slider",
+     "label": {
+      "en": "Harvest per year",
+      "hi": "प्रति वर्ष कटाई"
+     }
+    },
+    {
+     "id": "stock0",
+     "type": "slider",
+     "label": {
+      "en": "Starting forest stock",
+      "hi": "आरंभिक वन भंडार"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T11.L3w",
+   "learningObject": "T11.L3",
+   "theme": "T11",
+   "title": {
+    "en": "Forest management and ecotourism-capacity scenario"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/ecosystem.js",
+   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Show how plants, herbivores and predators depend on one another and how removing predators changes the whole food web.",
+    "hi": "दिखाएँ कि पौधे, शाकाहारी और शिकारी एक-दूसरे पर कैसे निर्भर हैं और शिकारियों को हटाने से पूरा खाद्य-जाल कैसे बदलता है।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "cull",
+     "type": "slider",
+     "label": {
+      "en": "Share of predators removed",
+      "hi": "हटाए गए शिकारियों का अनुपात"
+     }
+    },
+    {
+     "id": "cullYear",
+     "type": "slider",
+     "label": {
+      "en": "Year of removal",
+      "hi": "हटाने का वर्ष"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T13.L1",
+   "learningObject": "T13.L1",
+   "theme": "T13",
+   "title": {
+    "en": "Time-filtered trade routes with port and commodity cards"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/tradeRoutes.js",
+   "implementation": "src/modules/history/labs-trade.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Use a time filter to see which trade routes were in use in different periods, what goods and ideas moved along them, and how long journeys took by caravan and ship.",
+    "hi": "समय-फ़िल्टर से देखें कि अलग-अलग कालों में कौन-से व्यापार-मार्ग प्रचलित थे, उन पर कौन-सी वस्तुएँ और विचार चले, और कारवाँ तथा जहाज़ से यात्राएँ कितनी लंबी थीं।"
+   },
+   "provenance": "reconstruction",
+   "controls": [
+    {
+     "id": "year",
+     "type": "slider",
+     "label": {
+      "en": "Year (BCE negative)",
+      "hi": "वर्ष (ई.पू. ऋणात्मक)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 3,
+   "predictions": 2,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T15.L2",
+   "learningObject": "T15.L2",
+   "theme": "T15",
+   "title": {
+    "en": "Business resource board and unit-economics lab"
+   },
+   "modality": "sandbox",
+   "engine": "src/engines/domain/startup.js",
+   "implementation": "src/modules/economics/labs-econ.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Use price, variable cost, fixed cost and units sold to find a small business’s profit and break-even point.",
+    "hi": "मूल्य, परिवर्ती लागत, स्थिर लागत और बिकी इकाइयों से किसी छोटे व्यवसाय का लाभ और सम-विच्छेद बिंदु ज्ञात करें।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "price",
+     "type": "slider",
+     "label": {
+      "en": "Selling price per glass (₹)",
+      "hi": "प्रति गिलास बिक्री मूल्य (₹)"
+     }
+    },
+    {
+     "id": "varCost",
+     "type": "slider",
+     "label": {
+      "en": "Ingredients cost per glass (₹)",
+      "hi": "प्रति गिलास सामग्री लागत (₹)"
+     }
+    },
+    {
+     "id": "fixed",
+     "type": "slider",
+     "label": {
+      "en": "Fixed costs: stall rent and juicer (₹)",
+      "hi": "स्थिर लागत: स्टॉल किराया और जूसर (₹)"
+     }
+    },
+    {
+     "id": "units",
+     "type": "slider",
+     "label": {
+      "en": "Glasses sold",
+      "hi": "बिके गिलास"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 3,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T15.L5",
+   "learningObject": "T15.L5",
+   "theme": "T15",
+   "title": {
+    "en": "Profit/loss calculator and simple accounting visual"
+   },
+   "modality": "calculator",
+   "engine": "src/engines/domain/startup.js",
+   "implementation": "src/modules/economics/labs-econ.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Read a simple profit-and-loss statement: income minus every cost gives profit or loss, and the order of subtraction shows where money goes.",
+    "hi": "सरल लाभ-हानि विवरण पढ़ें: आय में से हर लागत घटाने पर लाभ या हानि मिलती है, और घटाने का क्रम दिखाता है कि पैसा कहाँ जाता है।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "jobs",
+     "type": "slider",
+     "label": {
+      "en": "Garments stitched",
+      "hi": "सिले गए कपड़े"
+     }
+    },
+    {
+     "id": "rate",
+     "type": "slider",
+     "label": {
+      "en": "Charge per garment (₹)",
+      "hi": "प्रति कपड़ा शुल्क (₹)"
+     }
+    },
+    {
+     "id": "cloth",
+     "type": "slider",
+     "label": {
+      "en": "Cloth and thread (₹)",
+      "hi": "कपड़ा और धागा (₹)"
+     }
+    },
+    {
+     "id": "wages",
+     "type": "slider",
+     "label": {
+      "en": "Helper wages (₹)",
+      "hi": "सहायक की मज़दूरी (₹)"
+     }
+    },
+    {
+     "id": "rent",
+     "type": "slider",
+     "label": {
+      "en": "Shop rent and electricity (₹)",
+      "hi": "दुकान किराया और बिजली (₹)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T16.L1",
+   "learningObject": "T16.L1",
+   "theme": "T16",
+   "title": {
+    "en": "Monthly budget lab: income, needs, wants, savings"
+   },
+   "modality": "calculator",
+   "engine": "src/engines/domain/finance.js",
+   "implementation": "src/modules/economics/labs-econ.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Plan a monthly budget by splitting income into needs, wants and savings, and see what happens when spending is larger than income.",
+    "hi": "आय को आवश्यकताओं, इच्छाओं और बचत में बाँटकर मासिक बजट बनाएँ, और देखें कि खर्च आय से अधिक होने पर क्या होता है।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "income",
+     "type": "slider",
+     "label": {
+      "en": "Monthly income (₹)",
+      "hi": "मासिक आय (₹)"
+     }
+    },
+    {
+     "id": "needs",
+     "type": "slider",
+     "label": {
+      "en": "Needs: food, rent, school, transport (₹)",
+      "hi": "आवश्यकताएँ: भोजन, किराया, शिक्षा, यातायात (₹)"
+     }
+    },
+    {
+     "id": "wants",
+     "type": "slider",
+     "label": {
+      "en": "Wants: outings, gadgets, treats (₹)",
+      "hi": "इच्छाएँ: सैर-सपाटा, गैजेट, मिठाई (₹)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T16.L2",
+   "learningObject": "T16.L2",
+   "theme": "T16",
+   "title": {
+    "en": "Inflation basket and purchasing-power comparison"
+   },
+   "modality": "calculator",
+   "engine": "src/engines/domain/finance.js",
+   "implementation": "src/modules/economics/labs-econ.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Show how rising prices (inflation) reduce what a fixed amount of money can buy, and why interest must beat inflation to grow real wealth.",
+    "hi": "दिखाएँ कि बढ़ती कीमतें (मुद्रास्फीति) किसी निश्चित धनराशि की क्रय-शक्ति कैसे घटाती हैं, और वास्तविक संपत्ति बढ़ाने के लिए ब्याज को मुद्रास्फीति से अधिक क्यों होना चाहिए।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "infl",
+     "type": "slider",
+     "label": {
+      "en": "Inflation per year (%)",
+      "hi": "प्रति वर्ष मुद्रास्फीति (%)"
+     }
+    },
+    {
+     "id": "nominal",
+     "type": "slider",
+     "label": {
+      "en": "Interest earned per year (%)",
+      "hi": "प्रति वर्ष अर्जित ब्याज (%)"
+     }
+    },
+    {
+     "id": "years",
+     "type": "slider",
+     "label": {
+      "en": "Years",
+      "hi": "वर्ष"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T16.L3",
+   "learningObject": "T16.L3",
+   "theme": "T16",
+   "title": {
+    "en": "Simple vs compound interest curves"
+   },
+   "modality": "graph",
+   "engine": "src/engines/domain/finance.js",
+   "implementation": "src/modules/economics/labs-econ.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare simple and compound interest over time and see why starting to save early matters.",
+    "hi": "समय के साथ साधारण और चक्रवृद्धि ब्याज की तुलना करें और देखें कि जल्दी बचत शुरू करना क्यों मायने रखता है।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "principal",
+     "type": "slider",
+     "label": {
+      "en": "Money saved at the start (₹)",
+      "hi": "आरंभ में जमा धन (₹)"
+     }
+    },
+    {
+     "id": "rate",
+     "type": "slider",
+     "label": {
+      "en": "Interest rate per year (%)",
+      "hi": "प्रति वर्ष ब्याज दर (%)"
+     }
+    },
+    {
+     "id": "years",
+     "type": "slider",
+     "label": {
+      "en": "Years",
+      "hi": "वर्ष"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  }
+ ]
+}

@@ -76,7 +76,7 @@ async function themePage(id) {
   const nav = h('nav', { class: 'pager', 'aria-label': 'Theme navigation' }, idx > 0 ? h('a', { href: `#/theme/${CUR.themes[idx - 1].id}`, rel: 'prev' }, '← ', CUR.themes[idx - 1].id) : h('span'), h('a', { href: '#/', 'data-k': 'nav.all' }, t('nav.all')), idx < 15 ? h('a', { href: `#/theme/${CUR.themes[idx + 1].id}`, rel: 'next' }, CUR.themes[idx + 1].id, ' →') : h('span'));
   const glossary = (window.__glossary || []).filter((g) => (g.themes || []).includes(id));
   const teach = TEACHER[id];
-  root.append(
+  root.append(...[
     h('a', { class: 'back', href: '#/', 'data-k': 'nav.back' }, t('nav.back')),
     h('header', { class: 'theme-h' }, h('span', { class: 'card-id' }, id), titleEl('h1', th.title), h('p', { class: 'card-meta' }, h('span', { 'data-k': DISC[th.discipline] }, t(DISC[th.discipline])), ` · ${th.hours} `, h('span', { 'data-k': 'hours' }, t('hours')), ' · ', h('span', { class: `badge ${s.label}`, 'data-k': `st.${s.label}`, 'data-p': JSON.stringify({ k: s.k, n: s.n }) }, t(`st.${s.label}`, { k: s.k, n: s.n })))),
     h('section', { class: 'opening', 'aria-labelledby': 'op-h' }, h('h2', { id: 'op-h', 'data-k': 'th.opening' }, t('th.opening')), bi(opening, { tag: 'p', cls: 'q' })),
@@ -86,7 +86,7 @@ async function themePage(id) {
     glossary.length ? h('details', { class: 'subsec' }, h('summary', { 'data-k': 'th.gloss' }, t('th.gloss')), h('dl', { class: 'gloss' }, ...glossary.flatMap((g) => [h('dt', { 'data-term': g.id }, i18n.term(g.id)), h('dd', {}, i18n.termDef(g.id))]))) : null,
     teach ? h('details', { class: 'subsec teacher-only' }, h('summary', { 'data-k': 'th.teacher' }, t('th.teacher')), h('ol', {}, ...teach.flow.map((f) => h('li', {}, bi({ en: (f.m ? `${f.m} min — ` : '') + f.en, hi: (f.m ? `${f.m} मिनट — ` : '') + f.hi }, { tag: 'div' })))), ...(teach.prompts ? [h('h3', { 'data-k': 'th.prompts' }, t('th.prompts')), ...teach.prompts.map((p) => bi(p, { tag: 'p' }))] : []), ...(teach.misconceptions ? [h('h3', { 'data-k': 'th.misc' }, t('th.misc')), ...teach.misconceptions.map((p) => bi(p, { tag: 'p' }))] : [])) : null,
     LIMITS[id] ? h('aside', { class: 'limits' }, h('strong', { 'data-k': 'th.limits' }, t('th.limits')), ' ', bi(LIMITS[id], { tag: 'span' })) : null,
-    nav);
+    nav].filter(Boolean));
   if (MODULES[id]) {
     modSlot.append(h('p', { class: 'note', 'data-k': 'th.loading' }, t('th.loading')));
     try { const mod = await MODULES[id](); if (location.hash !== `#/theme/${id}`) return; modSlot.replaceChildren(); cur = { id, mod: mod.mount(modSlot, {}) }; }
@@ -95,4 +95,6 @@ async function themePage(id) {
     modSlot.append(h('div', { class: 'planned-box' }, h('h2', { 'data-k': 'th.planned.h' }, t('th.planned.h')), h('p', { 'data-k': 'th.planned.p' }, t('th.planned.p'))));
   }
 }
+// Offline / slow-network support: cache the app after the first visit (skipped on file:// and when unsupported).
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 boot().catch((e) => { console.error(e); root.textContent = 'Failed to start: ' + e.message; });

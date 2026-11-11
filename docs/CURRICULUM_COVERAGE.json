@@ -1,0 +1,974 @@
+{
+ "generatedBy": "tools/build-catalog.mjs",
+ "source": "CBSE Class IX Social Science (Subject Code 087) 2026-27",
+ "summary": {
+  "total": 78,
+  "implemented": 27,
+  "qaPassed": 27,
+  "planned": 51,
+  "themesWithAnyLab": 12,
+  "themes": 16
+ },
+ "themes": [
+  {
+   "id": "T01",
+   "part": 1,
+   "discipline": "integrated",
+   "hours": 4,
+   "title": {
+    "en": "Understanding Social Science",
+    "hi": "सामाजिक विज्ञान को समझना",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 2,
+   "outcomes": 3,
+   "learningObjects": {
+    "total": 3,
+    "implemented": 0,
+    "planned": 3,
+    "qaPassed": 0
+   },
+   "items": [
+    {
+     "id": "T01.L1",
+     "modality": "diagram",
+     "engine": "system-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T01.L2",
+     "modality": "map",
+     "engine": "lens-explorer",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T01.L3",
+     "modality": "inquiry",
+     "engine": "sorter",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T02",
+   "part": 2,
+   "discipline": "geography",
+   "hours": 8,
+   "title": {
+    "en": "Shaping of the Earth's Surface",
+    "hi": "पृथ्वी की सतह को आकार देना",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 4,
+   "outcomes": 6,
+   "learningObjects": {
+    "total": 6,
+    "implemented": 4,
+    "planned": 2,
+    "qaPassed": 4
+   },
+   "items": [
+    {
+     "id": "T02.L1",
+     "modality": "map",
+     "engine": "plate-map",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/tectonics.js"
+    },
+    {
+     "id": "T02.L2",
+     "modality": "3d",
+     "engine": "plate-boundary-3d",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/tectonics.js"
+    },
+    {
+     "id": "T02.L3",
+     "modality": "diagram",
+     "engine": "earth-interior",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/tectonics.js"
+    },
+    {
+     "id": "T02.L4",
+     "modality": "sandbox",
+     "engine": "gradation-sandbox",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/labs-earth.js"
+    },
+    {
+     "id": "T02.L5",
+     "modality": "3d",
+     "engine": "landform-gallery",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T02.L6",
+     "modality": "scenario",
+     "engine": "hazard-lab",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T03",
+   "part": 3,
+   "discipline": "geography",
+   "hours": 7,
+   "title": {
+    "en": "Atmosphere and Climate",
+    "hi": "वायुमंडल और जलवायु",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 5,
+   "outcomes": 6,
+   "learningObjects": {
+    "total": 6,
+    "implemented": 2,
+    "planned": 4,
+    "qaPassed": 2
+   },
+   "items": [
+    {
+     "id": "T03.L1",
+     "modality": "diagram",
+     "engine": "atmosphere-cutaway",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/labs-air-water-life.js"
+    },
+    {
+     "id": "T03.L2",
+     "modality": "graph",
+     "engine": "climate-grapher",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T03.L3",
+     "modality": "map",
+     "engine": "monsoon-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T03.L4",
+     "modality": "sandbox",
+     "engine": "local-wind",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/labs-air-water-life.js"
+    },
+    {
+     "id": "T03.L5",
+     "modality": "sandbox",
+     "engine": "catchment",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T03.L6",
+     "modality": "calculator",
+     "engine": "carbon-footprint",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T04",
+   "part": 4,
+   "discipline": "history",
+   "hours": 9,
+   "title": {
+    "en": "Early Humans and Beginning of Civilisation",
+    "hi": "आदि मानव और सभ्यता का आरंभ",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 8,
+   "outcomes": 7,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 2,
+    "planned": 3,
+    "qaPassed": 2
+   },
+   "items": [
+    {
+     "id": "T04.L1",
+     "modality": "timeline",
+     "engine": "deep-time",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/history/early-humans.js"
+    },
+    {
+     "id": "T04.L2",
+     "modality": "evidence",
+     "engine": "artefact-viewer",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/history/early-humans.js"
+    },
+    {
+     "id": "T04.L3",
+     "modality": "scenario",
+     "engine": "settlement-sim",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T04.L4",
+     "modality": "3d",
+     "engine": "harappan-city",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T04.L5",
+     "modality": "map",
+     "engine": "civ-atlas",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T05",
+   "part": 5,
+   "discipline": "history",
+   "hours": 9,
+   "title": {
+    "en": "State and Society (upto 1000 CE)",
+    "hi": "राज्य और समाज (1000 ई. तक)",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 4,
+   "outcomes": 4,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 0,
+    "planned": 5,
+    "qaPassed": 0
+   },
+   "items": [
+    {
+     "id": "T05.L1",
+     "modality": "map",
+     "engine": "dated-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T05.L2",
+     "modality": "evidence",
+     "engine": "source-room",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T05.L3",
+     "modality": "scenario",
+     "engine": "admin-flow",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T05.L4",
+     "modality": "inquiry",
+     "engine": "gallery",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T05.L5",
+     "modality": "map",
+     "engine": "trade-routes",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T06",
+   "part": 6,
+   "discipline": "political-science",
+   "hours": 9,
+   "title": {
+    "en": "Democracy",
+    "hi": "लोकतंत्र",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 4,
+   "outcomes": 4,
+   "learningObjects": {
+    "total": 4,
+    "implemented": 1,
+    "planned": 3,
+    "qaPassed": 1
+   },
+   "items": [
+    {
+     "id": "T06.L1",
+     "modality": "diagram",
+     "engine": "concept-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T06.L2",
+     "modality": "evidence",
+     "engine": "gallery",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T06.L3",
+     "modality": "diagram",
+     "engine": "system-flow",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/politics/labs-politics.js"
+    },
+    {
+     "id": "T06.L4",
+     "modality": "inquiry",
+     "engine": "country-compare",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T07",
+   "part": 7,
+   "discipline": "political-science",
+   "hours": 9,
+   "title": {
+    "en": "Elections",
+    "hi": "चुनाव",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 9,
+   "outcomes": 10,
+   "learningObjects": {
+    "total": 4,
+    "implemented": 2,
+    "planned": 2,
+    "qaPassed": 2
+   },
+   "items": [
+    {
+     "id": "T07.L1",
+     "modality": "diagram",
+     "engine": "process-flow",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T07.L2",
+     "modality": "sandbox",
+     "engine": "electoral-systems",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/politics/elections.js"
+    },
+    {
+     "id": "T07.L3",
+     "modality": "map",
+     "engine": "delimitation",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T07.L4",
+     "modality": "scenario",
+     "engine": "coalition",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/politics/labs-politics.js"
+    }
+   ]
+  },
+  {
+   "id": "T08",
+   "part": 8,
+   "discipline": "economics",
+   "hours": 7,
+   "title": {
+    "en": "Building Blocks in Economics",
+    "hi": "अर्थशास्त्र के आधारभूत तत्त्व",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 4,
+   "outcomes": 6,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 1,
+    "planned": 4,
+    "qaPassed": 1
+   },
+   "items": [
+    {
+     "id": "T08.L1",
+     "modality": "scenario",
+     "engine": "scarcity-game",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T08.L2",
+     "modality": "graph",
+     "engine": "ppf",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/labs-econ.js"
+    },
+    {
+     "id": "T08.L3",
+     "modality": "diagram",
+     "engine": "flow",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T08.L4",
+     "modality": "inquiry",
+     "engine": "system-compare",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T08.L5",
+     "modality": "scenario",
+     "engine": "safety-net",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T09",
+   "part": 9,
+   "discipline": "economics",
+   "hours": 8,
+   "title": {
+    "en": "The Price Puzzle: What Drives the Market",
+    "hi": "कीमत की पहेली: बाज़ार को क्या चलाता है",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 3,
+   "outcomes": 7,
+   "learningObjects": {
+    "total": 6,
+    "implemented": 6,
+    "planned": 0,
+    "qaPassed": 6
+   },
+   "items": [
+    {
+     "id": "T09.L1",
+     "modality": "graph",
+     "engine": "market-lab",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/price-puzzle.js"
+    },
+    {
+     "id": "T09.L2",
+     "modality": "graph",
+     "engine": "market-lab",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/price-puzzle.js"
+    },
+    {
+     "id": "T09.L3",
+     "modality": "scenario",
+     "engine": "market-lab",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/price-puzzle.js"
+    },
+    {
+     "id": "T09.L4",
+     "modality": "graph",
+     "engine": "externality-lab",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/price-puzzle.js"
+    },
+    {
+     "id": "T09.L5",
+     "modality": "scenario",
+     "engine": "public-goods",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/price-puzzle.js"
+    },
+    {
+     "id": "T09.L6",
+     "modality": "inquiry",
+     "engine": "info-asymmetry",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/price-puzzle.js"
+    }
+   ]
+  },
+  {
+   "id": "T10",
+   "part": 1,
+   "discipline": "geography",
+   "hours": 7,
+   "title": {
+    "en": "Oceans and Life",
+    "hi": "महासागर और जीवन",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 4,
+   "outcomes": 7,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 2,
+    "planned": 3,
+    "qaPassed": 2
+   },
+   "items": [
+    {
+     "id": "T10.L1",
+     "modality": "3d",
+     "engine": "ocean-relief",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T10.L2",
+     "modality": "sandbox",
+     "engine": "ocean-motion",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/labs-air-water-life.js"
+    },
+    {
+     "id": "T10.L3",
+     "modality": "scenario",
+     "engine": "fisheries",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T10.L4",
+     "modality": "scenario",
+     "engine": "coastal-hazard",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/labs-air-water-life.js"
+    },
+    {
+     "id": "T10.L5",
+     "modality": "diagram",
+     "engine": "concept-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T11",
+   "part": 2,
+   "discipline": "geography",
+   "hours": 7,
+   "title": {
+    "en": "Life on Earth",
+    "hi": "पृथ्वी पर जीवन",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 4,
+   "outcomes": 6,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 1,
+    "planned": 4,
+    "qaPassed": 1
+   },
+   "items": [
+    {
+     "id": "T11.L1",
+     "modality": "map",
+     "engine": "biome-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T11.L2",
+     "modality": "map",
+     "engine": "reserve-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T11.L3",
+     "modality": "scenario",
+     "engine": "forest-tradeoffs",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/geography/labs-air-water-life.js"
+    },
+    {
+     "id": "T11.L4",
+     "modality": "sandbox",
+     "engine": "fire-planner",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T11.L5",
+     "modality": "inquiry",
+     "engine": "gallery",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T12",
+   "part": 3,
+   "discipline": "history",
+   "hours": 9,
+   "title": {
+    "en": "Resistance and Resilience (1000 CE – 1700 CE)",
+    "hi": "प्रतिरोध और दृढ़ता (1000 ई. – 1700 ई.)",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 5,
+   "outcomes": 4,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 0,
+    "planned": 5,
+    "qaPassed": 0
+   },
+   "items": [
+    {
+     "id": "T12.L1",
+     "modality": "map",
+     "engine": "dated-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T12.L2",
+     "modality": "3d",
+     "engine": "fort-3d",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T12.L3",
+     "modality": "evidence",
+     "engine": "gallery",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T12.L4",
+     "modality": "map",
+     "engine": "network-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T12.L5",
+     "modality": "timeline",
+     "engine": "timeline",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T13",
+   "part": 4,
+   "discipline": "history",
+   "hours": 8,
+   "title": {
+    "en": "India and the World-I (1900 BCE-1200 CE)",
+    "hi": "भारत और विश्व–I (1900 ई.पू.–1200 ई.)",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 3,
+   "outcomes": 4,
+   "learningObjects": {
+    "total": 4,
+    "implemented": 1,
+    "planned": 3,
+    "qaPassed": 1
+   },
+   "items": [
+    {
+     "id": "T13.L1",
+     "modality": "map",
+     "engine": "trade-routes",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/history/labs-trade.js"
+    },
+    {
+     "id": "T13.L2",
+     "modality": "map",
+     "engine": "exchange-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T13.L3",
+     "modality": "inquiry",
+     "engine": "gallery",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T13.L4",
+     "modality": "evidence",
+     "engine": "artefact-viewer",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T14",
+   "part": 5,
+   "discipline": "political-science",
+   "hours": 10,
+   "title": {
+    "en": "Authority",
+    "hi": "प्राधिकार",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 4,
+   "outcomes": 7,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 0,
+    "planned": 5,
+    "qaPassed": 0
+   },
+   "items": [
+    {
+     "id": "T14.L1",
+     "modality": "evidence",
+     "engine": "source-room",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T14.L2",
+     "modality": "diagram",
+     "engine": "concept-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T14.L3",
+     "modality": "timeline",
+     "engine": "timeline",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T14.L4",
+     "modality": "inquiry",
+     "engine": "type-compare",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T14.L5",
+     "modality": "scenario",
+     "engine": "civic-scenario",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  },
+  {
+   "id": "T15",
+   "part": 6,
+   "discipline": "economics",
+   "hours": 8,
+   "title": {
+    "en": "From Ideas to Startups",
+    "hi": "विचार से स्टार्टअप तक",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 7,
+   "outcomes": 9,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 2,
+    "planned": 3,
+    "qaPassed": 2
+   },
+   "items": [
+    {
+     "id": "T15.L1",
+     "modality": "scenario",
+     "engine": "plan-builder",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T15.L2",
+     "modality": "sandbox",
+     "engine": "startup-lab",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/labs-econ.js"
+    },
+    {
+     "id": "T15.L3",
+     "modality": "map",
+     "engine": "ecosystem-map",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T15.L4",
+     "modality": "scenario",
+     "engine": "creative-destruction",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T15.L5",
+     "modality": "calculator",
+     "engine": "accounting",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/labs-econ.js"
+    }
+   ]
+  },
+  {
+   "id": "T16",
+   "part": 7,
+   "discipline": "economics",
+   "hours": 6,
+   "title": {
+    "en": "Smart Ways to Manage Your Finances",
+    "hi": "अपने वित्त का स्मार्ट प्रबंधन",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "concepts": 7,
+   "outcomes": 7,
+   "learningObjects": {
+    "total": 5,
+    "implemented": 3,
+    "planned": 2,
+    "qaPassed": 3
+   },
+   "items": [
+    {
+     "id": "T16.L1",
+     "modality": "calculator",
+     "engine": "budget-lab",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/labs-econ.js"
+    },
+    {
+     "id": "T16.L2",
+     "modality": "calculator",
+     "engine": "inflation",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/labs-econ.js"
+    },
+    {
+     "id": "T16.L3",
+     "modality": "graph",
+     "engine": "interest",
+     "status": "implemented",
+     "qaPassed": true,
+     "implementation": "src/modules/economics/labs-econ.js"
+    },
+    {
+     "id": "T16.L4",
+     "modality": "scenario",
+     "engine": "risk-return",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    },
+    {
+     "id": "T16.L5",
+     "modality": "diagram",
+     "engine": "tax-flow",
+     "status": "planned",
+     "qaPassed": false,
+     "implementation": null
+    }
+   ]
+  }
+ ]
+}

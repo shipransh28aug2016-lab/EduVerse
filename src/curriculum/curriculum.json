@@ -507,7 +507,7 @@
      "en": "Weathering, erosion and deposition sandbox; agents of gradation",
      "modality": "sandbox",
      "engine": "gradation-sandbox",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T02.L5",
@@ -684,7 +684,7 @@
      "en": "Atmospheric cutaway: layers and composition",
      "modality": "diagram",
      "engine": "atmosphere-cutaway",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T03.L2",
@@ -705,7 +705,7 @@
      "en": "Land-sea heating and local wind model",
      "modality": "sandbox",
      "engine": "local-wind",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T03.L5",
@@ -1315,7 +1315,7 @@
      "en": "Parliamentary vs presidential institutional flow",
      "modality": "diagram",
      "engine": "system-flow",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T06.L4",
@@ -1479,7 +1479,7 @@
      "en": "Coalition negotiation and Anti-Defection case analysis (fictional)",
      "modality": "scenario",
      "engine": "coalition",
-     "status": "planned"
+     "status": "implemented"
     }
    ],
    "concepts": [
@@ -1749,7 +1749,7 @@
      "en": "Production possibility frontier explorer",
      "modality": "graph",
      "engine": "ppf",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T08.L3",
@@ -2132,7 +2132,7 @@
      "en": "Waves vs tides vs currents comparison; global current explorer",
      "modality": "sandbox",
      "engine": "ocean-motion",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T10.L3",
@@ -2146,7 +2146,7 @@
      "en": "Cyclone and tsunami cross-sections; coastal evacuation scenario",
      "modality": "scenario",
      "engine": "coastal-hazard",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T10.L5",
@@ -2335,7 +2335,7 @@
      "en": "Forest management and ecotourism-capacity scenario",
      "modality": "scenario",
      "engine": "forest-tradeoffs",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T11.L4",
@@ -2683,7 +2683,7 @@
      "en": "Time-filtered trade routes with port and commodity cards",
      "modality": "map",
      "engine": "trade-routes",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T13.L2",
@@ -3025,7 +3025,7 @@
      "en": "Business resource board and unit-economics lab",
      "modality": "sandbox",
      "engine": "startup-lab",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T15.L3",
@@ -3046,7 +3046,7 @@
      "en": "Profit/loss calculator and simple accounting visual",
      "modality": "calculator",
      "engine": "accounting",
-     "status": "planned"
+     "status": "implemented"
     }
    ],
    "concepts": [
@@ -3271,21 +3271,21 @@
      "en": "Monthly budget lab: income, needs, wants, savings",
      "modality": "calculator",
      "engine": "budget-lab",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T16.L2",
      "en": "Inflation basket and purchasing-power comparison",
      "modality": "calculator",
      "engine": "inflation",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T16.L3",
      "en": "Simple vs compound interest curves",
      "modality": "graph",
      "engine": "interest",
-     "status": "planned"
+     "status": "implemented"
     },
     {
      "id": "T16.L4",
