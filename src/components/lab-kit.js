@@ -1,0 +1,114 @@
+// Lab kit: turns a declarative spec + a pure domain engine into a complete learning experience with the standard pedagogy:
+// objective → (data-provenance note) → controls → live graphic → real-time explanation → guided discovery → predict-then-test
+// → exit ticket → reflection → reset. Everything bilingual ({en, hi}); state persists via the store; no network, no WebGL.
+//
+// spec = {
+//   id, objective:{en,hi}, note:{kind:'fictional'|'schematic'|'documented'|'reconstruction', en?, hi?},
+//   init(): state,                                   // plain JSON state, restored from the store
+//   controls: [{id, type:'slider'|'chips'|'toggle', label:{en,hi}, min,max,step, fmt?, hint?, options?:[{id,en,hi}]}],
+//   view(state): { svg, aria, lines:[{en,hi,cls?}] },// PURE: derive everything from the engine
+//   discover: [{en,hi}], predictions: [{id, stem, options, run(state)->outcomeId, explain(state)->{en,hi}}],
+//   exit: [mcq defs], reflect: {en,hi}
+// }
+import { h, esc } from '../core/dom.js';
+import * as i18n from '../core/i18n.js';
+import { t } from '../core/i18n.js';
+import * as store from '../core/store.js';
+import { slider, chips, toggle, tabs as mkTabs, bi, relabelBi, predict, mcq, biHtml, button } from './widgets.js';
+
+i18n.register({
+  'lab.obj': { en: 'Learning objective', hi: 'सीखने का उद्देश्य' },
+  'lab.try': { en: 'Try this (guided discovery)', hi: 'यह आज़माएँ (निर्देशित खोज)' },
+  'lab.live': { en: 'What is happening now', hi: 'अभी क्या हो रहा है' },
+  'lab.controls': { en: 'Change the model', hi: 'मॉडल बदलें' },
+  'lab.note.fictional': { en: 'Fictional numbers for teaching, not real observations.', hi: 'ये शिक्षण के लिए काल्पनिक संख्याएँ हैं, वास्तविक प्रेक्षण नहीं।' },
+  'lab.note.schematic': { en: 'Schematic model: shows how the process works, not exact measurements.', hi: 'योजनाबद्ध मॉडल: प्रक्रिया कैसे काम करती है यह दिखाता है, सटीक माप नहीं।' },
+  'lab.note.documented': { en: 'Based on documented science or evidence; values are rounded for teaching.', hi: 'प्रलेखित विज्ञान या साक्ष्य पर आधारित; मान शिक्षण के लिए पूर्णांकित हैं।' },
+  'lab.note.reconstruction': { en: 'A reconstruction: historians infer this from evidence and may disagree.', hi: 'यह पुनर्निर्माण है: इतिहासकार इसे साक्ष्य से अनुमानित करते हैं और उनमें मतभेद हो सकता है।' },
+});
+
+export function createLab(spec, themeId) {
+  const S = store.simState(spec.id, spec.init());
+  const base = spec.init(); for (const k of Object.keys(base)) if (!(k in S)) S[k] = base[k];
+  S.done ??= {};
+  const prog = store.progress(themeId);
+  prog.exit ??= {}; prog.reflect ??= {};
+  const persist = () => store.saveSim();
+  const dict = {};
+  const widgets = {};
+
+  const chartBox = h('div', { class: 'chart-box lab-graphic', 'aria-live': 'off' });
+  const read = h('div', { class: 'readout', role: 'status', 'aria-live': 'polite' });
+  const side = h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'lab.controls' }, t('lab.controls')));
+
+  for (const c of spec.controls) {   // register labels BEFORE building widgets so they render translated immediately
+    const key = `${spec.id}.c.${c.id}`; dict[key] = c.label;
+    if (c.hint) dict[`${key}.hint`] = c.hint;
+    for (const o of c.options ?? []) dict[`${key}.${o.id}`] = o;
+  }
+  i18n.register(dict);
+  for (const c of spec.controls) {
+    const key = `${spec.id}.c.${c.id}`;
+    if (c.type === 'slider') {
+      widgets[c.id] = slider({ id: `${spec.id}-${c.id}`.replace(/\./g, '-'), labelKey: key, min: c.min, max: c.max, step: c.step ?? 1, value: S[c.id], format: c.fmt ?? String, hintKey: c.hint ? `${key}.hint` : undefined, onInput: (v) => { S[c.id] = v; draw(); } });
+    } else if (c.type === 'chips') {
+      widgets[c.id] = chips({ name: `${spec.id}-${c.id}`, value: S[c.id], options: c.options.map((o) => ({ id: o.id, key: `${key}.${o.id}` })), onSelect: (v) => { S[c.id] = v; draw(); } });
+      side.append(h('div', { class: 'ctl-row ctl-label', 'data-k': key }, t(key)));
+    } else if (c.type === 'toggle') {
+      widgets[c.id] = toggle({ id: `${spec.id}-${c.id}`.replace(/\./g, '-'), labelKey: key, checked: S[c.id], onChange: (v) => { S[c.id] = v; draw(); } });
+    }
+    side.append(widgets[c.id].root);
+  }
+
+  function sync() { for (const c of spec.controls) { const w = widgets[c.id]; if (c.type === 'chips') w.select(S[c.id]); else w.set(S[c.id]); } draw(); }
+  function reset() { Object.assign(S, spec.init()); S.done = S.done ?? {}; sync(); }
+  function draw() {
+    persist();
+    const v = spec.view(S);
+    chartBox.innerHTML = v.svg;
+    const svg = chartBox.querySelector('svg'); if (svg && v.aria) svg.setAttribute('aria-label', v.aria);
+    read.innerHTML = v.lines.map((l) => `<div class="ro-line ${l.cls ?? ''}">${biHtml(l, { block: true })}</div>`).join('');
+  }
+
+  const noteKey = `lab.note.${spec.note?.kind ?? 'schematic'}`;
+  const note = h('p', { class: `note lab-note ${spec.note?.kind ?? 'schematic'}` }, h('strong', { 'data-k': noteKey }, t(noteKey)), spec.note?.en ? ' ' : null, spec.note?.en ? bi({ en: spec.note.en, hi: spec.note.hi }, { tag: 'span' }) : null);
+  const discover = spec.discover?.length ? h('section', { class: 'subsec' }, h('h3', { 'data-k': 'lab.try' }, t('lab.try')), h('ol', { class: 'try' }, ...spec.discover.map((d) => h('li', {}, bi(d, { tag: 'span' }))))) : null;
+
+  const preds = (spec.predictions ?? []).map((p) => predict({ ...p, run: () => { const r = p.run(S); sync(); return r; }, explain: () => p.explain(S) }, { done: S.done, onDone: persist }));
+  const predBox = preds.length ? h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), ...preds) : null;
+
+  const exitEls = (spec.exit ?? []).map((q) => mcq(q, { done: S.done, onDone: (id, v) => { prog.exit[`${spec.id}.${id}`] = v; store.saveProgress(); persist(); } }));
+  const ta = h('textarea', { class: 'reflect', rows: 3, 'data-k-aria': 'reflect.aria', placeholder: t('reflect.ph') }); ta.value = prog.reflect[spec.id] || '';
+  ta.addEventListener('input', () => { prog.reflect[spec.id] = ta.value; store.saveProgress(); });
+  const exitBox = exitEls.length ? h('section', { class: 'subsec' }, h('h3', { 'data-k': 'exit.h' }, t('exit.h')), ...exitEls.map((e) => h('div', { class: 'exit-q' }, e)),
+    spec.reflect ? [h('h3', { 'data-k': 'reflect.h' }, t('reflect.h')), bi(spec.reflect, { tag: 'p', cls: 'note' }), ta, h('p', { class: 'note', 'data-k': 'reflect.local' }, t('reflect.local'))] : null) : null;
+
+  side.append(h('div', { class: 'row' }, button('btn.reset', reset, 'btn')));
+  const el = h('div', { class: 'lab', id: `lab-${spec.id.replace(/\./g, '-')}` },
+    h('section', { class: 'objective' }, h('h3', { 'data-k': 'lab.obj' }, t('lab.obj')), bi(spec.objective, { tag: 'p', cls: 'lead' })),
+    note,
+    h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, chartBox, h('h3', { class: 'sr-only', 'data-k': 'lab.live' }, t('lab.live')), read), side),
+    discover, predBox, exitBox);
+  draw();
+  i18n.apply(el);
+  return {
+    el, state: S, reset, draw,
+    relabel() { preds.forEach((p) => p.relabel()); exitEls.forEach((q) => q.relabel()); relabelBi(el); i18n.apply(el); ta.placeholder = t('reflect.ph'); draw(); },
+    debug: () => ({ state: { ...S }, view: spec.view(S) }),
+  };
+}
+
+/** Tabbed module made of several labs; returns the standard mount() interface expected by the registry. */
+export function mountLabs(root, themeId, defs, tabs) {
+  const labs = defs.map((d) => createLab(d, themeId));
+  const dict = {}; defs.forEach((d, i) => { dict[`${themeId}.tab.${d.id}`] = tabs[i]; }); i18n.register(dict);
+  const ui = store.simState(`${themeId}.ui`, { tab: defs[0].id.replace(/\./g, '-') });
+  const tb = mkTabs({ active: ui.tab, onChange: (id) => { ui.tab = id; store.saveSim(); }, tabs: defs.map((d, i) => ({ id: d.id.replace(/\./g, '-'), key: `${themeId}.tab.${d.id}`, el: labs[i].el })) });
+  root.append(tb.root); i18n.apply(root);
+  return {
+    relabel() { labs.forEach((l) => l.relabel()); i18n.apply(root); },
+    destroy() {},
+    debug: () => Object.fromEntries(labs.map((l, i) => [defs[i].id, l.debug()])),
+  };
+}
+export { esc };
