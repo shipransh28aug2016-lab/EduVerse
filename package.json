@@ -1,0 +1,14 @@
+{
+  "name": "eduverse-class-ix-social-science",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "CBSE Class IX Social Science (087, 2026-27) bilingual immersive visualiser. Static ES modules, no bundler, no backend.",
+  "scripts": {
+    "curriculum": "node tools/build-curriculum.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "serve": "node tools/serve.mjs",
+    "e2e": "python3 tests/e2e.py",
+    "verify": "npm run curriculum && npm test && npm run e2e && npm run curriculum"
+  }
+}

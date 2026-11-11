@@ -1,0 +1,3810 @@
+{
+ "summary": {
+  "themes": 16,
+  "bullets": 174,
+  "concepts": 77,
+  "outcomes": 97,
+  "unmapped": 0,
+  "hoursPreserved": true,
+  "fabricatedMarksDistribution": false,
+  "implemented": 20,
+  "partial": 8,
+  "planned": 146,
+  "hindiDraft": 20,
+  "hindiPending": 154,
+  "qaPassed": 20
+ },
+ "rows": [
+  {
+   "id": "T01.C1",
+   "kind": "concept",
+   "themeId": "T01",
+   "sourceWording": "Meaning, scope and relevance of Social Science",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T01.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T01:system-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T01.C2",
+   "kind": "concept",
+   "themeId": "T01",
+   "sourceWording": "Understanding Social Science from an Indian perspective",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T01.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T01:lens-explorer"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T01.O1",
+   "kind": "outcome",
+   "themeId": "T01",
+   "sourceWording": "Explain the relevance of studying Social Science to understand society, environment, economy, and governance in our lives.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T01.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T01:system-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T01.O2",
+   "kind": "outcome",
+   "themeId": "T01",
+   "sourceWording": "Explain the meaning and scope of Geography, History, Political Science, and Economics as disciplines and recognise their interconnections.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T01.L2",
+    "T01.L3"
+   ],
+   "visualModality": [
+    "map",
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T01:lens-explorer",
+    "T01:sorter"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T01.O3",
+   "kind": "outcome",
+   "themeId": "T01",
+   "sourceWording": "Appreciate diversity, inclusivity, sustainability, and equity as guiding values when studying society and making decisions.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T01.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T01:lens-explorer"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T02.C1",
+   "kind": "concept",
+   "themeId": "T02",
+   "sourceWording": "Theory of plate tectonics",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L1",
+    "T02.L2"
+   ],
+   "visualModality": [
+    "map",
+    "3d"
+   ],
+   "simulationIds": [
+    "T02:plate-map",
+    "T02:plate-boundary-3d"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T02.C2",
+   "kind": "concept",
+   "themeId": "T02",
+   "sourceWording": "Interior of the Earth",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L3"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T02:earth-interior"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T02.C3",
+   "kind": "concept",
+   "themeId": "T02",
+   "sourceWording": "Role of weathering and erosion; agents of gradation — river, waves and currents, wind, glaciers, and underground water",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L4",
+    "T02.L5"
+   ],
+   "visualModality": [
+    "sandbox",
+    "3d"
+   ],
+   "simulationIds": [
+    "T02:gradation-sandbox",
+    "T02:landform-gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T02.C4",
+   "kind": "concept",
+   "themeId": "T02",
+   "sourceWording": "Landforms and disasters: earthquakes, landslides, avalanches, Glacial Lake Outburst Flood (GLOF) and duststroms",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L2",
+    "T02.L5",
+    "T02.L6"
+   ],
+   "visualModality": [
+    "3d",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T02:plate-boundary-3d",
+    "T02:landform-gallery",
+    "T02:hazard-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T02.O1",
+   "kind": "outcome",
+   "themeId": "T02",
+   "sourceWording": "Describe the concept of plate tectonics and analyse its relevance in understanding Earth’s dynamics.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L2",
+    "T02.L3"
+   ],
+   "visualModality": [
+    "3d",
+    "diagram"
+   ],
+   "simulationIds": [
+    "T02:plate-boundary-3d",
+    "T02:earth-interior"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T02.O2",
+   "kind": "outcome",
+   "themeId": "T02",
+   "sourceWording": "Locate major tectonic plates on a world map.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L1"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T02:plate-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T02.O3",
+   "kind": "outcome",
+   "themeId": "T02",
+   "sourceWording": "Explain processes of weathering and erosion with suitable examples.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L4"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T02:gradation-sandbox"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T02.O4",
+   "kind": "outcome",
+   "themeId": "T02",
+   "sourceWording": "Identify the prominent agents of gradation operating in a given region.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L4",
+    "T02.L5"
+   ],
+   "visualModality": [
+    "sandbox",
+    "3d"
+   ],
+   "simulationIds": [
+    "T02:gradation-sandbox",
+    "T02:landform-gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T02.O5",
+   "kind": "outcome",
+   "themeId": "T02",
+   "sourceWording": "Describe major landforms and explain the processes involved in their formation.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L2",
+    "T02.L5"
+   ],
+   "visualModality": [
+    "3d"
+   ],
+   "simulationIds": [
+    "T02:plate-boundary-3d",
+    "T02:landform-gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T02.O6",
+   "kind": "outcome",
+   "themeId": "T02",
+   "sourceWording": "Explain the causes of natural disasters and propose strategies for their mitigation.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T02.L2",
+    "T02.L6"
+   ],
+   "visualModality": [
+    "3d",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T02:plate-boundary-3d",
+    "T02:hazard-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.C1",
+   "kind": "concept",
+   "themeId": "T03",
+   "sourceWording": "Structure and composition; elements of weather and climate",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L1",
+    "T03.L2"
+   ],
+   "visualModality": [
+    "diagram",
+    "graph"
+   ],
+   "simulationIds": [
+    "T03:atmosphere-cutaway",
+    "T03:climate-grapher"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.C2",
+   "kind": "concept",
+   "themeId": "T03",
+   "sourceWording": "Seasons of India and monsoons",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T03:monsoon-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.C3",
+   "kind": "concept",
+   "themeId": "T03",
+   "sourceWording": "Climate change",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L2",
+    "T03.L6"
+   ],
+   "visualModality": [
+    "graph",
+    "calculator"
+   ],
+   "simulationIds": [
+    "T03:climate-grapher",
+    "T03:carbon-footprint"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.C4",
+   "kind": "concept",
+   "themeId": "T03",
+   "sourceWording": "Floods",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L5"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T03:catchment"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.C5",
+   "kind": "concept",
+   "themeId": "T03",
+   "sourceWording": "Carbon footprint",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L6"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T03:carbon-footprint"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.O1",
+   "kind": "outcome",
+   "themeId": "T03",
+   "sourceWording": "Explain the different atmospheric layers and represent them using sketches and diagrams.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T03:atmosphere-cutaway"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.O2",
+   "kind": "outcome",
+   "themeId": "T03",
+   "sourceWording": "Observe and analyse local winds and their impact.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L4"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T03:local-wind"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.O3",
+   "kind": "outcome",
+   "themeId": "T03",
+   "sourceWording": "Understand the impact of the Indian monsoon on life, agriculture, and livelihoods across different regions.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T03:monsoon-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.O4",
+   "kind": "outcome",
+   "themeId": "T03",
+   "sourceWording": "Explain the causes and effects of climate change.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L6"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T03:carbon-footprint"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.O5",
+   "kind": "outcome",
+   "themeId": "T03",
+   "sourceWording": "Represent climatic data (temperature, rainfall, etc.) through appropriate graphs, charts, or diagrams.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L2"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T03:climate-grapher"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T03.O6",
+   "kind": "outcome",
+   "themeId": "T03",
+   "sourceWording": "Analyse how climate change influences the frequency and intensity of natural disasters.",
+   "source": "pdf",
+   "pdfPage": 8,
+   "learningObjectIds": [
+    "T03.L5",
+    "T03.L6"
+   ],
+   "visualModality": [
+    "sandbox",
+    "calculator"
+   ],
+   "simulationIds": [
+    "T03:catchment",
+    "T03:carbon-footprint"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.C1",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Cultural development from 2 million years ago",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L1"
+   ],
+   "visualModality": [
+    "timeline"
+   ],
+   "simulationIds": [
+    "T04:deep-time"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T04.C2",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Early human history, periodisation: Archaeological ages",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L1",
+    "T04.L2"
+   ],
+   "visualModality": [
+    "timeline",
+    "evidence"
+   ],
+   "simulationIds": [
+    "T04:deep-time",
+    "T04:artefact-viewer"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T04.C3",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Who are human ancestors?",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L1",
+    "T04.L2"
+   ],
+   "visualModality": [
+    "timeline",
+    "evidence"
+   ],
+   "simulationIds": [
+    "T04:deep-time",
+    "T04:artefact-viewer"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T04.C4",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Palaeolithic hunter-gatherers and use of stone tools",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L2",
+    "T04.L3"
+   ],
+   "visualModality": [
+    "evidence",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T04:artefact-viewer",
+    "T04:settlement-sim"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.C5",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Mesolithic transition to food production: Mesolithic sites and tools",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L2",
+    "T04.L3"
+   ],
+   "visualModality": [
+    "evidence",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T04:artefact-viewer",
+    "T04:settlement-sim"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.C6",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Neolithic and the beginning of farming: Neolithic revolution domestication of plants and animals",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T04:settlement-sim"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.C7",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Harappan and contemporary cultures",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L4",
+    "T04.L5"
+   ],
+   "visualModality": [
+    "3d",
+    "map"
+   ],
+   "simulationIds": [
+    "T04:harappan-city",
+    "T04:civ-atlas"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.C8",
+   "kind": "concept",
+   "themeId": "T04",
+   "sourceWording": "Mesopotamian, egyptian, and chinese civilisation",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L5"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T04:civ-atlas"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.O1",
+   "kind": "outcome",
+   "themeId": "T04",
+   "sourceWording": "Describe how prehistoric time divisions are organised.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L1"
+   ],
+   "visualModality": [
+    "timeline"
+   ],
+   "simulationIds": [
+    "T04:deep-time"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T04.O2",
+   "kind": "outcome",
+   "themeId": "T04",
+   "sourceWording": "Explain how humans lived before the invention of writing",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L2",
+    "T04.L3"
+   ],
+   "visualModality": [
+    "evidence",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T04:artefact-viewer",
+    "T04:settlement-sim"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.O3",
+   "kind": "outcome",
+   "themeId": "T04",
+   "sourceWording": "Understand the beginning of the settled life with development of agriculture, and domestication of plants and animals.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T04:settlement-sim"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.O4",
+   "kind": "outcome",
+   "themeId": "T04",
+   "sourceWording": "Explore the factors of urban development and transformation through time.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L4"
+   ],
+   "visualModality": [
+    "3d"
+   ],
+   "simulationIds": [
+    "T04:harappan-city"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.O5",
+   "kind": "outcome",
+   "themeId": "T04",
+   "sourceWording": "Appreciate the diversity of crafts and trade, and their role the establishment of prosperous economy.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L4",
+    "T04.L5"
+   ],
+   "visualModality": [
+    "3d",
+    "map"
+   ],
+   "simulationIds": [
+    "T04:harappan-city",
+    "T04:civ-atlas"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.O6",
+   "kind": "outcome",
+   "themeId": "T04",
+   "sourceWording": "Understand the diversity of food habits.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L3",
+    "T04.L5"
+   ],
+   "visualModality": [
+    "scenario",
+    "map"
+   ],
+   "simulationIds": [
+    "T04:settlement-sim",
+    "T04:civ-atlas"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T04.O7",
+   "kind": "outcome",
+   "themeId": "T04",
+   "sourceWording": "Describe the social, political, and religious structures of the civilisations of Egypt and Mesopotamia.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T04.L5"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T04:civ-atlas"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.C1",
+   "kind": "concept",
+   "themeId": "T05",
+   "sourceWording": "Vedic Age — geography; texts; rituals; political institutions, and social order",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L1",
+    "T05.L2"
+   ],
+   "visualModality": [
+    "map",
+    "evidence"
+   ],
+   "simulationIds": [
+    "T05:dated-map",
+    "T05:source-room"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.C2",
+   "kind": "concept",
+   "themeId": "T05",
+   "sourceWording": "Administrative structure of early empires",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T05:admin-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.C3",
+   "kind": "concept",
+   "themeId": "T05",
+   "sourceWording": "Quest for knowledge — educational heritage, institutions, knowledge traditions, and cultural practices",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L4"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T05:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.C4",
+   "kind": "concept",
+   "themeId": "T05",
+   "sourceWording": "Traders and trade routes, guilds and merchants, crafts and industries",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L5"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T05:trade-routes"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.O1",
+   "kind": "outcome",
+   "themeId": "T05",
+   "sourceWording": "Explain various facets of Vedic society and polity.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L1",
+    "T05.L2"
+   ],
+   "visualModality": [
+    "map",
+    "evidence"
+   ],
+   "simulationIds": [
+    "T05:dated-map",
+    "T05:source-room"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.O2",
+   "kind": "outcome",
+   "themeId": "T05",
+   "sourceWording": "Appreciate the achievements of Indian empires and their cultural legacy.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L3",
+    "T05.L5"
+   ],
+   "visualModality": [
+    "scenario",
+    "map"
+   ],
+   "simulationIds": [
+    "T05:admin-flow",
+    "T05:trade-routes"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.O3",
+   "kind": "outcome",
+   "themeId": "T05",
+   "sourceWording": "Understand the knowledge traditions and practices of India.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L4"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T05:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T05.O4",
+   "kind": "outcome",
+   "themeId": "T05",
+   "sourceWording": "Understand the foundations of the Indian social and political institutions and their continuity.",
+   "source": "pdf",
+   "pdfPage": 9,
+   "learningObjectIds": [
+    "T05.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T05:admin-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.C1",
+   "kind": "concept",
+   "themeId": "T06",
+   "sourceWording": "Meaning features and types of democracy",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T06:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.C2",
+   "kind": "concept",
+   "themeId": "T06",
+   "sourceWording": "Roots of democracy in India",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L2"
+   ],
+   "visualModality": [
+    "evidence"
+   ],
+   "simulationIds": [
+    "T06:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.C3",
+   "kind": "concept",
+   "themeId": "T06",
+   "sourceWording": "Challenges to democracy in India",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T06:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.C4",
+   "kind": "concept",
+   "themeId": "T06",
+   "sourceWording": "Democratic systems in the world",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L3",
+    "T06.L4"
+   ],
+   "visualModality": [
+    "diagram",
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T06:system-flow",
+    "T06:country-compare"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.O1",
+   "kind": "outcome",
+   "themeId": "T06",
+   "sourceWording": "Understand the features of democracy.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T06:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.O2",
+   "kind": "outcome",
+   "themeId": "T06",
+   "sourceWording": "Appreciate early democratic traditions in India and how they influenced modern democracy.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L2"
+   ],
+   "visualModality": [
+    "evidence"
+   ],
+   "simulationIds": [
+    "T06:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.O3",
+   "kind": "outcome",
+   "themeId": "T06",
+   "sourceWording": "Differentiate between parliamentary and presidential systems.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L3"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T06:system-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T06.O4",
+   "kind": "outcome",
+   "themeId": "T06",
+   "sourceWording": "Identify examples of both systems across countries, such as India, USA, France, Russia, and Canada.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T06.L4"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T06:country-compare"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C1",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Factors of importance of elections",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T07:process-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C2",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Electoral systems",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L2"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T07:electoral-systems"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T07.C3",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Delimitation Commission",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T07:delimitation"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C4",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Election Commission of India and its role",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T07:process-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C5",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Constituency, electoral rolls, enumerators",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T07:delimitation"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C6",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Party system in India",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L2",
+    "T07.L4"
+   ],
+   "visualModality": [
+    "sandbox",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T07:electoral-systems",
+    "T07:coalition"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C7",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Representation of the People Acts",
+   "source": "spec",
+   "pdfPage": null,
+   "learningObjectIds": [
+    "T07.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T07:process-flow"
+   ],
+   "englishStatus": "spec-only",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C8",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Coalition government",
+   "source": "spec",
+   "pdfPage": null,
+   "learningObjectIds": [
+    "T07.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T07:coalition"
+   ],
+   "englishStatus": "spec-only",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.C9",
+   "kind": "concept",
+   "themeId": "T07",
+   "sourceWording": "Anti-Defection Law",
+   "source": "spec",
+   "pdfPage": null,
+   "learningObjectIds": [
+    "T07.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T07:coalition"
+   ],
+   "englishStatus": "spec-only",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O1",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Identify factors highlighting importance of elections in a democracy.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T07:process-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O2",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Categorise three types of electoral systems and list examples.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L2"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T07:electoral-systems"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T07.O3",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Identify the major laws that govern the conduct of elections in India.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T07:process-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O4",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Describe the main provisions of the Representation of the People Acts.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T07:process-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O5",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Define the concept of delimitation and its purpose in the Indian electoral system.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T07:delimitation"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O6",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Identify the role and functions Election Commission of India (ECI) in the electoral process.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L1"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T07:process-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O7",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Explain constituency, electoral roll, enumerator.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T07:delimitation"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O8",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Understand the party system in India.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L2",
+    "T07.L4"
+   ],
+   "visualModality": [
+    "sandbox",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T07:electoral-systems",
+    "T07:coalition"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "partial",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O9",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Explain the meaning and features of a coalition government in the Indian political system.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T07:coalition"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T07.O10",
+   "kind": "outcome",
+   "themeId": "T07",
+   "sourceWording": "Explain key provisions of the Anti-Defection Law with reference to political instability and the need for anti-defection measures.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T07.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T07:coalition"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.C1",
+   "kind": "concept",
+   "themeId": "T08",
+   "sourceWording": "Scarcity of resources, opportunity cost and the need for making choice. What do economists do?",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L1",
+    "T08.L2"
+   ],
+   "visualModality": [
+    "scenario",
+    "graph"
+   ],
+   "simulationIds": [
+    "T08:scarcity-game",
+    "T08:ppf"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.C2",
+   "kind": "concept",
+   "themeId": "T08",
+   "sourceWording": "What to produce, how to produce, and for whom to produce?",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L3"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T08:flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.C3",
+   "kind": "concept",
+   "themeId": "T08",
+   "sourceWording": "Difference between market, centrally planned, and mixed economic systems",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L4"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T08:system-compare"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.C4",
+   "kind": "concept",
+   "themeId": "T08",
+   "sourceWording": "Welfare economy",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L5"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T08:safety-net"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.O1",
+   "kind": "outcome",
+   "themeId": "T08",
+   "sourceWording": "Explain the meaning of scarcity, choice, and opportunity cost in everyday life, and economic decision-making.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L1",
+    "T08.L2"
+   ],
+   "visualModality": [
+    "scenario",
+    "graph"
+   ],
+   "simulationIds": [
+    "T08:scarcity-game",
+    "T08:ppf"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.O2",
+   "kind": "outcome",
+   "themeId": "T08",
+   "sourceWording": "Describe what economists do and how they study production, distribution, and consumption of goods and services.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L3"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T08:flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.O3",
+   "kind": "outcome",
+   "themeId": "T08",
+   "sourceWording": "Recognise how economic analysis helps in policy-making and solving real-world issues.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L5"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T08:safety-net"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.O4",
+   "kind": "outcome",
+   "themeId": "T08",
+   "sourceWording": "Describe the three central problems of an economy — what to produce, how to produce, and for whom to produce.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L3"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T08:flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.O5",
+   "kind": "outcome",
+   "themeId": "T08",
+   "sourceWording": "Identify and differentiate the characteristics of planned, free market, and mixed economic systems.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L4"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T08:system-compare"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T08.O6",
+   "kind": "outcome",
+   "themeId": "T08",
+   "sourceWording": "Explain the concept of a welfare economy and the importance of social safety nets.",
+   "source": "pdf",
+   "pdfPage": 10,
+   "learningObjectIds": [
+    "T08.L5"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T08:safety-net"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T09.C1",
+   "kind": "concept",
+   "themeId": "T09",
+   "sourceWording": "Laws of demand and supply",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L1"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T09:market-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.C2",
+   "kind": "concept",
+   "themeId": "T09",
+   "sourceWording": "Real-world deviations from textbook theory, such as in case of necessities, luxury goods, perishable items, and expectations",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T09:market-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.C3",
+   "kind": "concept",
+   "themeId": "T09",
+   "sourceWording": "Some related concepts — price ceilings and market failures (externalities, information asymmetry, public goods)",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L2",
+    "T09.L4",
+    "T09.L5",
+    "T09.L6"
+   ],
+   "visualModality": [
+    "graph",
+    "scenario",
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T09:market-lab",
+    "T09:externality-lab",
+    "T09:public-goods",
+    "T09:info-asymmetry"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.O1",
+   "kind": "outcome",
+   "themeId": "T09",
+   "sourceWording": "Explain the Law of Demand and Law of Supply with the help of real life examples.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L1"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T09:market-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.O2",
+   "kind": "outcome",
+   "themeId": "T09",
+   "sourceWording": "Interpret how changes in price affect the quantity demanded and quantity supplied of goods and services.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L1"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T09:market-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.O3",
+   "kind": "outcome",
+   "themeId": "T09",
+   "sourceWording": "Identify the equilibrium price and quantity where demand and supply intersect.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L1"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T09:market-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.O4",
+   "kind": "outcome",
+   "themeId": "T09",
+   "sourceWording": "Analyse how changes in market conditions (e.g., increase in demand or supply) lead to surplus or shortage and affect equilibrium.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L1",
+    "T09.L3"
+   ],
+   "visualModality": [
+    "graph",
+    "scenario"
+   ],
+   "simulationIds": [
+    "T09:market-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.O5",
+   "kind": "outcome",
+   "themeId": "T09",
+   "sourceWording": "Explain the concept of price ceilings and how they can lead to shortages or black markets.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L2"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T09:market-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.O6",
+   "kind": "outcome",
+   "themeId": "T09",
+   "sourceWording": "Understand market failures and identify their main types.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L4",
+    "T09.L5",
+    "T09.L6"
+   ],
+   "visualModality": [
+    "graph",
+    "scenario",
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T09:externality-lab",
+    "T09:public-goods",
+    "T09:info-asymmetry"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T09.O7",
+   "kind": "outcome",
+   "themeId": "T09",
+   "sourceWording": "Understand public goods (non-excludable and non-rival goods like parks or street lighting).",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T09.L5"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T09:public-goods"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
+  },
+  {
+   "id": "T10.C1",
+   "kind": "concept",
+   "themeId": "T10",
+   "sourceWording": "Introduction to ocean relief, movement of ocean water- waves, tides and currents",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L1",
+    "T10.L2"
+   ],
+   "visualModality": [
+    "3d",
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T10:ocean-relief",
+    "T10:ocean-motion"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.C2",
+   "kind": "concept",
+   "themeId": "T10",
+   "sourceWording": "Marine resources and their significance; open seas, navigation fishing, and livelihood concerns and challenges",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T10:fisheries"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.C3",
+   "kind": "concept",
+   "themeId": "T10",
+   "sourceWording": "Cyclones and Tsunamis — early warning systems",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T10:coastal-hazard"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.C4",
+   "kind": "concept",
+   "themeId": "T10",
+   "sourceWording": "International maritime rules and regulations",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L5"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T10:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.O1",
+   "kind": "outcome",
+   "themeId": "T10",
+   "sourceWording": "Explain the movement of ocean waters, including waves, tides, and currents.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L2"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T10:ocean-motion"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.O2",
+   "kind": "outcome",
+   "themeId": "T10",
+   "sourceWording": "Analyse the connections between ocean currents, and global and regional climate patterns.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L2"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T10:ocean-motion"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.O3",
+   "kind": "outcome",
+   "themeId": "T10",
+   "sourceWording": "Understand the importance of marine resources for human livelihoods and ecosystems.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T10:fisheries"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.O4",
+   "kind": "outcome",
+   "themeId": "T10",
+   "sourceWording": "Examine the relationship between oceans, climate, livelihoods, and natural disasters.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T10:coastal-hazard"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.O5",
+   "kind": "outcome",
+   "themeId": "T10",
+   "sourceWording": "Highlight key rules, conventions, and international agreements governing ocean navigation. and the use of marine resources.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L5"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T10:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.O6",
+   "kind": "outcome",
+   "themeId": "T10",
+   "sourceWording": "Explain the need for international cooperation and agreements in the sustainable use of ocean resources.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L5"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T10:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T10.O7",
+   "kind": "outcome",
+   "themeId": "T10",
+   "sourceWording": "Construct models or sketches representing ocean relief.",
+   "source": "pdf",
+   "pdfPage": 11,
+   "learningObjectIds": [
+    "T10.L1"
+   ],
+   "visualModality": [
+    "3d"
+   ],
+   "simulationIds": [
+    "T10:ocean-relief"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.C1",
+   "kind": "concept",
+   "themeId": "T11",
+   "sourceWording": "Biomes: Distribution and characteristics; biosphere reserves in India",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L1",
+    "T11.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T11:biome-map",
+    "T11:reserve-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.C2",
+   "kind": "concept",
+   "themeId": "T11",
+   "sourceWording": "Forest and ecotourism; forest dwellers, their livelihoods, and challenges",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L3",
+    "T11.L5"
+   ],
+   "visualModality": [
+    "scenario",
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T11:forest-tradeoffs",
+    "T11:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.C3",
+   "kind": "concept",
+   "themeId": "T11",
+   "sourceWording": "Forest and wildlife conservation",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L4",
+    "T11.L5"
+   ],
+   "visualModality": [
+    "sandbox",
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T11:fire-planner",
+    "T11:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.C4",
+   "kind": "concept",
+   "themeId": "T11",
+   "sourceWording": "Government efforts to support forest dwellers",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L5"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T11:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.O1",
+   "kind": "outcome",
+   "themeId": "T11",
+   "sourceWording": "Identify the major biomes of the world and describe their key climatic conditions, characteristic flora, and fauna.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L1"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T11:biome-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.O2",
+   "kind": "outcome",
+   "themeId": "T11",
+   "sourceWording": "Locate biosphere reserves on the map of India.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T11:reserve-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.O3",
+   "kind": "outcome",
+   "themeId": "T11",
+   "sourceWording": "Appreciate local traditional practices related to biodiversity conservation and analyse their effects.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L5"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T11:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.O4",
+   "kind": "outcome",
+   "themeId": "T11",
+   "sourceWording": "Explain the concept and importance of biosphere reserves in conserving ecosystems and biodiversity.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T11:reserve-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.O5",
+   "kind": "outcome",
+   "themeId": "T11",
+   "sourceWording": "Analyse the concept of ecotourism and discuss its role in promoting sustainable forest ecosystem and conservation.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L3"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T11:forest-tradeoffs"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T11.O6",
+   "kind": "outcome",
+   "themeId": "T11",
+   "sourceWording": "Investigate the causes of forest fires in the local area, and prepare a plan for mitigation and prevention.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T11.L4"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T11:fire-planner"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.C1",
+   "kind": "concept",
+   "themeId": "T12",
+   "sourceWording": "Safeguarding sovereignty: resistance, alliances and confederacies",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L1"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T12:dated-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.C2",
+   "kind": "concept",
+   "themeId": "T12",
+   "sourceWording": "Development of art and architecture, languages and literature",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L3"
+   ],
+   "visualModality": [
+    "evidence"
+   ],
+   "simulationIds": [
+    "T12:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.C3",
+   "kind": "concept",
+   "themeId": "T12",
+   "sourceWording": "The Bhakti tradition",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L4"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T12:network-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.C4",
+   "kind": "concept",
+   "themeId": "T12",
+   "sourceWording": "Forts and fortifications",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L2"
+   ],
+   "visualModality": [
+    "3d"
+   ],
+   "simulationIds": [
+    "T12:fort-3d"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.C5",
+   "kind": "concept",
+   "themeId": "T12",
+   "sourceWording": "Expansion of Indian economy and state",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L5"
+   ],
+   "visualModality": [
+    "timeline"
+   ],
+   "simulationIds": [
+    "T12:timeline"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.O1",
+   "kind": "outcome",
+   "themeId": "T12",
+   "sourceWording": "Explain the cultural, political, and military contributions of regional kingdoms in India.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L1",
+    "T12.L2",
+    "T12.L3"
+   ],
+   "visualModality": [
+    "map",
+    "3d",
+    "evidence"
+   ],
+   "simulationIds": [
+    "T12:dated-map",
+    "T12:fort-3d",
+    "T12:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.O2",
+   "kind": "outcome",
+   "themeId": "T12",
+   "sourceWording": "Appreciate how diverse communities and regions shaped India’s history from 1000 CE to 1700 CE.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L3",
+    "T12.L4"
+   ],
+   "visualModality": [
+    "evidence",
+    "map"
+   ],
+   "simulationIds": [
+    "T12:gallery",
+    "T12:network-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.O3",
+   "kind": "outcome",
+   "themeId": "T12",
+   "sourceWording": "Explore how regional kingdoms adapted to changing political, economic, and cultural contexts over time.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L1",
+    "T12.L5"
+   ],
+   "visualModality": [
+    "map",
+    "timeline"
+   ],
+   "simulationIds": [
+    "T12:dated-map",
+    "T12:timeline"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T12.O4",
+   "kind": "outcome",
+   "themeId": "T12",
+   "sourceWording": "Analyse the continuity of the civilisational history of India as a nation upto 18th century CE.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T12.L5"
+   ],
+   "visualModality": [
+    "timeline"
+   ],
+   "simulationIds": [
+    "T12:timeline"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T13.C1",
+   "kind": "concept",
+   "themeId": "T13",
+   "sourceWording": "Trade and commerce — trade with Mesopotamia, Greece, Roman Empire, China and Southeast Asia",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T13.L1",
+    "T13.L4"
+   ],
+   "visualModality": [
+    "map",
+    "evidence"
+   ],
+   "simulationIds": [
+    "T13:trade-routes",
+    "T13:artefact-viewer"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T13.C2",
+   "kind": "concept",
+   "themeId": "T13",
+   "sourceWording": "Cultural Connections — Interactions with Greece and Rome, Central Asia, China, and Influence on South East Asia",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T13.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T13:exchange-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T13.C3",
+   "kind": "concept",
+   "themeId": "T13",
+   "sourceWording": "Indian Knowledge Systems — Medicine, Mathematics and Astronomy, Medicine, Religion",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T13.L3"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T13:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T13.O1",
+   "kind": "outcome",
+   "themeId": "T13",
+   "sourceWording": "Explore India’s relations with early civilisations of the world.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T13.L1",
+    "T13.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T13:trade-routes",
+    "T13:exchange-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T13.O2",
+   "kind": "outcome",
+   "themeId": "T13",
+   "sourceWording": "Identify the major articles of trade and the major trading ports.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T13.L1"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T13:trade-routes"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T13.O3",
+   "kind": "outcome",
+   "themeId": "T13",
+   "sourceWording": "Appreciate the significant contributions of India in diverse spheres in an integrated manner.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T13.L3"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T13:gallery"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T13.O4",
+   "kind": "outcome",
+   "themeId": "T13",
+   "sourceWording": "Appreciate the influence of Indian religion and culture, particularly in Southeast Asia.",
+   "source": "pdf",
+   "pdfPage": 12,
+   "learningObjectIds": [
+    "T13.L2"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T13:exchange-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.C1",
+   "kind": "concept",
+   "themeId": "T14",
+   "sourceWording": "The Roots of Authority: in Kautilya and shukraniti- danda and relationship with nyaya and bala; the types of nyaya and bala",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L1",
+    "T14.L2"
+   ],
+   "visualModality": [
+    "evidence",
+    "diagram"
+   ],
+   "simulationIds": [
+    "T14:source-room",
+    "T14:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.C2",
+   "kind": "concept",
+   "themeId": "T14",
+   "sourceWording": "Constitutional status of justice and security since ancient times",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L3"
+   ],
+   "visualModality": [
+    "timeline"
+   ],
+   "simulationIds": [
+    "T14:timeline"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.C3",
+   "kind": "concept",
+   "themeId": "T14",
+   "sourceWording": "Links the role of citizens with the elections and the democratic institutions",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L5"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T14:civic-scenario"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.C4",
+   "kind": "concept",
+   "themeId": "T14",
+   "sourceWording": "Types of authority — functional, sensitive, and welfare-oriented",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L4"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T14:type-compare"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.O1",
+   "kind": "outcome",
+   "themeId": "T14",
+   "sourceWording": "Explain the roots of authority in Indian political thought.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L1"
+   ],
+   "visualModality": [
+    "evidence"
+   ],
+   "simulationIds": [
+    "T14:source-room"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.O2",
+   "kind": "outcome",
+   "themeId": "T14",
+   "sourceWording": "Interpret the relationship between Danda (discipline/ force) and Nyaya (justice) as the twin foundations of authority, development, and security.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L1",
+    "T14.L2"
+   ],
+   "visualModality": [
+    "evidence",
+    "diagram"
+   ],
+   "simulationIds": [
+    "T14:source-room",
+    "T14:concept-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.O3",
+   "kind": "outcome",
+   "themeId": "T14",
+   "sourceWording": "Trace the evolution of authority structures in India.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L3"
+   ],
+   "visualModality": [
+    "timeline"
+   ],
+   "simulationIds": [
+    "T14:timeline"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.O4",
+   "kind": "outcome",
+   "themeId": "T14",
+   "sourceWording": "Understand the post- independence concept of justice and security.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L3"
+   ],
+   "visualModality": [
+    "timeline"
+   ],
+   "simulationIds": [
+    "T14:timeline"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.O5",
+   "kind": "outcome",
+   "themeId": "T14",
+   "sourceWording": "Illustrate types of authority.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L4"
+   ],
+   "visualModality": [
+    "inquiry"
+   ],
+   "simulationIds": [
+    "T14:type-compare"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.O6",
+   "kind": "outcome",
+   "themeId": "T14",
+   "sourceWording": "Develop an understanding of citizen discipline, justice, and strength.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L5"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T14:civic-scenario"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T14.O7",
+   "kind": "outcome",
+   "themeId": "T14",
+   "sourceWording": "Illustrate the role of citizens in authority.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T14.L5"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T14:civic-scenario"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.C1",
+   "kind": "concept",
+   "themeId": "T15",
+   "sourceWording": "What is entrepreneurship and explain the resources required to start a business",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L1",
+    "T15.L2"
+   ],
+   "visualModality": [
+    "scenario",
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T15:plan-builder",
+    "T15:startup-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.C2",
+   "kind": "concept",
+   "themeId": "T15",
+   "sourceWording": "Case studies of successful entrepreneurs",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T15:ecosystem-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.C3",
+   "kind": "concept",
+   "themeId": "T15",
+   "sourceWording": "Creative destruction with examples",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T15:creative-destruction"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.C4",
+   "kind": "concept",
+   "themeId": "T15",
+   "sourceWording": "Start-up ecosystem in India.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T15:ecosystem-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.C5",
+   "kind": "concept",
+   "themeId": "T15",
+   "sourceWording": "Make in India initiative, role of MSMEs and the unorganised sector in India’s economic growth.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T15:ecosystem-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.C6",
+   "kind": "concept",
+   "themeId": "T15",
+   "sourceWording": "Stages of starting and executing a business idea through a business plan",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L1"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T15:plan-builder"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.C7",
+   "kind": "concept",
+   "themeId": "T15",
+   "sourceWording": "Some basic accounting concepts",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L5"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T15:accounting"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O1",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Define entrepreneurship and explain its importance in innovation, job creation, and economic growth.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L1"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T15:plan-builder"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O2",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Understand the key resources for business.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L2"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T15:startup-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O3",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Explain how resources are managed to produce goods and services.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L2"
+   ],
+   "visualModality": [
+    "sandbox"
+   ],
+   "simulationIds": [
+    "T15:startup-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O4",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Analyse real-world examples of successful entrepreneurs.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T15:ecosystem-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O5",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Describe the features of India’s start-up ecosystem and initiatives like Make in India, Startup India, and Digital India.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T15:ecosystem-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O6",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Recognise the role of Micro, Small, and Medium Enterprises (MSMEs) and the unorganised sector in promoting employment, innovation, and inclusive growth.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L3"
+   ],
+   "visualModality": [
+    "map"
+   ],
+   "simulationIds": [
+    "T15:ecosystem-map"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O7",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Identify and explain the stages of starting a business from developing an idea to creating and executing a business plan.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L1"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T15:plan-builder"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O8",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Understand simple profit and loss.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L5"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T15:accounting"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T15.O9",
+   "kind": "outcome",
+   "themeId": "T15",
+   "sourceWording": "Identify the key components of a balance.",
+   "source": "pdf",
+   "pdfPage": 13,
+   "learningObjectIds": [
+    "T15.L5"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T15:accounting"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.C1",
+   "kind": "concept",
+   "themeId": "T16",
+   "sourceWording": "Relevance of personal financial management in daily life",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L1"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T16:budget-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.C2",
+   "kind": "concept",
+   "themeId": "T16",
+   "sourceWording": "Inflation and its impact on purchasing power",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L2"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T16:inflation"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.C3",
+   "kind": "concept",
+   "themeId": "T16",
+   "sourceWording": "Simple vs. compound interest rate",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L3"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T16:interest"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.C4",
+   "kind": "concept",
+   "themeId": "T16",
+   "sourceWording": "Budgeting",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L1"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T16:budget-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.C5",
+   "kind": "concept",
+   "themeId": "T16",
+   "sourceWording": "Various savings and investment options like fixed deposit, stocks, bonds, mutual funds, etc.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T16:risk-return"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.C6",
+   "kind": "concept",
+   "themeId": "T16",
+   "sourceWording": "Risk and insurance",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T16:risk-return"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.C7",
+   "kind": "concept",
+   "themeId": "T16",
+   "sourceWording": "Personal income tax",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L5"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T16:tax-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.O1",
+   "kind": "outcome",
+   "themeId": "T16",
+   "sourceWording": "Explain what personal financial management means and why it is essential in everyday life.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L1"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T16:budget-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.O2",
+   "kind": "outcome",
+   "themeId": "T16",
+   "sourceWording": "Recognise how managing income, spending, saving, and investment helps achieve financial stability and long-term goals.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L1",
+    "T16.L2"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T16:budget-lab",
+    "T16:inflation"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.O3",
+   "kind": "outcome",
+   "themeId": "T16",
+   "sourceWording": "Explain the difference between simple interest and compound interest.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L3"
+   ],
+   "visualModality": [
+    "graph"
+   ],
+   "simulationIds": [
+    "T16:interest"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.O4",
+   "kind": "outcome",
+   "themeId": "T16",
+   "sourceWording": "Prepare a simple personal or family budget showing income, expenditure, and savings.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L1"
+   ],
+   "visualModality": [
+    "calculator"
+   ],
+   "simulationIds": [
+    "T16:budget-lab"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.O5",
+   "kind": "outcome",
+   "themeId": "T16",
+   "sourceWording": "Identify various savings and investment instruments.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T16:risk-return"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.O6",
+   "kind": "outcome",
+   "themeId": "T16",
+   "sourceWording": "Understand the relationship between risk and return in different investment types.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L4"
+   ],
+   "visualModality": [
+    "scenario"
+   ],
+   "simulationIds": [
+    "T16:risk-return"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  },
+  {
+   "id": "T16.O7",
+   "kind": "outcome",
+   "themeId": "T16",
+   "sourceWording": "Understand the concept of income tax and why citizens are required to pay it.",
+   "source": "pdf",
+   "pdfPage": 14,
+   "learningObjectIds": [
+    "T16.L5"
+   ],
+   "visualModality": [
+    "diagram"
+   ],
+   "simulationIds": [
+    "T16:tax-flow"
+   ],
+   "englishStatus": "source-exact",
+   "hindiStatus": "pending",
+   "implementation": "planned",
+   "qaStatus": "not-started"
+  }
+ ]
+}
