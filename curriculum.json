@@ -1,0 +1,3480 @@
+{
+ "meta": {
+  "doc": "CBSE Class IX Social Science (Subject Code 087) 2026-27",
+  "file": "data/sources/CBSE_SocialScience_087_ClassIX_2026-27.pdf",
+  "pages": 14,
+  "courseStructureNote": "Note-Course Structure will be provided shortly (p.14). No marks distribution or exam blueprint is encoded in this project.",
+  "themes": 16,
+  "part1Hours": 70,
+  "part2Hours": 55,
+  "totalHours": 125,
+  "generatedBy": "tools/build-curriculum.mjs"
+ },
+ "discrepancies": [
+  {
+   "id": "D1",
+   "page": 14,
+   "text": "Internal-assessment table is headed \"CLASS IX (2025-26)\" inside the 2026-27 document. Treated as a labelling slip; the table is reproduced as teacher tools only."
+  },
+  {
+   "id": "D2",
+   "page": 8,
+   "text": "Part 2 themes restart numbering at 1-7 in the PDF. Project uses a stable global serial 1-16 plus the PDF-local number (partNo)."
+  },
+  {
+   "id": "D3",
+   "page": 10,
+   "text": "Theme \"Elections\": PDF concept bullets do not list Representation of the People Acts, coalition government or Anti-Defection Law, but outcome bullets do. These three are kept as outcomes; spec-only concept rows are flagged source:\"spec\"."
+  },
+  {
+   "id": "D4",
+   "page": 4,
+   "text": "Competency C2.2 is cited by the \"Early Humans\" theme (p.9) but is not defined in the competency list on pp.4-6. Code kept; definition marked missing."
+  },
+  {
+   "id": "D5",
+   "page": 13,
+   "text": "Theme \"India and the World-I\": \"Medicine\" appears twice in \"Medicine, Mathematics and Astronomy, Medicine, Religion\". Preserved verbatim pending teacher review."
+  },
+  {
+   "id": "D6",
+   "page": 8,
+   "text": "Source typo \"duststroms\" (dust storms). Source wording kept in `text`; display text corrected in `display`."
+  },
+  {
+   "id": "D7",
+   "page": 9,
+   "text": "Theme \"Atmosphere and Climate\": \"Carbon footprint\" has no bullet marker in the PDF (runs on after \"Floods\"). Treated as its own concept."
+  },
+  {
+   "id": "D8",
+   "page": 14,
+   "text": "Theme \"Smart Ways to Manage Your Finances\" cites \"CG8\" (a curricular goal) where other themes cite competency codes (Cx.y)."
+  },
+  {
+   "id": "D10",
+   "page": 4,
+   "text": "Competencies C1.1-C1.4 are labelled \"CG-1.1\"-\"CG-1.4\" in the PDF (curricular-goal prefix used for competencies). Project normalises to C1.1-C1.4 and keeps CG-1..CG-9 for the goals on p.3."
+  },
+  {
+   "id": "D9",
+   "page": 13,
+   "text": "Theme \"From Ideas to Startups\": outcome \"Identify the key components of a balance.\" is incomplete in the source (balance sheet presumably). Source wording preserved; teacher to confirm."
+  }
+ ],
+ "competencies": [
+  {
+   "code": "CG1",
+   "page": 3,
+   "sourceLabel": " CG-1",
+   "text": "Understands and analyses the important phases in Indian history and draws insights to understand present-day India"
+  },
+  {
+   "code": "CG2",
+   "page": 3,
+   "sourceLabel": " CG",
+   "text": "Analyses the important phases in world history and draw insight to understand the present-day world"
+  },
+  {
+   "code": "CG3",
+   "page": 3,
+   "sourceLabel": " CG-3",
+   "text": "Understands the idea of a nation and the emergence of the modern Indian Nation"
+  },
+  {
+   "code": "CG4",
+   "page": 3,
+   "sourceLabel": " CG",
+   "text": "Develops an understanding of the inter-relationship between human beings and their physical environment and how that influences the livelihoods, cultural diversity, and biodiversity of the region"
+  },
+  {
+   "code": "CG5",
+   "page": 3,
+   "sourceLabel": " CG",
+   "text": "Understand the Indian Constitution and explores the essence of Indian democracy and the characteristics of a democratic government."
+  },
+  {
+   "code": "CG6",
+   "page": 3,
+   "sourceLabel": " CG",
+   "text": "Understand and analyse social, cultural, and political life in India over time – as well as the underlying historical Indian ethos and philosophy of unity in diversity – and recognises challenges faced in these areas in the past and present and the efforts (being) made to address them"
+  },
+  {
+   "code": "CG7",
+   "page": 3,
+   "sourceLabel": " CG",
+   "text": "Develop an understanding of the inter-relationship between human beings and their physical environment and how that influences the livelihoods, cultural diversity, and biodiversity of the region"
+  },
+  {
+   "code": "CG8",
+   "page": 3,
+   "sourceLabel": " CG",
+   "text": "Evaluate the economic development of a country in terms of its impact on the lives of its people and nature"
+  },
+  {
+   "code": "CG9",
+   "page": 3,
+   "sourceLabel": " CG-9",
+   "text": "Understand and appreciate the contribution of India through history and present times, to the overall field of Social Science, and the disciplines that constitute it"
+  },
+  {
+   "code": "C1.1",
+   "page": 4,
+   "sourceLabel": " CG-1.1",
+   "text": "Explains the historical events and processes using different types of sources with specific examples from Indian history"
+  },
+  {
+   "code": "C1.2",
+   "page": 4,
+   "sourceLabel": " CG-1.2",
+   "text": "Explains and analyses the chronology of human life on the Indian subcontinent, from prehistory to its civilisational beginnings and beyond, and its relations with other civilisations over time, such as those in Mesopotamia, Greece, Central Asia, China, Southeast Asia, Arabia, and Eastern Africa"
+  },
+  {
+   "code": "C1.3",
+   "page": 4,
+   "sourceLabel": " CG-1.3",
+   "text": "Traces aspects of continuity and change in different phases of history across the Indian subcontinent (including cultural trends, social and religious trends and reforms, and economic and political transformations)"
+  },
+  {
+   "code": "C1.4",
+   "page": 4,
+   "sourceLabel": " CG-1.4",
+   "text": "Explains the growth of new indigenous ideas across India in Mathematics, Philosophy, Science and Technology, Medicine, Architecture, Agriculture, Literature and Art, and Social Science (such as zero and the Indian number system, ahimsa, the six systems of Indian philosophy, Ayurveda, yoga, the 22 shrutis of Indian music, horticulture, use of herbs and spices, etymology, meters, and grammar) and how they affected the course of the Indian history"
+  },
+  {
+   "code": "C2.1",
+   "page": 4,
+   "sourceLabel": " C-2.1",
+   "text": "Explains historical events and processes with different types of sources with specific examples from India and world history."
+  },
+  {
+   "code": "C2.3",
+   "page": 4,
+   "sourceLabel": " C-2.3",
+   "text": "Traces aspects of continuity and change in different phases of world history (including cultural trends, social and religious reforms, and economic and political transformations)"
+  },
+  {
+   "code": "C2.4",
+   "page": 4,
+   "sourceLabel": " C-2.4",
+   "text": "Explains the growth of new ideas and practices across the world (including humanism, mercantilism, industrialisation, scientific developments and explorations, imperialism, colonialism, the rise of the new nation states across the world, and various technologies including the most current) and how they affected the course of world history."
+  },
+  {
+   "code": "C2.5",
+   "page": 4,
+   "sourceLabel": " C-2.5",
+   "text": "Recognises the various practices that arose, such as those in C- 2.4, and came to be condemned later on (such as racism, slavery, colonial invasions, conquests, and plunder, genocides, exclusion of women from democratic and other institutions), all of which have also impacted the course of world history and have left unhealed wounds."
+  },
+  {
+   "code": "C3.1",
+   "page": 4,
+   "sourceLabel": " C",
+   "text": "Analyses the meaning of nation and how the concept evolved over time across the world and in the specific context of India, including its roots in the rich civilisational history of the Indian subcontinent"
+  },
+  {
+   "code": "C3.2",
+   "page": 4,
+   "sourceLabel": " C3.2",
+   "text": "Identifies and analyses important phases of the Indian national freedom struggle against British colonial rule, with special reference to the movement led by Mahatma Gandhi and other important figures as well as those that led to independence, and understands the specific Indian concepts, values, and methods (such as Swaraj, Swadeshi, passive resistance, fight for dharma self- sacrifice, ahimsa) that played a part in achieving Independence."
+  },
+  {
+   "code": "C4.1",
+   "page": 4,
+   "sourceLabel": " C-4.1",
+   "text": "Locates physiographic regions of India and the climatic zones of the world on a globe/map."
+  },
+  {
+   "code": "C4.2",
+   "page": 4,
+   "sourceLabel": " C-4.2",
+   "text": "Explains important geographical concepts, characteristics of key landforms, their origin, and other physical factors of a region"
+  },
+  {
+   "code": "C4.3",
+   "page": 4,
+   "sourceLabel": " C-4.3",
+   "text": "Draws inter- linkages between various components of the physical environment, such as climate and relief, climate and vegetation, vegetation, and wildlife."
+  },
+  {
+   "code": "C4.4",
+   "page": 4,
+   "sourceLabel": " C-4.4",
+   "text": "Analyses and evaluates the inter- relationship between the natural environment and human beings and their cultures across regions and, in the case of India, the special environmental ethos that resulted in practices of nature conservation"
+  },
+  {
+   "code": "C4.5",
+   "page": 5,
+   "sourceLabel": " C-4.5",
+   "text": "Critically evaluates the impact of human interventions on the environment, including climate change, pollution, shortages of natural resources (particularly water), and loss of biodiversity; identifies practices that have led to these environmental crises and the measures that must be taken to reverse them."
+  },
+  {
+   "code": "C4.6",
+   "page": 5,
+   "sourceLabel": " C-4.6",
+   "text": "Develops sensitivity towards the judicious use of natural resources (by individuals, societies, and nations) and suggests measures for their conservation"
+  },
+  {
+   "code": "C5.1",
+   "page": 5,
+   "sourceLabel": " C-5.1",
+   "text": "Understands that the Indian Constitution draws from the great cultural heritage and common aspirations of the Indian nation, and recalls India’s early experiments with democracy (assemblies in Mahajanapadas, kingdoms and empires at several levels of the society, guilds sanghas and ganas, village councils and committees, Uthiramerur inscriptions)"
+  },
+  {
+   "code": "C5.2",
+   "page": 5,
+   "sourceLabel": " C-5.2",
+   "text": "Appreciates fundamental Constitutional values and identify their significance for the prosperity of the Indian nation."
+  },
+  {
+   "code": "C5.3",
+   "page": 5,
+   "sourceLabel": " C-5.3",
+   "text": "Explains that fundamental rights are the most basic human rights, and they flourish when people also perform their fundamental duties"
+  },
+  {
+   "code": "C5.4",
+   "page": 5,
+   "sourceLabel": " C-5.4",
+   "text": "Analyses the basic features of a democracy and democratic government – and its history in India and across the world – and compares this form of government with other forms of government."
+  },
+  {
+   "code": "C5.5",
+   "page": 5,
+   "sourceLabel": " C-5.5-",
+   "text": "Analyses the critical role of non-state and non-market participants in the functioning of a democratic government and society, such as the media, civil society, socio-religious institutions, and community institutions"
+  },
+  {
+   "code": "C6.1",
+   "page": 5,
+   "sourceLabel": " C-6.1",
+   "text": "Understands how the Indian ethos and the cultural integration across India did not attempt uniformity, but respected and promoted a rich diversity in Indian society, and how this harmonisation and unity in diversity, with a historical respect for all cultures, women have counted among India’s great strengths by promoting peaceful coexistence"
+  },
+  {
+   "code": "C6.2",
+   "page": 5,
+   "sourceLabel": " C-6.2",
+   "text": "Understands that despite C-6.1, forms of inequality, injustice, and discrimination have occurred in different sections of society at different times (due to internal as well as outside forces such as colonisation), leading to political, social, and cultural efforts, struggles, movements, and mechanisms at various levels towards equity, inclusion, justice, and harmony, with varying outcomes and degrees of success."
+  },
+  {
+   "code": "C6.3",
+   "page": 5,
+   "sourceLabel": " C",
+   "text": "Analyses aspects of differential treatment or discrimination that may exist in the Indian society, based on, socio-cultural background, region, language spoken, and what individuals and societies can do to eradicate such differential treatment"
+  },
+  {
+   "code": "C6.4",
+   "page": 5,
+   "sourceLabel": " C",
+   "text": "Understands that a progressive society and nation, such as India is one that recognises not only its civilisational strengths but also its socio-economic, cultural and political challenges, and continuously makes efforts to address those challenges to become ever more prosperous, inclusive, just, and harmonious"
+  },
+  {
+   "code": "C7.1",
+   "page": 5,
+   "sourceLabel": " C-7.1",
+   "text": "Defines key features of the economy, such as, production, distribution, demand, supply, trade, and commerce, and factors that influence these aspects (including technology)"
+  },
+  {
+   "code": "C7.2",
+   "page": 5,
+   "sourceLabel": " C-7.2",
+   "text": "Evaluates the importance of the three sectors of production (primary, secondary, and tertiary) in any country’s economy, especially India"
+  },
+  {
+   "code": "C7.3",
+   "page": 5,
+   "sourceLabel": " C-7.3",
+   "text": "Distinguishes between ‘unorganised’ and ‘organised’ sectors of the economy and their role in production for the local market in small, medium, and large-scale production centres (industries), and recognises the special importance of the so-called ‘unorganised’ sector in"
+  },
+  {
+   "code": "C7.4",
+   "page": 6,
+   "sourceLabel": " C-7.4",
+   "text": "Traces the beginning and importance of large- scale trade and commerce (including e- commerce) between one country and another - the key items of trade in the beginning, and the changes from time to time."
+  },
+  {
+   "code": "C8.1",
+   "page": 6,
+   "sourceLabel": " C-8.1",
+   "text": "Gathers, comprehends and analyses data related to income, capital, poverty, and employment in one’s locality, region and at the national level. Markets."
+  },
+  {
+   "code": "C8.2",
+   "page": 6,
+   "sourceLabel": " C-",
+   "text": "Understands and analyses the concepts and practices of the range of economic systems — from free market to entirely state-controlled markets."
+  },
+  {
+   "code": "C8.3",
+   "page": 6,
+   "sourceLabel": " C-8.3",
+   "text": "Understands these features in the context of ancient India, with its thriving trade, both internal and external, and its well- established trade practices and networks, business conventions, and diverse industries, all of which made India one of the world’s leading economies up to the colonial period"
+  },
+  {
+   "code": "C8.4",
+   "page": 6,
+   "sourceLabel": " C-8.4",
+   "text": "Describes India’s recent path towards again becoming one of the three largest economies of the world, and how individuals can contribute to this economic progress."
+  },
+  {
+   "code": "C8.5",
+   "page": 6,
+   "sourceLabel": " C-8.5",
+   "text": "Appreciates the connections between economic development and the environment, and the broader indicators of societal wellbeing beyond GDP growth and income."
+  },
+  {
+   "code": "C9.1",
+   "page": 6,
+   "sourceLabel": " C",
+   "text": "Knows and explains the significant contributions of India to all matters (concepts, explanations, methods) studied within the curriculum, in an integrated manner"
+  }
+ ],
+ "competenciesCitedButUndefined": [
+  "C2.2"
+ ],
+ "assessmentModes": [
+  {
+   "id": "A1",
+   "text": "Pen Paper Test",
+   "page": 14
+  },
+  {
+   "id": "A2",
+   "text": "Quiz, debate, role play, viva-voce, group discussion, visual expression, interactive bulletin boards, gallery walks, exit cards, concept maps, peer assessment, self- assessment etc. through interdisciplinary project , Report Writing on field visits, Commentaries/visual interpretations, site-map making",
+   "page": 14
+  },
+  {
+   "id": "A3",
+   "text": "Project work (Interdisciplinary)",
+   "page": 14
+  },
+  {
+   "id": "A4",
+   "text": "Classroom, work done (activities/assignments) reflections, narrations, journals etc. Achievements of the student in the subject throughout the year. Participation of the student in different activities like Heritage India quiz etc.",
+   "page": 14
+  }
+ ],
+ "themes": [
+  {
+   "id": "T01",
+   "serial": 1,
+   "part": 1,
+   "partNo": 1,
+   "discipline": "integrated",
+   "hours": 4,
+   "pdfPages": [
+    8
+   ],
+   "title": {
+    "en": "Understanding Social Science",
+    "hi": "सामाजिक विज्ञान को समझना",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [],
+   "learningObjects": [
+    {
+     "id": "T01.L1",
+     "en": "Society system map: people, place, time, resources, institutions, decisions",
+     "modality": "diagram",
+     "engine": "system-map",
+     "status": "planned"
+    },
+    {
+     "id": "T01.L2",
+     "en": "Investigate one place through four lenses (India map)",
+     "modality": "map",
+     "engine": "lens-explorer",
+     "status": "planned"
+    },
+    {
+     "id": "T01.L3",
+     "en": "Classify questions by discipline and reveal overlap",
+     "modality": "inquiry",
+     "engine": "sorter",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T01.C1",
+     "kind": "concept",
+     "text": "Meaning, scope and relevance of Social Science",
+     "display": "Meaning, scope and relevance of Social Science",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T01.L1"
+     ]
+    },
+    {
+     "id": "T01.C2",
+     "kind": "concept",
+     "text": "Understanding Social Science from an Indian perspective",
+     "display": "Understanding Social Science from an Indian perspective",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T01.L2"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T01.O1",
+     "kind": "outcome",
+     "text": "Explain the relevance of studying Social Science to understand society, environment, economy, and governance in our lives.",
+     "display": "Explain the relevance of studying Social Science to understand society, environment, economy, and governance in our lives.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T01.L1"
+     ]
+    },
+    {
+     "id": "T01.O2",
+     "kind": "outcome",
+     "text": "Explain the meaning and scope of Geography, History, Political Science, and Economics as disciplines and recognise their interconnections.",
+     "display": "Explain the meaning and scope of Geography, History, Political Science, and Economics as disciplines and recognise their interconnections.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T01.L2",
+      "T01.L3"
+     ]
+    },
+    {
+     "id": "T01.O3",
+     "kind": "outcome",
+     "text": "Appreciate diversity, inclusivity, sustainability, and equity as guiding values when studying society and making decisions.",
+     "display": "Appreciate diversity, inclusivity, sustainability, and equity as guiding values when studying society and making decisions.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T01.L2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T02",
+   "serial": 2,
+   "part": 1,
+   "partNo": 2,
+   "discipline": "geography",
+   "hours": 8,
+   "pdfPages": [
+    8
+   ],
+   "title": {
+    "en": "Shaping of the Earth's Surface",
+    "hi": "पृथ्वी की सतह को आकार देना",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C4.2"
+   ],
+   "learningObjects": [
+    {
+     "id": "T02.L1",
+     "en": "Tectonic plate map: locate and identify plates (54 plates, 8 major highlighted)",
+     "hi": "विवर्तनिक प्लेट मानचित्र: प्लेटों की पहचान",
+     "modality": "map",
+     "engine": "plate-map",
+     "status": "implemented"
+    },
+    {
+     "id": "T02.L2",
+     "en": "Plate boundary explorer: convergent, divergent, transform (3D + 2D fallback)",
+     "hi": "प्लेट सीमा अन्वेषक",
+     "modality": "3d",
+     "engine": "plate-boundary-3d",
+     "status": "implemented"
+    },
+    {
+     "id": "T02.L3",
+     "en": "Earth interior cutaway (layers, depth, state; not to scale)",
+     "hi": "पृथ्वी के आंतरिक भाग का काट-चित्र",
+     "modality": "diagram",
+     "engine": "earth-interior",
+     "status": "implemented"
+    },
+    {
+     "id": "T02.L4",
+     "en": "Weathering, erosion and deposition sandbox; agents of gradation",
+     "modality": "sandbox",
+     "engine": "gradation-sandbox",
+     "status": "planned"
+    },
+    {
+     "id": "T02.L5",
+     "en": "Landform gallery: river, waves/currents, wind, glacier, underground water",
+     "modality": "3d",
+     "engine": "landform-gallery",
+     "status": "planned"
+    },
+    {
+     "id": "T02.L6",
+     "en": "Slope stability, GLOF and disaster mitigation planning",
+     "modality": "scenario",
+     "engine": "hazard-lab",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T02.C1",
+     "kind": "concept",
+     "text": "Theory of plate tectonics",
+     "display": "Theory of plate tectonics",
+     "hi": "प्लेट विवर्तनिकी का सिद्धांत",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L1",
+      "T02.L2"
+     ]
+    },
+    {
+     "id": "T02.C2",
+     "kind": "concept",
+     "text": "Interior of the Earth",
+     "display": "Interior of the Earth",
+     "hi": "पृथ्वी का आंतरिक भाग",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L3"
+     ]
+    },
+    {
+     "id": "T02.C3",
+     "kind": "concept",
+     "text": "Role of weathering and erosion; agents of gradation — river, waves and currents, wind, glaciers, and underground water",
+     "display": "Role of weathering and erosion; agents of gradation — river, waves and currents, wind, glaciers, and underground water",
+     "hi": "अपक्षय और अपरदन की भूमिका; समतलीकरण (ग्रेडेशन) के कारक — नदी, लहरें और धाराएँ, पवन, हिमनद और भूमिगत जल",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L4",
+      "T02.L5"
+     ]
+    },
+    {
+     "id": "T02.C4",
+     "kind": "concept",
+     "text": "Landforms and disasters: earthquakes, landslides, avalanches, Glacial Lake Outburst Flood (GLOF) and duststroms",
+     "display": "dust storms",
+     "hi": "भू-आकृतियाँ और आपदाएँ: भूकंप, भूस्खलन, हिमस्खलन, हिमनद झील विस्फोट बाढ़ (GLOF) और धूल भरी आँधियाँ",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L2",
+      "T02.L5",
+      "T02.L6"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T02.O1",
+     "kind": "outcome",
+     "text": "Describe the concept of plate tectonics and analyse its relevance in understanding Earth’s dynamics.",
+     "display": "Describe the concept of plate tectonics and analyse its relevance in understanding Earth’s dynamics.",
+     "hi": "प्लेट विवर्तनिकी की अवधारणा का वर्णन करें और पृथ्वी की गतिशीलता समझने में उसकी प्रासंगिकता का विश्लेषण करें।",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L2",
+      "T02.L3"
+     ]
+    },
+    {
+     "id": "T02.O2",
+     "kind": "outcome",
+     "text": "Locate major tectonic plates on a world map.",
+     "display": "Locate major tectonic plates on a world map.",
+     "hi": "विश्व मानचित्र पर प्रमुख विवर्तनिक प्लेटों की स्थिति बताएँ।",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L1"
+     ]
+    },
+    {
+     "id": "T02.O3",
+     "kind": "outcome",
+     "text": "Explain processes of weathering and erosion with suitable examples.",
+     "display": "Explain processes of weathering and erosion with suitable examples.",
+     "hi": "उपयुक्त उदाहरणों के साथ अपक्षय और अपरदन की प्रक्रियाओं को समझाएँ।",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L4"
+     ]
+    },
+    {
+     "id": "T02.O4",
+     "kind": "outcome",
+     "text": "Identify the prominent agents of gradation operating in a given region.",
+     "display": "Identify the prominent agents of gradation operating in a given region.",
+     "hi": "किसी दिए गए क्षेत्र में सक्रिय प्रमुख समतलीकरण कारकों की पहचान करें।",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L4",
+      "T02.L5"
+     ]
+    },
+    {
+     "id": "T02.O5",
+     "kind": "outcome",
+     "text": "Describe major landforms and explain the processes involved in their formation.",
+     "display": "Describe major landforms and explain the processes involved in their formation.",
+     "hi": "प्रमुख भू-आकृतियों का वर्णन करें और उनके निर्माण की प्रक्रियाएँ समझाएँ।",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L2",
+      "T02.L5"
+     ]
+    },
+    {
+     "id": "T02.O6",
+     "kind": "outcome",
+     "text": "Explain the causes of natural disasters and propose strategies for their mitigation.",
+     "display": "Explain the causes of natural disasters and propose strategies for their mitigation.",
+     "hi": "प्राकृतिक आपदाओं के कारण समझाएँ और उनके शमन की रणनीतियाँ सुझाएँ।",
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T02.L2",
+      "T02.L6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T03",
+   "serial": 3,
+   "part": 1,
+   "partNo": 3,
+   "discipline": "geography",
+   "hours": 7,
+   "pdfPages": [
+    8,
+    9
+   ],
+   "title": {
+    "en": "Atmosphere and Climate",
+    "hi": "वायुमंडल और जलवायु",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C4.3",
+    "C4.4",
+    "C4.5"
+   ],
+   "learningObjects": [
+    {
+     "id": "T03.L1",
+     "en": "Atmospheric cutaway: layers and composition",
+     "modality": "diagram",
+     "engine": "atmosphere-cutaway",
+     "status": "planned"
+    },
+    {
+     "id": "T03.L2",
+     "en": "Weather-station dashboard and climate-data grapher",
+     "modality": "graph",
+     "engine": "climate-grapher",
+     "status": "planned"
+    },
+    {
+     "id": "T03.L3",
+     "en": "India seasons and monsoon map; livelihoods overlay",
+     "modality": "map",
+     "engine": "monsoon-map",
+     "status": "planned"
+    },
+    {
+     "id": "T03.L4",
+     "en": "Land-sea heating and local wind model",
+     "modality": "sandbox",
+     "engine": "local-wind",
+     "status": "planned"
+    },
+    {
+     "id": "T03.L5",
+     "en": "Rainfall-runoff and flood catchment",
+     "modality": "sandbox",
+     "engine": "catchment",
+     "status": "planned"
+    },
+    {
+     "id": "T03.L6",
+     "en": "Carbon footprint calculator and climate-hazard link",
+     "modality": "calculator",
+     "engine": "carbon-footprint",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T03.C1",
+     "kind": "concept",
+     "text": "Structure and composition; elements of weather and climate",
+     "display": "Structure and composition; elements of weather and climate",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L1",
+      "T03.L2"
+     ]
+    },
+    {
+     "id": "T03.C2",
+     "kind": "concept",
+     "text": "Seasons of India and monsoons",
+     "display": "Seasons of India and monsoons",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L3"
+     ]
+    },
+    {
+     "id": "T03.C3",
+     "kind": "concept",
+     "text": "Climate change",
+     "display": "Climate change",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L2",
+      "T03.L6"
+     ]
+    },
+    {
+     "id": "T03.C4",
+     "kind": "concept",
+     "text": "Floods",
+     "display": "Floods",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L5"
+     ]
+    },
+    {
+     "id": "T03.C5",
+     "kind": "concept",
+     "text": "Carbon footprint",
+     "display": "Carbon footprint",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L6"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T03.O1",
+     "kind": "outcome",
+     "text": "Explain the different atmospheric layers and represent them using sketches and diagrams.",
+     "display": "Explain the different atmospheric layers and represent them using sketches and diagrams.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L1"
+     ]
+    },
+    {
+     "id": "T03.O2",
+     "kind": "outcome",
+     "text": "Observe and analyse local winds and their impact.",
+     "display": "Observe and analyse local winds and their impact.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L4"
+     ]
+    },
+    {
+     "id": "T03.O3",
+     "kind": "outcome",
+     "text": "Understand the impact of the Indian monsoon on life, agriculture, and livelihoods across different regions.",
+     "display": "Understand the impact of the Indian monsoon on life, agriculture, and livelihoods across different regions.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L3"
+     ]
+    },
+    {
+     "id": "T03.O4",
+     "kind": "outcome",
+     "text": "Explain the causes and effects of climate change.",
+     "display": "Explain the causes and effects of climate change.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L6"
+     ]
+    },
+    {
+     "id": "T03.O5",
+     "kind": "outcome",
+     "text": "Represent climatic data (temperature, rainfall, etc.) through appropriate graphs, charts, or diagrams.",
+     "display": "Represent climatic data (temperature, rainfall, etc.) through appropriate graphs, charts, or diagrams.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L2"
+     ]
+    },
+    {
+     "id": "T03.O6",
+     "kind": "outcome",
+     "text": "Analyse how climate change influences the frequency and intensity of natural disasters.",
+     "display": "Analyse how climate change influences the frequency and intensity of natural disasters.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 8,
+     "loIds": [
+      "T03.L5",
+      "T03.L6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T04",
+   "serial": 4,
+   "part": 1,
+   "partNo": 4,
+   "discipline": "history",
+   "hours": 9,
+   "pdfPages": [
+    9
+   ],
+   "title": {
+    "en": "Early Humans and Beginning of Civilisation",
+    "hi": "आदि मानव और सभ्यता का आरंभ",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C1.2",
+    "C2.1",
+    "C2.2",
+    "C2.3"
+   ],
+   "learningObjects": [
+    {
+     "id": "T04.L1",
+     "en": "Deep-time timeline: 2 million years to early cities; archaeological ages",
+     "modality": "timeline",
+     "engine": "deep-time",
+     "status": "implemented"
+    },
+    {
+     "id": "T04.L2",
+     "en": "Archaeological tool gallery and evidence-vs-inference investigation",
+     "modality": "evidence",
+     "engine": "artefact-viewer",
+     "status": "implemented"
+    },
+    {
+     "id": "T04.L3",
+     "en": "Hunter-gatherer to farmer settlement trade-offs",
+     "modality": "scenario",
+     "engine": "settlement-sim",
+     "status": "planned"
+    },
+    {
+     "id": "T04.L4",
+     "en": "Harappan city planner (labelled reconstruction)",
+     "modality": "3d",
+     "engine": "harappan-city",
+     "status": "planned"
+    },
+    {
+     "id": "T04.L5",
+     "en": "Comparative civilisation atlas: Harappan, Mesopotamia, Egypt, China",
+     "modality": "map",
+     "engine": "civ-atlas",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T04.C1",
+     "kind": "concept",
+     "text": "Cultural development from 2 million years ago",
+     "display": "Cultural development from 2 million years ago",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L1"
+     ]
+    },
+    {
+     "id": "T04.C2",
+     "kind": "concept",
+     "text": "Early human history, periodisation: Archaeological ages",
+     "display": "Early human history, periodisation: Archaeological ages",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L1",
+      "T04.L2"
+     ]
+    },
+    {
+     "id": "T04.C3",
+     "kind": "concept",
+     "text": "Who are human ancestors?",
+     "display": "Who are human ancestors?",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L1",
+      "T04.L2"
+     ]
+    },
+    {
+     "id": "T04.C4",
+     "kind": "concept",
+     "text": "Palaeolithic hunter-gatherers and use of stone tools",
+     "display": "Palaeolithic hunter-gatherers and use of stone tools",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L2",
+      "T04.L3"
+     ]
+    },
+    {
+     "id": "T04.C5",
+     "kind": "concept",
+     "text": "Mesolithic transition to food production: Mesolithic sites and tools",
+     "display": "Mesolithic transition to food production: Mesolithic sites and tools",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L2",
+      "T04.L3"
+     ]
+    },
+    {
+     "id": "T04.C6",
+     "kind": "concept",
+     "text": "Neolithic and the beginning of farming: Neolithic revolution domestication of plants and animals",
+     "display": "Neolithic and the beginning of farming: Neolithic revolution domestication of plants and animals",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L3"
+     ]
+    },
+    {
+     "id": "T04.C7",
+     "kind": "concept",
+     "text": "Harappan and contemporary cultures",
+     "display": "Harappan and contemporary cultures",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L4",
+      "T04.L5"
+     ]
+    },
+    {
+     "id": "T04.C8",
+     "kind": "concept",
+     "text": "Mesopotamian, egyptian, and chinese civilisation",
+     "display": "Mesopotamian, egyptian, and chinese civilisation",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T04.O1",
+     "kind": "outcome",
+     "text": "Describe how prehistoric time divisions are organised.",
+     "display": "Describe how prehistoric time divisions are organised.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L1"
+     ]
+    },
+    {
+     "id": "T04.O2",
+     "kind": "outcome",
+     "text": "Explain how humans lived before the invention of writing",
+     "display": "Explain how humans lived before the invention of writing",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L2",
+      "T04.L3"
+     ]
+    },
+    {
+     "id": "T04.O3",
+     "kind": "outcome",
+     "text": "Understand the beginning of the settled life with development of agriculture, and domestication of plants and animals.",
+     "display": "Understand the beginning of the settled life with development of agriculture, and domestication of plants and animals.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L3"
+     ]
+    },
+    {
+     "id": "T04.O4",
+     "kind": "outcome",
+     "text": "Explore the factors of urban development and transformation through time.",
+     "display": "Explore the factors of urban development and transformation through time.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L4"
+     ]
+    },
+    {
+     "id": "T04.O5",
+     "kind": "outcome",
+     "text": "Appreciate the diversity of crafts and trade, and their role the establishment of prosperous economy.",
+     "display": "Appreciate the diversity of crafts and trade, and their role the establishment of prosperous economy.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L4",
+      "T04.L5"
+     ]
+    },
+    {
+     "id": "T04.O6",
+     "kind": "outcome",
+     "text": "Understand the diversity of food habits.",
+     "display": "Understand the diversity of food habits.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L3",
+      "T04.L5"
+     ]
+    },
+    {
+     "id": "T04.O7",
+     "kind": "outcome",
+     "text": "Describe the social, political, and religious structures of the civilisations of Egypt and Mesopotamia.",
+     "display": "Describe the social, political, and religious structures of the civilisations of Egypt and Mesopotamia.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T04.L5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T05",
+   "serial": 5,
+   "part": 1,
+   "partNo": 5,
+   "discipline": "history",
+   "hours": 9,
+   "pdfPages": [
+    9,
+    10
+   ],
+   "title": {
+    "en": "State and Society (upto 1000 CE)",
+    "hi": "राज्य और समाज (1000 ई. तक)",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C1.3",
+    "C2.3",
+    "C3.1",
+    "C1.4"
+   ],
+   "learningObjects": [
+    {
+     "id": "T05.L1",
+     "en": "Dated historical geography of the Vedic age",
+     "modality": "map",
+     "engine": "dated-map",
+     "status": "planned"
+    },
+    {
+     "id": "T05.L2",
+     "en": "Source reading room: texts, inscriptions, material evidence",
+     "modality": "evidence",
+     "engine": "source-room",
+     "status": "planned"
+    },
+    {
+     "id": "T05.L3",
+     "en": "Early empire administration diagram and governance scenario",
+     "modality": "scenario",
+     "engine": "admin-flow",
+     "status": "planned"
+    },
+    {
+     "id": "T05.L4",
+     "en": "Knowledge traditions gallery",
+     "modality": "inquiry",
+     "engine": "gallery",
+     "status": "planned"
+    },
+    {
+     "id": "T05.L5",
+     "en": "Trade-route planner: goods, guilds, merchants",
+     "modality": "map",
+     "engine": "trade-routes",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T05.C1",
+     "kind": "concept",
+     "text": "Vedic Age — geography; texts; rituals; political institutions, and social order",
+     "display": "Vedic Age — geography; texts; rituals; political institutions, and social order",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L1",
+      "T05.L2"
+     ]
+    },
+    {
+     "id": "T05.C2",
+     "kind": "concept",
+     "text": "Administrative structure of early empires",
+     "display": "Administrative structure of early empires",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L3"
+     ]
+    },
+    {
+     "id": "T05.C3",
+     "kind": "concept",
+     "text": "Quest for knowledge — educational heritage, institutions, knowledge traditions, and cultural practices",
+     "display": "Quest for knowledge — educational heritage, institutions, knowledge traditions, and cultural practices",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L4"
+     ]
+    },
+    {
+     "id": "T05.C4",
+     "kind": "concept",
+     "text": "Traders and trade routes, guilds and merchants, crafts and industries",
+     "display": "Traders and trade routes, guilds and merchants, crafts and industries",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T05.O1",
+     "kind": "outcome",
+     "text": "Explain various facets of Vedic society and polity.",
+     "display": "Explain various facets of Vedic society and polity.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L1",
+      "T05.L2"
+     ]
+    },
+    {
+     "id": "T05.O2",
+     "kind": "outcome",
+     "text": "Appreciate the achievements of Indian empires and their cultural legacy.",
+     "display": "Appreciate the achievements of Indian empires and their cultural legacy.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L3",
+      "T05.L5"
+     ]
+    },
+    {
+     "id": "T05.O3",
+     "kind": "outcome",
+     "text": "Understand the knowledge traditions and practices of India.",
+     "display": "Understand the knowledge traditions and practices of India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L4"
+     ]
+    },
+    {
+     "id": "T05.O4",
+     "kind": "outcome",
+     "text": "Understand the foundations of the Indian social and political institutions and their continuity.",
+     "display": "Understand the foundations of the Indian social and political institutions and their continuity.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 9,
+     "loIds": [
+      "T05.L3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T06",
+   "serial": 6,
+   "part": 1,
+   "partNo": 6,
+   "discipline": "political-science",
+   "hours": 9,
+   "pdfPages": [
+    10
+   ],
+   "title": {
+    "en": "Democracy",
+    "hi": "लोकतंत्र",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C5.1",
+    "C5.2"
+   ],
+   "learningObjects": [
+    {
+     "id": "T06.L1",
+     "en": "Democracy concept map and fictional-case assessor",
+     "modality": "diagram",
+     "engine": "concept-map",
+     "status": "planned"
+    },
+    {
+     "id": "T06.L2",
+     "en": "Early Indian traditions gallery (sourced)",
+     "modality": "evidence",
+     "engine": "gallery",
+     "status": "planned"
+    },
+    {
+     "id": "T06.L3",
+     "en": "Parliamentary vs presidential institutional flow",
+     "modality": "diagram",
+     "engine": "system-flow",
+     "status": "planned"
+    },
+    {
+     "id": "T06.L4",
+     "en": "Country comparison: India, USA, France, Russia, Canada (dated, sourced)",
+     "modality": "inquiry",
+     "engine": "country-compare",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T06.C1",
+     "kind": "concept",
+     "text": "Meaning features and types of democracy",
+     "display": "Meaning features and types of democracy",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L1"
+     ]
+    },
+    {
+     "id": "T06.C2",
+     "kind": "concept",
+     "text": "Roots of democracy in India",
+     "display": "Roots of democracy in India",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L2"
+     ]
+    },
+    {
+     "id": "T06.C3",
+     "kind": "concept",
+     "text": "Challenges to democracy in India",
+     "display": "Challenges to democracy in India",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L1"
+     ]
+    },
+    {
+     "id": "T06.C4",
+     "kind": "concept",
+     "text": "Democratic systems in the world",
+     "display": "Democratic systems in the world",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L3",
+      "T06.L4"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T06.O1",
+     "kind": "outcome",
+     "text": "Understand the features of democracy.",
+     "display": "Understand the features of democracy.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L1"
+     ]
+    },
+    {
+     "id": "T06.O2",
+     "kind": "outcome",
+     "text": "Appreciate early democratic traditions in India and how they influenced modern democracy.",
+     "display": "Appreciate early democratic traditions in India and how they influenced modern democracy.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L2"
+     ]
+    },
+    {
+     "id": "T06.O3",
+     "kind": "outcome",
+     "text": "Differentiate between parliamentary and presidential systems.",
+     "display": "Differentiate between parliamentary and presidential systems.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L3"
+     ]
+    },
+    {
+     "id": "T06.O4",
+     "kind": "outcome",
+     "text": "Identify examples of both systems across countries, such as India, USA, France, Russia, and Canada.",
+     "display": "Identify examples of both systems across countries, such as India, USA, France, Russia, and Canada.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T06.L4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T07",
+   "serial": 7,
+   "part": 1,
+   "partNo": 7,
+   "discipline": "political-science",
+   "hours": 9,
+   "pdfPages": [
+    10
+   ],
+   "title": {
+    "en": "Elections",
+    "hi": "चुनाव",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C5.2",
+    "C5.3",
+    "C5.4",
+    "C5.5",
+    "C6.2",
+    "C6.3",
+    "C6.4",
+    "C9.1"
+   ],
+   "learningObjects": [
+    {
+     "id": "T07.L1",
+     "en": "Election process timeline and ECI workflow",
+     "modality": "diagram",
+     "engine": "process-flow",
+     "status": "planned"
+    },
+    {
+     "id": "T07.L2",
+     "en": "Fictional election sandbox: compare electoral systems on one vote set",
+     "modality": "sandbox",
+     "engine": "electoral-systems",
+     "status": "implemented"
+    },
+    {
+     "id": "T07.L3",
+     "en": "Toy delimitation model and fictional electoral roll / enumerator",
+     "modality": "map",
+     "engine": "delimitation",
+     "status": "planned"
+    },
+    {
+     "id": "T07.L4",
+     "en": "Coalition negotiation and Anti-Defection case analysis (fictional)",
+     "modality": "scenario",
+     "engine": "coalition",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T07.C1",
+     "kind": "concept",
+     "text": "Factors of importance of elections",
+     "display": "Factors of importance of elections",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L1"
+     ]
+    },
+    {
+     "id": "T07.C2",
+     "kind": "concept",
+     "text": "Electoral systems",
+     "display": "Electoral systems",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L2"
+     ]
+    },
+    {
+     "id": "T07.C3",
+     "kind": "concept",
+     "text": "Delimitation Commission",
+     "display": "Delimitation Commission",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L3"
+     ]
+    },
+    {
+     "id": "T07.C4",
+     "kind": "concept",
+     "text": "Election Commission of India and its role",
+     "display": "Election Commission of India and its role",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L1"
+     ]
+    },
+    {
+     "id": "T07.C5",
+     "kind": "concept",
+     "text": "Constituency, electoral rolls, enumerators",
+     "display": "Constituency, electoral rolls, enumerators",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L3"
+     ]
+    },
+    {
+     "id": "T07.C6",
+     "kind": "concept",
+     "text": "Party system in India",
+     "display": "Party system in India",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L2",
+      "T07.L4"
+     ]
+    },
+    {
+     "id": "T07.C7",
+     "kind": "concept",
+     "text": "Representation of the People Acts",
+     "display": "Representation of the People Acts",
+     "hi": null,
+     "source": "spec",
+     "pdfPage": null,
+     "loIds": [
+      "T07.L1"
+     ]
+    },
+    {
+     "id": "T07.C8",
+     "kind": "concept",
+     "text": "Coalition government",
+     "display": "Coalition government",
+     "hi": null,
+     "source": "spec",
+     "pdfPage": null,
+     "loIds": [
+      "T07.L4"
+     ]
+    },
+    {
+     "id": "T07.C9",
+     "kind": "concept",
+     "text": "Anti-Defection Law",
+     "display": "Anti-Defection Law",
+     "hi": null,
+     "source": "spec",
+     "pdfPage": null,
+     "loIds": [
+      "T07.L4"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T07.O1",
+     "kind": "outcome",
+     "text": "Identify factors highlighting importance of elections in a democracy.",
+     "display": "Identify factors highlighting importance of elections in a democracy.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L1"
+     ]
+    },
+    {
+     "id": "T07.O2",
+     "kind": "outcome",
+     "text": "Categorise three types of electoral systems and list examples.",
+     "display": "Categorise three types of electoral systems and list examples.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L2"
+     ]
+    },
+    {
+     "id": "T07.O3",
+     "kind": "outcome",
+     "text": "Identify the major laws that govern the conduct of elections in India.",
+     "display": "Identify the major laws that govern the conduct of elections in India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L1"
+     ]
+    },
+    {
+     "id": "T07.O4",
+     "kind": "outcome",
+     "text": "Describe the main provisions of the Representation of the People Acts.",
+     "display": "Describe the main provisions of the Representation of the People Acts.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L1"
+     ]
+    },
+    {
+     "id": "T07.O5",
+     "kind": "outcome",
+     "text": "Define the concept of delimitation and its purpose in the Indian electoral system.",
+     "display": "Define the concept of delimitation and its purpose in the Indian electoral system.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L3"
+     ]
+    },
+    {
+     "id": "T07.O6",
+     "kind": "outcome",
+     "text": "Identify the role and functions Election Commission of India (ECI) in the electoral process.",
+     "display": "Identify the role and functions Election Commission of India (ECI) in the electoral process.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L1"
+     ]
+    },
+    {
+     "id": "T07.O7",
+     "kind": "outcome",
+     "text": "Explain constituency, electoral roll, enumerator.",
+     "display": "Explain constituency, electoral roll, enumerator.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L3"
+     ]
+    },
+    {
+     "id": "T07.O8",
+     "kind": "outcome",
+     "text": "Understand the party system in India.",
+     "display": "Understand the party system in India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L2",
+      "T07.L4"
+     ]
+    },
+    {
+     "id": "T07.O9",
+     "kind": "outcome",
+     "text": "Explain the meaning and features of a coalition government in the Indian political system.",
+     "display": "Explain the meaning and features of a coalition government in the Indian political system.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L4"
+     ]
+    },
+    {
+     "id": "T07.O10",
+     "kind": "outcome",
+     "text": "Explain key provisions of the Anti-Defection Law with reference to political instability and the need for anti-defection measures.",
+     "display": "Explain key provisions of the Anti-Defection Law with reference to political instability and the need for anti-defection measures.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T07.L4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T08",
+   "serial": 8,
+   "part": 1,
+   "partNo": 8,
+   "discipline": "economics",
+   "hours": 7,
+   "pdfPages": [
+    10,
+    11
+   ],
+   "title": {
+    "en": "Building Blocks in Economics",
+    "hi": "अर्थशास्त्र के आधारभूत तत्त्व",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C8.2"
+   ],
+   "learningObjects": [
+    {
+     "id": "T08.L1",
+     "en": "Scarcity allocation board and opportunity-cost game",
+     "modality": "scenario",
+     "engine": "scarcity-game",
+     "status": "planned"
+    },
+    {
+     "id": "T08.L2",
+     "en": "Production possibility frontier explorer",
+     "modality": "graph",
+     "engine": "ppf",
+     "status": "planned"
+    },
+    {
+     "id": "T08.L3",
+     "en": "What/how/for whom: production-to-consumption flow",
+     "modality": "diagram",
+     "engine": "flow",
+     "status": "planned"
+    },
+    {
+     "id": "T08.L4",
+     "en": "Economic-system comparison: market, centrally planned, mixed",
+     "modality": "inquiry",
+     "engine": "system-compare",
+     "status": "planned"
+    },
+    {
+     "id": "T08.L5",
+     "en": "Household shock and social-safety-net scenario",
+     "modality": "scenario",
+     "engine": "safety-net",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T08.C1",
+     "kind": "concept",
+     "text": "Scarcity of resources, opportunity cost and the need for making choice. What do economists do?",
+     "display": "Scarcity of resources, opportunity cost and the need for making choice. What do economists do?",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L1",
+      "T08.L2"
+     ]
+    },
+    {
+     "id": "T08.C2",
+     "kind": "concept",
+     "text": "What to produce, how to produce, and for whom to produce?",
+     "display": "What to produce, how to produce, and for whom to produce?",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L3"
+     ]
+    },
+    {
+     "id": "T08.C3",
+     "kind": "concept",
+     "text": "Difference between market, centrally planned, and mixed economic systems",
+     "display": "Difference between market, centrally planned, and mixed economic systems",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L4"
+     ]
+    },
+    {
+     "id": "T08.C4",
+     "kind": "concept",
+     "text": "Welfare economy",
+     "display": "Welfare economy",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T08.O1",
+     "kind": "outcome",
+     "text": "Explain the meaning of scarcity, choice, and opportunity cost in everyday life, and economic decision-making.",
+     "display": "Explain the meaning of scarcity, choice, and opportunity cost in everyday life, and economic decision-making.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L1",
+      "T08.L2"
+     ]
+    },
+    {
+     "id": "T08.O2",
+     "kind": "outcome",
+     "text": "Describe what economists do and how they study production, distribution, and consumption of goods and services.",
+     "display": "Describe what economists do and how they study production, distribution, and consumption of goods and services.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L3"
+     ]
+    },
+    {
+     "id": "T08.O3",
+     "kind": "outcome",
+     "text": "Recognise how economic analysis helps in policy-making and solving real-world issues.",
+     "display": "Recognise how economic analysis helps in policy-making and solving real-world issues.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L5"
+     ]
+    },
+    {
+     "id": "T08.O4",
+     "kind": "outcome",
+     "text": "Describe the three central problems of an economy — what to produce, how to produce, and for whom to produce.",
+     "display": "Describe the three central problems of an economy — what to produce, how to produce, and for whom to produce.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L3"
+     ]
+    },
+    {
+     "id": "T08.O5",
+     "kind": "outcome",
+     "text": "Identify and differentiate the characteristics of planned, free market, and mixed economic systems.",
+     "display": "Identify and differentiate the characteristics of planned, free market, and mixed economic systems.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L4"
+     ]
+    },
+    {
+     "id": "T08.O6",
+     "kind": "outcome",
+     "text": "Explain the concept of a welfare economy and the importance of social safety nets.",
+     "display": "Explain the concept of a welfare economy and the importance of social safety nets.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 10,
+     "loIds": [
+      "T08.L5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T09",
+   "serial": 9,
+   "part": 1,
+   "partNo": 9,
+   "discipline": "economics",
+   "hours": 8,
+   "pdfPages": [
+    11
+   ],
+   "title": {
+    "en": "The Price Puzzle: What Drives the Market",
+    "hi": "कीमत की पहेली: बाज़ार को क्या चलाता है",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C7.1"
+   ],
+   "learningObjects": [
+    {
+     "id": "T09.L1",
+     "en": "Market lab: demand, supply, equilibrium, surplus and shortage (live graph + table)",
+     "hi": "बाज़ार प्रयोगशाला",
+     "modality": "graph",
+     "engine": "market-lab",
+     "status": "implemented"
+    },
+    {
+     "id": "T09.L2",
+     "en": "Price-ceiling lab: shortage and black-market pressure",
+     "hi": "कीमत सीमा प्रयोगशाला",
+     "modality": "graph",
+     "engine": "market-lab",
+     "status": "implemented"
+    },
+    {
+     "id": "T09.L3",
+     "en": "Real-world deviations: necessity, luxury, perishable, expectations",
+     "hi": "वास्तविक-जगत के विचलन",
+     "modality": "scenario",
+     "engine": "market-lab",
+     "status": "implemented"
+    },
+    {
+     "id": "T09.L4",
+     "en": "Externality lab: private vs social cost (pollution)",
+     "hi": "बाह्यता प्रयोगशाला",
+     "modality": "graph",
+     "engine": "externality-lab",
+     "status": "implemented"
+    },
+    {
+     "id": "T09.L5",
+     "en": "Public goods: classify and free-rider street-light challenge",
+     "hi": "सार्वजनिक वस्तुएँ",
+     "modality": "scenario",
+     "engine": "public-goods",
+     "status": "implemented"
+    },
+    {
+     "id": "T09.L6",
+     "en": "Information-asymmetry cards (used-goods inquiry)",
+     "hi": "सूचना असमानता",
+     "modality": "inquiry",
+     "engine": "info-asymmetry",
+     "status": "implemented"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T09.C1",
+     "kind": "concept",
+     "text": "Laws of demand and supply",
+     "display": "Laws of demand and supply",
+     "hi": "माँग और पूर्ति के नियम",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L1"
+     ]
+    },
+    {
+     "id": "T09.C2",
+     "kind": "concept",
+     "text": "Real-world deviations from textbook theory, such as in case of necessities, luxury goods, perishable items, and expectations",
+     "display": "Real-world deviations from textbook theory, such as in case of necessities, luxury goods, perishable items, and expectations",
+     "hi": "पाठ्यपुस्तकीय सिद्धांत से वास्तविक-जगत के विचलन, जैसे आवश्यक वस्तुएँ, विलासिता की वस्तुएँ, शीघ्र नष्ट होने वाली वस्तुएँ और प्रत्याशाएँ",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L3"
+     ]
+    },
+    {
+     "id": "T09.C3",
+     "kind": "concept",
+     "text": "Some related concepts — price ceilings and market failures (externalities, information asymmetry, public goods)",
+     "display": "Some related concepts — price ceilings and market failures (externalities, information asymmetry, public goods)",
+     "hi": "कुछ संबंधित अवधारणाएँ — कीमत सीमा (प्राइस सीलिंग) और बाज़ार विफलताएँ (बाह्यताएँ, सूचना असमानता, सार्वजनिक वस्तुएँ)",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L2",
+      "T09.L4",
+      "T09.L5",
+      "T09.L6"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T09.O1",
+     "kind": "outcome",
+     "text": "Explain the Law of Demand and Law of Supply with the help of real life examples.",
+     "display": "Explain the Law of Demand and Law of Supply with the help of real life examples.",
+     "hi": "वास्तविक जीवन के उदाहरणों की सहायता से माँग के नियम और पूर्ति के नियम को समझाएँ।",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L1"
+     ]
+    },
+    {
+     "id": "T09.O2",
+     "kind": "outcome",
+     "text": "Interpret how changes in price affect the quantity demanded and quantity supplied of goods and services.",
+     "display": "Interpret how changes in price affect the quantity demanded and quantity supplied of goods and services.",
+     "hi": "व्याख्या करें कि कीमत में परिवर्तन से वस्तुओं और सेवाओं की माँगी गई मात्रा और पूर्ति की गई मात्रा कैसे बदलती है।",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L1"
+     ]
+    },
+    {
+     "id": "T09.O3",
+     "kind": "outcome",
+     "text": "Identify the equilibrium price and quantity where demand and supply intersect.",
+     "display": "Identify the equilibrium price and quantity where demand and supply intersect.",
+     "hi": "संतुलन कीमत और मात्रा की पहचान करें, जहाँ माँग और पूर्ति एक-दूसरे को काटती हैं।",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L1"
+     ]
+    },
+    {
+     "id": "T09.O4",
+     "kind": "outcome",
+     "text": "Analyse how changes in market conditions (e.g., increase in demand or supply) lead to surplus or shortage and affect equilibrium.",
+     "display": "Analyse how changes in market conditions (e.g., increase in demand or supply) lead to surplus or shortage and affect equilibrium.",
+     "hi": "विश्लेषण करें कि बाज़ार की स्थितियों में परिवर्तन (जैसे माँग या पूर्ति में वृद्धि) से अधिशेष या कमी कैसे उत्पन्न होती है और संतुलन कैसे प्रभावित होता है।",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L1",
+      "T09.L3"
+     ]
+    },
+    {
+     "id": "T09.O5",
+     "kind": "outcome",
+     "text": "Explain the concept of price ceilings and how they can lead to shortages or black markets.",
+     "display": "Explain the concept of price ceilings and how they can lead to shortages or black markets.",
+     "hi": "कीमत सीमा की अवधारणा समझाएँ और बताएँ कि यह कमी या काला बाज़ारी को कैसे जन्म दे सकती है।",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L2"
+     ]
+    },
+    {
+     "id": "T09.O6",
+     "kind": "outcome",
+     "text": "Understand market failures and identify their main types.",
+     "display": "Understand market failures and identify their main types.",
+     "hi": "बाज़ार विफलताओं को समझें और उनके मुख्य प्रकार पहचानें।",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L4",
+      "T09.L5",
+      "T09.L6"
+     ]
+    },
+    {
+     "id": "T09.O7",
+     "kind": "outcome",
+     "text": "Understand public goods (non-excludable and non-rival goods like parks or street lighting).",
+     "display": "Understand public goods (non-excludable and non-rival goods like parks or street lighting).",
+     "hi": "सार्वजनिक वस्तुओं (अपवर्जन-रहित और प्रतिद्वंद्विता-रहित वस्तुएँ, जैसे पार्क या सड़क प्रकाश) को समझें।",
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T09.L5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T10",
+   "serial": 10,
+   "part": 2,
+   "partNo": 1,
+   "discipline": "geography",
+   "hours": 7,
+   "pdfPages": [
+    11,
+    12
+   ],
+   "title": {
+    "en": "Oceans and Life",
+    "hi": "महासागर और जीवन",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C4.1",
+    "C4.2"
+   ],
+   "learningObjects": [
+    {
+     "id": "T10.L1",
+     "en": "3D ocean-floor cutaway and relief model builder",
+     "modality": "3d",
+     "engine": "ocean-relief",
+     "status": "planned"
+    },
+    {
+     "id": "T10.L2",
+     "en": "Waves vs tides vs currents comparison; global current explorer",
+     "modality": "sandbox",
+     "engine": "ocean-motion",
+     "status": "planned"
+    },
+    {
+     "id": "T10.L3",
+     "en": "Marine resources, fishing and livelihoods scenario",
+     "modality": "scenario",
+     "engine": "fisheries",
+     "status": "planned"
+    },
+    {
+     "id": "T10.L4",
+     "en": "Cyclone and tsunami cross-sections; coastal evacuation scenario",
+     "modality": "scenario",
+     "engine": "coastal-hazard",
+     "status": "planned"
+    },
+    {
+     "id": "T10.L5",
+     "en": "Maritime cooperation concept map",
+     "modality": "diagram",
+     "engine": "concept-map",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T10.C1",
+     "kind": "concept",
+     "text": "Introduction to ocean relief, movement of ocean water- waves, tides and currents",
+     "display": "Introduction to ocean relief, movement of ocean water- waves, tides and currents",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L1",
+      "T10.L2"
+     ]
+    },
+    {
+     "id": "T10.C2",
+     "kind": "concept",
+     "text": "Marine resources and their significance; open seas, navigation fishing, and livelihood concerns and challenges",
+     "display": "Marine resources and their significance; open seas, navigation fishing, and livelihood concerns and challenges",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L3"
+     ]
+    },
+    {
+     "id": "T10.C3",
+     "kind": "concept",
+     "text": "Cyclones and Tsunamis — early warning systems",
+     "display": "Cyclones and Tsunamis — early warning systems",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L4"
+     ]
+    },
+    {
+     "id": "T10.C4",
+     "kind": "concept",
+     "text": "International maritime rules and regulations",
+     "display": "International maritime rules and regulations",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T10.O1",
+     "kind": "outcome",
+     "text": "Explain the movement of ocean waters, including waves, tides, and currents.",
+     "display": "Explain the movement of ocean waters, including waves, tides, and currents.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L2"
+     ]
+    },
+    {
+     "id": "T10.O2",
+     "kind": "outcome",
+     "text": "Analyse the connections between ocean currents, and global and regional climate patterns.",
+     "display": "Analyse the connections between ocean currents, and global and regional climate patterns.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L2"
+     ]
+    },
+    {
+     "id": "T10.O3",
+     "kind": "outcome",
+     "text": "Understand the importance of marine resources for human livelihoods and ecosystems.",
+     "display": "Understand the importance of marine resources for human livelihoods and ecosystems.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L3"
+     ]
+    },
+    {
+     "id": "T10.O4",
+     "kind": "outcome",
+     "text": "Examine the relationship between oceans, climate, livelihoods, and natural disasters.",
+     "display": "Examine the relationship between oceans, climate, livelihoods, and natural disasters.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L4"
+     ]
+    },
+    {
+     "id": "T10.O5",
+     "kind": "outcome",
+     "text": "Highlight key rules, conventions, and international agreements governing ocean navigation. and the use of marine resources.",
+     "display": "Highlight key rules, conventions, and international agreements governing ocean navigation. and the use of marine resources.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L5"
+     ]
+    },
+    {
+     "id": "T10.O6",
+     "kind": "outcome",
+     "text": "Explain the need for international cooperation and agreements in the sustainable use of ocean resources.",
+     "display": "Explain the need for international cooperation and agreements in the sustainable use of ocean resources.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L5"
+     ]
+    },
+    {
+     "id": "T10.O7",
+     "kind": "outcome",
+     "text": "Construct models or sketches representing ocean relief.",
+     "display": "Construct models or sketches representing ocean relief.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 11,
+     "loIds": [
+      "T10.L1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T11",
+   "serial": 11,
+   "part": 2,
+   "partNo": 2,
+   "discipline": "geography",
+   "hours": 7,
+   "pdfPages": [
+    12
+   ],
+   "title": {
+    "en": "Life on Earth",
+    "hi": "पृथ्वी पर जीवन",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C4.3",
+    "C4.4",
+    "C4.5",
+    "C4.6"
+   ],
+   "learningObjects": [
+    {
+     "id": "T11.L1",
+     "en": "World biome map and biome explorer; biome matching",
+     "modality": "map",
+     "engine": "biome-map",
+     "status": "planned"
+    },
+    {
+     "id": "T11.L2",
+     "en": "India biosphere-reserve map (sourced)",
+     "modality": "map",
+     "engine": "reserve-map",
+     "status": "planned"
+    },
+    {
+     "id": "T11.L3",
+     "en": "Forest management and ecotourism-capacity scenario",
+     "modality": "scenario",
+     "engine": "forest-tradeoffs",
+     "status": "planned"
+    },
+    {
+     "id": "T11.L4",
+     "en": "Forest-fire factors and prevention planner",
+     "modality": "sandbox",
+     "engine": "fire-planner",
+     "status": "planned"
+    },
+    {
+     "id": "T11.L5",
+     "en": "Traditional conservation and forest-dweller knowledge gallery",
+     "modality": "inquiry",
+     "engine": "gallery",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T11.C1",
+     "kind": "concept",
+     "text": "Biomes: Distribution and characteristics; biosphere reserves in India",
+     "display": "Biomes: Distribution and characteristics; biosphere reserves in India",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L1",
+      "T11.L2"
+     ]
+    },
+    {
+     "id": "T11.C2",
+     "kind": "concept",
+     "text": "Forest and ecotourism; forest dwellers, their livelihoods, and challenges",
+     "display": "Forest and ecotourism; forest dwellers, their livelihoods, and challenges",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L3",
+      "T11.L5"
+     ]
+    },
+    {
+     "id": "T11.C3",
+     "kind": "concept",
+     "text": "Forest and wildlife conservation",
+     "display": "Forest and wildlife conservation",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L4",
+      "T11.L5"
+     ]
+    },
+    {
+     "id": "T11.C4",
+     "kind": "concept",
+     "text": "Government efforts to support forest dwellers",
+     "display": "Government efforts to support forest dwellers",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T11.O1",
+     "kind": "outcome",
+     "text": "Identify the major biomes of the world and describe their key climatic conditions, characteristic flora, and fauna.",
+     "display": "Identify the major biomes of the world and describe their key climatic conditions, characteristic flora, and fauna.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L1"
+     ]
+    },
+    {
+     "id": "T11.O2",
+     "kind": "outcome",
+     "text": "Locate biosphere reserves on the map of India.",
+     "display": "Locate biosphere reserves on the map of India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L2"
+     ]
+    },
+    {
+     "id": "T11.O3",
+     "kind": "outcome",
+     "text": "Appreciate local traditional practices related to biodiversity conservation and analyse their effects.",
+     "display": "Appreciate local traditional practices related to biodiversity conservation and analyse their effects.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L5"
+     ]
+    },
+    {
+     "id": "T11.O4",
+     "kind": "outcome",
+     "text": "Explain the concept and importance of biosphere reserves in conserving ecosystems and biodiversity.",
+     "display": "Explain the concept and importance of biosphere reserves in conserving ecosystems and biodiversity.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L2"
+     ]
+    },
+    {
+     "id": "T11.O5",
+     "kind": "outcome",
+     "text": "Analyse the concept of ecotourism and discuss its role in promoting sustainable forest ecosystem and conservation.",
+     "display": "Analyse the concept of ecotourism and discuss its role in promoting sustainable forest ecosystem and conservation.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L3"
+     ]
+    },
+    {
+     "id": "T11.O6",
+     "kind": "outcome",
+     "text": "Investigate the causes of forest fires in the local area, and prepare a plan for mitigation and prevention.",
+     "display": "Investigate the causes of forest fires in the local area, and prepare a plan for mitigation and prevention.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T11.L4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T12",
+   "serial": 12,
+   "part": 2,
+   "partNo": 3,
+   "discipline": "history",
+   "hours": 9,
+   "pdfPages": [
+    12
+   ],
+   "title": {
+    "en": "Resistance and Resilience (1000 CE – 1700 CE)",
+    "hi": "प्रतिरोध और दृढ़ता (1000 ई. – 1700 ई.)",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C1.3",
+    "C1.4",
+    "C3.1"
+   ],
+   "learningObjects": [
+    {
+     "id": "T12.L1",
+     "en": "Dated regional political maps; alliance/sovereignty scenario",
+     "modality": "map",
+     "engine": "dated-map",
+     "status": "planned"
+    },
+    {
+     "id": "T12.L2",
+     "en": "3D fort cutaway and fort-design challenge",
+     "modality": "3d",
+     "engine": "fort-3d",
+     "status": "planned"
+    },
+    {
+     "id": "T12.L3",
+     "en": "Art, architecture, language and literature gallery",
+     "modality": "evidence",
+     "engine": "gallery",
+     "status": "planned"
+    },
+    {
+     "id": "T12.L4",
+     "en": "Bhakti tradition network map",
+     "modality": "map",
+     "engine": "network-map",
+     "status": "planned"
+    },
+    {
+     "id": "T12.L5",
+     "en": "Continuity-and-change timeline (economy and state)",
+     "modality": "timeline",
+     "engine": "timeline",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T12.C1",
+     "kind": "concept",
+     "text": "Safeguarding sovereignty: resistance, alliances and confederacies",
+     "display": "Safeguarding sovereignty: resistance, alliances and confederacies",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L1"
+     ]
+    },
+    {
+     "id": "T12.C2",
+     "kind": "concept",
+     "text": "Development of art and architecture, languages and literature",
+     "display": "Development of art and architecture, languages and literature",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L3"
+     ]
+    },
+    {
+     "id": "T12.C3",
+     "kind": "concept",
+     "text": "The Bhakti tradition",
+     "display": "The Bhakti tradition",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L4"
+     ]
+    },
+    {
+     "id": "T12.C4",
+     "kind": "concept",
+     "text": "Forts and fortifications",
+     "display": "Forts and fortifications",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L2"
+     ]
+    },
+    {
+     "id": "T12.C5",
+     "kind": "concept",
+     "text": "Expansion of Indian economy and state",
+     "display": "Expansion of Indian economy and state",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T12.O1",
+     "kind": "outcome",
+     "text": "Explain the cultural, political, and military contributions of regional kingdoms in India.",
+     "display": "Explain the cultural, political, and military contributions of regional kingdoms in India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L1",
+      "T12.L2",
+      "T12.L3"
+     ]
+    },
+    {
+     "id": "T12.O2",
+     "kind": "outcome",
+     "text": "Appreciate how diverse communities and regions shaped India’s history from 1000 CE to 1700 CE.",
+     "display": "Appreciate how diverse communities and regions shaped India’s history from 1000 CE to 1700 CE.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L3",
+      "T12.L4"
+     ]
+    },
+    {
+     "id": "T12.O3",
+     "kind": "outcome",
+     "text": "Explore how regional kingdoms adapted to changing political, economic, and cultural contexts over time.",
+     "display": "Explore how regional kingdoms adapted to changing political, economic, and cultural contexts over time.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L1",
+      "T12.L5"
+     ]
+    },
+    {
+     "id": "T12.O4",
+     "kind": "outcome",
+     "text": "Analyse the continuity of the civilisational history of India as a nation upto 18th century CE.",
+     "display": "Analyse the continuity of the civilisational history of India as a nation upto 18th century CE.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T12.L5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T13",
+   "serial": 13,
+   "part": 2,
+   "partNo": 4,
+   "discipline": "history",
+   "hours": 8,
+   "pdfPages": [
+    12,
+    13
+   ],
+   "title": {
+    "en": "India and the World-I (1900 BCE-1200 CE)",
+    "hi": "भारत और विश्व–I (1900 ई.पू.–1200 ई.)",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C1.2",
+    "C1.4",
+    "C6.1",
+    "C2.3",
+    "C9.1"
+   ],
+   "learningObjects": [
+    {
+     "id": "T13.L1",
+     "en": "Time-filtered trade routes with port and commodity cards",
+     "modality": "map",
+     "engine": "trade-routes",
+     "status": "planned"
+    },
+    {
+     "id": "T13.L2",
+     "en": "Cultural exchange map and idea-tracing activity",
+     "modality": "map",
+     "engine": "exchange-map",
+     "status": "planned"
+    },
+    {
+     "id": "T13.L3",
+     "en": "Indian Knowledge Systems gallery (source wording preserved)",
+     "modality": "inquiry",
+     "engine": "gallery",
+     "status": "planned"
+    },
+    {
+     "id": "T13.L4",
+     "en": "Artefact provenance activity",
+     "modality": "evidence",
+     "engine": "artefact-viewer",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T13.C1",
+     "kind": "concept",
+     "text": "Trade and commerce — trade with Mesopotamia, Greece, Roman Empire, China and Southeast Asia",
+     "display": "Trade and commerce — trade with Mesopotamia, Greece, Roman Empire, China and Southeast Asia",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T13.L1",
+      "T13.L4"
+     ]
+    },
+    {
+     "id": "T13.C2",
+     "kind": "concept",
+     "text": "Cultural Connections — Interactions with Greece and Rome, Central Asia, China, and Influence on South East Asia",
+     "display": "Cultural Connections — Interactions with Greece and Rome, Central Asia, China, and Influence on South East Asia",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T13.L2"
+     ]
+    },
+    {
+     "id": "T13.C3",
+     "kind": "concept",
+     "text": "Indian Knowledge Systems — Medicine, Mathematics and Astronomy, Medicine, Religion",
+     "display": "Indian Knowledge Systems — Medicine, Mathematics and Astronomy, Medicine, Religion",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T13.L3"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T13.O1",
+     "kind": "outcome",
+     "text": "Explore India’s relations with early civilisations of the world.",
+     "display": "Explore India’s relations with early civilisations of the world.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T13.L1",
+      "T13.L2"
+     ]
+    },
+    {
+     "id": "T13.O2",
+     "kind": "outcome",
+     "text": "Identify the major articles of trade and the major trading ports.",
+     "display": "Identify the major articles of trade and the major trading ports.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T13.L1"
+     ]
+    },
+    {
+     "id": "T13.O3",
+     "kind": "outcome",
+     "text": "Appreciate the significant contributions of India in diverse spheres in an integrated manner.",
+     "display": "Appreciate the significant contributions of India in diverse spheres in an integrated manner.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T13.L3"
+     ]
+    },
+    {
+     "id": "T13.O4",
+     "kind": "outcome",
+     "text": "Appreciate the influence of Indian religion and culture, particularly in Southeast Asia.",
+     "display": "Appreciate the influence of Indian religion and culture, particularly in Southeast Asia.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 12,
+     "loIds": [
+      "T13.L2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T14",
+   "serial": 14,
+   "part": 2,
+   "partNo": 5,
+   "discipline": "political-science",
+   "hours": 10,
+   "pdfPages": [
+    13
+   ],
+   "title": {
+    "en": "Authority",
+    "hi": "प्राधिकार",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C5.1",
+    "C5.2",
+    "C5.3"
+   ],
+   "learningObjects": [
+    {
+     "id": "T14.L1",
+     "en": "Sourced text explorer: Kautilya and Shukraniti",
+     "modality": "evidence",
+     "engine": "source-room",
+     "status": "planned"
+    },
+    {
+     "id": "T14.L2",
+     "en": "Authority, legitimacy, law, justice, security, citizen concept map",
+     "modality": "diagram",
+     "engine": "concept-map",
+     "status": "planned"
+    },
+    {
+     "id": "T14.L3",
+     "en": "Historical-to-constitutional timeline",
+     "modality": "timeline",
+     "engine": "timeline",
+     "status": "planned"
+    },
+    {
+     "id": "T14.L4",
+     "en": "Authority-type comparison (functional, sensitive, welfare-oriented)",
+     "modality": "inquiry",
+     "engine": "type-compare",
+     "status": "planned"
+    },
+    {
+     "id": "T14.L5",
+     "en": "Fictional public-service decision and citizen-to-institution workflow",
+     "modality": "scenario",
+     "engine": "civic-scenario",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T14.C1",
+     "kind": "concept",
+     "text": "The Roots of Authority: in Kautilya and shukraniti- danda and relationship with nyaya and bala; the types of nyaya and bala",
+     "display": "The Roots of Authority: in Kautilya and shukraniti- danda and relationship with nyaya and bala; the types of nyaya and bala",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L1",
+      "T14.L2"
+     ]
+    },
+    {
+     "id": "T14.C2",
+     "kind": "concept",
+     "text": "Constitutional status of justice and security since ancient times",
+     "display": "Constitutional status of justice and security since ancient times",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L3"
+     ]
+    },
+    {
+     "id": "T14.C3",
+     "kind": "concept",
+     "text": "Links the role of citizens with the elections and the democratic institutions",
+     "display": "Links the role of citizens with the elections and the democratic institutions",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L5"
+     ]
+    },
+    {
+     "id": "T14.C4",
+     "kind": "concept",
+     "text": "Types of authority — functional, sensitive, and welfare-oriented",
+     "display": "Types of authority — functional, sensitive, and welfare-oriented",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L4"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T14.O1",
+     "kind": "outcome",
+     "text": "Explain the roots of authority in Indian political thought.",
+     "display": "Explain the roots of authority in Indian political thought.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L1"
+     ]
+    },
+    {
+     "id": "T14.O2",
+     "kind": "outcome",
+     "text": "Interpret the relationship between Danda (discipline/ force) and Nyaya (justice) as the twin foundations of authority, development, and security.",
+     "display": "Interpret the relationship between Danda (discipline/ force) and Nyaya (justice) as the twin foundations of authority, development, and security.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L1",
+      "T14.L2"
+     ]
+    },
+    {
+     "id": "T14.O3",
+     "kind": "outcome",
+     "text": "Trace the evolution of authority structures in India.",
+     "display": "Trace the evolution of authority structures in India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L3"
+     ]
+    },
+    {
+     "id": "T14.O4",
+     "kind": "outcome",
+     "text": "Understand the post- independence concept of justice and security.",
+     "display": "Understand the post- independence concept of justice and security.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L3"
+     ]
+    },
+    {
+     "id": "T14.O5",
+     "kind": "outcome",
+     "text": "Illustrate types of authority.",
+     "display": "Illustrate types of authority.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L4"
+     ]
+    },
+    {
+     "id": "T14.O6",
+     "kind": "outcome",
+     "text": "Develop an understanding of citizen discipline, justice, and strength.",
+     "display": "Develop an understanding of citizen discipline, justice, and strength.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L5"
+     ]
+    },
+    {
+     "id": "T14.O7",
+     "kind": "outcome",
+     "text": "Illustrate the role of citizens in authority.",
+     "display": "Illustrate the role of citizens in authority.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T14.L5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T15",
+   "serial": 15,
+   "part": 2,
+   "partNo": 6,
+   "discipline": "economics",
+   "hours": 8,
+   "pdfPages": [
+    13
+   ],
+   "title": {
+    "en": "From Ideas to Startups",
+    "hi": "विचार से स्टार्टअप तक",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "C7.3"
+   ],
+   "learningObjects": [
+    {
+     "id": "T15.L1",
+     "en": "Idea-to-enterprise journey and business-plan builder",
+     "modality": "scenario",
+     "engine": "plan-builder",
+     "status": "planned"
+    },
+    {
+     "id": "T15.L2",
+     "en": "Business resource board and unit-economics lab",
+     "modality": "sandbox",
+     "engine": "startup-lab",
+     "status": "planned"
+    },
+    {
+     "id": "T15.L3",
+     "en": "Startup ecosystem map and MSME / unorganised-sector case gallery (sourced)",
+     "modality": "map",
+     "engine": "ecosystem-map",
+     "status": "planned"
+    },
+    {
+     "id": "T15.L4",
+     "en": "Creative-destruction comparison scenario",
+     "modality": "scenario",
+     "engine": "creative-destruction",
+     "status": "planned"
+    },
+    {
+     "id": "T15.L5",
+     "en": "Profit/loss calculator and simple accounting visual",
+     "modality": "calculator",
+     "engine": "accounting",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T15.C1",
+     "kind": "concept",
+     "text": "What is entrepreneurship and explain the resources required to start a business",
+     "display": "What is entrepreneurship and explain the resources required to start a business",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L1",
+      "T15.L2"
+     ]
+    },
+    {
+     "id": "T15.C2",
+     "kind": "concept",
+     "text": "Case studies of successful entrepreneurs",
+     "display": "Case studies of successful entrepreneurs",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L3"
+     ]
+    },
+    {
+     "id": "T15.C3",
+     "kind": "concept",
+     "text": "Creative destruction with examples",
+     "display": "Creative destruction with examples",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L4"
+     ]
+    },
+    {
+     "id": "T15.C4",
+     "kind": "concept",
+     "text": "Start-up ecosystem in India.",
+     "display": "Start-up ecosystem in India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L3"
+     ]
+    },
+    {
+     "id": "T15.C5",
+     "kind": "concept",
+     "text": "Make in India initiative, role of MSMEs and the unorganised sector in India’s economic growth.",
+     "display": "Make in India initiative, role of MSMEs and the unorganised sector in India’s economic growth.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L3"
+     ]
+    },
+    {
+     "id": "T15.C6",
+     "kind": "concept",
+     "text": "Stages of starting and executing a business idea through a business plan",
+     "display": "Stages of starting and executing a business idea through a business plan",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L1"
+     ]
+    },
+    {
+     "id": "T15.C7",
+     "kind": "concept",
+     "text": "Some basic accounting concepts",
+     "display": "Some basic accounting concepts",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T15.O1",
+     "kind": "outcome",
+     "text": "Define entrepreneurship and explain its importance in innovation, job creation, and economic growth.",
+     "display": "Define entrepreneurship and explain its importance in innovation, job creation, and economic growth.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L1"
+     ]
+    },
+    {
+     "id": "T15.O2",
+     "kind": "outcome",
+     "text": "Understand the key resources for business.",
+     "display": "Understand the key resources for business.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L2"
+     ]
+    },
+    {
+     "id": "T15.O3",
+     "kind": "outcome",
+     "text": "Explain how resources are managed to produce goods and services.",
+     "display": "Explain how resources are managed to produce goods and services.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L2"
+     ]
+    },
+    {
+     "id": "T15.O4",
+     "kind": "outcome",
+     "text": "Analyse real-world examples of successful entrepreneurs.",
+     "display": "Analyse real-world examples of successful entrepreneurs.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L3"
+     ]
+    },
+    {
+     "id": "T15.O5",
+     "kind": "outcome",
+     "text": "Describe the features of India’s start-up ecosystem and initiatives like Make in India, Startup India, and Digital India.",
+     "display": "Describe the features of India’s start-up ecosystem and initiatives like Make in India, Startup India, and Digital India.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L3"
+     ]
+    },
+    {
+     "id": "T15.O6",
+     "kind": "outcome",
+     "text": "Recognise the role of Micro, Small, and Medium Enterprises (MSMEs) and the unorganised sector in promoting employment, innovation, and inclusive growth.",
+     "display": "Recognise the role of Micro, Small, and Medium Enterprises (MSMEs) and the unorganised sector in promoting employment, innovation, and inclusive growth.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L3"
+     ]
+    },
+    {
+     "id": "T15.O7",
+     "kind": "outcome",
+     "text": "Identify and explain the stages of starting a business from developing an idea to creating and executing a business plan.",
+     "display": "Identify and explain the stages of starting a business from developing an idea to creating and executing a business plan.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L1"
+     ]
+    },
+    {
+     "id": "T15.O8",
+     "kind": "outcome",
+     "text": "Understand simple profit and loss.",
+     "display": "Understand simple profit and loss.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L5"
+     ]
+    },
+    {
+     "id": "T15.O9",
+     "kind": "outcome",
+     "text": "Identify the key components of a balance.",
+     "display": "Identify the key components of a balance.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 13,
+     "loIds": [
+      "T15.L5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T16",
+   "serial": 16,
+   "part": 2,
+   "partNo": 7,
+   "discipline": "economics",
+   "hours": 6,
+   "pdfPages": [
+    14
+   ],
+   "title": {
+    "en": "Smart Ways to Manage Your Finances",
+    "hi": "अपने वित्त का स्मार्ट प्रबंधन",
+    "hiStatus": "draft-needs-teacher-review"
+   },
+   "competencies": [
+    "CG8"
+   ],
+   "learningObjects": [
+    {
+     "id": "T16.L1",
+     "en": "Monthly budget lab: income, needs, wants, savings",
+     "modality": "calculator",
+     "engine": "budget-lab",
+     "status": "planned"
+    },
+    {
+     "id": "T16.L2",
+     "en": "Inflation basket and purchasing-power comparison",
+     "modality": "calculator",
+     "engine": "inflation",
+     "status": "planned"
+    },
+    {
+     "id": "T16.L3",
+     "en": "Simple vs compound interest curves",
+     "modality": "graph",
+     "engine": "interest",
+     "status": "planned"
+    },
+    {
+     "id": "T16.L4",
+     "en": "Instruments, risk-return and insurance-pooling scenarios (hypothetical)",
+     "modality": "scenario",
+     "engine": "risk-return",
+     "status": "planned"
+    },
+    {
+     "id": "T16.L5",
+     "en": "Income-tax concept flow (no rates unless dated and sourced)",
+     "modality": "diagram",
+     "engine": "tax-flow",
+     "status": "planned"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "T16.C1",
+     "kind": "concept",
+     "text": "Relevance of personal financial management in daily life",
+     "display": "Relevance of personal financial management in daily life",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L1"
+     ]
+    },
+    {
+     "id": "T16.C2",
+     "kind": "concept",
+     "text": "Inflation and its impact on purchasing power",
+     "display": "Inflation and its impact on purchasing power",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L2"
+     ]
+    },
+    {
+     "id": "T16.C3",
+     "kind": "concept",
+     "text": "Simple vs. compound interest rate",
+     "display": "Simple vs. compound interest rate",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L3"
+     ]
+    },
+    {
+     "id": "T16.C4",
+     "kind": "concept",
+     "text": "Budgeting",
+     "display": "Budgeting",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L1"
+     ]
+    },
+    {
+     "id": "T16.C5",
+     "kind": "concept",
+     "text": "Various savings and investment options like fixed deposit, stocks, bonds, mutual funds, etc.",
+     "display": "Various savings and investment options like fixed deposit, stocks, bonds, mutual funds, etc.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L4"
+     ]
+    },
+    {
+     "id": "T16.C6",
+     "kind": "concept",
+     "text": "Risk and insurance",
+     "display": "Risk and insurance",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L4"
+     ]
+    },
+    {
+     "id": "T16.C7",
+     "kind": "concept",
+     "text": "Personal income tax",
+     "display": "Personal income tax",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L5"
+     ]
+    }
+   ],
+   "outcomes": [
+    {
+     "id": "T16.O1",
+     "kind": "outcome",
+     "text": "Explain what personal financial management means and why it is essential in everyday life.",
+     "display": "Explain what personal financial management means and why it is essential in everyday life.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L1"
+     ]
+    },
+    {
+     "id": "T16.O2",
+     "kind": "outcome",
+     "text": "Recognise how managing income, spending, saving, and investment helps achieve financial stability and long-term goals.",
+     "display": "Recognise how managing income, spending, saving, and investment helps achieve financial stability and long-term goals.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L1",
+      "T16.L2"
+     ]
+    },
+    {
+     "id": "T16.O3",
+     "kind": "outcome",
+     "text": "Explain the difference between simple interest and compound interest.",
+     "display": "Explain the difference between simple interest and compound interest.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L3"
+     ]
+    },
+    {
+     "id": "T16.O4",
+     "kind": "outcome",
+     "text": "Prepare a simple personal or family budget showing income, expenditure, and savings.",
+     "display": "Prepare a simple personal or family budget showing income, expenditure, and savings.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L1"
+     ]
+    },
+    {
+     "id": "T16.O5",
+     "kind": "outcome",
+     "text": "Identify various savings and investment instruments.",
+     "display": "Identify various savings and investment instruments.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L4"
+     ]
+    },
+    {
+     "id": "T16.O6",
+     "kind": "outcome",
+     "text": "Understand the relationship between risk and return in different investment types.",
+     "display": "Understand the relationship between risk and return in different investment types.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L4"
+     ]
+    },
+    {
+     "id": "T16.O7",
+     "kind": "outcome",
+     "text": "Understand the concept of income tax and why citizens are required to pay it.",
+     "display": "Understand the concept of income tax and why citizens are required to pay it.",
+     "hi": null,
+     "source": "pdf",
+     "pdfPage": 14,
+     "loIds": [
+      "T16.L5"
+     ]
+    }
+   ]
+  }
+ ]
+}
