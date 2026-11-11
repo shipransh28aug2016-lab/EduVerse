@@ -5,10 +5,10 @@
   "type": "module",
   "description": "CBSE Class IX Social Science (087, 2026-27) bilingual immersive visualiser. Static ES modules, no bundler, no backend.",
   "scripts": {
-    "curriculum": "node tools/build-curriculum.mjs",
     "test": "node --test tests/*.test.mjs",
-    "serve": "node tools/serve.mjs",
-    "e2e": "python3 tests/e2e.py",
-    "verify": "npm run curriculum && npm test && npm run e2e && npm run curriculum"
+    "smoke": "node tests/lab-smoke.cjs T01 T02 T03 T04 T05 T06 T07 T08 T09 T10 T11 T12 T13 T14 T15 T16",
+    "a11y": "node tests/a11y-smoke.cjs T02 T03 T06 T07 T08 T09 T10 T11 T13 T15 T16",
+    "catalog": "node tools/build-catalog.mjs",
+    "sw": "node tools/build-sw.mjs"
   }
 }

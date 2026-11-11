@@ -1,25 +1,73 @@
 # Implementation audit
-**Starting point:** the EduVerse repository held only a README. The build is greenfield. Patterns were reused from the author's related repos (geovisulab: bilingual dictionary and Earth-interior idea; cbse-economics-simulator: i18n engine and curriculum test approach; Virtualsciencelab).
 
-## Reference images → mechanisms
-| Reference | Mechanism built |
-|---|---|
-| Plate-boundary 3D cutaway | `plate-3d.js` (extruded sections, arrows, labels) fed by the same `profile()` as the 2D SVG |
-| Election map game | `politics/models.js` electoral-systems comparison on one fictional vote set |
-| Interactive supply/demand graph | `economics/models.js` + `engines/chart.js`, draggable-price market with ghost curves |
-| Harappan street | planned (T04.L4 city planner, labelled reconstruction); not built |
+Audit date: 2026-11-11. Scope: the code in this repository at `main` (merge of PR #3) and the changes made on top of it in this work.
 
-## Architecture
-Pure, unit-tested models; thin UI modules; shared `predict()` / `mcq()` (answers computed from the model); one i18n layer with three modes where switching re-labels without resetting state; lazy `import()` per theme; hash routing with relative URLs.
+## 1. What was found
 
-## Verification
-41 unit tests (models, curriculum-to-PDF trace, UI string completeness in both languages) and 45 browser checks (all 16 routes, language switch preserving state, reset, keyboard tabs, 3D render and orbit, `?nowebgl`, low graphics, mobile 375 px no overflow, reload persistence, no console errors).
+| Finding | Evidence | Action |
+|---|---|---|
+| Files had been uploaded flat into the repository root; the browser got 404s | `git ls-files` at `afe6eea` | Restored the folder structure from the files' own `import`/`fetch` paths (PR #2, #3) |
+| Files that exist only in the author's working copy were missing: `geography/models.js`, `history/models.js`, `economics/models.js`, `economics/content.js` (same-named files overwrote each other in the flat upload) | `node` import check: 7 unresolved imports | **Re-created** from how the UI uses them (see §4: these are reconstructions, not the originals) |
+| `curriculum.json` at the root, `vendor/three/` absent | 404 on `src/curriculum/curriculum.json`, `vendor/three/three.module.min.js` | Moved; vendored three.js r170 (MIT) from npm |
+| `tools/` and `tests/` directories absent, although `README.md` and `package.json` describe 41 unit tests and 45 browser checks | no such files in the repository | Cannot be verified. New tests written (§5); the old claims in this document were removed |
+| `main.js` appended the literal text `null` to every theme page that has no teacher notes or limits | rendered text `nullnull` on T03, T06, T13 | Fixed (`filter(Boolean)`) |
+| Chip control initialised with a number while its option ids were strings (T10 tides: no chip selected on load) | found by the new lab test suite | Fixed |
+| Pre-existing, not changed: Hindi text is draft everywhere; Hindi plate names only for 8 major plates; 3D labels can overlap at some angles | earlier audit, README | Still open |
 
-## Known gaps and risks
-- 12 of 16 themes are placeholders; the Part 1 and Part 2 coverage in the audit shows exactly which syllabus bullets are unmapped to a built lab.
-- Hindi is draft everywhere; Hindi plate names exist only for the 8 major plates.
-- 3D label overlap is possible at some camera angles (mantle label vs sinking-plate label).
-- Boundary-type overlay on the world plate map is not built (no suitable dataset bundled).
-- Headless Chrome used software WebGL; real-device GPU behaviour is untested.
-- Indo-Australian plate grouping needs teacher review.
-- Source oddities D1 to D10 are recorded in `docs/CURRICULUM_COVERAGE_AUDIT.md`.
+## 2. Architecture (as of this work)
+
+```
+index.html → src/main.js (router, curriculum, language, status)
+  src/core            store (persisted state), i18n (3 language modes), dom helpers
+  src/components      widgets (slider, chips, tabs, predict, mcq)   lab-kit (declarative lab runner, NEW)
+  src/engines         chart (SVG), three-scene + webgl (lazy 3D)    xr (capability detection, NEW)
+  src/engines/domain  12 pure, DOM-free domain engines (NEW)
+  src/modules         per-discipline: models (pure) + UI + lab specs, loaded lazily through registry.js
+  data/, vendor/three, docs/, tests/, tools/
+```
+
+Reused unchanged: routing, store, i18n, widgets, chart, the 3D scene, `T02` plate map / boundary explorer / interior, `T04` deep-time clock, `T07` electoral-systems sandbox, `T09` Price Puzzle. `T02` and `T07` are now wrapped by composite modules (`geography/earth.js`, `politics/elections-plus.js`) that mount the original module first and add the new labs below it.
+
+## 3. Status after this work
+
+27 of 78 learning objects are implemented (12 before), covering 12 of 16 themes. Source of truth: `docs/CURRICULUM_COVERAGE.json` and `docs/SIMULATION_CATALOG.json`, generated by `node tools/build-catalog.mjs`.
+
+| Theme | Implemented | Engine | Not built |
+|---|---|---|---|
+| T02 Shaping of the Earth | L1, L2, L3 (existing), **L4** | tectonics, terrain | L5 3D landform gallery, L6 hazard lab |
+| T03 Atmosphere and Climate | **L1, L4** | atmosphere | L2 climate grapher, L3 monsoon map, L5 catchment, L6 carbon footprint |
+| T04 Early Humans | L1, L2 (existing) | timeline | L3–L5 |
+| T06 Democracy | **L3** | institutions | L1, L2, L4 |
+| T07 Elections | L2 (existing), **L4** | election | L1, L3 |
+| T08 Building Blocks | **L2** | market | L1, L3, L4, L5 |
+| T09 Price Puzzle | L1–L6 (existing) | market | none |
+| T10 Oceans and Life | **L2, L4** | ocean | L1 3D relief, L3 fisheries, L5 |
+| T11 Life on Earth | **L3** (+ food-web lab) | ecosystem | L1, L2, L4, L5 |
+| T13 India and the World-I | **L1** | tradeRoutes | L2–L4 |
+| T15 From Ideas to Startups | **L2, L5** | startup | L1, L3, L4 |
+| T16 Smart Ways to Manage Finances | **L1, L2, L3** | finance | L4, L5 |
+| T01, T05, T12, T14 | none | — | all |
+
+Engine coverage against the brief's twelve: all twelve exist and are unit-tested. Engines whose UI is thin or absent: **historical timeline reconstructed environments** (only the existing deep-time clock; no reconstructed 3D environment such as the Harappan street), **terrain** (2-D profile only, no 3D landform gallery).
+
+## 4. Reconstructed files: what to check
+
+`geography/models.js`, `history/models.js`, `economics/models.js`, `economics/content.js` were rebuilt, not recovered. Specific choices that may differ from the originals and should be compared if the originals turn up:
+
+- Economics: demand/supply slopes per scenario, shift limits, the black-market price rule, public-good items and their rationale text, three exit-ticket questions, teacher notes.
+- History: period boundaries (Mesolithic 12,000–8,000 ya, Neolithic 8,000–4,600 ya, mature Harappan 4,600–3,900 ya) and the three milestones.
+- Geography: thresholds at which trench, arc, uplift, ridge and stress appear.
+
+## 5. Verification performed
+
+- `node --test tests/*.test.mjs`: 23 tests (engines: physics and economics identities, conservation, boundary cases; labs: structure, Hindi presence for every English string, numeric safety at every control extreme, prediction/exit-ticket integrity, XR detection).
+- `node tests/lab-smoke.cjs T01 … T16` (Chromium via Playwright): drives every slider, chip, prediction and exit option on every tab, cycles the three languages, and fails on console errors, failed requests, unresolved i18n keys, `NaN`/`undefined`/`Infinity` and horizontal overflow. Run at 1100 px and 360 px (touch). See `TEST_REPORT.md`.
+
+## 6. Known gaps and risks
+
+- 51 of 78 learning objects remain planned. Themes T01, T05, T12, T14 have no lab.
+- All Hindi is draft and has not been reviewed by a subject teacher; Hindi for the new labs was written for this work and is unreviewed.
+- Historical route data (`tradeRoutes.js`) is approximate and schematic; dates and cities should be checked against the textbook before classroom use.
+- No test on a physical Android device, no frame-rate measurement on a GPU, no WebXR session test (no headset). See `PERFORMANCE_AUDIT.md`.
+- "Improved student comprehension" has not been measured; that needs a classroom pilot (protocol in `INTEGRATION_ARCHITECTURE.md` §9).
+- Source oddities D1–D10 are recorded in `docs/CURRICULUM_COVERAGE_AUDIT.md`.

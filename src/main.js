@@ -95,4 +95,6 @@ async function themePage(id) {
     modSlot.append(h('div', { class: 'planned-box' }, h('h2', { 'data-k': 'th.planned.h' }, t('th.planned.h')), h('p', { 'data-k': 'th.planned.p' }, t('th.planned.p'))));
   }
 }
+// Offline / slow-network support: cache the app after the first visit (skipped on file:// and when unsupported).
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 boot().catch((e) => { console.error(e); root.textContent = 'Failed to start: ' + e.message; });
