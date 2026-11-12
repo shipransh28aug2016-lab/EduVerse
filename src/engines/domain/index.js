@@ -11,3 +11,5 @@ export * as election from './election.js';
 export * as market from './market.js';
 export * as startup from './startup.js';
 export * as finance from './finance.js';
+export * as history from './history.js';
+export * as society from './society.js';

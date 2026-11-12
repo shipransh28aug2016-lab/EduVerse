@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440">
+    <defs>
+      <linearGradient id="goldsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1e4d6b"/><stop offset="50%" stop-color="#d67d3e"/><stop offset="100%" stop-color="#fbd38d"/></linearGradient>
+    </defs>
+    <rect width="840" height="290" fill="url(#goldsky)"/>
+    <circle cx="420" cy="210" r="58" fill="#fff2c2" opacity=".9"/>
+    <rect y="285" width="840" height="155" fill="#155b75"/>
+    <ellipse cx="420" cy="325" rx="180" ry="18" fill="#ffd88a" opacity=".35"/>
+    <path d="M0,265 Q80,230 160,265 L160,295 L0,295 Z" fill="#283d27"/>
+    <path d="M250,285 L395,285 L370,318 L275,318 Z" fill="#543018"/>
+    <path d="M315,175 L315,285 L405,260 Z" fill="#fdf0d5" opacity=".94"/>
+    <path d="M310,205 L310,285 L258,265 Z" fill="#f4dec0" opacity=".9"/>
+    <path d="M535,292 L645,292 L625,318 L552,318 Z" fill="#4b2b15"/>
+    <path d="M585,205 L585,292 L650,270 Z" fill="#f8e8c8" opacity=".92"/>
+    <path d="M0,360 Q210,340 420,360 T840,360 L840,440 L0,440 Z" fill="#0e3e52" opacity=".65"/>
+  </svg>

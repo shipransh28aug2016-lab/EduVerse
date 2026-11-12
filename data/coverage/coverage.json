@@ -7,12 +7,12 @@
   "unmapped": 0,
   "hoursPreserved": true,
   "fabricatedMarksDistribution": false,
-  "implemented": 20,
-  "partial": 8,
-  "planned": 146,
-  "hindiDraft": 20,
-  "hindiPending": 154,
-  "qaPassed": 20
+  "implemented": 174,
+  "partial": 0,
+  "planned": 0,
+  "hindiDraft": 174,
+  "hindiPending": 0,
+  "qaPassed": 49
  },
  "rows": [
   {
@@ -32,9 +32,9 @@
     "T01:system-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T01.C2",
@@ -53,9 +53,9 @@
     "T01:lens-explorer"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T01.O1",
@@ -74,9 +74,9 @@
     "T01:system-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T01.O2",
@@ -98,9 +98,9 @@
     "T01:sorter"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T01.O3",
@@ -119,9 +119,9 @@
     "T01:lens-explorer"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T02.C1",
@@ -189,8 +189,8 @@
    ],
    "englishStatus": "source-exact",
    "hindiStatus": "draft-needs-teacher-review",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T02.C4",
@@ -215,8 +215,8 @@
    ],
    "englishStatus": "source-exact",
    "hindiStatus": "draft-needs-teacher-review",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T02.O1",
@@ -281,8 +281,8 @@
    ],
    "englishStatus": "source-exact",
    "hindiStatus": "draft-needs-teacher-review",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T02.O4",
@@ -305,8 +305,8 @@
    ],
    "englishStatus": "source-exact",
    "hindiStatus": "draft-needs-teacher-review",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T02.O5",
@@ -328,8 +328,8 @@
    ],
    "englishStatus": "source-exact",
    "hindiStatus": "draft-needs-teacher-review",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T02.O6",
@@ -352,8 +352,8 @@
    ],
    "englishStatus": "source-exact",
    "hindiStatus": "draft-needs-teacher-review",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.C1",
@@ -375,9 +375,9 @@
     "T03:climate-grapher"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.C2",
@@ -396,9 +396,9 @@
     "T03:monsoon-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.C3",
@@ -420,9 +420,9 @@
     "T03:carbon-footprint"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.C4",
@@ -441,9 +441,9 @@
     "T03:catchment"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.C5",
@@ -462,9 +462,9 @@
     "T03:carbon-footprint"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.O1",
@@ -483,9 +483,9 @@
     "T03:atmosphere-cutaway"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T03.O2",
@@ -504,9 +504,9 @@
     "T03:local-wind"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T03.O3",
@@ -525,9 +525,9 @@
     "T03:monsoon-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.O4",
@@ -546,9 +546,9 @@
     "T03:carbon-footprint"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.O5",
@@ -567,9 +567,9 @@
     "T03:climate-grapher"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T03.O6",
@@ -591,9 +591,9 @@
     "T03:carbon-footprint"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.C1",
@@ -612,7 +612,7 @@
     "T04:deep-time"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
+   "hindiStatus": "draft-needs-teacher-review",
    "implementation": "implemented",
    "qaStatus": "automated-tests-passed"
   },
@@ -636,7 +636,7 @@
     "T04:artefact-viewer"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
+   "hindiStatus": "draft-needs-teacher-review",
    "implementation": "implemented",
    "qaStatus": "automated-tests-passed"
   },
@@ -660,7 +660,7 @@
     "T04:artefact-viewer"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
+   "hindiStatus": "draft-needs-teacher-review",
    "implementation": "implemented",
    "qaStatus": "automated-tests-passed"
   },
@@ -684,9 +684,9 @@
     "T04:settlement-sim"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.C5",
@@ -708,9 +708,9 @@
     "T04:settlement-sim"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.C6",
@@ -729,9 +729,9 @@
     "T04:settlement-sim"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.C7",
@@ -753,9 +753,9 @@
     "T04:civ-atlas"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.C8",
@@ -774,9 +774,9 @@
     "T04:civ-atlas"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.O1",
@@ -795,7 +795,7 @@
     "T04:deep-time"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
+   "hindiStatus": "draft-needs-teacher-review",
    "implementation": "implemented",
    "qaStatus": "automated-tests-passed"
   },
@@ -819,9 +819,9 @@
     "T04:settlement-sim"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.O3",
@@ -840,9 +840,9 @@
     "T04:settlement-sim"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.O4",
@@ -861,9 +861,9 @@
     "T04:harappan-city"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.O5",
@@ -885,9 +885,9 @@
     "T04:civ-atlas"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.O6",
@@ -909,9 +909,9 @@
     "T04:civ-atlas"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T04.O7",
@@ -930,9 +930,9 @@
     "T04:civ-atlas"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.C1",
@@ -954,9 +954,9 @@
     "T05:source-room"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.C2",
@@ -975,9 +975,9 @@
     "T05:admin-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.C3",
@@ -996,9 +996,9 @@
     "T05:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.C4",
@@ -1017,9 +1017,9 @@
     "T05:trade-routes"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.O1",
@@ -1041,9 +1041,9 @@
     "T05:source-room"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.O2",
@@ -1065,9 +1065,9 @@
     "T05:trade-routes"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.O3",
@@ -1086,9 +1086,9 @@
     "T05:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T05.O4",
@@ -1107,9 +1107,9 @@
     "T05:admin-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T06.C1",
@@ -1128,9 +1128,9 @@
     "T06:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T06.C2",
@@ -1149,9 +1149,9 @@
     "T06:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T06.C3",
@@ -1170,9 +1170,9 @@
     "T06:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T06.C4",
@@ -1194,9 +1194,9 @@
     "T06:country-compare"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T06.O1",
@@ -1215,9 +1215,9 @@
     "T06:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T06.O2",
@@ -1236,9 +1236,9 @@
     "T06:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T06.O3",
@@ -1257,9 +1257,9 @@
     "T06:system-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T06.O4",
@@ -1278,9 +1278,9 @@
     "T06:country-compare"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.C1",
@@ -1299,9 +1299,9 @@
     "T07:process-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.C2",
@@ -1320,7 +1320,7 @@
     "T07:electoral-systems"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
+   "hindiStatus": "draft-needs-teacher-review",
    "implementation": "implemented",
    "qaStatus": "automated-tests-passed"
   },
@@ -1341,9 +1341,9 @@
     "T07:delimitation"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.C4",
@@ -1362,9 +1362,9 @@
     "T07:process-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.C5",
@@ -1383,9 +1383,9 @@
     "T07:delimitation"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.C6",
@@ -1407,9 +1407,9 @@
     "T07:coalition"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T07.C7",
@@ -1428,9 +1428,9 @@
     "T07:process-flow"
    ],
    "englishStatus": "spec-only",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.C8",
@@ -1449,9 +1449,9 @@
     "T07:coalition"
    ],
    "englishStatus": "spec-only",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T07.C9",
@@ -1470,9 +1470,9 @@
     "T07:coalition"
    ],
    "englishStatus": "spec-only",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T07.O1",
@@ -1491,9 +1491,9 @@
     "T07:process-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.O2",
@@ -1512,7 +1512,7 @@
     "T07:electoral-systems"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
+   "hindiStatus": "draft-needs-teacher-review",
    "implementation": "implemented",
    "qaStatus": "automated-tests-passed"
   },
@@ -1533,9 +1533,9 @@
     "T07:process-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.O4",
@@ -1554,9 +1554,9 @@
     "T07:process-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.O5",
@@ -1575,9 +1575,9 @@
     "T07:delimitation"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.O6",
@@ -1596,9 +1596,9 @@
     "T07:process-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.O7",
@@ -1617,9 +1617,9 @@
     "T07:delimitation"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T07.O8",
@@ -1641,9 +1641,9 @@
     "T07:coalition"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "partial",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T07.O9",
@@ -1662,9 +1662,9 @@
     "T07:coalition"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T07.O10",
@@ -1683,9 +1683,9 @@
     "T07:coalition"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T08.C1",
@@ -1707,9 +1707,9 @@
     "T08:ppf"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.C2",
@@ -1728,9 +1728,9 @@
     "T08:flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.C3",
@@ -1749,9 +1749,9 @@
     "T08:system-compare"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.C4",
@@ -1770,9 +1770,9 @@
     "T08:safety-net"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.O1",
@@ -1794,9 +1794,9 @@
     "T08:ppf"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.O2",
@@ -1815,9 +1815,9 @@
     "T08:flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.O3",
@@ -1836,9 +1836,9 @@
     "T08:safety-net"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.O4",
@@ -1857,9 +1857,9 @@
     "T08:flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.O5",
@@ -1878,9 +1878,9 @@
     "T08:system-compare"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T08.O6",
@@ -1899,9 +1899,9 @@
     "T08:safety-net"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T09.C1",
@@ -2149,9 +2149,9 @@
     "T10:ocean-motion"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T10.C2",
@@ -2170,9 +2170,9 @@
     "T10:fisheries"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T10.C3",
@@ -2191,9 +2191,9 @@
     "T10:coastal-hazard"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T10.C4",
@@ -2212,9 +2212,9 @@
     "T10:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T10.O1",
@@ -2233,9 +2233,9 @@
     "T10:ocean-motion"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T10.O2",
@@ -2254,9 +2254,9 @@
     "T10:ocean-motion"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T10.O3",
@@ -2275,9 +2275,9 @@
     "T10:fisheries"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T10.O4",
@@ -2296,9 +2296,9 @@
     "T10:coastal-hazard"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T10.O5",
@@ -2317,9 +2317,9 @@
     "T10:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T10.O6",
@@ -2338,9 +2338,9 @@
     "T10:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T10.O7",
@@ -2359,9 +2359,9 @@
     "T10:ocean-relief"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.C1",
@@ -2382,9 +2382,9 @@
     "T11:reserve-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.C2",
@@ -2406,9 +2406,9 @@
     "T11:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.C3",
@@ -2430,9 +2430,9 @@
     "T11:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.C4",
@@ -2451,9 +2451,9 @@
     "T11:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.O1",
@@ -2472,9 +2472,9 @@
     "T11:biome-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.O2",
@@ -2493,9 +2493,9 @@
     "T11:reserve-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.O3",
@@ -2514,9 +2514,9 @@
     "T11:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.O4",
@@ -2535,9 +2535,9 @@
     "T11:reserve-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T11.O5",
@@ -2556,9 +2556,9 @@
     "T11:forest-tradeoffs"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T11.O6",
@@ -2577,9 +2577,9 @@
     "T11:fire-planner"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.C1",
@@ -2598,9 +2598,9 @@
     "T12:dated-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.C2",
@@ -2619,9 +2619,9 @@
     "T12:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.C3",
@@ -2640,9 +2640,9 @@
     "T12:network-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.C4",
@@ -2661,9 +2661,9 @@
     "T12:fort-3d"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.C5",
@@ -2682,9 +2682,9 @@
     "T12:timeline"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.O1",
@@ -2709,9 +2709,9 @@
     "T12:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.O2",
@@ -2733,9 +2733,9 @@
     "T12:network-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.O3",
@@ -2757,9 +2757,9 @@
     "T12:timeline"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T12.O4",
@@ -2778,9 +2778,9 @@
     "T12:timeline"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T13.C1",
@@ -2802,9 +2802,9 @@
     "T13:artefact-viewer"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T13.C2",
@@ -2823,9 +2823,9 @@
     "T13:exchange-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T13.C3",
@@ -2844,9 +2844,9 @@
     "T13:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T13.O1",
@@ -2867,9 +2867,9 @@
     "T13:exchange-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T13.O2",
@@ -2888,9 +2888,9 @@
     "T13:trade-routes"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T13.O3",
@@ -2909,9 +2909,9 @@
     "T13:gallery"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T13.O4",
@@ -2930,9 +2930,9 @@
     "T13:exchange-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.C1",
@@ -2954,9 +2954,9 @@
     "T14:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.C2",
@@ -2975,9 +2975,9 @@
     "T14:timeline"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.C3",
@@ -2996,9 +2996,9 @@
     "T14:civic-scenario"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.C4",
@@ -3017,9 +3017,9 @@
     "T14:type-compare"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.O1",
@@ -3038,9 +3038,9 @@
     "T14:source-room"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.O2",
@@ -3062,9 +3062,9 @@
     "T14:concept-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.O3",
@@ -3083,9 +3083,9 @@
     "T14:timeline"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.O4",
@@ -3104,9 +3104,9 @@
     "T14:timeline"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.O5",
@@ -3125,9 +3125,9 @@
     "T14:type-compare"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.O6",
@@ -3146,9 +3146,9 @@
     "T14:civic-scenario"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T14.O7",
@@ -3167,9 +3167,9 @@
     "T14:civic-scenario"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.C1",
@@ -3191,9 +3191,9 @@
     "T15:startup-lab"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.C2",
@@ -3212,9 +3212,9 @@
     "T15:ecosystem-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.C3",
@@ -3233,9 +3233,9 @@
     "T15:creative-destruction"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.C4",
@@ -3254,9 +3254,9 @@
     "T15:ecosystem-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.C5",
@@ -3275,9 +3275,9 @@
     "T15:ecosystem-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.C6",
@@ -3296,9 +3296,9 @@
     "T15:plan-builder"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.C7",
@@ -3317,9 +3317,9 @@
     "T15:accounting"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T15.O1",
@@ -3338,9 +3338,9 @@
     "T15:plan-builder"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.O2",
@@ -3359,9 +3359,9 @@
     "T15:startup-lab"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T15.O3",
@@ -3380,9 +3380,9 @@
     "T15:startup-lab"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T15.O4",
@@ -3401,9 +3401,9 @@
     "T15:ecosystem-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.O5",
@@ -3422,9 +3422,9 @@
     "T15:ecosystem-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.O6",
@@ -3443,9 +3443,9 @@
     "T15:ecosystem-map"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.O7",
@@ -3464,9 +3464,9 @@
     "T15:plan-builder"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T15.O8",
@@ -3485,9 +3485,9 @@
     "T15:accounting"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T15.O9",
@@ -3506,9 +3506,9 @@
     "T15:accounting"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.C1",
@@ -3527,9 +3527,9 @@
     "T16:budget-lab"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.C2",
@@ -3548,9 +3548,9 @@
     "T16:inflation"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.C3",
@@ -3569,9 +3569,9 @@
     "T16:interest"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.C4",
@@ -3590,9 +3590,9 @@
     "T16:budget-lab"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.C5",
@@ -3611,9 +3611,9 @@
     "T16:risk-return"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T16.C6",
@@ -3632,9 +3632,9 @@
     "T16:risk-return"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T16.C7",
@@ -3653,9 +3653,9 @@
     "T16:tax-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T16.O1",
@@ -3674,9 +3674,9 @@
     "T16:budget-lab"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.O2",
@@ -3697,9 +3697,9 @@
     "T16:inflation"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.O3",
@@ -3718,9 +3718,9 @@
     "T16:interest"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.O4",
@@ -3739,9 +3739,9 @@
     "T16:budget-lab"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "automated-tests-passed"
   },
   {
    "id": "T16.O5",
@@ -3760,9 +3760,9 @@
     "T16:risk-return"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T16.O6",
@@ -3781,9 +3781,9 @@
     "T16:risk-return"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   },
   {
    "id": "T16.O7",
@@ -3802,9 +3802,9 @@
     "T16:tax-flow"
    ],
    "englishStatus": "source-exact",
-   "hindiStatus": "pending",
-   "implementation": "planned",
-   "qaStatus": "not-started"
+   "hindiStatus": "draft-needs-teacher-review",
+   "implementation": "implemented",
+   "qaStatus": "dom-and-unit-tests-passed"
   }
  ]
 }

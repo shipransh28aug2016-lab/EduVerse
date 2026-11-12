@@ -376,21 +376,24 @@
      "en": "Society system map: people, place, time, resources, institutions, decisions",
      "modality": "diagram",
      "engine": "system-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "समाज प्रणाली मानचित्र: लोग, स्थान, समय, संसाधन, संस्थाएँ, निर्णय"
     },
     {
      "id": "T01.L2",
      "en": "Investigate one place through four lenses (India map)",
      "modality": "map",
      "engine": "lens-explorer",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "एक स्थान को चार लेंसों से जांचना (भारत मानचित्र)"
     },
     {
      "id": "T01.L3",
      "en": "Classify questions by discipline and reveal overlap",
      "modality": "inquiry",
      "engine": "sorter",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "विषय के अनुसार प्रश्न वर्गीकरण और अंतर्संबंध"
     }
    ],
    "concepts": [
@@ -399,7 +402,7 @@
      "kind": "concept",
      "text": "Meaning, scope and relevance of Social Science",
      "display": "Meaning, scope and relevance of Social Science",
-     "hi": null,
+     "hi": "सामाजिक विज्ञान का अर्थ, क्षेत्र और प्रासंगिकता",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -411,7 +414,7 @@
      "kind": "concept",
      "text": "Understanding Social Science from an Indian perspective",
      "display": "Understanding Social Science from an Indian perspective",
-     "hi": null,
+     "hi": "भारतीय दृष्टिकोण से सामाजिक विज्ञान को समझना",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -425,7 +428,7 @@
      "kind": "outcome",
      "text": "Explain the relevance of studying Social Science to understand society, environment, economy, and governance in our lives.",
      "display": "Explain the relevance of studying Social Science to understand society, environment, economy, and governance in our lives.",
-     "hi": null,
+     "hi": "हमारे जीवन में समाज, पर्यावरण, अर्थव्यवस्था और शासन को समझने के लिए सामाजिक विज्ञान के अध्ययन की प्रासंगिकता की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -437,7 +440,7 @@
      "kind": "outcome",
      "text": "Explain the meaning and scope of Geography, History, Political Science, and Economics as disciplines and recognise their interconnections.",
      "display": "Explain the meaning and scope of Geography, History, Political Science, and Economics as disciplines and recognise their interconnections.",
-     "hi": null,
+     "hi": "भूगोल, इतिहास, राजनीति विज्ञान और अर्थशास्त्र के अर्थ व क्षेत्र को समझाएँ तथा उनके अंतर्संबंधों को पहचानें।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -450,7 +453,7 @@
      "kind": "outcome",
      "text": "Appreciate diversity, inclusivity, sustainability, and equity as guiding values when studying society and making decisions.",
      "display": "Appreciate diversity, inclusivity, sustainability, and equity as guiding values when studying society and making decisions.",
-     "hi": null,
+     "hi": "समाज के अध्ययन और निर्णय लेने में मार्गदर्शक मूल्यों के रूप में विविधता, समावेशिता, संधारणीयता और समता का सम्मान करें।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -507,21 +510,24 @@
      "en": "Weathering, erosion and deposition sandbox; agents of gradation",
      "modality": "sandbox",
      "engine": "gradation-sandbox",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "अपक्षय, अपरदन और निक्षेपण प्रयोगशाला; समतलीकरण के कारक"
     },
     {
      "id": "T02.L5",
      "en": "Landform gallery: river, waves/currents, wind, glacier, underground water",
      "modality": "3d",
      "engine": "landform-gallery",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "भू-आकृति दीर्घा: नदी, समुद्री लहरें, पवन, हिमनद और भूमिगत जल"
     },
     {
      "id": "T02.L6",
      "en": "Slope stability, GLOF and disaster mitigation planning",
      "modality": "scenario",
      "engine": "hazard-lab",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "ढलान स्थिरता, GLOF और आपदा न्यूनीकरण योजना"
     }
    ],
    "concepts": [
@@ -684,42 +690,48 @@
      "en": "Atmospheric cutaway: layers and composition",
      "modality": "diagram",
      "engine": "atmosphere-cutaway",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "वायुमंडल अनुप्रस्थ-काट: परतें और संघटन"
     },
     {
      "id": "T03.L2",
      "en": "Weather-station dashboard and climate-data grapher",
      "modality": "graph",
      "engine": "climate-grapher",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "मौसम केंद्र पटल और जलवायु-आँकड़ा ग्राफ़"
     },
     {
      "id": "T03.L3",
      "en": "India seasons and monsoon map; livelihoods overlay",
      "modality": "map",
      "engine": "monsoon-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "भारत की ऋतुएँ, मानसून मानचित्र और आजीविका परत"
     },
     {
      "id": "T03.L4",
      "en": "Land-sea heating and local wind model",
      "modality": "sandbox",
      "engine": "local-wind",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "थल-समुद्र तापन और स्थानीय पवन मॉडल"
     },
     {
      "id": "T03.L5",
      "en": "Rainfall-runoff and flood catchment",
      "modality": "sandbox",
      "engine": "catchment",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "वर्षा-अपवाह और बाढ़ जलग्रहण मॉडल"
     },
     {
      "id": "T03.L6",
      "en": "Carbon footprint calculator and climate-hazard link",
      "modality": "calculator",
      "engine": "carbon-footprint",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "कार्बन पदचिह्न गणक और जलवायु-आपदा संबंध"
     }
    ],
    "concepts": [
@@ -728,7 +740,7 @@
      "kind": "concept",
      "text": "Structure and composition; elements of weather and climate",
      "display": "Structure and composition; elements of weather and climate",
-     "hi": null,
+     "hi": "संरचना एवं संघटन; मौसम और जलवायु के तत्व",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -741,7 +753,7 @@
      "kind": "concept",
      "text": "Seasons of India and monsoons",
      "display": "Seasons of India and monsoons",
-     "hi": null,
+     "hi": "भारत की ऋतुएँ और मानसून",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -753,7 +765,7 @@
      "kind": "concept",
      "text": "Climate change",
      "display": "Climate change",
-     "hi": null,
+     "hi": "जलवायु परिवर्तन",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -766,7 +778,7 @@
      "kind": "concept",
      "text": "Floods",
      "display": "Floods",
-     "hi": null,
+     "hi": "बाढ़",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -778,7 +790,7 @@
      "kind": "concept",
      "text": "Carbon footprint",
      "display": "Carbon footprint",
-     "hi": null,
+     "hi": "कार्बन पदचिह्न (कार्बन फ़ुटप्रिंट)",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -792,7 +804,7 @@
      "kind": "outcome",
      "text": "Explain the different atmospheric layers and represent them using sketches and diagrams.",
      "display": "Explain the different atmospheric layers and represent them using sketches and diagrams.",
-     "hi": null,
+     "hi": "विभिन्न वायुमंडलीय परतों की व्याख्या करें और रेखाचित्रों व आरेखों से उन्हें दर्शाएँ।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -804,7 +816,7 @@
      "kind": "outcome",
      "text": "Observe and analyse local winds and their impact.",
      "display": "Observe and analyse local winds and their impact.",
-     "hi": null,
+     "hi": "स्थानीय पवनों और उनके प्रभाव का अवलोकन व विश्लेषण करें।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -816,7 +828,7 @@
      "kind": "outcome",
      "text": "Understand the impact of the Indian monsoon on life, agriculture, and livelihoods across different regions.",
      "display": "Understand the impact of the Indian monsoon on life, agriculture, and livelihoods across different regions.",
-     "hi": null,
+     "hi": "विभिन्न क्षेत्रों में जीवन, कृषि और आजीविका पर भारतीय मानसून के प्रभाव को समझें।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -828,7 +840,7 @@
      "kind": "outcome",
      "text": "Explain the causes and effects of climate change.",
      "display": "Explain the causes and effects of climate change.",
-     "hi": null,
+     "hi": "जलवायु परिवर्तन के कारणों और प्रभावों की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -840,7 +852,7 @@
      "kind": "outcome",
      "text": "Represent climatic data (temperature, rainfall, etc.) through appropriate graphs, charts, or diagrams.",
      "display": "Represent climatic data (temperature, rainfall, etc.) through appropriate graphs, charts, or diagrams.",
-     "hi": null,
+     "hi": "जलवायु आँकड़ों (तापमान, वर्षा आदि) को उपयुक्त ग्राफ़, चार्ट या आरेखों द्वारा प्रस्तुत करें।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -852,7 +864,7 @@
      "kind": "outcome",
      "text": "Analyse how climate change influences the frequency and intensity of natural disasters.",
      "display": "Analyse how climate change influences the frequency and intensity of natural disasters.",
-     "hi": null,
+     "hi": "विश्लेषण करें कि जलवायु परिवर्तन प्राकृतिक आपदाओं की आवृत्ति और तीव्रता को कैसे प्रभावित करता है।",
      "source": "pdf",
      "pdfPage": 8,
      "loIds": [
@@ -889,35 +901,40 @@
      "en": "Deep-time timeline: 2 million years to early cities; archaeological ages",
      "modality": "timeline",
      "engine": "deep-time",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "गहन-काल समय-रेखा: 20 लाख वर्ष से प्रारंभिक नगर और पुरातात्विक युग"
     },
     {
      "id": "T04.L2",
      "en": "Archaeological tool gallery and evidence-vs-inference investigation",
      "modality": "evidence",
      "engine": "artefact-viewer",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "पुरातात्विक औज़ार दीर्घा और प्रमाण-बनाम-निष्कर्ष जांच"
     },
     {
      "id": "T04.L3",
      "en": "Hunter-gatherer to farmer settlement trade-offs",
      "modality": "scenario",
      "engine": "settlement-sim",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "आखेटक-संग्राहक से कृषक बस्ती के विकल्प और चुनौतियाँ"
     },
     {
      "id": "T04.L4",
      "en": "Harappan city planner (labelled reconstruction)",
      "modality": "3d",
      "engine": "harappan-city",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "हड़प्पा नगर नियोजक (नामांकित 3D पुनर्निर्माण)"
     },
     {
      "id": "T04.L5",
      "en": "Comparative civilisation atlas: Harappan, Mesopotamia, Egypt, China",
      "modality": "map",
      "engine": "civ-atlas",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "तुलनात्मक सभ्यता मानचित्र: हड़प्पा, मेसोपोटामिया, मिस्र, चीन"
     }
    ],
    "concepts": [
@@ -926,7 +943,7 @@
      "kind": "concept",
      "text": "Cultural development from 2 million years ago",
      "display": "Cultural development from 2 million years ago",
-     "hi": null,
+     "hi": "20 लाख वर्ष पहले से सांस्कृतिक विकास",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -938,7 +955,7 @@
      "kind": "concept",
      "text": "Early human history, periodisation: Archaeological ages",
      "display": "Early human history, periodisation: Archaeological ages",
-     "hi": null,
+     "hi": "प्रारंभिक मानव इतिहास, काल-विभाजन: पुरातात्विक युग",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -951,7 +968,7 @@
      "kind": "concept",
      "text": "Who are human ancestors?",
      "display": "Who are human ancestors?",
-     "hi": null,
+     "hi": "मानव पूर्वज कौन हैं?",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -964,7 +981,7 @@
      "kind": "concept",
      "text": "Palaeolithic hunter-gatherers and use of stone tools",
      "display": "Palaeolithic hunter-gatherers and use of stone tools",
-     "hi": null,
+     "hi": "पुरापाषाणकालीन आखेटक-संग्राहक और पत्थर के औजारों का उपयोग",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -977,7 +994,7 @@
      "kind": "concept",
      "text": "Mesolithic transition to food production: Mesolithic sites and tools",
      "display": "Mesolithic transition to food production: Mesolithic sites and tools",
-     "hi": null,
+     "hi": "खाद्य उत्पादन की ओर मध्यपाषाणकालीन संक्रमण: स्थल और औजार",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -990,7 +1007,7 @@
      "kind": "concept",
      "text": "Neolithic and the beginning of farming: Neolithic revolution domestication of plants and animals",
      "display": "Neolithic and the beginning of farming: Neolithic revolution domestication of plants and animals",
-     "hi": null,
+     "hi": "नवपाषाण काल और कृषि की शुरुआत: नवपाषाण क्रांति, पौधों व पशुओं का पालन",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1002,7 +1019,7 @@
      "kind": "concept",
      "text": "Harappan and contemporary cultures",
      "display": "Harappan and contemporary cultures",
-     "hi": null,
+     "hi": "हड़प्पा और समकालीन संस्कृतियाँ",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1015,7 +1032,7 @@
      "kind": "concept",
      "text": "Mesopotamian, egyptian, and chinese civilisation",
      "display": "Mesopotamian, egyptian, and chinese civilisation",
-     "hi": null,
+     "hi": "मेसोपोटामिया, मिस्र और चीनी सभ्यताएँ",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1029,7 +1046,7 @@
      "kind": "outcome",
      "text": "Describe how prehistoric time divisions are organised.",
      "display": "Describe how prehistoric time divisions are organised.",
-     "hi": null,
+     "hi": "वर्णन करें कि प्रागैतिहासिक काल-विभाजन किस प्रकार व्यवस्थित किया जाता है।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1041,7 +1058,7 @@
      "kind": "outcome",
      "text": "Explain how humans lived before the invention of writing",
      "display": "Explain how humans lived before the invention of writing",
-     "hi": null,
+     "hi": "समझाएँ कि लेखन के आविष्कार से पहले मनुष्य कैसे रहते थे।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1054,7 +1071,7 @@
      "kind": "outcome",
      "text": "Understand the beginning of the settled life with development of agriculture, and domestication of plants and animals.",
      "display": "Understand the beginning of the settled life with development of agriculture, and domestication of plants and animals.",
-     "hi": null,
+     "hi": "कृषि के विकास तथा पौधों व पशुओं के पालन के साथ स्थायी जीवन की शुरुआत को समझें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1066,7 +1083,7 @@
      "kind": "outcome",
      "text": "Explore the factors of urban development and transformation through time.",
      "display": "Explore the factors of urban development and transformation through time.",
-     "hi": null,
+     "hi": "समय के साथ शहरी विकास और परिवर्तन के कारकों का अन्वेषण करें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1078,7 +1095,7 @@
      "kind": "outcome",
      "text": "Appreciate the diversity of crafts and trade, and their role the establishment of prosperous economy.",
      "display": "Appreciate the diversity of crafts and trade, and their role the establishment of prosperous economy.",
-     "hi": null,
+     "hi": "शिल्प और व्यापार की विविधता तथा समृद्ध अर्थव्यवस्था की स्थापना में उनकी भूमिका की सराहना करें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1091,7 +1108,7 @@
      "kind": "outcome",
      "text": "Understand the diversity of food habits.",
      "display": "Understand the diversity of food habits.",
-     "hi": null,
+     "hi": "खान-पान की आदतों की विविधता को समझें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1104,7 +1121,7 @@
      "kind": "outcome",
      "text": "Describe the social, political, and religious structures of the civilisations of Egypt and Mesopotamia.",
      "display": "Describe the social, political, and religious structures of the civilisations of Egypt and Mesopotamia.",
-     "hi": null,
+     "hi": "मिस्र और मेसोपोटामिया की सभ्यताओं की सामाजिक, राजनीतिक और धार्मिक संरचनाओं का वर्णन करें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1141,35 +1158,40 @@
      "en": "Dated historical geography of the Vedic age",
      "modality": "map",
      "engine": "dated-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "वैदिक काल का तिथिबद्ध ऐतिहासिक भूगोल मानचित्र"
     },
     {
      "id": "T05.L2",
      "en": "Source reading room: texts, inscriptions, material evidence",
      "modality": "evidence",
      "engine": "source-room",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "स्रोत अध्ययन कक्ष: ग्रंथ, अभिलेख और भौतिक प्रमाण"
     },
     {
      "id": "T05.L3",
      "en": "Early empire administration diagram and governance scenario",
      "modality": "scenario",
      "engine": "admin-flow",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "प्रारंभिक साम्राज्य प्रशासन आरेख व शासन परिदृश्य"
     },
     {
      "id": "T05.L4",
      "en": "Knowledge traditions gallery",
      "modality": "inquiry",
      "engine": "gallery",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "भारतीय ज्ञान परंपरा दीर्घा"
     },
     {
      "id": "T05.L5",
      "en": "Trade-route planner: goods, guilds, merchants",
      "modality": "map",
      "engine": "trade-routes",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "व्यापार मार्ग नियोजक: वस्तुएँ, श्रेणियाँ और व्यापारी"
     }
    ],
    "concepts": [
@@ -1178,7 +1200,7 @@
      "kind": "concept",
      "text": "Vedic Age — geography; texts; rituals; political institutions, and social order",
      "display": "Vedic Age — geography; texts; rituals; political institutions, and social order",
-     "hi": null,
+     "hi": "वैदिक काल — भूगोल, ग्रंथ, अनुष्ठान, राजनीतिक संस्थाएँ और सामाजिक व्यवस्था",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1191,7 +1213,7 @@
      "kind": "concept",
      "text": "Administrative structure of early empires",
      "display": "Administrative structure of early empires",
-     "hi": null,
+     "hi": "प्रारंभिक साम्राज्यों की प्रशासनिक संरचना",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1203,7 +1225,7 @@
      "kind": "concept",
      "text": "Quest for knowledge — educational heritage, institutions, knowledge traditions, and cultural practices",
      "display": "Quest for knowledge — educational heritage, institutions, knowledge traditions, and cultural practices",
-     "hi": null,
+     "hi": "ज्ञान की खोज — शैक्षिक धरोहर, संस्थान, ज्ञान परंपराएँ और सांस्कृतिक अभ्यास",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1215,7 +1237,7 @@
      "kind": "concept",
      "text": "Traders and trade routes, guilds and merchants, crafts and industries",
      "display": "Traders and trade routes, guilds and merchants, crafts and industries",
-     "hi": null,
+     "hi": "व्यापारी और व्यापारिक मार्ग, श्रेणियाँ व महाजन, शिल्प और उद्योग",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1229,7 +1251,7 @@
      "kind": "outcome",
      "text": "Explain various facets of Vedic society and polity.",
      "display": "Explain various facets of Vedic society and polity.",
-     "hi": null,
+     "hi": "वैदिक समाज और राजव्यवस्था के विभिन्न पहलुओं की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1242,7 +1264,7 @@
      "kind": "outcome",
      "text": "Appreciate the achievements of Indian empires and their cultural legacy.",
      "display": "Appreciate the achievements of Indian empires and their cultural legacy.",
-     "hi": null,
+     "hi": "भारतीय साम्राज्यों की उपलब्धियों और उनकी सांस्कृतिक विरासत का मूल्यांकन करें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1255,7 +1277,7 @@
      "kind": "outcome",
      "text": "Understand the knowledge traditions and practices of India.",
      "display": "Understand the knowledge traditions and practices of India.",
-     "hi": null,
+     "hi": "भारत की ज्ञान परंपराओं और अभ्यासों को समझें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1267,7 +1289,7 @@
      "kind": "outcome",
      "text": "Understand the foundations of the Indian social and political institutions and their continuity.",
      "display": "Understand the foundations of the Indian social and political institutions and their continuity.",
-     "hi": null,
+     "hi": "भारतीय सामाजिक और राजनीतिक संस्थाओं की नींव तथा उनकी निरंतरता को समझें।",
      "source": "pdf",
      "pdfPage": 9,
      "loIds": [
@@ -1301,28 +1323,32 @@
      "en": "Democracy concept map and fictional-case assessor",
      "modality": "diagram",
      "engine": "concept-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "लोकतंत्र अवधारणा मानचित्र और काल्पनिक केस परीक्षक"
     },
     {
      "id": "T06.L2",
      "en": "Early Indian traditions gallery (sourced)",
      "modality": "evidence",
      "engine": "gallery",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "भारत की प्रारंभिक लोकतांत्रिक परंपराओं की दीर्घा"
     },
     {
      "id": "T06.L3",
      "en": "Parliamentary vs presidential institutional flow",
      "modality": "diagram",
      "engine": "system-flow",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "संसदीय बनाम अध्यक्षीय संस्थागत प्रवाह"
     },
     {
      "id": "T06.L4",
      "en": "Country comparison: India, USA, France, Russia, Canada (dated, sourced)",
      "modality": "inquiry",
      "engine": "country-compare",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "देश तुलना: भारत, अमेरिका, फ़्रांस, रूस और कनाडा"
     }
    ],
    "concepts": [
@@ -1331,7 +1357,7 @@
      "kind": "concept",
      "text": "Meaning features and types of democracy",
      "display": "Meaning features and types of democracy",
-     "hi": null,
+     "hi": "लोकतंत्र का अर्थ, विशेषताएँ और प्रकार",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1343,7 +1369,7 @@
      "kind": "concept",
      "text": "Roots of democracy in India",
      "display": "Roots of democracy in India",
-     "hi": null,
+     "hi": "भारत में लोकतंत्र की जड़ें",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1355,7 +1381,7 @@
      "kind": "concept",
      "text": "Challenges to democracy in India",
      "display": "Challenges to democracy in India",
-     "hi": null,
+     "hi": "भारत में लोकतंत्र की चुनौतियाँ",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1367,7 +1393,7 @@
      "kind": "concept",
      "text": "Democratic systems in the world",
      "display": "Democratic systems in the world",
-     "hi": null,
+     "hi": "विश्व में लोकतांत्रिक प्रणालियाँ",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1382,7 +1408,7 @@
      "kind": "outcome",
      "text": "Understand the features of democracy.",
      "display": "Understand the features of democracy.",
-     "hi": null,
+     "hi": "लोकतंत्र की विशेषताओं को समझें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1394,7 +1420,7 @@
      "kind": "outcome",
      "text": "Appreciate early democratic traditions in India and how they influenced modern democracy.",
      "display": "Appreciate early democratic traditions in India and how they influenced modern democracy.",
-     "hi": null,
+     "hi": "भारत की प्रारंभिक लोकतांत्रिक परंपराओं और आधुनिक लोकतंत्र पर उनके प्रभाव की सराहना करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1406,7 +1432,7 @@
      "kind": "outcome",
      "text": "Differentiate between parliamentary and presidential systems.",
      "display": "Differentiate between parliamentary and presidential systems.",
-     "hi": null,
+     "hi": "संसदीय और अध्यक्षीय प्रणालियों में अंतर स्पष्ट करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1418,7 +1444,7 @@
      "kind": "outcome",
      "text": "Identify examples of both systems across countries, such as India, USA, France, Russia, and Canada.",
      "display": "Identify examples of both systems across countries, such as India, USA, France, Russia, and Canada.",
-     "hi": null,
+     "hi": "भारत, अमेरिका, फ्रांस, रूस और कनाडा जैसे देशों में दोनों प्रणालियों के उदाहरण पहचानें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1458,28 +1484,32 @@
      "en": "Election process timeline and ECI workflow",
      "modality": "diagram",
      "engine": "process-flow",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "चुनाव प्रक्रिया समय-रेखा और भारत निर्वाचन आयोग कार्यप्रवाह"
     },
     {
      "id": "T07.L2",
      "en": "Fictional election sandbox: compare electoral systems on one vote set",
      "modality": "sandbox",
      "engine": "electoral-systems",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "काल्पनिक चुनाव प्रयोगशाला: एक मत-समूह पर तीन चुनाव प्रणालियाँ"
     },
     {
      "id": "T07.L3",
      "en": "Toy delimitation model and fictional electoral roll / enumerator",
      "modality": "map",
      "engine": "delimitation",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "परिसीमन मॉडल और काल्पनिक मतदाता सूची / प्रगणक जांच"
     },
     {
      "id": "T07.L4",
      "en": "Coalition negotiation and Anti-Defection case analysis (fictional)",
      "modality": "scenario",
      "engine": "coalition",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "गठबंधन वार्ता और दलबदल-रोधी कानून विश्लेषण (काल्पनिक)"
     }
    ],
    "concepts": [
@@ -1488,7 +1518,7 @@
      "kind": "concept",
      "text": "Factors of importance of elections",
      "display": "Factors of importance of elections",
-     "hi": null,
+     "hi": "चुनावों के महत्व के कारक",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1500,7 +1530,7 @@
      "kind": "concept",
      "text": "Electoral systems",
      "display": "Electoral systems",
-     "hi": null,
+     "hi": "निर्वाचन प्रणालियाँ",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1512,7 +1542,7 @@
      "kind": "concept",
      "text": "Delimitation Commission",
      "display": "Delimitation Commission",
-     "hi": null,
+     "hi": "परिसीमन आयोग",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1524,7 +1554,7 @@
      "kind": "concept",
      "text": "Election Commission of India and its role",
      "display": "Election Commission of India and its role",
-     "hi": null,
+     "hi": "भारत निर्वाचन आयोग और उसकी भूमिका",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1536,7 +1566,7 @@
      "kind": "concept",
      "text": "Constituency, electoral rolls, enumerators",
      "display": "Constituency, electoral rolls, enumerators",
-     "hi": null,
+     "hi": "निर्वाचन क्षेत्र, मतदाता सूची, प्रगणक",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1548,7 +1578,7 @@
      "kind": "concept",
      "text": "Party system in India",
      "display": "Party system in India",
-     "hi": null,
+     "hi": "भारत में दलीय प्रणाली",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1561,7 +1591,7 @@
      "kind": "concept",
      "text": "Representation of the People Acts",
      "display": "Representation of the People Acts",
-     "hi": null,
+     "hi": "जनप्रतिनिधित्व अधिनियम",
      "source": "spec",
      "pdfPage": null,
      "loIds": [
@@ -1573,7 +1603,7 @@
      "kind": "concept",
      "text": "Coalition government",
      "display": "Coalition government",
-     "hi": null,
+     "hi": "गठबंधन सरकार",
      "source": "spec",
      "pdfPage": null,
      "loIds": [
@@ -1585,7 +1615,7 @@
      "kind": "concept",
      "text": "Anti-Defection Law",
      "display": "Anti-Defection Law",
-     "hi": null,
+     "hi": "दल-बदल विरोधी कानून",
      "source": "spec",
      "pdfPage": null,
      "loIds": [
@@ -1599,7 +1629,7 @@
      "kind": "outcome",
      "text": "Identify factors highlighting importance of elections in a democracy.",
      "display": "Identify factors highlighting importance of elections in a democracy.",
-     "hi": null,
+     "hi": "लोकतंत्र में चुनावों के महत्व को दर्शाने वाले कारकों की पहचान करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1611,7 +1641,7 @@
      "kind": "outcome",
      "text": "Categorise three types of electoral systems and list examples.",
      "display": "Categorise three types of electoral systems and list examples.",
-     "hi": null,
+     "hi": "तीन प्रकार की निर्वाचन प्रणालियों का वर्गीकरण करें और उदाहरण दें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1623,7 +1653,7 @@
      "kind": "outcome",
      "text": "Identify the major laws that govern the conduct of elections in India.",
      "display": "Identify the major laws that govern the conduct of elections in India.",
-     "hi": null,
+     "hi": "भारत में चुनावों के संचालन को नियंत्रित करने वाले प्रमुख कानूनों की पहचान करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1635,7 +1665,7 @@
      "kind": "outcome",
      "text": "Describe the main provisions of the Representation of the People Acts.",
      "display": "Describe the main provisions of the Representation of the People Acts.",
-     "hi": null,
+     "hi": "जनप्रतिनिधित्व अधिनियमों के मुख्य प्रावधानों का वर्णन करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1647,7 +1677,7 @@
      "kind": "outcome",
      "text": "Define the concept of delimitation and its purpose in the Indian electoral system.",
      "display": "Define the concept of delimitation and its purpose in the Indian electoral system.",
-     "hi": null,
+     "hi": "परिसीमन की अवधारणा और भारतीय चुनाव प्रणाली में इसके उद्देश्य को परिभाषित करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1659,7 +1689,7 @@
      "kind": "outcome",
      "text": "Identify the role and functions Election Commission of India (ECI) in the electoral process.",
      "display": "Identify the role and functions Election Commission of India (ECI) in the electoral process.",
-     "hi": null,
+     "hi": "निर्वाचन प्रक्रिया में भारत निर्वाचन आयोग (ECI) की भूमिका और कार्यों की पहचान करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1671,7 +1701,7 @@
      "kind": "outcome",
      "text": "Explain constituency, electoral roll, enumerator.",
      "display": "Explain constituency, electoral roll, enumerator.",
-     "hi": null,
+     "hi": "निर्वाचन क्षेत्र, मतदाता सूची और प्रगणक की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1683,7 +1713,7 @@
      "kind": "outcome",
      "text": "Understand the party system in India.",
      "display": "Understand the party system in India.",
-     "hi": null,
+     "hi": "भारत में दलीय प्रणाली को समझें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1696,7 +1726,7 @@
      "kind": "outcome",
      "text": "Explain the meaning and features of a coalition government in the Indian political system.",
      "display": "Explain the meaning and features of a coalition government in the Indian political system.",
-     "hi": null,
+     "hi": "भारतीय राजनीतिक प्रणाली में गठबंधन सरकार के अर्थ और विशेषताओं की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1708,7 +1738,7 @@
      "kind": "outcome",
      "text": "Explain key provisions of the Anti-Defection Law with reference to political instability and the need for anti-defection measures.",
      "display": "Explain key provisions of the Anti-Defection Law with reference to political instability and the need for anti-defection measures.",
-     "hi": null,
+     "hi": "राजनीतिक अस्थिरता और दल-बदल रोधी उपायों के संदर्भ में दल-बदल विरोधी कानून के मुख्य प्रावधान समझाएँ।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1742,35 +1772,40 @@
      "en": "Scarcity allocation board and opportunity-cost game",
      "modality": "scenario",
      "engine": "scarcity-game",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "दुर्लभता आवंटन पटल और अवसर-लागत खेल"
     },
     {
      "id": "T08.L2",
      "en": "Production possibility frontier explorer",
      "modality": "graph",
      "engine": "ppf",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "उत्पादन संभावना वक्र अन्वेषक"
     },
     {
      "id": "T08.L3",
      "en": "What/how/for whom: production-to-consumption flow",
      "modality": "diagram",
      "engine": "flow",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "क्या / कैसे / किसके लिए: उत्पादन से उपभोग प्रवाह"
     },
     {
      "id": "T08.L4",
      "en": "Economic-system comparison: market, centrally planned, mixed",
      "modality": "inquiry",
      "engine": "system-compare",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "आर्थिक प्रणाली तुलना: मुक्त बाज़ार, केंद्रीय नियोजित और मिश्रित"
     },
     {
      "id": "T08.L5",
      "en": "Household shock and social-safety-net scenario",
      "modality": "scenario",
      "engine": "safety-net",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "पारिवारिक संकट और सामाजिक सुरक्षा-जाल परिदृश्य"
     }
    ],
    "concepts": [
@@ -1779,7 +1814,7 @@
      "kind": "concept",
      "text": "Scarcity of resources, opportunity cost and the need for making choice. What do economists do?",
      "display": "Scarcity of resources, opportunity cost and the need for making choice. What do economists do?",
-     "hi": null,
+     "hi": "संसाधनों की दुर्लभता, अवसर लागत और चयन की आवश्यकता। अर्थशास्त्री क्या करते हैं?",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1792,7 +1827,7 @@
      "kind": "concept",
      "text": "What to produce, how to produce, and for whom to produce?",
      "display": "What to produce, how to produce, and for whom to produce?",
-     "hi": null,
+     "hi": "क्या उत्पादन करें, कैसे उत्पादन करें और किसके लिए उत्पादन करें?",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1804,7 +1839,7 @@
      "kind": "concept",
      "text": "Difference between market, centrally planned, and mixed economic systems",
      "display": "Difference between market, centrally planned, and mixed economic systems",
-     "hi": null,
+     "hi": "बाज़ार, केंद्रीय नियोजित और मिश्रित आर्थिक प्रणालियों में अंतर",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1816,7 +1851,7 @@
      "kind": "concept",
      "text": "Welfare economy",
      "display": "Welfare economy",
-     "hi": null,
+     "hi": "कल्याणकारी अर्थव्यवस्था",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1830,7 +1865,7 @@
      "kind": "outcome",
      "text": "Explain the meaning of scarcity, choice, and opportunity cost in everyday life, and economic decision-making.",
      "display": "Explain the meaning of scarcity, choice, and opportunity cost in everyday life, and economic decision-making.",
-     "hi": null,
+     "hi": "दैनिक जीवन और आर्थिक निर्णयों में दुर्लभता, चयन और अवसर लागत का अर्थ समझाएँ।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1843,7 +1878,7 @@
      "kind": "outcome",
      "text": "Describe what economists do and how they study production, distribution, and consumption of goods and services.",
      "display": "Describe what economists do and how they study production, distribution, and consumption of goods and services.",
-     "hi": null,
+     "hi": "वर्णन करें कि अर्थशास्त्री क्या करते हैं और उत्पादन, वितरण व उपभोग का अध्ययन कैसे करते हैं।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1855,7 +1890,7 @@
      "kind": "outcome",
      "text": "Recognise how economic analysis helps in policy-making and solving real-world issues.",
      "display": "Recognise how economic analysis helps in policy-making and solving real-world issues.",
-     "hi": null,
+     "hi": "पहचानें कि आर्थिक विश्लेषण नीति-निर्माण और वास्तविक समस्याओं के समाधान में कैसे मदद करता है।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1867,7 +1902,7 @@
      "kind": "outcome",
      "text": "Describe the three central problems of an economy — what to produce, how to produce, and for whom to produce.",
      "display": "Describe the three central problems of an economy — what to produce, how to produce, and for whom to produce.",
-     "hi": null,
+     "hi": "अर्थव्यवस्था की तीन केंद्रीय समस्याओं — क्या, कैसे और किसके लिए उत्पादन — का वर्णन करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1879,7 +1914,7 @@
      "kind": "outcome",
      "text": "Identify and differentiate the characteristics of planned, free market, and mixed economic systems.",
      "display": "Identify and differentiate the characteristics of planned, free market, and mixed economic systems.",
-     "hi": null,
+     "hi": "नियोजित, मुक्त बाज़ार और मिश्रित आर्थिक प्रणालियों की विशेषताओं को पहचानें व अंतर करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -1891,7 +1926,7 @@
      "kind": "outcome",
      "text": "Explain the concept of a welfare economy and the importance of social safety nets.",
      "display": "Explain the concept of a welfare economy and the importance of social safety nets.",
-     "hi": null,
+     "hi": "कल्याणकारी अर्थव्यवस्था की अवधारणा और सामाजिक सुरक्षा जाल के महत्व की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 10,
      "loIds": [
@@ -2125,35 +2160,40 @@
      "en": "3D ocean-floor cutaway and relief model builder",
      "modality": "3d",
      "engine": "ocean-relief",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "3D महासागर तल काट और उच्चावच मॉडल निर्माता"
     },
     {
      "id": "T10.L2",
      "en": "Waves vs tides vs currents comparison; global current explorer",
      "modality": "sandbox",
      "engine": "ocean-motion",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "लहरें, ज्वार-भाटा और महासागरीय धारा तुलना व वैश्विक मानचित्र"
     },
     {
      "id": "T10.L3",
      "en": "Marine resources, fishing and livelihoods scenario",
      "modality": "scenario",
      "engine": "fisheries",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "समुद्री संसाधन, मत्स्य पालन और आजीविका परिदृश्य"
     },
     {
      "id": "T10.L4",
      "en": "Cyclone and tsunami cross-sections; coastal evacuation scenario",
      "modality": "scenario",
      "engine": "coastal-hazard",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "चक्रवात व सुनामी काट-चित्र तथा तटीय बचाव परिदृश्य"
     },
     {
      "id": "T10.L5",
      "en": "Maritime cooperation concept map",
      "modality": "diagram",
      "engine": "concept-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "अंतर्राष्ट्रीय समुद्री सहयोग अवधारणा मानचित्र"
     }
    ],
    "concepts": [
@@ -2162,7 +2202,7 @@
      "kind": "concept",
      "text": "Introduction to ocean relief, movement of ocean water- waves, tides and currents",
      "display": "Introduction to ocean relief, movement of ocean water- waves, tides and currents",
-     "hi": null,
+     "hi": "समुद्री उच्चावच का परिचय, समुद्री जल की गति — तरंगें, ज्वार-भाटा और धाराएँ",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2175,7 +2215,7 @@
      "kind": "concept",
      "text": "Marine resources and their significance; open seas, navigation fishing, and livelihood concerns and challenges",
      "display": "Marine resources and their significance; open seas, navigation fishing, and livelihood concerns and challenges",
-     "hi": null,
+     "hi": "समुद्री संसाधन और उनका महत्व; खुले समुद्र, नौवहन, मत्स्यन तथा आजीविका की चुनौतियाँ",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2187,7 +2227,7 @@
      "kind": "concept",
      "text": "Cyclones and Tsunamis — early warning systems",
      "display": "Cyclones and Tsunamis — early warning systems",
-     "hi": null,
+     "hi": "चक्रवात और सुनामी — पूर्व चेतावनी प्रणालियाँ",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2199,7 +2239,7 @@
      "kind": "concept",
      "text": "International maritime rules and regulations",
      "display": "International maritime rules and regulations",
-     "hi": null,
+     "hi": "अंतरराष्ट्रीय समुद्री नियम और विनियम",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2213,7 +2253,7 @@
      "kind": "outcome",
      "text": "Explain the movement of ocean waters, including waves, tides, and currents.",
      "display": "Explain the movement of ocean waters, including waves, tides, and currents.",
-     "hi": null,
+     "hi": "तरंगों, ज्वार-भाटा और धाराओं सहित समुद्री जल की गति की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2225,7 +2265,7 @@
      "kind": "outcome",
      "text": "Analyse the connections between ocean currents, and global and regional climate patterns.",
      "display": "Analyse the connections between ocean currents, and global and regional climate patterns.",
-     "hi": null,
+     "hi": "महासागरीय धाराओं तथा वैश्विक व क्षेत्रीय जलवायु पैटर्न के बीच संबंधों का विश्लेषण करें।",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2237,7 +2277,7 @@
      "kind": "outcome",
      "text": "Understand the importance of marine resources for human livelihoods and ecosystems.",
      "display": "Understand the importance of marine resources for human livelihoods and ecosystems.",
-     "hi": null,
+     "hi": "मानव आजीविका और पारिस्थितिक तंत्र के लिए समुद्री संसाधनों के महत्व को समझें।",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2249,7 +2289,7 @@
      "kind": "outcome",
      "text": "Examine the relationship between oceans, climate, livelihoods, and natural disasters.",
      "display": "Examine the relationship between oceans, climate, livelihoods, and natural disasters.",
-     "hi": null,
+     "hi": "महासागरों, जलवायु, आजीविका और प्राकृतिक आपदाओं के आपसी संबंध की जाँच करें।",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2261,7 +2301,7 @@
      "kind": "outcome",
      "text": "Highlight key rules, conventions, and international agreements governing ocean navigation. and the use of marine resources.",
      "display": "Highlight key rules, conventions, and international agreements governing ocean navigation. and the use of marine resources.",
-     "hi": null,
+     "hi": "समुद्री नौवहन और संसाधनों के उपयोग से जुड़े प्रमुख अंतरराष्ट्रीय नियमों व समझौतों को रेखांकित करें।",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2273,7 +2313,7 @@
      "kind": "outcome",
      "text": "Explain the need for international cooperation and agreements in the sustainable use of ocean resources.",
      "display": "Explain the need for international cooperation and agreements in the sustainable use of ocean resources.",
-     "hi": null,
+     "hi": "समुद्री संसाधनों के संधारणीय उपयोग में अंतरराष्ट्रीय सहयोग और समझौतों की आवश्यकता समझाएँ।",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2285,7 +2325,7 @@
      "kind": "outcome",
      "text": "Construct models or sketches representing ocean relief.",
      "display": "Construct models or sketches representing ocean relief.",
-     "hi": null,
+     "hi": "समुद्री उच्चावच को दर्शाने वाले मॉडल या रेखाचित्र बनाएँ।",
      "source": "pdf",
      "pdfPage": 11,
      "loIds": [
@@ -2321,35 +2361,40 @@
      "en": "World biome map and biome explorer; biome matching",
      "modality": "map",
      "engine": "biome-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "विश्व बायोम मानचित्र, अन्वेषक व मिलान अभ्यास"
     },
     {
      "id": "T11.L2",
      "en": "India biosphere-reserve map (sourced)",
      "modality": "map",
      "engine": "reserve-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "भारत के जैवमंडल आरक्षित क्षेत्र मानचित्र"
     },
     {
      "id": "T11.L3",
      "en": "Forest management and ecotourism-capacity scenario",
      "modality": "scenario",
      "engine": "forest-tradeoffs",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "वन प्रबंधन और पारिस्थितिक-पर्यटन क्षमता परिदृश्य"
     },
     {
      "id": "T11.L4",
      "en": "Forest-fire factors and prevention planner",
      "modality": "sandbox",
      "engine": "fire-planner",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "वनाग्नि के कारक और रोकथाम नियोजक"
     },
     {
      "id": "T11.L5",
      "en": "Traditional conservation and forest-dweller knowledge gallery",
      "modality": "inquiry",
      "engine": "gallery",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "पारंपरिक संरक्षण और वनवासी ज्ञान दीर्घा"
     }
    ],
    "concepts": [
@@ -2358,7 +2403,7 @@
      "kind": "concept",
      "text": "Biomes: Distribution and characteristics; biosphere reserves in India",
      "display": "Biomes: Distribution and characteristics; biosphere reserves in India",
-     "hi": null,
+     "hi": "जीवोम (बायोम): वितरण एवं विशेषताएँ; भारत में जैवमंडल आरक्षित क्षेत्र",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2371,7 +2416,7 @@
      "kind": "concept",
      "text": "Forest and ecotourism; forest dwellers, their livelihoods, and challenges",
      "display": "Forest and ecotourism; forest dwellers, their livelihoods, and challenges",
-     "hi": null,
+     "hi": "वन और पारिस्थितिकी-पर्यटन; वनवासी, उनकी आजीविका और चुनौतियाँ",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2384,7 +2429,7 @@
      "kind": "concept",
      "text": "Forest and wildlife conservation",
      "display": "Forest and wildlife conservation",
-     "hi": null,
+     "hi": "वन और वन्यजीव संरक्षण",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2397,7 +2442,7 @@
      "kind": "concept",
      "text": "Government efforts to support forest dwellers",
      "display": "Government efforts to support forest dwellers",
-     "hi": null,
+     "hi": "वनवासियों के समर्थन के लिए सरकारी प्रयास",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2411,7 +2456,7 @@
      "kind": "outcome",
      "text": "Identify the major biomes of the world and describe their key climatic conditions, characteristic flora, and fauna.",
      "display": "Identify the major biomes of the world and describe their key climatic conditions, characteristic flora, and fauna.",
-     "hi": null,
+     "hi": "विश्व के प्रमुख जीवोम पहचानें और उनकी जलवायु, विशिष्ट वनस्पति व जीव-जंतुओं का वर्णन करें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2423,7 +2468,7 @@
      "kind": "outcome",
      "text": "Locate biosphere reserves on the map of India.",
      "display": "Locate biosphere reserves on the map of India.",
-     "hi": null,
+     "hi": "भारत के मानचित्र पर जैवमंडल आरक्षित क्षेत्रों को दर्शाएँ।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2435,7 +2480,7 @@
      "kind": "outcome",
      "text": "Appreciate local traditional practices related to biodiversity conservation and analyse their effects.",
      "display": "Appreciate local traditional practices related to biodiversity conservation and analyse their effects.",
-     "hi": null,
+     "hi": "जैव-विविधता संरक्षण से जुड़ी स्थानीय पारंपरिक प्रथाओं की सराहना करें और उनके प्रभाव का विश्लेषण करें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2447,7 +2492,7 @@
      "kind": "outcome",
      "text": "Explain the concept and importance of biosphere reserves in conserving ecosystems and biodiversity.",
      "display": "Explain the concept and importance of biosphere reserves in conserving ecosystems and biodiversity.",
-     "hi": null,
+     "hi": "पारिस्थितिकी तंत्र और जैव-विविधता संरक्षण में जैवमंडल आरक्षित क्षेत्रों का महत्व समझाएँ।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2459,7 +2504,7 @@
      "kind": "outcome",
      "text": "Analyse the concept of ecotourism and discuss its role in promoting sustainable forest ecosystem and conservation.",
      "display": "Analyse the concept of ecotourism and discuss its role in promoting sustainable forest ecosystem and conservation.",
-     "hi": null,
+     "hi": "पारिस्थितिकी-पर्यटन (इकोटूरिज़्म) का विश्लेषण करें और संधारणीय वन संरक्षण में इसकी भूमिका पर चर्चा करें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2471,7 +2516,7 @@
      "kind": "outcome",
      "text": "Investigate the causes of forest fires in the local area, and prepare a plan for mitigation and prevention.",
      "display": "Investigate the causes of forest fires in the local area, and prepare a plan for mitigation and prevention.",
-     "hi": null,
+     "hi": "स्थानीय क्षेत्र में वनाग्नि के कारणों की जाँच करें तथा रोकथाम व शमन की योजना बनाएँ।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2506,35 +2551,40 @@
      "en": "Dated regional political maps; alliance/sovereignty scenario",
      "modality": "map",
      "engine": "dated-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "तिथिबद्ध क्षेत्रीय राजनीतिक मानचित्र व संप्रभुता परिदृश्य"
     },
     {
      "id": "T12.L2",
      "en": "3D fort cutaway and fort-design challenge",
      "modality": "3d",
      "engine": "fort-3d",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "3D दुर्ग अनुप्रस्थ-काट और दुर्ग निर्माण चुनौती"
     },
     {
      "id": "T12.L3",
      "en": "Art, architecture, language and literature gallery",
      "modality": "evidence",
      "engine": "gallery",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "कला, स्थापत्य, भाषा और साहित्य दीर्घा"
     },
     {
      "id": "T12.L4",
      "en": "Bhakti tradition network map",
      "modality": "map",
      "engine": "network-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "भक्ति परंपरा नेटवर्क मानचित्र"
     },
     {
      "id": "T12.L5",
      "en": "Continuity-and-change timeline (economy and state)",
      "modality": "timeline",
      "engine": "timeline",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "निरंतरता और परिवर्तन समय-रेखा (अर्थव्यवस्था व राज्य)"
     }
    ],
    "concepts": [
@@ -2543,7 +2593,7 @@
      "kind": "concept",
      "text": "Safeguarding sovereignty: resistance, alliances and confederacies",
      "display": "Safeguarding sovereignty: resistance, alliances and confederacies",
-     "hi": null,
+     "hi": "संप्रभुता की रक्षा: प्रतिरोध, गठबंधन और महासंघ",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2555,7 +2605,7 @@
      "kind": "concept",
      "text": "Development of art and architecture, languages and literature",
      "display": "Development of art and architecture, languages and literature",
-     "hi": null,
+     "hi": "कला एवं वास्तुकला, भाषाओं और साहित्य का विकास",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2567,7 +2617,7 @@
      "kind": "concept",
      "text": "The Bhakti tradition",
      "display": "The Bhakti tradition",
-     "hi": null,
+     "hi": "भक्ति परंपरा",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2579,7 +2629,7 @@
      "kind": "concept",
      "text": "Forts and fortifications",
      "display": "Forts and fortifications",
-     "hi": null,
+     "hi": "दुर्ग और किलेबंदी",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2591,7 +2641,7 @@
      "kind": "concept",
      "text": "Expansion of Indian economy and state",
      "display": "Expansion of Indian economy and state",
-     "hi": null,
+     "hi": "भारतीय अर्थव्यवस्था और राज्य का विस्तार",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2605,7 +2655,7 @@
      "kind": "outcome",
      "text": "Explain the cultural, political, and military contributions of regional kingdoms in India.",
      "display": "Explain the cultural, political, and military contributions of regional kingdoms in India.",
-     "hi": null,
+     "hi": "भारत के क्षेत्रीय राज्यों के सांस्कृतिक, राजनीतिक और सैन्य योगदान की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2619,7 +2669,7 @@
      "kind": "outcome",
      "text": "Appreciate how diverse communities and regions shaped India’s history from 1000 CE to 1700 CE.",
      "display": "Appreciate how diverse communities and regions shaped India’s history from 1000 CE to 1700 CE.",
-     "hi": null,
+     "hi": "सराहना करें कि विविध समुदायों और क्षेत्रों ने 1000 ई. से 1700 ई. तक भारत के इतिहास को कैसे आकार दिया।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2632,7 +2682,7 @@
      "kind": "outcome",
      "text": "Explore how regional kingdoms adapted to changing political, economic, and cultural contexts over time.",
      "display": "Explore how regional kingdoms adapted to changing political, economic, and cultural contexts over time.",
-     "hi": null,
+     "hi": "अन्वेषण करें कि क्षेत्रीय राज्यों ने समय के साथ बदलते राजनीतिक, आर्थिक और सांस्कृतिक संदर्भों के अनुरूप खुद को कैसे ढाला।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2645,7 +2695,7 @@
      "kind": "outcome",
      "text": "Analyse the continuity of the civilisational history of India as a nation upto 18th century CE.",
      "display": "Analyse the continuity of the civilisational history of India as a nation upto 18th century CE.",
-     "hi": null,
+     "hi": "18वीं शताब्दी ईस्वी तक एक राष्ट्र के रूप में भारत के सभ्यतागत इतिहास की निरंतरता का विश्लेषण करें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2683,28 +2733,32 @@
      "en": "Time-filtered trade routes with port and commodity cards",
      "modality": "map",
      "engine": "trade-routes",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "तिथि-आधारित व्यापार मार्ग, बंदरगाह और वस्तु कार्ड"
     },
     {
      "id": "T13.L2",
      "en": "Cultural exchange map and idea-tracing activity",
      "modality": "map",
      "engine": "exchange-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "सांस्कृतिक आदान-प्रदान मानचित्र व विचार-प्रवाह गतिविधि"
     },
     {
      "id": "T13.L3",
      "en": "Indian Knowledge Systems gallery (source wording preserved)",
      "modality": "inquiry",
      "engine": "gallery",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "भारतीय ज्ञान प्रणाली दीर्घा"
     },
     {
      "id": "T13.L4",
      "en": "Artefact provenance activity",
      "modality": "evidence",
      "engine": "artefact-viewer",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "पुरावशेष उत्पत्ति पहचान गतिविधि"
     }
    ],
    "concepts": [
@@ -2713,7 +2767,7 @@
      "kind": "concept",
      "text": "Trade and commerce — trade with Mesopotamia, Greece, Roman Empire, China and Southeast Asia",
      "display": "Trade and commerce — trade with Mesopotamia, Greece, Roman Empire, China and Southeast Asia",
-     "hi": null,
+     "hi": "व्यापार और वाणिज्य — मेसोपोटामिया, यूनान, रोमन साम्राज्य, चीन और दक्षिण-पूर्व एशिया के साथ व्यापार",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2726,7 +2780,7 @@
      "kind": "concept",
      "text": "Cultural Connections — Interactions with Greece and Rome, Central Asia, China, and Influence on South East Asia",
      "display": "Cultural Connections — Interactions with Greece and Rome, Central Asia, China, and Influence on South East Asia",
-     "hi": null,
+     "hi": "सांस्कृतिक संबंध — यूनान, रोम, मध्य एशिया, चीन से संवाद तथा दक्षिण-पूर्व एशिया पर प्रभाव",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2738,7 +2792,7 @@
      "kind": "concept",
      "text": "Indian Knowledge Systems — Medicine, Mathematics and Astronomy, Medicine, Religion",
      "display": "Indian Knowledge Systems — Medicine, Mathematics and Astronomy, Medicine, Religion",
-     "hi": null,
+     "hi": "भारतीय ज्ञान प्रणालियाँ — चिकित्सा, गणित और खगोलशास्त्र, धर्म",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2752,7 +2806,7 @@
      "kind": "outcome",
      "text": "Explore India’s relations with early civilisations of the world.",
      "display": "Explore India’s relations with early civilisations of the world.",
-     "hi": null,
+     "hi": "विश्व की प्रारंभिक सभ्यताओं के साथ भारत के संबंधों का अन्वेषण करें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2765,7 +2819,7 @@
      "kind": "outcome",
      "text": "Identify the major articles of trade and the major trading ports.",
      "display": "Identify the major articles of trade and the major trading ports.",
-     "hi": null,
+     "hi": "व्यापार की प्रमुख वस्तुओं और प्रमुख व्यापारिक बंदरगाहों की पहचान करें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2777,7 +2831,7 @@
      "kind": "outcome",
      "text": "Appreciate the significant contributions of India in diverse spheres in an integrated manner.",
      "display": "Appreciate the significant contributions of India in diverse spheres in an integrated manner.",
-     "hi": null,
+     "hi": "विविध क्षेत्रों में भारत के महत्वपूर्ण योगदानों को समेकित रूप से सराहें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2789,7 +2843,7 @@
      "kind": "outcome",
      "text": "Appreciate the influence of Indian religion and culture, particularly in Southeast Asia.",
      "display": "Appreciate the influence of Indian religion and culture, particularly in Southeast Asia.",
-     "hi": null,
+     "hi": "विशेषकर दक्षिण-पूर्व एशिया में भारतीय धर्म और संस्कृति के प्रभाव को समझें।",
      "source": "pdf",
      "pdfPage": 12,
      "loIds": [
@@ -2824,35 +2878,40 @@
      "en": "Sourced text explorer: Kautilya and Shukraniti",
      "modality": "evidence",
      "engine": "source-room",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "प्रामाणिक ग्रंथ अन्वेषक: कौटिल्य और शुक्रनीति"
     },
     {
      "id": "T14.L2",
      "en": "Authority, legitimacy, law, justice, security, citizen concept map",
      "modality": "diagram",
      "engine": "concept-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "प्राधिकार, वैधता, कानून, न्याय, सुरक्षा व नागरिक अवधारणा मानचित्र"
     },
     {
      "id": "T14.L3",
      "en": "Historical-to-constitutional timeline",
      "modality": "timeline",
      "engine": "timeline",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "ऐतिहासिक से संवैधानिक विकास समय-रेखा"
     },
     {
      "id": "T14.L4",
      "en": "Authority-type comparison (functional, sensitive, welfare-oriented)",
      "modality": "inquiry",
      "engine": "type-compare",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "प्राधिकार प्रकार तुलना (कार्यात्मक, संवेदनशील, कल्याणकारी)"
     },
     {
      "id": "T14.L5",
      "en": "Fictional public-service decision and citizen-to-institution workflow",
      "modality": "scenario",
      "engine": "civic-scenario",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "काल्पनिक जन-सेवा निर्णय और नागरिक-से-संस्था शिकायत प्रक्रिया"
     }
    ],
    "concepts": [
@@ -2861,7 +2920,7 @@
      "kind": "concept",
      "text": "The Roots of Authority: in Kautilya and shukraniti- danda and relationship with nyaya and bala; the types of nyaya and bala",
      "display": "The Roots of Authority: in Kautilya and shukraniti- danda and relationship with nyaya and bala; the types of nyaya and bala",
-     "hi": null,
+     "hi": "सत्ता की जड़ें: कौटिल्य और शुक्रनीति में — दंड तथा न्याय व बल से उसका संबंध; न्याय और बल के प्रकार",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2874,7 +2933,7 @@
      "kind": "concept",
      "text": "Constitutional status of justice and security since ancient times",
      "display": "Constitutional status of justice and security since ancient times",
-     "hi": null,
+     "hi": "प्राचीन काल से न्याय और सुरक्षा की संवैधानिक स्थिति",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2886,7 +2945,7 @@
      "kind": "concept",
      "text": "Links the role of citizens with the elections and the democratic institutions",
      "display": "Links the role of citizens with the elections and the democratic institutions",
-     "hi": null,
+     "hi": "नागरिकों की भूमिका को चुनावों और लोकतांत्रिक संस्थाओं से जोड़ना",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2898,7 +2957,7 @@
      "kind": "concept",
      "text": "Types of authority — functional, sensitive, and welfare-oriented",
      "display": "Types of authority — functional, sensitive, and welfare-oriented",
-     "hi": null,
+     "hi": "सत्ता के प्रकार — कार्यात्मक, संवेदनशील और कल्याणोन्मुख",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2912,7 +2971,7 @@
      "kind": "outcome",
      "text": "Explain the roots of authority in Indian political thought.",
      "display": "Explain the roots of authority in Indian political thought.",
-     "hi": null,
+     "hi": "भारतीय राजनीतिक चिंतन में सत्ता की जड़ों की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2924,7 +2983,7 @@
      "kind": "outcome",
      "text": "Interpret the relationship between Danda (discipline/ force) and Nyaya (justice) as the twin foundations of authority, development, and security.",
      "display": "Interpret the relationship between Danda (discipline/ force) and Nyaya (justice) as the twin foundations of authority, development, and security.",
-     "hi": null,
+     "hi": "सत्ता, विकास और सुरक्षा के दो स्तंभों के रूप में दंड (अनुशासन/शक्ति) और न्याय के संबंध की व्याख्या करें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2937,7 +2996,7 @@
      "kind": "outcome",
      "text": "Trace the evolution of authority structures in India.",
      "display": "Trace the evolution of authority structures in India.",
-     "hi": null,
+     "hi": "भारत में सत्ता संरचनाओं के क्रमिक विकास का पता लगाएँ।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2949,7 +3008,7 @@
      "kind": "outcome",
      "text": "Understand the post- independence concept of justice and security.",
      "display": "Understand the post- independence concept of justice and security.",
-     "hi": null,
+     "hi": "स्वतंत्रता-पश्चात् न्याय और सुरक्षा की अवधारणा को समझें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2961,7 +3020,7 @@
      "kind": "outcome",
      "text": "Illustrate types of authority.",
      "display": "Illustrate types of authority.",
-     "hi": null,
+     "hi": "सत्ता के प्रकारों का उदाहरण सहित वर्णन करें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2973,7 +3032,7 @@
      "kind": "outcome",
      "text": "Develop an understanding of citizen discipline, justice, and strength.",
      "display": "Develop an understanding of citizen discipline, justice, and strength.",
-     "hi": null,
+     "hi": "नागरिक अनुशासन, न्याय और सामर्थ्य की समझ विकसित करें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -2985,7 +3044,7 @@
      "kind": "outcome",
      "text": "Illustrate the role of citizens in authority.",
      "display": "Illustrate the role of citizens in authority.",
-     "hi": null,
+     "hi": "सत्ता में नागरिकों की भूमिका को स्पष्ट करें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3018,35 +3077,40 @@
      "en": "Idea-to-enterprise journey and business-plan builder",
      "modality": "scenario",
      "engine": "plan-builder",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "विचार से उद्यम यात्रा और व्यवसाय-योजना निर्माता"
     },
     {
      "id": "T15.L2",
      "en": "Business resource board and unit-economics lab",
      "modality": "sandbox",
      "engine": "startup-lab",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "व्यवसाय संसाधन पटल और इकाई-अर्थशास्त्र प्रयोगशाला"
     },
     {
      "id": "T15.L3",
      "en": "Startup ecosystem map and MSME / unorganised-sector case gallery (sourced)",
      "modality": "map",
      "engine": "ecosystem-map",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "स्टार्टअप पारिस्थितिकी मानचित्र व एमएसएमई / असंगठित क्षेत्र दीर्घा"
     },
     {
      "id": "T15.L4",
      "en": "Creative-destruction comparison scenario",
      "modality": "scenario",
      "engine": "creative-destruction",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "सृजनात्मक विनाश तुलना परिदृश्य"
     },
     {
      "id": "T15.L5",
      "en": "Profit/loss calculator and simple accounting visual",
      "modality": "calculator",
      "engine": "accounting",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "लाभ-हानि गणक और सरल लेखांकन दृश्य"
     }
    ],
    "concepts": [
@@ -3055,7 +3119,7 @@
      "kind": "concept",
      "text": "What is entrepreneurship and explain the resources required to start a business",
      "display": "What is entrepreneurship and explain the resources required to start a business",
-     "hi": null,
+     "hi": "उद्यमिता क्या है और व्यवसाय शुरू करने के लिए आवश्यक संसाधनों की व्याख्या",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3068,7 +3132,7 @@
      "kind": "concept",
      "text": "Case studies of successful entrepreneurs",
      "display": "Case studies of successful entrepreneurs",
-     "hi": null,
+     "hi": "सफल उद्यमियों के केस अध्ययन",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3080,7 +3144,7 @@
      "kind": "concept",
      "text": "Creative destruction with examples",
      "display": "Creative destruction with examples",
-     "hi": null,
+     "hi": "उदाहरणों सहित सृजनात्मक विनाश (क्रिएटिव डिस्ट्रक्शन)",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3092,7 +3156,7 @@
      "kind": "concept",
      "text": "Start-up ecosystem in India.",
      "display": "Start-up ecosystem in India.",
-     "hi": null,
+     "hi": "भारत में स्टार्ट-अप पारिस्थितिकी तंत्र",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3104,7 +3168,7 @@
      "kind": "concept",
      "text": "Make in India initiative, role of MSMEs and the unorganised sector in India’s economic growth.",
      "display": "Make in India initiative, role of MSMEs and the unorganised sector in India’s economic growth.",
-     "hi": null,
+     "hi": "मेक इन इंडिया पहल, भारत की आर्थिक वृद्धि में MSME और असंगठित क्षेत्र की भूमिका",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3116,7 +3180,7 @@
      "kind": "concept",
      "text": "Stages of starting and executing a business idea through a business plan",
      "display": "Stages of starting and executing a business idea through a business plan",
-     "hi": null,
+     "hi": "व्यवसाय योजना के माध्यम से व्यावसायिक विचार शुरू करने और लागू करने के चरण",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3128,7 +3192,7 @@
      "kind": "concept",
      "text": "Some basic accounting concepts",
      "display": "Some basic accounting concepts",
-     "hi": null,
+     "hi": "कुछ बुनियादी लेखांकन अवधारणाएँ",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3142,7 +3206,7 @@
      "kind": "outcome",
      "text": "Define entrepreneurship and explain its importance in innovation, job creation, and economic growth.",
      "display": "Define entrepreneurship and explain its importance in innovation, job creation, and economic growth.",
-     "hi": null,
+     "hi": "उद्यमिता को परिभाषित करें और नवाचार, रोजगार सृजन व आर्थिक विकास में इसका महत्व समझाएँ।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3154,7 +3218,7 @@
      "kind": "outcome",
      "text": "Understand the key resources for business.",
      "display": "Understand the key resources for business.",
-     "hi": null,
+     "hi": "व्यवसाय के प्रमुख संसाधनों को समझें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3166,7 +3230,7 @@
      "kind": "outcome",
      "text": "Explain how resources are managed to produce goods and services.",
      "display": "Explain how resources are managed to produce goods and services.",
-     "hi": null,
+     "hi": "समझाएँ कि वस्तुओं और सेवाओं के उत्पादन के लिए संसाधनों का प्रबंधन कैसे किया जाता है।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3178,7 +3242,7 @@
      "kind": "outcome",
      "text": "Analyse real-world examples of successful entrepreneurs.",
      "display": "Analyse real-world examples of successful entrepreneurs.",
-     "hi": null,
+     "hi": "सफल उद्यमियों के वास्तविक उदाहरणों का विश्लेषण करें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3190,7 +3254,7 @@
      "kind": "outcome",
      "text": "Describe the features of India’s start-up ecosystem and initiatives like Make in India, Startup India, and Digital India.",
      "display": "Describe the features of India’s start-up ecosystem and initiatives like Make in India, Startup India, and Digital India.",
-     "hi": null,
+     "hi": "भारत के स्टार्ट-अप तंत्र और मेक इन इंडिया, स्टार्टअप इंडिया व डिजिटल इंडिया जैसी पहलों की विशेषताएँ बताएँ।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3202,7 +3266,7 @@
      "kind": "outcome",
      "text": "Recognise the role of Micro, Small, and Medium Enterprises (MSMEs) and the unorganised sector in promoting employment, innovation, and inclusive growth.",
      "display": "Recognise the role of Micro, Small, and Medium Enterprises (MSMEs) and the unorganised sector in promoting employment, innovation, and inclusive growth.",
-     "hi": null,
+     "hi": "रोजगार, नवाचार और समावेशी विकास में सूक्ष्म, लघु व मध्यम उद्यमों (MSME) तथा असंगठित क्षेत्र की भूमिका पहचानें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3214,7 +3278,7 @@
      "kind": "outcome",
      "text": "Identify and explain the stages of starting a business from developing an idea to creating and executing a business plan.",
      "display": "Identify and explain the stages of starting a business from developing an idea to creating and executing a business plan.",
-     "hi": null,
+     "hi": "विचार विकसित करने से लेकर व्यवसाय योजना बनाने और लागू करने तक के चरणों को समझाएँ।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3226,7 +3290,7 @@
      "kind": "outcome",
      "text": "Understand simple profit and loss.",
      "display": "Understand simple profit and loss.",
-     "hi": null,
+     "hi": "सरल लाभ और हानि को समझें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3238,7 +3302,7 @@
      "kind": "outcome",
      "text": "Identify the key components of a balance.",
      "display": "Identify the key components of a balance.",
-     "hi": null,
+     "hi": "तुलन-पत्र (बैलेंस शीट) के प्रमुख घटकों की पहचान करें।",
      "source": "pdf",
      "pdfPage": 13,
      "loIds": [
@@ -3271,35 +3335,40 @@
      "en": "Monthly budget lab: income, needs, wants, savings",
      "modality": "calculator",
      "engine": "budget-lab",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "मासिक बजट प्रयोगशाला: आय, आवश्यकताएँ, इच्छाएँ, बचत"
     },
     {
      "id": "T16.L2",
      "en": "Inflation basket and purchasing-power comparison",
      "modality": "calculator",
      "engine": "inflation",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "मुद्रास्फीति टोकरी और क्रय-शक्ति तुलना"
     },
     {
      "id": "T16.L3",
      "en": "Simple vs compound interest curves",
      "modality": "graph",
      "engine": "interest",
-     "status": "implemented"
+     "status": "implemented",
+     "hi": "साधारण बनाम चक्रवृद्धि ब्याज वक्र"
     },
     {
      "id": "T16.L4",
      "en": "Instruments, risk-return and insurance-pooling scenarios (hypothetical)",
      "modality": "scenario",
      "engine": "risk-return",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "बचत साधन, जोखिम-प्रतिफल और बीमा पूल परिदृश्य (काल्पनिक)"
     },
     {
      "id": "T16.L5",
      "en": "Income-tax concept flow (no rates unless dated and sourced)",
      "modality": "diagram",
      "engine": "tax-flow",
-     "status": "planned"
+     "status": "implemented",
+     "hi": "व्यक्तिगत आयकर अवधारणा प्रवाह (बिना वैधानिक दरों के)"
     }
    ],
    "concepts": [
@@ -3308,7 +3377,7 @@
      "kind": "concept",
      "text": "Relevance of personal financial management in daily life",
      "display": "Relevance of personal financial management in daily life",
-     "hi": null,
+     "hi": "दैनिक जीवन में व्यक्तिगत वित्तीय प्रबंधन की प्रासंगिकता",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3320,7 +3389,7 @@
      "kind": "concept",
      "text": "Inflation and its impact on purchasing power",
      "display": "Inflation and its impact on purchasing power",
-     "hi": null,
+     "hi": "मुद्रास्फीति और क्रय शक्ति पर उसका प्रभाव",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3332,7 +3401,7 @@
      "kind": "concept",
      "text": "Simple vs. compound interest rate",
      "display": "Simple vs. compound interest rate",
-     "hi": null,
+     "hi": "साधारण ब्याज बनाम चक्रवृद्धि ब्याज दर",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3344,7 +3413,7 @@
      "kind": "concept",
      "text": "Budgeting",
      "display": "Budgeting",
-     "hi": null,
+     "hi": "बजट बनाना",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3356,7 +3425,7 @@
      "kind": "concept",
      "text": "Various savings and investment options like fixed deposit, stocks, bonds, mutual funds, etc.",
      "display": "Various savings and investment options like fixed deposit, stocks, bonds, mutual funds, etc.",
-     "hi": null,
+     "hi": "विभिन्न बचत व निवेश विकल्प — सावधि जमा (FD), शेयर, बॉन्ड, म्यूचुअल फ़ंड आदि",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3368,7 +3437,7 @@
      "kind": "concept",
      "text": "Risk and insurance",
      "display": "Risk and insurance",
-     "hi": null,
+     "hi": "जोखिम और बीमा",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3380,7 +3449,7 @@
      "kind": "concept",
      "text": "Personal income tax",
      "display": "Personal income tax",
-     "hi": null,
+     "hi": "व्यक्तिगत आयकर",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3394,7 +3463,7 @@
      "kind": "outcome",
      "text": "Explain what personal financial management means and why it is essential in everyday life.",
      "display": "Explain what personal financial management means and why it is essential in everyday life.",
-     "hi": null,
+     "hi": "समझाएँ कि व्यक्तिगत वित्तीय प्रबंधन का अर्थ क्या है और दैनिक जीवन में यह क्यों आवश्यक है।",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3406,7 +3475,7 @@
      "kind": "outcome",
      "text": "Recognise how managing income, spending, saving, and investment helps achieve financial stability and long-term goals.",
      "display": "Recognise how managing income, spending, saving, and investment helps achieve financial stability and long-term goals.",
-     "hi": null,
+     "hi": "पहचानें कि आय, व्यय, बचत और निवेश का प्रबंधन वित्तीय स्थिरता व दीर्घकालिक लक्ष्य पाने में कैसे मदद करता है।",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3419,7 +3488,7 @@
      "kind": "outcome",
      "text": "Explain the difference between simple interest and compound interest.",
      "display": "Explain the difference between simple interest and compound interest.",
-     "hi": null,
+     "hi": "साधारण ब्याज और चक्रवृद्धि ब्याज के बीच अंतर समझाएँ।",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3431,7 +3500,7 @@
      "kind": "outcome",
      "text": "Prepare a simple personal or family budget showing income, expenditure, and savings.",
      "display": "Prepare a simple personal or family budget showing income, expenditure, and savings.",
-     "hi": null,
+     "hi": "आय, व्यय और बचत दर्शाने वाला एक सरल व्यक्तिगत या पारिवारिक बजट तैयार करें।",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3443,7 +3512,7 @@
      "kind": "outcome",
      "text": "Identify various savings and investment instruments.",
      "display": "Identify various savings and investment instruments.",
-     "hi": null,
+     "hi": "विभिन्न बचत और निवेश साधनों की पहचान करें।",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3455,7 +3524,7 @@
      "kind": "outcome",
      "text": "Understand the relationship between risk and return in different investment types.",
      "display": "Understand the relationship between risk and return in different investment types.",
-     "hi": null,
+     "hi": "विभिन्न निवेश प्रकारों में जोखिम और प्रतिफल (रिटर्न) के बीच संबंध को समझें।",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [
@@ -3467,7 +3536,7 @@
      "kind": "outcome",
      "text": "Understand the concept of income tax and why citizens are required to pay it.",
      "display": "Understand the concept of income tax and why citizens are required to pay it.",
-     "hi": null,
+     "hi": "आयकर की अवधारणा और नागरिकों द्वारा इसे चुकाने की आवश्यकता को समझें।",
      "source": "pdf",
      "pdfPage": 14,
      "loIds": [

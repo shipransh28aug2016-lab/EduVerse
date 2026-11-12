@@ -4,48 +4,50 @@ Interactive, bilingual (English / हिन्दी / English + हिन्द
 
 ## Run
 ```
-npm run serve        # http://127.0.0.1:8080/   (needs tools/serve.mjs; any static server works, e.g. python3 -m http.server)
-npm test             # engine and lab-spec unit tests (Node 20+, no dependencies)
-npm run smoke        # browser checks of every theme (needs: npm i --no-save playwright)
+npm run serve        # http://0.0.0.0:8080/   (tools/serve.mjs; any static server works)
+npm test             # engine, 67 lab-spec, DOM/module & HTTP server tests (Node 20+)
+npm run smoke        # Chromium checks of all 16 themes (needs Playwright + Chromium)
+npm run a11y         # Chromium accessibility checks T01–T16 (needs Playwright + Chromium)
 npm run catalog      # regenerate docs/CURRICULUM_COVERAGE.json and docs/SIMULATION_CATALOG.json
 npm run sw           # regenerate sw.js (offline precache list) after adding files
 ```
-`tools/build-curriculum.mjs`, `tools/serve.mjs`, `tests/e2e.py` and the geodata build are referred to by older scripts but are not in this repository.
 
 ## What is built (honest status)
-27 of 78 learning objects are implemented, in 12 of 16 themes; 51 are placeholders. Exact status per object: `docs/CURRICULUM_COVERAGE.json`; per simulation: `docs/SIMULATION_CATALOG.json`.
+All **78 of 78 learning objects** across all **16 themes (`T01`–`T16`)** are implemented across **79 interactive simulations** (`67` declarative `lab-kit` / `three-lab` simulations + `12` custom interactive modules). Exact status per object: `docs/CURRICULUM_COVERAGE.json`; per simulation: `docs/SIMULATION_CATALOG.json`. Note: only the 27 LOs listed in `data/coverage/qa-passed.json` carry prior Chromium QA verification; the remaining 51 LOs are verified by unit + `jsdom` DOM/interaction suites pending headless Chromium verification.
 
-| Theme | Built |
+| Theme | Built Labs |
 |---|---|
-| T02 Shaping of the Earth's Surface | L1 plate map, L2 boundary explorer (3D + SVG), L3 Earth interior, L4 weathering/erosion/deposition |
-| T03 Atmosphere and Climate | L1 atmosphere layers (standard atmosphere), L4 land and sea breeze |
-| T04 Early Humans | L1 deep-time clock, L2 evidence vs inference |
-| T06 Democracy | L3 parliamentary vs presidential |
-| T07 Elections | L2 electoral systems, L4 coalition formation |
-| T08 Building Blocks in Economics | L2 production possibility frontier |
-| T09 The Price Puzzle | L1 to L6 |
-| T10 Oceans and Life | L2 tides (spring/neap), L4 tsunami timing |
-| T11 Life on Earth | L3 forest harvest and food web |
-| T13 India and the World-I | L1 time-filtered trade routes |
-| T15 From Ideas to Startups | L2 unit economics, L5 profit and loss |
-| T16 Smart Ways to Manage Your Finances | L1 budget, L2 inflation, L3 simple vs compound interest |
-| T01, T05, T12, T14 | syllabus wording, opening question, placeholder |
+| T01 Exploring Social Science | L1 Society-Environment-Economy-Governance system map, L2 Indian regional lenses (India map), L3 4-discipline enquiry sorter |
+| T02 Shaping of the Earth's Surface | L1 plate map, L2 boundary explorer (3D + SVG), L3 Earth interior, L4 gradation sandbox, L5 3D landform gallery, L6 slope & GLOF hazard lab |
+| T03 Atmosphere and Climate | L1 atmosphere layers (ISA 1976), L2 climate grapher (5 Indian stations), L3 Indian monsoon map, L4 coastal breeze, L5 catchment flood balance, L6 carbon footprint |
+| T04 Early Humans | L1 deep-time clock, L2 evidence vs inference, L3 forager-to-farmer sim, L4 3D Harappan city planner, L5 river-valley civilisations world map |
+| T05 Early Civilisations & Empires | L1 historical geography of India map, L2 Vedic sources room, L3 Sabha/Mahajanapada/Mauryan admin flow, L4 knowledge traditions gallery, L5 trade & guild routes |
+| T06 Democracy | L1 democracy audit matrix, L2 Indian democratic roots gallery, L3 parliamentary vs presidential, L4 world constitutional systems map |
+| T07 Elections | L1 ECI election process flow, L2 electoral systems, L3 delimitation & voter roll lab, L4 coalition & anti-defection lab |
+| T08 Building Blocks in Economics | L1 scarcity budget game, L2 production possibility frontier, L3 circular flow, L4 economic systems matrix, L5 welfare safety net |
+| T09 The Price Puzzle | L1 market supply/demand, L2 price ceiling, L3 real-world deviations, L4 externalities, L5 public goods, L6 information asymmetry |
+| T10 Oceans and Life | L1 3D ocean-floor relief cutaway, L2 tides (spring/neap), L3 sustainable fisheries, L4 tsunami timing, L5 UNCLOS maritime cooperation |
+| T11 Life on Earth | L1 world biomes map, L2 India biosphere reserves map, L3 forest harvest & food web, L4 forest fire mitigation planner, L5 sacred groves & FRA policy |
+| T12 Resisting & Adapting (1000–1700 CE) | L1 regional kingdoms India map, L2 3D Indian hill fort defence lab, L3 architecture/literature/crafts gallery, L4 Bhakti force-network, L5 state & economy timeline |
+| T13 India and the World-I | L1 time-filtered trade routes map, L2 cultural & scholarly exchange map, L3 Indian Knowledge Systems gallery, L4 maritime/archaeological artefact viewer |
+| T14 Roots of Authority | L1 Kautilya & Shukraniti source room, L2 Danda–Nyaya–Bala concept network, L3 evolution of authority timeline, L4 types of authority audit, L5 citizen & RTI civic workflow |
+| T15 From Ideas to Startups | L1 business plan & stages builder, L2 unit economics, L3 India startup/MSME ecosystem map, L4 creative destruction, L5 profit, loss & balance sheet |
+| T16 Smart Ways to Manage Your Finances | L1 budget, L2 inflation, L3 simple vs compound interest, L4 investment risk-return & insurance pool, L5 income tax concept flow |
 
-Every lab states its learning objective and whether its data is documented, schematic, fictional or a reconstruction; explains changes live in both languages; asks the student to predict before testing; ends with an exit ticket and a reflection; and has a reset.
+Every lab states its learning objective and whether its data is documented, schematic, fictional or a reconstruction; explains changes live in English and Hindi; asks the student to predict before testing; ends with an exit ticket and a reflection; and includes a reset.
 
 ## Layout
-`index.html`, `sw.js` (generated), `assets/css/app.css`, `src/core` (store, i18n, dom), `src/components` (`widgets.js`, `lab-kit.js`), `src/engines` (chart, three-scene, webgl, xr), `src/engines/domain` (12 pure engines), `src/modules/<discipline>/` (pure models + UI + lab specs), `src/i18n/ui.js`, `src/curriculum/curriculum.json`, `data/` (glossary, geodata, coverage), `vendor/three`, `tests/`, `tools/`, `docs/`.
-
-Architecture, how to add a lab, and the capability fallbacks: `docs/INTEGRATION_ARCHITECTURE.md`.
+`index.html`, `sw.js` (generated), `assets/css/app.css`, `assets/images/`, `src/core` (`dom`, `i18n`, `store`, `media`), `src/components` (`widgets`, `lab-kit`, `three-lab`), `src/engines` (`chart`, `viz`, `three-scene`, `webgl`, `xr`, and `domain/`), `src/modules/` (16 themes + `teacher-meta.js` + `openings.js` + `registry.js`), `src/i18n/ui.js`, `src/curriculum/curriculum.json`, `data/` (`glossary.json`, `geo/`, `coverage/`), `vendor/` (`three`, `d3`, `lucide`), `tests/`, `tools/`, `docs/`.
 
 ## Accessibility and performance
-Keyboard operable, 44 px touch targets, projector mode, reduced motion, low-graphics mode, no-WebGL fallback (`?nowebgl=1`), render-on-demand 3D, lazy module loading, offline service worker. Home page is 59 KB gzip; lab pages 65 to 100 KB; the 3D module (168 KB gzip) loads only when a 3D tab opens. Measurements and limits: `docs/PERFORMANCE_AUDIT.md`. Tests and what they do not cover: `docs/TEST_REPORT.md`.
-
-## Research and licences
-Which open-source projects were evaluated and why none was added as a dependency: `docs/GITHUB_REPOSITORY_RESEARCH.md`.
+Keyboard operable, ≥44 px touch targets, projector mode, reduced motion, low-graphics mode (disables WebGL & hides raster banners), no-WebGL fallback (`?nowebgl=1`), single-tab render-on-demand 3D, lazy module loading, offline service worker.
 
 ## Attributions
-three.js (MIT, vendored r170, licence in `vendor/three/LICENSE`); plate outlines from PB2002 (Bird 2003, ODC-By) via the fraxen/tectonicplates repository; coastlines from Natural Earth (public domain). See `data/geo/SOURCES.md`. Atmosphere values follow the US Standard Atmosphere 1976.
+- **Three.js** (MIT, vendored r170, licence in `vendor/three/LICENSE`)
+- **D3 & TopoJSON** (`d3-array`, `d3-force`, `d3-geo`, `d3-path`, `d3-scale`, `d3-shape`, `topojson-client`, bundled in `vendor/d3/d3-viz.esm.js`)
+- **Lucide Icons** (ISC, bundled in `vendor/lucide/lucide-icons.esm.js`)
+- **Geodata**: Natural Earth / `world-atlas` (`data/geo/countries-110m.json`, `WORLD_ATLAS_LICENSE`), `datta07/INDIAN-SHAPEFILES` simplified (`data/geo/india.simplified.json`, `INDIA_SHAPEFILES_LICENSE`), PB2002 tectonic plates (Bird 2003, ODC-By). See `data/geo/SOURCES.md`.
+- Atmosphere values follow the US Standard Atmosphere 1976.
 
 ## Policies
 `docs/ACCURACY_AND_SOURCE_POLICY.md`. Hindi text is draft until reviewed by a subject teacher.

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440">
+    <defs>
+      <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3c1f47"/><stop offset="50%" stop-color="#b5502f"/><stop offset="100%" stop-color="#f5b864"/></linearGradient>
+    </defs>
+    <rect width="840" height="440" fill="url(#dusk)"/>
+    <circle cx="240" cy="155" r="50" fill="#ffe69e" opacity=".9"/>
+    <path d="M0,330 L140,255 L340,265 L490,235 L680,260 L840,310 L840,440 L0,440 Z" fill="#45291e"/>
+    <path d="M160,258 L160,205 L185,205 L185,218 L210,218 L210,205 L235,205 L235,218 L260,218 L260,205 L285,205 L285,258 Z" fill="#8e5536"/>
+    <rect x="305" y="165" width="170" height="95" fill="#a1623e"/>
+    <path d="M305,165 L322,165 L322,152 L340,152 L340,165 L358,165 L358,152 L376,152 L376,165 L394,165 L394,152 L412,152 L412,165 L430,165 L430,152 L448,152 L448,165 L465,165 L465,152 L475,152 L475,165" fill="#b9754c"/>
+    <path d="M355,260 L355,215 Q390,185 425,215 L425,260 Z" fill="#331c12"/>
+    <path d="M520,248 L520,192 L650,202 L650,262 Z" fill="#7a442a"/>
+    <path d="M575,202 L585,155 L595,202 Z" fill="#c9895b"/>
+    <path d="M85,440 L315,320 L380,320 L540,440 Z" fill="#663c27" opacity=".7"/>
+  </svg>

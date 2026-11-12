@@ -1,5 +1,5 @@
 // App shell: top bar, hash router, theme navigator, theme page (the 14-item contract), lazy module mounting.
-import { h, esc, $ } from './core/dom.js';
+import { h, $ } from './core/dom.js';
 import * as store from './core/store.js';
 import * as i18n from './core/i18n.js';
 import { t } from './core/i18n.js';
@@ -7,6 +7,8 @@ import { bi, relabelBi } from './components/widgets.js';
 import { UI } from './i18n/ui.js';
 import { OPENINGS } from './modules/openings.js';
 import { MODULES, TEACHER, LIMITS } from './modules/registry.js';
+import { HERO_MEDIA, THEME_MEDIA, themeBannerEl } from './core/media.js';
+import { iconEl } from './engines/viz.js';
 
 i18n.register(UI);
 const root = $('#main'), bar = $('#topbar'), foot = $('#foot');
@@ -30,7 +32,7 @@ function applyPrefs() {
 function renderBar() {
   const L = [['en', 'lang.en'], ['hi', 'lang.hi'], ['both', 'lang.both']];
   bar.replaceChildren(
-    h('a', { class: 'brand', href: '#/', 'data-k': 'app.title' }, t('app.title')),
+    h('a', { class: 'brand', href: '#/' }, iconEl('GraduationCap', { size: 20, className: 'brand-ico' }), h('span', { 'data-k': 'app.title' }, t('app.title'))),
     h('div', { class: 'tools' },
       h('div', { class: 'seg', role: 'group', 'data-k-aria': 'bar.lang', 'aria-label': t('bar.lang') }, ...L.map(([id, k]) => h('button', { type: 'button', class: 'seg-b', 'data-lang': id, 'aria-pressed': store.get().lang === id ? 'true' : 'false', 'data-k': k, onclick: () => store.set({ lang: id }) }, t(k)))),
       ...[['lowGraphics', 'bar.low'], ['reducedMotion', 'bar.motion'], ['projector', 'bar.proj'], ['teacher', 'bar.teacher']].map(([p, k]) => h('button', { type: 'button', class: 'tool', 'data-pref': p, 'aria-pressed': store.get()[p] ? 'true' : 'false', 'data-k': k, onclick: () => store.set({ [p]: !store.get()[p] }) }, t(k)))));
@@ -57,18 +59,33 @@ async function route() {
 }
 function card(th) {
   const s = status(th);
+  const media = THEME_MEDIA[th.id];
   return h('a', { class: `card disc-${th.discipline} st-${s.label}`, href: `#/theme/${th.id}`, 'data-theme': th.id },
-    h('span', { class: 'card-id' }, th.id), titleEl('span', th.title, 'card-title'),
+    media ? h('div', { class: 'card-media' },
+      h('img', { src: media.src, alt: '', loading: 'lazy', decoding: 'async' }),
+      h('span', { class: 'card-ico' }, iconEl(media.icon, { size: 15 }))) : null,
+    h('span', { class: 'card-id' }, th.id),
+    titleEl('span', th.title, 'card-title'),
     h('span', { class: 'card-meta' }, h('span', { 'data-k': DISC[th.discipline] }, t(DISC[th.discipline])), h('span', {}, ` · ${th.hours} `), h('span', { 'data-k': 'hours' }, t('hours'))),
     h('span', { class: `badge ${s.label}`, 'data-k': `st.${s.label}`, 'data-p': JSON.stringify({ k: s.k, n: s.n }) }, t(`st.${s.label}`, { k: s.k, n: s.n })));
 }
 function home() {
   const part = (n, label) => h('section', { class: 'part', 'aria-labelledby': `part${n}` }, h('h2', { id: `part${n}`, 'data-k': label, 'data-p': JSON.stringify({ h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) }) }, t(label, { h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) })), h('div', { class: 'grid' }, ...CUR.themes.filter((x) => x.part === n).map(card)));
-  root.append(h('section', { class: 'hero' }, h('h1', { 'data-k': 'home.h1' }, t('home.h1')), h('p', { class: 'lead', 'data-k': 'home.lead' }, t('home.lead')), h('p', { class: 'note', 'data-k': 'home.honest' }, t('home.honest'))), part(1, 'home.part1'), part(2, 'home.part2'));
+  root.append(
+    h('section', { class: 'hero hero-shell' },
+      h('div', { class: 'hero-copy' },
+        h('h1', { 'data-k': 'home.h1' }, t('home.h1')),
+        h('p', { class: 'lead', 'data-k': 'home.lead' }, t('home.lead')),
+        h('p', { class: 'note', 'data-k': 'home.honest' }, t('home.honest'))),
+      h('figure', { class: 'hero-art' },
+        h('img', { src: HERO_MEDIA.src, alt: i18n.pair(HERO_MEDIA.en, HERO_MEDIA.hi), loading: 'eager', decoding: 'async' }))),
+    part(1, 'home.part1'),
+    part(2, 'home.part2'));
 }
 const lst = (items, fn) => h('ul', { class: 'plain' }, ...items.map((x) => h('li', {}, fn(x))));
 async function themePage(id) {
   const th = CUR.themes.find((x) => x.id === id), s = status(th), idx = CUR.themes.indexOf(th);
+  const media = THEME_MEDIA[id];
   store.progress(id).visited = true; store.saveProgress();
   const loChip = (l) => h('span', { class: `chip-lo ${l.status}` }, h('b', {}, l.id.split('.')[1]), ' ', i18n.pair(l.en, l.hi), ' ', h('i', { 'data-k': `lo.${l.status}` }, t(`lo.${l.status}`)));
   const opening = OPENINGS[id];
@@ -78,7 +95,12 @@ async function themePage(id) {
   const teach = TEACHER[id];
   root.append(...[
     h('a', { class: 'back', href: '#/', 'data-k': 'nav.back' }, t('nav.back')),
-    h('header', { class: 'theme-h' }, h('span', { class: 'card-id' }, id), titleEl('h1', th.title), h('p', { class: 'card-meta' }, h('span', { 'data-k': DISC[th.discipline] }, t(DISC[th.discipline])), ` · ${th.hours} `, h('span', { 'data-k': 'hours' }, t('hours')), ' · ', h('span', { class: `badge ${s.label}`, 'data-k': `st.${s.label}`, 'data-p': JSON.stringify({ k: s.k, n: s.n }) }, t(`st.${s.label}`, { k: s.k, n: s.n })))),
+    h('header', { class: 'theme-h theme-head-wrap' },
+      h('div', { class: 'theme-head-txt' },
+        h('span', { class: 'card-id' }, media ? iconEl(media.icon, { size: 15, className: 'th-ico' }) : null, id),
+        titleEl('h1', th.title),
+        h('p', { class: 'card-meta' }, h('span', { 'data-k': DISC[th.discipline] }, t(DISC[th.discipline])), ` · ${th.hours} `, h('span', { 'data-k': 'hours' }, t('hours')), ' · ', h('span', { class: `badge ${s.label}`, 'data-k': `st.${s.label}`, 'data-p': JSON.stringify({ k: s.k, n: s.n }) }, t(`st.${s.label}`, { k: s.k, n: s.n })))),
+      themeBannerEl(id)),
     h('section', { class: 'opening', 'aria-labelledby': 'op-h' }, h('h2', { id: 'op-h', 'data-k': 'th.opening' }, t('th.opening')), bi(opening, { tag: 'p', cls: 'q' })),
     modSlot,
     h('section', { class: 'subsec' }, h('h2', { 'data-k': 'th.lo' }, t('th.lo')), lst(th.learningObjects, loChip)),

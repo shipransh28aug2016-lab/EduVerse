@@ -4,7 +4,7 @@
 //  3. Offline: after one online visit the service worker must serve home and a lab theme with the network switched off.
 // CPU throttling is an emulation, not a measurement on real hardware.
 const { chromium } = require('playwright'); const http = require('http'), fs = require('fs'), path = require('path'), zlib = require('zlib');
-const root = path.resolve(__dirname, '..'), T = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json' };
+const root = path.resolve(__dirname, '..'), T = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml' };
 const srv = http.createServer((q, s) => { let u = q.url.split('?')[0]; if (u.endsWith('/')) u += 'index.html'; fs.readFile(path.join(root, u), (e, d) => { if (e) { s.writeHead(404); s.end(); } else { const gz = /gzip/.test(q.headers['accept-encoding'] || '') && /\.(js|css|json|html)$/.test(u); s.writeHead(200, { 'content-type': T[path.extname(u)], 'cache-control': 'no-cache', ...(gz ? { 'content-encoding': 'gzip' } : {}) }); s.end(gz ? zlib.gzipSync(d) : d); } }); }).listen(0);   // gzip like GitHub Pages
 (async () => {
   const port = srv.address().port, base = `http://localhost:${port}/`, b = await chromium.launch(), out = {};
