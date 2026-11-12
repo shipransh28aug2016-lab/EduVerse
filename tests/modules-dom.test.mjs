@@ -156,8 +156,7 @@ test('tools/serve.mjs serves static assets over HTTP on 0.0.0.0 without 404s', a
       '/vendor/three/three.module.min.js',
       '/sw.js',
       '/assets/images/hero.jpg',
-      ...Array.from({ length: 9 }, (_, i) => `/assets/images/t0${i + 1}.jpg`),
-      ...Array.from({ length: 7 }, (_, i) => `/assets/images/t${i + 10}.svg`),
+      ...Array.from({ length: 16 }, (_, i) => `/assets/images/t${String(i + 1).padStart(2, '0')}.jpg`),
     ];
     for (const u of urls) {
       const resp = await fetch(`http://127.0.0.1:${port}${u}`);

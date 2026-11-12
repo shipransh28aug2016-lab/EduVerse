@@ -8,9 +8,9 @@ Run: 2026-11-12, branch `arena/ebd4c500-eduverse`. Environment: Node `v22.22.3`,
 |---|---|---|
 | Engine unit tests (`tests/engines.test.mjs`) | `npm test` | 18 / 18 pass (terrain, atmosphere, ocean, ecosystem, timeline, tradeRoutes, institutions, election, market, startup, finance, tectonics, history, society) |
 | Lab-spec validation (`tests/labs.test.mjs`) | `npm test` | 7 / 7 pass across all 67 `lab-kit` specs (uniqueness, pedagogy structure, Devanagari Hindi parity, extreme control sweeps, prediction live runs, single-answer exit tickets, scientific spot checks, XR guard) |
-| Runtime DOM & HTTP verify (`tests/modules-dom.test.mjs`) | `npm test` | 4 / 4 pass (boots `src/main.js`, checks Home + all 16 modules `T01`–`T16` mounting/tabs/controls/relabel/EN+HI+BOTH/zero `NaN`/`undefined`/`Infinity`/SVG `aria-label`s, verifies all 94 `sw.js` files exist, verifies HTTP 200 static serving) |
+| Runtime DOM & HTTP verify (`tests/modules-dom.test.mjs`) | `npm test` | 4 / 4 pass (boots `src/main.js`, checks Home + all 16 modules `T01`–`T16` mounting/tabs/controls/relabel/EN+HI+BOTH/zero `NaN`/`undefined`/`Infinity`/SVG `aria-label`s, verifies all 87 `sw.js` files exist, verifies HTTP 200 static serving) |
 | Catalogue generator | `npm run catalog` | 78 learning objects, 78 implemented, 0 planned, 79 simulations (27 prior Chromium QA-verified in `data/coverage/qa-passed.json`) |
-| Service worker precache | `npm run sw` | 94 files precached |
+| Service worker precache | `npm run sw` | 87 files precached |
 | Chromium smoke (`tests/lab-smoke.cjs`) | `npm run smoke` | Not executed here (no Chromium/Playwright binary in sandbox) |
 | Chromium a11y (`tests/a11y-smoke.cjs`) | `npm run a11y` | Not executed here (no Chromium/Playwright binary in sandbox) |
 | Payload & throttled perf (`perf-size.cjs`, `perf-throttle.cjs`) | — | Not executed here (requires Playwright + Chromium) |
