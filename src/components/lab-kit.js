@@ -65,7 +65,10 @@ export function createLab(spec, themeId, { onDraw } = {}) {
   function draw() {
     persist();
     const v = spec.view(S);
-    chartBox.innerHTML = v.svg;
+    const plateHtml = v.plate?.src
+      ? `<figure class="lab-plate"><img src="${esc(v.plate.src)}" alt="${esc(i18n.pair(v.plate.en, v.plate.hi))}" loading="eager" decoding="async"><figcaption class="lab-plate-cap">${biHtml({ en: v.plate.en, hi: v.plate.hi }, { block: false })}</figcaption></figure>`
+      : '';
+    chartBox.innerHTML = plateHtml + v.svg;
     chartBox.querySelectorAll('svg[role="img"]').forEach((svg) => { if (v.aria && !svg.getAttribute('aria-label')) svg.setAttribute('aria-label', v.aria); });
     read.innerHTML = v.lines.map((l) => `<div class="ro-line ${l.cls ?? ''}">${biHtml(l, { block: true })}</div>`).join('');
     onDraw?.(S);

@@ -56,7 +56,16 @@ export const systemMap = {
         ? { en: 'Drought cascade: lower rainfall (Place) shrinks harvest (Resources) → households struggle (People) → Panchayats & ration stores adjust relief (Institutions & Decisions).', hi: 'सूखे की शृंखला: कम वर्षा (स्थान) से फसल घटती है (संसाधन) → परिवार प्रभावित होते हैं (जनता) → पंचायत व राशन प्रणाली राहत तय करते हैं (संस्थाएँ व निर्णय)।', cls: 'warn' }
         : { en: 'Every link between nodes shows how no single discipline explains society alone.', hi: 'नोड्स के बीच की हर कड़ी दिखाती है कि कोई एक विषय अकेले पूरे समाज को नहीं समझा सकता।', cls: 'balanced' },
     ];
-    return { svg, aria: `Society system map focusing on ${S.focus}`, lines };
+    return {
+      plate: {
+        src: 'assets/images/hero.jpg',
+        en: 'One interconnected Indian landscape: rivers & hills (Geography), heritage (History), civic assembly (Politics) and bazaar (Economics).',
+        hi: 'एक जुड़ा हुआ भारतीय परिदृश्य: नदियाँ व पहाड़ (भूगोल), धरोहर (इतिहास), ग्राम-सभा (राजनीति) और बाज़ार (अर्थशास्त्र)।',
+      },
+      svg,
+      aria: `Society system map focusing on ${S.focus}`,
+      lines,
+    };
   },
   discover: [
     b('Click each node from People to Decisions and notice how every part connects to at least two others.', 'जनता से सामूहिक निर्णय तक हर नोड चुनें और देखें कि हर भाग कम से कम दो अन्य भागों से जुड़ा है।'),

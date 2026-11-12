@@ -37,7 +37,7 @@ All **78 of 78 learning objects** across all **16 themes (`T01`–`T16`)** are i
 Every lab states its learning objective and whether its data is documented, schematic, fictional or a reconstruction; explains changes live in English and Hindi; asks the student to predict before testing; ends with an exit ticket and a reflection; and includes a reset.
 
 ## Layout
-`index.html`, `sw.js` (generated), `assets/css/app.css`, `assets/images/`, `src/core` (`dom`, `i18n`, `store`, `media`), `src/components` (`widgets`, `lab-kit`, `three-lab`), `src/engines` (`chart`, `viz`, `three-scene`, `webgl`, `xr`, and `domain/`), `src/modules/` (16 themes + `teacher-meta.js` + `openings.js` + `registry.js`), `src/i18n/ui.js`, `src/curriculum/curriculum.json`, `data/` (`glossary.json`, `geo/`, `coverage/`), `vendor/` (`three`, `d3`, `lucide`), `tests/`, `tools/`, `docs/`.
+`index.html`, `sw.js` (generated), `assets/css/app.css`, `assets/images/` (hero + 16 theme banners + `plates/` 2D lab figures), `src/core` (`dom`, `i18n`, `store`, `media`), `src/components` (`widgets`, `lab-kit`, `three-lab`), `src/engines` (`chart`, `viz`, `three-scene`, `webgl`, `xr`, and `domain/`), `src/modules/` (16 themes + `teacher-meta.js` + `openings.js` + `registry.js`), `src/i18n/ui.js`, `src/curriculum/curriculum.json`, `data/` (`glossary.json`, `geo/`, `coverage/`), `vendor/` (`three`, `d3`, `lucide`), `tests/`, `tools/`, `docs/`.
 
 ## Accessibility and performance
 Keyboard operable, ≥44 px touch targets, projector mode, reduced motion, low-graphics mode (disables WebGL & hides raster banners), no-WebGL fallback (`?nowebgl=1`), single-tab render-on-demand 3D, lazy module loading, offline service worker.

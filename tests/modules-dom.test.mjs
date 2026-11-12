@@ -98,7 +98,15 @@ test('DOM + module mount/relabel/a11y/interaction check across all 16 themes (T0
         for (const opt of modSlot.querySelectorAll('.predict .opt, .mcq .opt')) opt.click();
       }
 
-      // Verify SVG accessibility + no NaN/undefined/Infinity/unresolved i18n keys in EN, HI, and BOTH
+      // Verify SVG accessibility, 2D plate images + no NaN/undefined/Infinity/unresolved i18n keys in EN, HI, and BOTH
+      for (const img of main.querySelectorAll('.lab-plate img')) {
+        const src = img.getAttribute('src') || '';
+        assert.ok(src && fs.existsSync(path.join(ROOT, src)), `${th.id} .lab-plate missing file: ${src}`);
+        assert.ok((img.getAttribute('alt') || '').trim().length > 0, `${th.id} .lab-plate missing alt text`);
+      }
+      if (['T01', 'T04', 'T05', 'T06', 'T11', 'T12', 'T13', 'T14'].includes(th.id)) {
+        assert.ok(main.querySelectorAll('.lab-plate img').length >= 1, `${th.id} expected at least one .lab-plate 2D image inside labs`);
+      }
       for (const lang of ['en', 'hi', 'both']) {
         store.set({ lang });
         i18n.apply(main);
@@ -157,6 +165,7 @@ test('tools/serve.mjs serves static assets over HTTP on 0.0.0.0 without 404s', a
       '/sw.js',
       '/assets/images/hero.jpg',
       ...Array.from({ length: 16 }, (_, i) => `/assets/images/t${String(i + 1).padStart(2, '0')}.jpg`),
+      ...fs.readdirSync(path.join(ROOT, 'assets/images/plates')).filter((f) => f.endsWith('.jpg')).map((f) => `/assets/images/plates/${f}`),
     ];
     for (const u of urls) {
       const resp = await fetch(`http://127.0.0.1:${port}${u}`);

@@ -117,6 +117,11 @@ export const fortBuilder = {
     g += `<text class="txt b" x="505" y="108" text-anchor="middle">${esc(P('Siege endurance', 'घेराबंदी सहन'))}: ${f.siegeEndurance}%</text>`;
     g += `<text class="txt b" x="505" y="158" text-anchor="middle" fill="${col}">${esc(P('Overall fort score', 'कुल दुर्ग स्कोर'))}: ${f.overall}%</text>`;
     return {
+      plate: {
+        src: 'assets/images/t12.jpg',
+        en: 'Indian sandstone hill-fort bastions, double ramparts and stepped rainwater cistern.',
+        hi: 'भारतीय बलुआ पत्थर पहाड़ी दुर्ग के बुर्ज, दोहरी प्राचीर व सीढ़ीदार जल कुंड।',
+      },
       svg: `<svg viewBox="0 0 640 250" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Fort design score ${f.overall}%: defence ${f.defence}%, endurance ${f.siegeEndurance}%`,
       lines: [
@@ -167,7 +172,10 @@ export const heritageGallery = {
   view(S) {
     const h = HERITAGE_T12[S.cat];
     const svg = `<svg viewBox="0 0 640 180" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="148" rx="12" fill="#fae8ff" stroke="#7e22ce" stroke-width="2.5"/><text class="txt b" x="320" y="68" text-anchor="middle">${esc(P(h.en, h.hi))}</text><text class="txt sm mut" x="320" y="106" text-anchor="middle">${esc(P('Craft Guilds · Patronage · Multilingual Exchange', 'शिल्पी संघ · संरक्षण · बहुभाषी आदान-प्रदान'))}</text></svg>`;
-    return { svg, aria: h.en, lines: [{ en: h.en, hi: h.hi, cls: 'balanced' }, h.ex] };
+    const plate = S.cat === 'arch'
+      ? { src: 'assets/images/plates/t12-heritage.jpg', en: 'Carved mandapa pillars, scalloped sandstone arches and stepped temple reservoir.', hi: 'तराशे मंडप स्तंभ, मेहराबदार छतरी और सीढ़ीदार जल कुंड स्थापत्य।' }
+      : { src: 'assets/images/plates/t12-miniature.jpg', en: 'Artisan painting a regional miniature using mineral pigments beside a vernacular manuscript.', hi: 'खनिज रंगों से भारतीय लघुचित्र बनाते कलाकार व क्षेत्रीय पांडुलिपि।' };
+    return { plate, svg, aria: h.en, lines: [{ en: h.en, hi: h.hi, cls: 'balanced' }, h.ex] };
   },
   discover: [b('Inspect Architecture, Paintings and Literature. How did temple/fort artisans borrow motifs across regions?', 'स्थापत्य, चित्रकला व साहित्य देखें। शिल्पकारों ने विभिन्न क्षेत्रों की शैलियों को आपस में कैसे जोड़ा?')],
   predictions: [
@@ -371,7 +379,16 @@ export const iksGallery = {
   view(S) {
     const it = IKS_SRC[S.src];
     const svg = `<svg viewBox="0 0 640 170" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="138" rx="12" fill="#ecfdf5" stroke="#047857" stroke-width="2.5"/><text class="txt b" x="320" y="64" text-anchor="middle">${esc(P(it.en, it.hi))}</text><text class="txt sm mut" x="320" y="102" text-anchor="middle">${esc(P('Empirical Observation · Technical Manuals · Preserved Inscriptions', 'प्रत्यक्ष प्रेक्षण · तकनीकी ग्रंथ · सुरक्षित अभिलेख'))}</text></svg>`;
-    return { svg, aria: it.en, lines: [it.quote, it.context] };
+    return {
+      plate: {
+        src: 'assets/images/plates/t13-iks.jpg',
+        en: 'Mehrauli Iron Pillar courtyard, brass armillary sphere, Wootz steel ingots & Sushruta surgical tools.',
+        hi: 'महरौली लौह स्तंभ, पीतल खगोल यंत्र, वुट्ज़ इस्पात व सुश्रुत शल्य उपकरण।',
+      },
+      svg,
+      aria: it.en,
+      lines: [it.quote, it.context],
+    };
   },
   discover: [b('Compare Aryabhata’s boat analogy with how you feel when a train next to yours starts moving.', 'आर्यभट की नाव उपमा की तुलना पास की ट्रेन चलने पर होने वाले अनुभव से करें।')],
   predictions: [
@@ -415,7 +432,16 @@ export const artefactProvenance = {
   view(S) {
     const a = ARTEFACTS[S.art];
     const svg = `<svg viewBox="0 0 640 175" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="142" rx="10" fill="var(--card)" stroke="#b5651d" stroke-width="2.5"/><text class="txt b" x="320" y="64" text-anchor="middle">${esc(P(a.en, a.hi))}</text><text class="txt sm" x="320" y="102" text-anchor="middle">${esc(P(`Material origin: ${a.origin === 'roman' ? 'Mediterranean / Rome' : 'Gujarat / Indus Valley'}`, `निर्माण स्रोत: ${a.origin === 'roman' ? 'रोम / भूमध्यसागर' : 'गुजरात / सिंधु क्षेत्र'}`))}</text></svg>`;
-    return { svg, aria: a.en, lines: [a.clue, { ...a.conclusion, cls: 'balanced' }] };
+    return {
+      plate: {
+        src: 'assets/images/plates/t13-artefacts.jpg',
+        en: 'Excavated Roman amphora shard, gold Aurei coins, carnelian beads, black pepper & cinnamon.',
+        hi: 'उत्खनित रोमन एम्फ़ोरा, स्वर्ण औराई सिक्के, कारनेलियन मनके, काली मिर्च व दालचीनी।',
+      },
+      svg,
+      aria: a.en,
+      lines: [a.clue, { ...a.conclusion, cls: 'balanced' }],
+    };
   },
   discover: [b('Compare the Coimbatore gold coins and the Ur carnelian beads. Notice how trade moved treasures in both directions!', 'कोयंबटूर के स्वर्ण सिक्के और उर के मनकों की तुलना करें। व्यापार दोनों दिशाओं में चलता था!')],
   predictions: [

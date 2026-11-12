@@ -115,6 +115,15 @@ export const earlyTraditions = {
       + `<text class="txt b" x="30" y="36">${esc(P(tr.en, tr.hi))} · ${esc(tr.year)}</text>`
       + `<text class="txt sm mut" x="30" y="54">${esc(tr.place)} · ${esc(tr.src)}</text>${g}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t06-democracy.jpg',
+        en: S.trad === 'uttara'
+          ? 'Chola stone mandapa inscriptions and Uttaramerur Kudavolai palm-leaf ballot pot (c. 920 CE).'
+          : 'Early Indian deliberative stone mandapa and community assembly tradition.',
+        hi: S.trad === 'uttara'
+          ? 'चोल मंडप शिलालेख और ताड़पत्र पर्चियों वाला उत्तरमेरूर कुडवोलाई घड़ा (ल. 920 ई.)।'
+          : 'भारत की प्रारंभिक विमर्शकारी मंडप व सामुदायिक सभा परंपरा।',
+      },
       svg,
       aria: `${tr.en} (${tr.year}) at ${tr.place}`,
       lines: [

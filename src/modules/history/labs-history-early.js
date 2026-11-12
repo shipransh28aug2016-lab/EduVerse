@@ -27,6 +27,11 @@ export const settlementLab = {
     ch.line(r.series.map((p) => [p.y, p.foodStore]), 'curve s');
     ch.text(1, 168, P('Green: population · Blue: stored grain', 'हरा: जनसंख्या · नीला: संचित अनाज'), 'lbl', 'start');
     return {
+      plate: {
+        src: 'assets/images/plates/t04-tools.jpg',
+        en: 'From Palaeolithic handaxe and microlith blades to polished Neolithic celts and charred wheat.',
+        hi: 'पुरापाषाण हस्त-कुठार व सूक्ष्म-पाषाण से नवपाषाण पॉलिश कुल्हाड़ी व जले गेहूँ तक।',
+      },
       svg: ch.html({ label: P('Forager vs farmer population and storage over 15 years', '15 वर्षों में जनसंख्या व अन्न भंडार') }),
       aria: `${S.mode}: final population ${r.finalPop}, stored food ${r.finalStore}`,
       lines: [
@@ -96,6 +101,11 @@ export const harappanCity = {
     }
     if (S.coveredDrains) g += `<line x1="250" y1="124" x2="598" y2="124" stroke="#334155" stroke-width="6" stroke-dasharray="10 4"/><text class="txt sm b" x="424" y="140" text-anchor="middle">${esc(P('Covered street drain', 'ढकी सड़क नाली'))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/t04.jpg',
+        en: 'Harappan baked-brick urban grid, Great Bath courtyard and covered street drains.',
+        hi: 'हड़प्पा की पक्की ईंटों की नगर योजना, महास्नानागार आँगन व ढकी नालियाँ।',
+      },
       svg: `<svg viewBox="0 0 640 250" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Harappan town plan: sanitation ${score.sanitation}%, flood safety ${score.floodSafety}%`,
       lines: [
@@ -258,7 +268,12 @@ export const sourceRoom = {
     const it = SOURCES_T05[S.src];
     const col = S.src === 'inscription' ? '#92400e' : S.src === 'text' ? '#4c1d95' : '#065f46';
     const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="158" rx="10" fill="var(--card)" stroke="${col}" stroke-width="3"/><rect x="38" y="38" width="84" height="114" rx="8" fill="${col}" opacity=".16"/><text class="txt b" x="80" y="102" text-anchor="middle" fill="${col}">${esc(S.src === 'inscription' ? '🪨' : S.src === 'text' ? '📜' : '🪙')}</text><text class="txt b" x="142" y="58">${esc(P(it.en, it.hi))}</text><text class="txt sm mut" x="142" y="92">${esc(P('Cross-check texts + stones + excavations for full truth', 'पूर्ण सत्य के लिए ग्रंथ + पत्थर + उत्खनन का मिलान करें'))}</text></svg>`;
-    return { svg, aria: it.en, lines: [it.excerpt, it.strength] };
+    const plate = S.src === 'inscription'
+      ? { src: 'assets/images/t05.jpg', en: 'Ashokan sandstone pillar and ancient institutional architecture — official epigraphic record.', hi: 'अशोक का बलुआ पत्थर स्तंभ व प्राचीन स्थापत्य — राज्यादेश अभिलेख।' }
+      : S.src === 'text'
+        ? { src: 'assets/images/plates/t05-knowledge.jpg', en: 'Bound palm-leaf Sanskrit manuscript and early vihara library veranda.', hi: 'ताड़पत्र पांडुलिपि और प्राचीन विहार का अध्ययन कक्ष।' }
+        : { src: 'assets/images/plates/t13-artefacts.jpg', en: 'Excavated coins, pottery shards and trade beads — daily-life archaeological record.', hi: 'उत्खनित सिक्के, मृद्भांड व मनके — दैनिक जीवन के पुरातात्विक प्रमाण।' };
+    return { plate, svg, aria: it.en, lines: [it.excerpt, it.strength] };
   },
   discover: [b('Compare all three sources. Which one tells us about ordinary artisans and farmers whom kings rarely carved on pillars?', 'तीनों स्रोतों की तुलना करें। साधारण शिल्पियों व किसानों के बारे में कौन-सा स्रोत बताता है?')],
   predictions: [
@@ -365,7 +380,16 @@ export const knowledgeGallery = {
   view(S) {
     const it = KT_ITEMS[S.topic];
     const svg = `<svg viewBox="0 0 640 180" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="148" rx="12" fill="#fef9c3" stroke="#ca8a04" stroke-width="2.5"/><text class="txt b" x="320" y="68" text-anchor="middle">${esc(P(it.en, it.hi))}</text><text class="txt sm mut" x="320" y="106" text-anchor="middle">${esc(P('Observation · Logic · Debate · Oral & Manuscript Transmission', 'प्रेक्षण · तर्क · शास्त्रार्थ · मौखिक व पांडुलिपि परंपरा'))}</text></svg>`;
-    return { svg, aria: it.en, lines: [{ en: it.en, hi: it.hi, cls: 'balanced' }, it.body] };
+    return {
+      plate: {
+        src: 'assets/images/plates/t05-knowledge.jpg',
+        en: 'Palm-leaf grammar/astronomy manuscript, Ayurvedic mortar & brass armillary sphere at a brick vihara.',
+        hi: 'ताड़पत्र पांडुलिपि, आयुर्वेदिक खरल और ईंट विहार में पीतल का खगोल यंत्र।',
+      },
+      svg,
+      aria: it.en,
+      lines: [{ en: it.en, hi: it.hi, cls: 'balanced' }, it.body],
+    };
   },
   discover: [b('Click through all four cards. Notice how scholars across medicine, grammar and mathematics used structured rule systems.', 'चारों कार्ड देखें। ध्यान दें कि चिकित्सा, व्याकरण और गणित में नियमबद्ध प्रणालियाँ प्रयोग हुईं।')],
   predictions: [
