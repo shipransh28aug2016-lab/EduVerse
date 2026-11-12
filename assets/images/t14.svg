@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440">
+    <defs>
+      <linearGradient id="hall" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2b2042"/><stop offset="55%" stop-color="#5d3b66"/><stop offset="100%" stop-color="#c88a55"/></linearGradient>
+    </defs>
+    <rect width="840" height="440" fill="url(#hall)"/>
+    <polygon points="300,0 560,0 710,440 160,440" fill="#ffe7b3" opacity=".16"/>
+    <g fill="#3a2636" opacity=".85"><rect x="95" y="40" width="48" height="360"/><rect x="220" y="55" width="44" height="345"/><rect x="580" y="55" width="44" height="345"/><rect x="700" y="40" width="48" height="360"/></g>
+    <rect x="0" y="355" width="840" height="85" fill="#261922"/>
+    <rect x="300" y="310" width="240" height="60" rx="6" fill="#4d3023"/>
+    <line x1="420" y1="130" x2="420" y2="310" stroke="#eab85c" stroke-width="7"/>
+    <line x1="335" y1="165" x2="505" y2="165" stroke="#eab85c" stroke-width="5"/>
+    <path d="M335,165 L312,235 L358,235 Z" fill="none" stroke="#f5cf76" stroke-width="2.5"/>
+    <path d="M308,235 Q335,255 362,235 Z" fill="#eab85c"/>
+    <path d="M505,165 L482,235 L528,235 Z" fill="none" stroke="#f5cf76" stroke-width="2.5"/>
+    <path d="M478,235 Q505,255 532,235 Z" fill="#eab85c"/>
+  </svg>

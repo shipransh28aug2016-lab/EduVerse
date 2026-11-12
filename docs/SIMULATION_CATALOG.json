@@ -1,7 +1,157 @@
 {
  "generatedBy": "tools/build-catalog.mjs",
- "count": 28,
+ "count": 79,
  "simulations": [
+  {
+   "id": "T01.L1",
+   "learningObject": "T01.L1",
+   "theme": "T01",
+   "title": {
+    "en": "Society system map: people, place, time, resources, institutions, decisions",
+    "hi": "समाज प्रणाली मानचित्र: लोग, स्थान, समय, संसाधन, संस्थाएँ, निर्णय"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/integrated/t01.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "See society as one connected system linking people, place, time, resources, institutions and collective decisions.",
+    "hi": "समाज को लोगों, स्थान, समय, संसाधनों, संस्थाओं और सामूहिक निर्णयों से जुड़ी एक प्रणाली के रूप में देखें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "focus",
+     "type": "chips",
+     "label": {
+      "en": "Highlight node",
+      "hi": "नोड चुनें"
+     }
+    },
+    {
+     "id": "shock",
+     "type": "toggle",
+     "label": {
+      "en": "Simulate drought shock on Place & Resources",
+      "hi": "स्थान व संसाधन पर सूखे का प्रभाव देखें"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T01.L2",
+   "learningObject": "T01.L2",
+   "theme": "T01",
+   "title": {
+    "en": "Investigate one place through four lenses (India map)",
+    "hi": "एक स्थान को चार लेंसों से जांचना (भारत मानचित्र)"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/integrated/t01.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Investigate a single Indian place through all four Social Science lenses on an interactive India map.",
+    "hi": "इंटरैक्टिव भारत मानचित्र पर किसी एक स्थान को सामाजिक विज्ञान के चारों लेंसों से परखें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "place",
+     "type": "chips",
+     "label": {
+      "en": "Select Indian place",
+      "hi": "भारतीय स्थान चुनें"
+     }
+    },
+    {
+     "id": "lens",
+     "type": "chips",
+     "label": {
+      "en": "Choose analytical lens",
+      "hi": "विश्लेषण लेंस चुनें"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T01.L3",
+   "learningObject": "T01.L3",
+   "theme": "T01",
+   "title": {
+    "en": "Classify questions by discipline and reveal overlap",
+    "hi": "विषय के अनुसार प्रश्न वर्गीकरण और अंतर्संबंध"
+   },
+   "modality": "inquiry",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/integrated/t01.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Classify real-world questions by primary discipline and uncover why multiple disciplines overlap.",
+    "hi": "वास्तविक प्रश्नों को मुख्य विषय के अनुसार वर्गीकृत करें और देखें कि कई विषय आपस में क्यों जुड़ते हैं।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "qid",
+     "type": "chips",
+     "label": {
+      "en": "Pick inquiry question",
+      "hi": "जाँच का प्रश्न चुनें"
+     }
+    },
+    {
+     "id": "guess",
+     "type": "chips",
+     "label": {
+      "en": "Which discipline leads first?",
+      "hi": "पहला मुख्य विषय कौन-सा?"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
   {
    "id": "T02.L1",
    "learningObject": "T02.L1",
@@ -58,7 +208,8 @@
    "learningObject": "T02.L4",
    "theme": "T02",
    "title": {
-    "en": "Weathering, erosion and deposition sandbox; agents of gradation"
+    "en": "Weathering, erosion and deposition sandbox; agents of gradation",
+    "hi": "अपक्षय, अपरदन और निक्षेपण प्रयोगशाला; समतलीकरण के कारक"
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/terrain.js",
@@ -127,11 +278,136 @@
    ]
   },
   {
+   "id": "T02.L5",
+   "learningObject": "T02.L5",
+   "theme": "T02",
+   "title": {
+    "en": "Landform gallery: river, waves/currents, wind, glacier, underground water",
+    "hi": "भू-आकृति दीर्घा: नदी, समुद्री लहरें, पवन, हिमनद और भूमिगत जल"
+   },
+   "modality": "3d",
+   "engine": "src/engines/domain/terrain.js",
+   "implementation": "src/modules/geography/labs-earth.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare the erosional and depositional landforms shaped by rivers, sea waves, wind, glaciers and underground water.",
+    "hi": "नदी, समुद्री तरंगों, पवन, हिमनद और भूमिगत जल द्वारा निर्मित अपरदनात्मक और निक्षेपात्मक स्थलाकृतियों की तुलना करें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "agent",
+     "type": "chips",
+     "label": {
+      "en": "Agent",
+      "hi": "कारक"
+     }
+    },
+    {
+     "id": "stage",
+     "type": "slider",
+     "label": {
+      "en": "Maturity / relief stage",
+      "hi": "परिपक्वता / विकास अवस्था"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T02.L6",
+   "learningObject": "T02.L6",
+   "theme": "T02",
+   "title": {
+    "en": "Slope stability, GLOF and disaster mitigation planning",
+    "hi": "ढलान स्थिरता, GLOF और आपदा न्यूनीकरण योजना"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/terrain.js",
+   "implementation": "src/modules/geography/labs-earth.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Test how slope steepness, intense rain, tree roots, retaining walls and glacial lakes affect landslide and GLOF disaster risk.",
+    "hi": "परखें कि ढलान का कोण, भारी वर्षा, वन जड़ें, प्रतिरोधी दीवार और हिमनद झीलें भूस्खलन व GLOF जोखिम को कैसे बदलती हैं।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "slope",
+     "type": "slider",
+     "label": {
+      "en": "Hill slope angle (°)",
+      "hi": "पहाड़ी ढलान कोण (°)"
+     }
+    },
+    {
+     "id": "rain",
+     "type": "slider",
+     "label": {
+      "en": "24h rainfall (mm)",
+      "hi": "24 घंटे की वर्षा (मिमी)"
+     }
+    },
+    {
+     "id": "forest",
+     "type": "slider",
+     "label": {
+      "en": "Slope forest cover",
+      "hi": "ढलान वन आवरण"
+     }
+    },
+    {
+     "id": "glof",
+     "type": "toggle",
+     "label": {
+      "en": "Moraine-dammed glacial lake upstream",
+      "hi": "ऊपर हिमोढ़-बाँध वाली हिमनद झील"
+     }
+    },
+    {
+     "id": "wall",
+     "type": "toggle",
+     "label": {
+      "en": "Retaining wall + drainage pipes + warning siren",
+      "hi": "प्रतिरोधी दीवार + जल निकासी + चेतावनी सायरन"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T03.L1",
    "learningObject": "T03.L1",
    "theme": "T03",
    "title": {
-    "en": "Atmospheric cutaway: layers and composition"
+    "en": "Atmospheric cutaway: layers and composition",
+    "hi": "वायुमंडल अनुप्रस्थ-काट: परतें और संघटन"
    },
    "modality": "diagram",
    "engine": "src/engines/domain/atmosphere.js",
@@ -168,11 +444,112 @@
    ]
   },
   {
+   "id": "T03.L2",
+   "learningObject": "T03.L2",
+   "theme": "T03",
+   "title": {
+    "en": "Weather-station dashboard and climate-data grapher",
+    "hi": "मौसम केंद्र पटल और जलवायु-आँकड़ा ग्राफ़"
+   },
+   "modality": "graph",
+   "engine": "src/engines/domain/atmosphere.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Read and compare temperature-rainfall climographs across contrasting Indian stations shaped by latitude, altitude, coast and relief.",
+    "hi": "तट, ऊँचाई, अक्षांश और उच्चावच से प्रभावित विभिन्न भारतीय केंद्रों के तापमान-वर्षा जलवायु आरेखों की तुलना करें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "station",
+     "type": "chips",
+     "label": {
+      "en": "Primary station",
+      "hi": "मुख्य केंद्र"
+     }
+    },
+    {
+     "id": "compare",
+     "type": "chips",
+     "label": {
+      "en": "Compare temperature line",
+      "hi": "तुलना केंद्र (तापमान)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T03.L3",
+   "learningObject": "T03.L3",
+   "theme": "T03",
+   "title": {
+    "en": "India seasons and monsoon map; livelihoods overlay",
+    "hi": "भारत की ऋतुएँ, मानसून मानचित्र और आजीविका परत"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/atmosphere.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Trace India’s advancing (SW) and retreating (NE) monsoon winds on an India map and link rainfall seasons to farming and coastal livelihoods.",
+    "hi": "भारत के मानचित्र पर दक्षिण-पश्चिम और उत्तर-पूर्व मानसूनी पवनों की दिशा देखें और ऋतुओं को कृषि व आजीविका से जोड़ें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "season",
+     "type": "chips",
+     "label": {
+      "en": "Monsoon season",
+      "hi": "मानसून ऋतु"
+     }
+    },
+    {
+     "id": "crop",
+     "type": "chips",
+     "label": {
+      "en": "Livelihood focus",
+      "hi": "आजीविका"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T03.L4",
    "learningObject": "T03.L4",
    "theme": "T03",
    "title": {
-    "en": "Land-sea heating and local wind model"
+    "en": "Land-sea heating and local wind model",
+    "hi": "थल-समुद्र तापन और स्थानीय पवन मॉडल"
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/atmosphere.js",
@@ -217,11 +594,152 @@
    ]
   },
   {
+   "id": "T03.L5",
+   "learningObject": "T03.L5",
+   "theme": "T03",
+   "title": {
+    "en": "Rainfall-runoff and flood catchment",
+    "hi": "वर्षा-अपवाह और बाढ़ जलग्रहण मॉडल"
+   },
+   "modality": "sandbox",
+   "engine": "src/engines/domain/atmosphere.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Test how forests, paved surfaces and check-dams change rainwater infiltration versus flash-flood surface runoff.",
+    "hi": "परखें कि वन, पक्की सड़कें और चेक-डैम वर्षा-जल रिसाव बनाम आकस्मिक बाढ़ अपवाह को कैसे बदलते हैं।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "rain",
+     "type": "slider",
+     "label": {
+      "en": "Storm rainfall (mm)",
+      "hi": "तूफ़ानी वर्षा (मिमी)"
+     }
+    },
+    {
+     "id": "forest",
+     "type": "slider",
+     "label": {
+      "en": "Forest & soil cover",
+      "hi": "वन व मिट्टी आवरण"
+     }
+    },
+    {
+     "id": "paved",
+     "type": "slider",
+     "label": {
+      "en": "Concrete / paved roads",
+      "hi": "कंक्रीट / पक्की सतह"
+     }
+    },
+    {
+     "id": "dams",
+     "type": "slider",
+     "label": {
+      "en": "Check-dams / ponds",
+      "hi": "चेक-डैम / तालाब"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T03.L6",
+   "learningObject": "T03.L6",
+   "theme": "T03",
+   "title": {
+    "en": "Carbon footprint calculator and climate-hazard link",
+    "hi": "कार्बन पदचिह्न गणक और जलवायु-आपदा संबंध"
+   },
+   "modality": "calculator",
+   "engine": "src/engines/domain/atmosphere.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Calculate household greenhouse emissions across electricity, travel and food, and link emissions to sea-level and glacier risks.",
+    "hi": "बिजली, यात्रा और भोजन से होने वाले उत्सर्जन की गणना करें और इसे समुद्र-स्तर व हिमनद जोखिम से जोड़ें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "kwh",
+     "type": "slider",
+     "label": {
+      "en": "Monthly grid electricity (kWh)",
+      "hi": "मासिक बिजली खपत (यूनिट)"
+     }
+    },
+    {
+     "id": "solar",
+     "type": "slider",
+     "label": {
+      "en": "Rooftop solar / clean share",
+      "hi": "सौर / स्वच्छ ऊर्जा हिस्सा"
+     }
+    },
+    {
+     "id": "car",
+     "type": "slider",
+     "label": {
+      "en": "Weekly car km",
+      "hi": "साप्ताहिक कार दूरी (किमी)"
+     }
+    },
+    {
+     "id": "bus",
+     "type": "slider",
+     "label": {
+      "en": "Weekly bus/metro km",
+      "hi": "साप्ताहिक बस/मेट्रो दूरी (किमी)"
+     }
+    },
+    {
+     "id": "diet",
+     "type": "chips",
+     "label": {
+      "en": "Diet pattern",
+      "hi": "आहार प्रकार"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T04.L1",
    "learningObject": "T04.L1",
    "theme": "T04",
    "title": {
-    "en": "Deep-time timeline: 2 million years to early cities; archaeological ages"
+    "en": "Deep-time timeline: 2 million years to early cities; archaeological ages",
+    "hi": "गहन-काल समय-रेखा: 20 लाख वर्ष से प्रारंभिक नगर और पुरातात्विक युग"
    },
    "modality": "timeline",
    "implementation": "src/modules/history/early-humans.js",
@@ -237,7 +755,8 @@
    "learningObject": "T04.L2",
    "theme": "T04",
    "title": {
-    "en": "Archaeological tool gallery and evidence-vs-inference investigation"
+    "en": "Archaeological tool gallery and evidence-vs-inference investigation",
+    "hi": "पुरातात्विक औज़ार दीर्घा और प्रमाण-बनाम-निष्कर्ष जांच"
    },
    "modality": "evidence",
    "implementation": "src/modules/history/early-humans.js",
@@ -249,11 +768,544 @@
    "note": "hand-built module that predates lab-kit"
   },
   {
+   "id": "T04.L3",
+   "learningObject": "T04.L3",
+   "theme": "T04",
+   "title": {
+    "en": "Hunter-gatherer to farmer settlement trade-offs",
+    "hi": "आखेटक-संग्राहक से कृषक बस्ती के विकल्प और चुनौतियाँ"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare mobile foraging bands with early farming villages across food surplus, storage, population growth and harvest shocks.",
+    "hi": "भोजन अधिशेष, भंडारण, जनसंख्या वृद्धि और फसल जोखिम के आधार पर घुमंतू संग्राहक समूहों और आरंभिक कृषि गाँवों की तुलना करें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "mode",
+     "type": "chips",
+     "label": {
+      "en": "Subsistence strategy",
+      "hi": "जीवन-निर्वाह पद्धति"
+     }
+    },
+    {
+     "id": "rainVar",
+     "type": "slider",
+     "label": {
+      "en": "Weather / rainfall variability",
+      "hi": "मौसम / वर्षा उतार-चढ़ाव"
+     }
+    },
+    {
+     "id": "storage",
+     "type": "slider",
+     "label": {
+      "en": "Granary storage capacity",
+      "hi": "अन्नागार भंडारण क्षमता"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T04.L4",
+   "learningObject": "T04.L4",
+   "theme": "T04",
+   "title": {
+    "en": "Harappan city planner (labelled reconstruction)",
+    "hi": "हड़प्पा नगर नियोजक (नामांकित 3D पुनर्निर्माण)"
+   },
+   "modality": "3d",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Plan an Indus-Sarasvati (Harappan) town with Citadel, Great Bath, Granary, right-angle grid streets and covered drains, and inspect its 3D layout.",
+    "hi": "दुर्ग, विशाल स्नानागार, अन्नागार, समकोण ग्रिड सड़कों और ढकी नालियों के साथ हड़प्पा नगर की योजना बनाएँ और उसका 3D रूप देखें।"
+   },
+   "provenance": "reconstruction",
+   "controls": [
+    {
+     "id": "gridStreets",
+     "type": "toggle",
+     "label": {
+      "en": "Right-angle north–south / east–west grid",
+      "hi": "समकोण उत्तर–दक्षिण / पूर्व–पश्चिम ग्रिड"
+     }
+    },
+    {
+     "id": "coveredDrains",
+     "type": "toggle",
+     "label": {
+      "en": "Kiln-brick covered drains & soak-pits",
+      "hi": "पक्की ईंट की ढकी नालियाँ व सोख्ता-गड्ढे"
+     }
+    },
+    {
+     "id": "granary",
+     "type": "toggle",
+     "label": {
+      "en": "Raised Citadel granary platform",
+      "hi": "दुर्ग पर ऊँचा अन्नागार चबूतरा"
+     }
+    },
+    {
+     "id": "greatBath",
+     "type": "toggle",
+     "label": {
+      "en": "Bitumen-lined Great Bath reservoir",
+      "hi": "विशाल स्नानागार (जलरोधी ईंट)"
+     }
+    },
+    {
+     "id": "wells",
+     "type": "slider",
+     "label": {
+      "en": "Brick wells per neighbourhood block",
+      "hi": "प्रति मोहल्ला ईंट के कुएँ"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T04.L5",
+   "learningObject": "T04.L5",
+   "theme": "T04",
+   "title": {
+    "en": "Comparative civilisation atlas: Harappan, Mesopotamia, Egypt, China",
+    "hi": "तुलनात्मक सभ्यता मानचित्र: हड़प्पा, मेसोपोटामिया, मिस्र, चीन"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare the four Bronze Age river-valley civilisations—Harappan, Mesopotamia, Egypt and Shang China—on a world atlas.",
+    "hi": "विश्व मानचित्र पर चार कांस्य-युगीन नदी-घाटी सभ्यताओं—हड़प्पा, मेसोपोटामिया, मिस्र और शांग चीन—की तुलना करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "civ",
+     "type": "chips",
+     "label": {
+      "en": "Select river civilisation",
+      "hi": "नदी सभ्यता चुनें"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T05.L1",
+   "learningObject": "T05.L1",
+   "theme": "T05",
+   "title": {
+    "en": "Dated historical geography of the Vedic age",
+    "hi": "वैदिक काल का तिथिबद्ध ऐतिहासिक भूगोल मानचित्र"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Track historical geography shifts from Sapta-Sindhu pastoral clans to Ganga Mahajanapadas, Mauryan edicts and classical kingdoms up to 1000 CE.",
+    "hi": "सप्त-सिंधु के कबीलों से गंगा महाजनपदों, मौर्य अभिलेखों और 1000 ई. तक के राज्यों तक भारत के ऐतिहासिक भूगोल को मानचित्र पर देखें।"
+   },
+   "provenance": "reconstruction",
+   "controls": [
+    {
+     "id": "era",
+     "type": "chips",
+     "label": {
+      "en": "Historical period",
+      "hi": "ऐतिहासिक काल"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T05.L2",
+   "learningObject": "T05.L2",
+   "theme": "T05",
+   "title": {
+    "en": "Source reading room: texts, inscriptions, material evidence",
+    "hi": "स्रोत अध्ययन कक्ष: ग्रंथ, अभिलेख और भौतिक प्रमाण"
+   },
+   "modality": "evidence",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare inscriptions, literary texts and material artefacts as historical sources—identifying what each reveals and hides.",
+    "hi": "अभिलेखों, साहित्यिक ग्रंथों और भौतिक पुरावशेषों की तुलना करें—प्रत्येक क्या दिखाता और क्या छोड़ता है।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "src",
+     "type": "chips",
+     "label": {
+      "en": "Source type",
+      "hi": "स्रोत प्रकार"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T05.L3",
+   "learningObject": "T05.L3",
+   "theme": "T05",
+   "title": {
+    "en": "Early empire administration diagram and governance scenario",
+    "hi": "प्रारंभिक साम्राज्य प्रशासन आरेख व शासन परिदृश्य"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Trace how early empires (such as Mauryan & Gupta states) organised revenue, provinces, roads and justice, and test over-taxation risks.",
+    "hi": "समझें कि प्राचीन साम्राज्यों (मौर्य व गुप्त) ने राजस्व, प्रांत, सड़कें और न्याय कैसे संगठित किए, और अत्यधिक कर के जोखिम परखें।"
+   },
+   "provenance": "reconstruction",
+   "controls": [
+    {
+     "id": "taxRate",
+     "type": "slider",
+     "label": {
+      "en": "Agricultural tax share (bhaga %)",
+      "hi": "कृषि कर अंश (भाग %)"
+     }
+    },
+    {
+     "id": "roadsInvest",
+     "type": "slider",
+     "label": {
+      "en": "Public works (canals, roads, inns)",
+      "hi": "लोक निर्माण (नहरें, सड़कें, सराय)"
+     }
+    },
+    {
+     "id": "decentralized",
+     "type": "toggle",
+     "label": {
+      "en": "Samanta / local provincial autonomy",
+      "hi": "सामंत / प्रांतीय स्वायत्तता"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T05.L4",
+   "learningObject": "T05.L4",
+   "theme": "T05",
+   "title": {
+    "en": "Knowledge traditions gallery",
+    "hi": "भारतीय ज्ञान परंपरा दीर्घा"
+   },
+   "modality": "inquiry",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Explore India’s early knowledge traditions across grammar, medicine, mathematics/astronomy and residential universities.",
+    "hi": "व्याकरण, चिकित्सा, गणित/खगोल और आवासीय विश्वविद्यालयों में भारत की प्राचीन ज्ञान परंपराओं का अन्वेषण करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "topic",
+     "type": "chips",
+     "label": {
+      "en": "Knowledge strand",
+      "hi": "ज्ञान क्षेत्र"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T05.L5",
+   "learningObject": "T05.L5",
+   "theme": "T05",
+   "title": {
+    "en": "Trade-route planner: goods, guilds, merchants",
+    "hi": "व्यापार मार्ग नियोजक: वस्तुएँ, श्रेणियाँ और व्यापारी"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-early.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Plan caravan and coastal shipments along India’s ancient Uttarapatha and Dakshinapatha routes and understand how merchant guilds (shrenis) lowered risk.",
+    "hi": "प्राचीन भारत के उत्तरापथ व दक्षिणापथ मार्गों पर व्यापार योजना बनाएँ और जानें कि श्रेणी (व्यापारी संघ) ने जोखिम कैसे घटाया।"
+   },
+   "provenance": "reconstruction",
+   "controls": [
+    {
+     "id": "route",
+     "type": "chips",
+     "label": {
+      "en": "Trade corridor",
+      "hi": "व्यापार गलियारा"
+     }
+    },
+    {
+     "id": "shreniJoin",
+     "type": "toggle",
+     "label": {
+      "en": "Operate inside a Shreni (merchant guild)",
+      "hi": "श्रेणी (व्यापारी संघ) में शामिल हों"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T06.L1",
+   "learningObject": "T06.L1",
+   "theme": "T06",
+   "title": {
+    "en": "Democracy concept map and fictional-case assessor",
+    "hi": "लोकतंत्र अवधारणा मानचित्र और काल्पनिक केस परीक्षक"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/institutions.js",
+   "implementation": "src/modules/politics/labs-politics.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Test whether a fictional polity meets all four core criteria of democracy: free elections, multi-party choice, free media, and equal rule of law.",
+    "hi": "परखें कि कोई काल्पनिक राज्यतंत्र लोकतंत्र के चारों मुख्य मानदंड पूरे करता है या नहीं: स्वतंत्र चुनाव, बहु-दलीय विकल्प, स्वतंत्र मीडिया और कानून के समक्ष समानता।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "preset",
+     "type": "chips",
+     "label": {
+      "en": "Load case",
+      "hi": "केस चुनें"
+     }
+    },
+    {
+     "id": "freeVote",
+     "type": "toggle",
+     "label": {
+      "en": "Universal free & fair vote",
+      "hi": "सार्वभौमिक स्वतंत्र व निष्पक्ष मतदान"
+     }
+    },
+    {
+     "id": "multipleParties",
+     "type": "toggle",
+     "label": {
+      "en": "Real choice of opposition parties",
+      "hi": "विपक्षी दलों का वास्तविक विकल्प"
+     }
+    },
+    {
+     "id": "freeMedia",
+     "type": "toggle",
+     "label": {
+      "en": "Independent courts & free media",
+      "hi": "स्वतंत्र न्यायालय व मुक्त मीडिया"
+     }
+    },
+    {
+     "id": "equalLaw",
+     "type": "toggle",
+     "label": {
+      "en": "Equal rule of law for rulers too",
+      "hi": "शासकों पर भी समान कानून"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T06.L2",
+   "learningObject": "T06.L2",
+   "theme": "T06",
+   "title": {
+    "en": "Early Indian traditions gallery (sourced)",
+    "hi": "भारत की प्रारंभिक लोकतांत्रिक परंपराओं की दीर्घा"
+   },
+   "modality": "evidence",
+   "engine": "src/engines/domain/institutions.js",
+   "implementation": "src/modules/politics/labs-politics.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Examine documented early Indian deliberative and participatory institutions (Sabha-Samiti, Vajji Gana-Sangha, and Uttaramerur village sabha).",
+    "hi": "भारत की प्रारंभिक विमर्शकारी व सहभागी संस्थाओं (सभा-समिति, वज्जि गणसंघ और उत्तरमेरूर ग्राम-सभा) के प्रमाणों का अध्ययन करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "trad",
+     "type": "chips",
+     "label": {
+      "en": "Select tradition",
+      "hi": "परंपरा चुनें"
+     }
+    },
+    {
+     "id": "step",
+     "type": "slider",
+     "label": {
+      "en": "Inspect rule stage (1–3)",
+      "hi": "नियम चरण देखें (1–3)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T06.L3",
    "learningObject": "T06.L3",
    "theme": "T06",
    "title": {
-    "en": "Parliamentary vs presidential institutional flow"
+    "en": "Parliamentary vs presidential institutional flow",
+    "hi": "संसदीय बनाम अध्यक्षीय संस्थागत प्रवाह"
    },
    "modality": "diagram",
    "engine": "src/engines/domain/institutions.js",
@@ -306,11 +1358,104 @@
    ]
   },
   {
+   "id": "T06.L4",
+   "learningObject": "T06.L4",
+   "theme": "T06",
+   "title": {
+    "en": "Country comparison: India, USA, France, Russia, Canada (dated, sourced)",
+    "hi": "देश तुलना: भारत, अमेरिका, फ़्रांस, रूस और कनाडा"
+   },
+   "modality": "inquiry",
+   "engine": "src/engines/domain/institutions.js",
+   "implementation": "src/modules/politics/labs-politics.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Locate India, USA, France, Canada, and Russia on the world map and compare how their executives, legislatures, and heads of state are structured.",
+    "hi": "विश्व मानचित्र पर भारत, अमेरिका, फ़्रांस, कनाडा और रूस को पहचानें और उनकी कार्यपालिका, विधायिका तथा राष्ट्राध्यक्ष संरचना की तुलना करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "country",
+     "type": "chips",
+     "label": {
+      "en": "Country",
+      "hi": "देश"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T07.L1",
+   "learningObject": "T07.L1",
+   "theme": "T07",
+   "title": {
+    "en": "Election process timeline and ECI workflow",
+    "hi": "चुनाव प्रक्रिया समय-रेखा और भारत निर्वाचन आयोग कार्यप्रवाह"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/election.js",
+   "implementation": "src/modules/politics/labs-politics.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Trace the Indian election workflow led by the Election Commission of India (ECI) under Article 324 and the Representation of the People Acts (1950, 1951).",
+    "hi": "अनुच्छेद 324 और जनप्रतिनिधित्व अधिनियम (1950, 1951) के अंतर्गत भारत निर्वाचन आयोग (ECI) की चुनाव प्रक्रिया का चरणबद्ध अध्ययन करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "stage",
+     "type": "slider",
+     "label": {
+      "en": "Election stage (1–4)",
+      "hi": "चुनाव चरण (1–4)"
+     }
+    },
+    {
+     "id": "independentEci",
+     "type": "toggle",
+     "label": {
+      "en": "Independent ECI & Model Code enforced",
+      "hi": "स्वतंत्र ECI व आचार संहिता लागू"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T07.L2",
    "learningObject": "T07.L2",
    "theme": "T07",
    "title": {
-    "en": "Fictional election sandbox: compare electoral systems on one vote set"
+    "en": "Fictional election sandbox: compare electoral systems on one vote set",
+    "hi": "काल्पनिक चुनाव प्रयोगशाला: एक मत-समूह पर तीन चुनाव प्रणालियाँ"
    },
    "modality": "sandbox",
    "implementation": "src/modules/politics/elections.js",
@@ -322,19 +1467,78 @@
    "note": "hand-built module that predates lab-kit"
   },
   {
+   "id": "T07.L3",
+   "learningObject": "T07.L3",
+   "theme": "T07",
+   "title": {
+    "en": "Toy delimitation model and fictional electoral roll / enumerator",
+    "hi": "परिसीमन मॉडल और काल्पनिक मतदाता सूची / प्रगणक जांच"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/election.js",
+   "implementation": "src/modules/politics/labs-politics.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Explore how drawing constituency boundaries (delimitation) shapes seat outcomes from identical block votes, and check voter-roll eligibility rules.",
+    "hi": "देखें कि एक जैसे मतों के बावजूद निर्वाचन क्षेत्र की सीमाएँ (परिसीमन) बदलने से सीट परिणाम कैसे बदल जाते हैं, और मतदाता सूची पात्रता जाँचें।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "scheme",
+     "type": "chips",
+     "label": {
+      "en": "Boundary map",
+      "hi": "सीमा मानचित्र"
+     }
+    },
+    {
+     "id": "voterAge",
+     "type": "slider",
+     "label": {
+      "en": "Citizen age (enumerator check)",
+      "hi": "नागरिक आयु (प्रगणक जांच)"
+     }
+    },
+    {
+     "id": "resident",
+     "type": "toggle",
+     "label": {
+      "en": "Ordinarily resident in constituency",
+      "hi": "निर्वाचन क्षेत्र का सामान्य निवासी"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T07.L4",
    "learningObject": "T07.L4",
    "theme": "T07",
    "title": {
-    "en": "Coalition negotiation and Anti-Defection case analysis (fictional)"
+    "en": "Coalition negotiation and Anti-Defection case analysis (fictional)",
+    "hi": "गठबंधन वार्ता और दलबदल-रोधी कानून विश्लेषण (काल्पनिक)"
    },
    "modality": "scenario",
    "engine": "src/engines/domain/election.js",
    "implementation": "src/modules/politics/labs-politics.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
-    "en": "Find which parties can form a government when no party wins a majority of seats, and see how the electoral system changes the possibilities.",
-    "hi": "पता करें कि जब किसी दल को सीटों का बहुमत नहीं मिलता तो कौन-से दल मिलकर सरकार बना सकते हैं, और चुनाव-प्रणाली संभावनाओं को कैसे बदलती है।"
+    "en": "Find which parties can form a government when no party wins a majority of seats, and examine how the Anti-Defection Law promotes stability.",
+    "hi": "पता करें कि जब किसी दल को सीटों का बहुमत नहीं मिलता तो कौन-से दल मिलकर सरकार बना सकते हैं, और दलबदल-रोधी कानून स्थिरता कैसे लाता है।"
    },
    "provenance": "fictional",
    "controls": [
@@ -371,11 +1575,70 @@
    ]
   },
   {
+   "id": "T08.L1",
+   "learningObject": "T08.L1",
+   "theme": "T08",
+   "title": {
+    "en": "Scarcity allocation board and opportunity-cost game",
+    "hi": "दुर्लभता आवंटन पटल और अवसर-लागत खेल"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/market.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Allocate a fixed ₹100 weekly allowance across books, snacks, and mobile data to feel scarcity, trade-offs, and opportunity cost firsthand.",
+    "hi": "पुस्तकों, नाश्ते और मोबाइल डेटा के बीच सीमित ₹100 के साप्ताहिक बजट का बँटवारा करके दुर्लभता, विकल्प-चयन और अवसर-लागत को समझें।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "books",
+     "type": "slider",
+     "label": {
+      "en": "Stationery & books (₹)",
+      "hi": "कॉपी व पुस्तकें (₹)"
+     }
+    },
+    {
+     "id": "snack",
+     "type": "slider",
+     "label": {
+      "en": "Treats & snacks (₹)",
+      "hi": "नाश्ता व मिठाई (₹)"
+     }
+    },
+    {
+     "id": "data",
+     "type": "slider",
+     "label": {
+      "en": "Study / media data pack (₹)",
+      "hi": "अध्ययन / मीडिया डेटा (₹)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T08.L2",
    "learningObject": "T08.L2",
    "theme": "T08",
    "title": {
-    "en": "Production possibility frontier explorer"
+    "en": "Production possibility frontier explorer",
+    "hi": "उत्पादन संभावना वक्र अन्वेषक"
    },
    "modality": "graph",
    "engine": "src/engines/domain/market.js",
@@ -421,6 +1684,156 @@
    "hindiReview": "draft: subject-teacher review pending",
    "status": "implemented",
    "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T08.L3",
+   "learningObject": "T08.L3",
+   "theme": "T08",
+   "title": {
+    "en": "What/how/for whom: production-to-consumption flow",
+    "hi": "क्या / कैसे / किसके लिए: उत्पादन से उपभोग प्रवाह"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/market.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Analyse the three central problems of every economy — What to produce, How to produce (labour vs machines), and For Whom to produce.",
+    "hi": "हर अर्थव्यवस्था की तीन केंद्रीय समस्याओं का विश्लेषण करें — क्या उत्पादन करें, कैसे उत्पादन करें (श्रम बनाम मशीनें), और किसके लिए उत्पादन करें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "consumerShare",
+     "type": "slider",
+     "label": {
+      "en": "WHAT: Food & daily goods vs Capital machines (%)",
+      "hi": "क्या: दैनिक उपभोग बनाम मशीनें (%)"
+     }
+    },
+    {
+     "id": "labourShare",
+     "type": "slider",
+     "label": {
+      "en": "HOW: Labour-intensive vs Automated (%)",
+      "hi": "कैसे: श्रम-प्रधान बनाम स्वचालित (%)"
+     }
+    },
+    {
+     "id": "equityTransfer",
+     "type": "slider",
+     "label": {
+      "en": "FOR WHOM: Broad wage & welfare reach (%)",
+      "hi": "किसके लिए: व्यापक मज़दूरी व कल्याण पहुँच (%)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T08.L4",
+   "learningObject": "T08.L4",
+   "theme": "T08",
+   "title": {
+    "en": "Economic-system comparison: market, centrally planned, mixed",
+    "hi": "आर्थिक प्रणाली तुलना: मुक्त बाज़ार, केंद्रीय नियोजित और मिश्रित"
+   },
+   "modality": "inquiry",
+   "engine": "src/engines/domain/market.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare free-market, centrally planned, and mixed economic systems on ownership, price signals, efficiency, and equity.",
+    "hi": "स्वामित्व, मूल्य तंत्र, दक्षता और समता के आधार पर मुक्त बाज़ार, केंद्रीयकृत नियोजित और मिश्रित आर्थिक प्रणालियों की तुलना करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "sys",
+     "type": "chips",
+     "label": {
+      "en": "Economic system",
+      "hi": "आर्थिक प्रणाली"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T08.L5",
+   "learningObject": "T08.L5",
+   "theme": "T08",
+   "title": {
+    "en": "Household shock and social-safety-net scenario",
+    "hi": "पारिवारिक संकट और सामाजिक सुरक्षा-जाल परिदृश्य"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/market.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Test how a social safety net (health insurance, crop/disaster aid, PDS food security) prevents a sudden household shock from trapping a family in poverty debt.",
+    "hi": "जाँचें कि सामाजिक सुरक्षा-जाल (स्वास्थ्य बीमा, फसल/आपदा सहायता, राशन प्रणाली) किसी अचानक आए संकट को परिवार को कर्ज़ के जाल में फँसाने से कैसे बचाता है।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "shockCost",
+     "type": "slider",
+     "label": {
+      "en": "Sudden medical / crop shock cost (₹)",
+      "hi": "अचानक चिकित्सा / फसल नुकसान लागत (₹)"
+     }
+    },
+    {
+     "id": "safetyNetCoverPct",
+     "type": "slider",
+     "label": {
+      "en": "Public safety-net coverage (%)",
+      "hi": "सामाजिक सुरक्षा-जाल सहायता (%)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
    "verification": [
     "tests/engines.test.mjs",
     "tests/labs.test.mjs",
@@ -530,11 +1943,78 @@
    "note": "hand-built module that predates lab-kit"
   },
   {
+   "id": "T10.L1",
+   "learningObject": "T10.L1",
+   "theme": "T10",
+   "title": {
+    "en": "3D ocean-floor cutaway and relief model builder",
+    "hi": "3D महासागर तल काट और उच्चावच मॉडल निर्माता"
+   },
+   "modality": "3d",
+   "engine": "src/engines/domain/ocean.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Identify the main zones of the ocean floor—continental shelf, slope, abyssal plain, mid-ocean ridge and trench—and relate depth to plate processes.",
+    "hi": "महासागर तल के प्रमुख भागों—महाद्वीपीय मग्नतट, ढाल, गहन मैदान, मध्य-महासागरीय कटक और गर्त—की पहचान करें और प्लेट विवर्तनिकी से जोड़ें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "shelfKm",
+     "type": "slider",
+     "label": {
+      "en": "Continental shelf width (km)",
+      "hi": "महाद्वीपीय मग्नतट चौड़ाई (किमी)"
+     }
+    },
+    {
+     "id": "ridgeHeight",
+     "type": "slider",
+     "label": {
+      "en": "Mid-ocean ridge relief (m)",
+      "hi": "मध्य-महासागरीय कटक ऊँचाई (मी)"
+     }
+    },
+    {
+     "id": "trenchDepth",
+     "type": "slider",
+     "label": {
+      "en": "Ocean trench depth (m)",
+      "hi": "महासागरीय गर्त गहराई (मी)"
+     }
+    },
+    {
+     "id": "waterOpaque",
+     "type": "toggle",
+     "label": {
+      "en": "Tint deep ocean water layer",
+      "hi": "गहरे समुद्री जल परत को रंगें"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T10.L2",
    "learningObject": "T10.L2",
    "theme": "T10",
    "title": {
-    "en": "Waves vs tides vs currents comparison; global current explorer"
+    "en": "Waves vs tides vs currents comparison; global current explorer",
+    "hi": "लहरें, ज्वार-भाटा और महासागरीय धारा तुलना व वैश्विक मानचित्र"
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/ocean.js",
@@ -571,11 +2051,78 @@
    ]
   },
   {
+   "id": "T10.L3",
+   "learningObject": "T10.L3",
+   "theme": "T10",
+   "title": {
+    "en": "Marine resources, fishing and livelihoods scenario",
+    "hi": "समुद्री संसाधन, मत्स्य पालन और आजीविका परिदृश्य"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/ocean.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Balance fishing fleet size, net mesh rules, closed spawning seasons and mangrove nurseries to sustain coastal livelihoods.",
+    "hi": "तटीय आजीविका टिकाए रखने के लिए नावों की संख्या, जाल के आकार, प्रजनन-काल बंद और मैंग्रोव संरक्षण का संतुलन समझें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "boats",
+     "type": "slider",
+     "label": {
+      "en": "Fishing boats",
+      "hi": "मछली पकड़ने की नावें"
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "slider",
+     "label": {
+      "en": "Net mesh size (mm)",
+      "hi": "जाल का छेद (मिमी)"
+     }
+    },
+    {
+     "id": "closed",
+     "type": "slider",
+     "label": {
+      "en": "Monsoon closed months",
+      "hi": "मानसून प्रजनन-बंद (महीने)"
+     }
+    },
+    {
+     "id": "mangrove",
+     "type": "slider",
+     "label": {
+      "en": "Coastal mangrove cover",
+      "hi": "तटीय मैंग्रोव आवरण"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T10.L4",
    "learningObject": "T10.L4",
    "theme": "T10",
    "title": {
-    "en": "Cyclone and tsunami cross-sections; coastal evacuation scenario"
+    "en": "Cyclone and tsunami cross-sections; coastal evacuation scenario",
+    "hi": "चक्रवात व सुनामी काट-चित्र तथा तटीय बचाव परिदृश्य"
    },
    "modality": "scenario",
    "engine": "src/engines/domain/ocean.js",
@@ -628,40 +2175,33 @@
    ]
   },
   {
-   "id": "T11.L3",
-   "learningObject": "T11.L3",
-   "theme": "T11",
+   "id": "T10.L5",
+   "learningObject": "T10.L5",
+   "theme": "T10",
    "title": {
-    "en": "Forest management and ecotourism-capacity scenario"
+    "en": "Maritime cooperation concept map",
+    "hi": "अंतर्राष्ट्रीय समुद्री सहयोग अवधारणा मानचित्र"
    },
-   "modality": "scenario",
-   "engine": "src/engines/domain/ecosystem.js",
-   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "modality": "diagram",
+   "engine": "src/engines/domain/ocean.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
-    "en": "Decide how much of a forest can be harvested each year without destroying it, using regrowth and the maximum sustainable yield.",
-    "hi": "पुनर्वृद्धि और अधिकतम धारणीय उपज के आधार पर तय करें कि वन को नष्ट किए बिना हर वर्ष कितना काटा जा सकता है।"
+    "en": "Map why nations cooperate on maritime trade, cyclone/tsunami warning, coral conservation and ocean law.",
+    "hi": "समझें कि समुद्री व्यापार, आपदा चेतावनी, प्रवाल संरक्षण और समुद्री कानून पर अंतर्राष्ट्रीय सहयोग क्यों आवश्यक है।"
    },
-   "provenance": "schematic",
+   "provenance": "documented",
    "controls": [
     {
-     "id": "harvest",
-     "type": "slider",
+     "id": "focus",
+     "type": "chips",
      "label": {
-      "en": "Harvest per year",
-      "hi": "प्रति वर्ष कटाई"
-     }
-    },
-    {
-     "id": "stock0",
-     "type": "slider",
-     "label": {
-      "en": "Starting forest stock",
-      "hi": "आरंभिक वन भंडार"
+      "en": "Focus pillar",
+      "hi": "स्तंभ चुनें"
      }
     }
    ],
-   "guidedDiscoveryPrompts": 2,
+   "guidedDiscoveryPrompts": 1,
    "predictions": 1,
    "exitQuestions": 1,
    "hasReflection": true,
@@ -669,7 +2209,107 @@
    "bilingual": true,
    "hindiReview": "draft: subject-teacher review pending",
    "status": "implemented",
-   "qaPassed": true,
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T11.L1",
+   "learningObject": "T11.L1",
+   "theme": "T11",
+   "title": {
+    "en": "World biome map and biome explorer; biome matching",
+    "hi": "विश्व बायोम मानचित्र, अन्वेषक व मिलान अभ्यास"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/ecosystem.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Match temperature and rainfall belts to Earth’s major biomes on a world map.",
+    "hi": "विश्व मानचित्र पर तापमान और वर्षा पट्टियों का पृथ्वी के प्रमुख बायोम से मिलान करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "temp",
+     "type": "slider",
+     "label": {
+      "en": "Mean annual temperature (°C)",
+      "hi": "औसत वार्षिक तापमान (°C)"
+     }
+    },
+    {
+     "id": "rain",
+     "type": "slider",
+     "label": {
+      "en": "Annual precipitation (mm)",
+      "hi": "वार्षिक वर्षा (मिमी)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T11.L2",
+   "learningObject": "T11.L2",
+   "theme": "T11",
+   "title": {
+    "en": "India biosphere-reserve map (sourced)",
+    "hi": "भारत के जैवमंडल आरक्षित क्षेत्र मानचित्र"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/ecosystem.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Locate India’s biosphere reserves on a map and understand how Core, Buffer and Transition zones protect biodiversity alongside local communities.",
+    "hi": "मानचित्र पर भारत के जैवमंडल आरक्षित क्षेत्र खोजें और जानें कि कोर, बफ़र व संक्रमण क्षेत्र स्थानीय लोगों संग जैव-विविधता कैसे बचाते हैं।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "reserve",
+     "type": "chips",
+     "label": {
+      "en": "Select biosphere reserve",
+      "hi": "जैवमंडल क्षेत्र चुनें"
+     }
+    },
+    {
+     "id": "zone",
+     "type": "chips",
+     "label": {
+      "en": "Biosphere zone",
+      "hi": "क्षेत्र परत"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
    "verification": [
     "tests/engines.test.mjs",
     "tests/labs.test.mjs",
@@ -681,7 +2321,8 @@
    "learningObject": "T11.L3",
    "theme": "T11",
    "title": {
-    "en": "Forest management and ecotourism-capacity scenario"
+    "en": "Forest management and ecotourism-capacity scenario",
+    "hi": "वन प्रबंधन और पारिस्थितिक-पर्यटन क्षमता परिदृश्य"
    },
    "modality": "scenario",
    "engine": "src/engines/domain/ecosystem.js",
@@ -726,11 +2367,428 @@
    ]
   },
   {
+   "id": "T11.L3",
+   "learningObject": "T11.L3",
+   "theme": "T11",
+   "title": {
+    "en": "Forest management and ecotourism-capacity scenario",
+    "hi": "वन प्रबंधन और पारिस्थितिक-पर्यटन क्षमता परिदृश्य"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/ecosystem.js",
+   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Decide how much of a forest can be harvested each year without destroying it, using regrowth and the maximum sustainable yield.",
+    "hi": "पुनर्वृद्धि और अधिकतम धारणीय उपज के आधार पर तय करें कि वन को नष्ट किए बिना हर वर्ष कितना काटा जा सकता है।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "harvest",
+     "type": "slider",
+     "label": {
+      "en": "Harvest per year",
+      "hi": "प्रति वर्ष कटाई"
+     }
+    },
+    {
+     "id": "stock0",
+     "type": "slider",
+     "label": {
+      "en": "Starting forest stock",
+      "hi": "आरंभिक वन भंडार"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T11.L4",
+   "learningObject": "T11.L4",
+   "theme": "T11",
+   "title": {
+    "en": "Forest-fire factors and prevention planner",
+    "hi": "वनाग्नि के कारक और रोकथाम नियोजक"
+   },
+   "modality": "sandbox",
+   "engine": "src/engines/domain/ecosystem.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Test how heat, dry humidity, wind and dry pine needles drive forest-fire spread, and how firebreaks and community patrols lower risk.",
+    "hi": "परखें कि तापमान, सूखापन, पवन और सूखी पत्तियाँ जंगल की आग को कैसे बढ़ाती हैं, और फायर-लाइन तथा सामुदायिक गश्त जोखिम कैसे घटाती हैं।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "temp",
+     "type": "slider",
+     "label": {
+      "en": "Air temperature (°C)",
+      "hi": "वायु तापमान (°C)"
+     }
+    },
+    {
+     "id": "humidity",
+     "type": "slider",
+     "label": {
+      "en": "Relative humidity",
+      "hi": "सापेक्ष आर्द्रता"
+     }
+    },
+    {
+     "id": "wind",
+     "type": "slider",
+     "label": {
+      "en": "Slope wind speed (km/h)",
+      "hi": "पवन गति (किमी/घं)"
+     }
+    },
+    {
+     "id": "litter",
+     "type": "slider",
+     "label": {
+      "en": "Dry leaf/pine litter load",
+      "hi": "सूखी पत्तियों/पिरुल की मात्रा"
+     }
+    },
+    {
+     "id": "firebreak",
+     "type": "toggle",
+     "label": {
+      "en": "Clear 10 m firebreaks + controlled litter removal",
+      "hi": "10 मी फायर-लाइन + सूखी पत्तियाँ हटाना"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T11.L5",
+   "learningObject": "T11.L5",
+   "theme": "T11",
+   "title": {
+    "en": "Traditional conservation and forest-dweller knowledge gallery",
+    "hi": "पारंपरिक संरक्षण और वनवासी ज्ञान दीर्घा"
+   },
+   "modality": "inquiry",
+   "engine": "src/engines/domain/ecosystem.js",
+   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Examine how India’s traditional community practices—sacred groves, Bishnoi ethics and indigenous water-forest systems—conserve biodiversity.",
+    "hi": "परखें कि भारत की पारंपरिक सामुदायिक प्रथाएँ—पवित्र उपवन, बिश्नोई परंपरा व देशज जल-वन प्रणालियाँ—जैव-विविधता कैसे बचाती हैं।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "item",
+     "type": "chips",
+     "label": {
+      "en": "Community tradition",
+      "hi": "सामुदायिक परंपरा"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T12.L1",
+   "learningObject": "T12.L1",
+   "theme": "T12",
+   "title": {
+    "en": "Dated regional political maps; alliance/sovereignty scenario",
+    "hi": "तिथिबद्ध क्षेत्रीय राजनीतिक मानचित्र व संप्रभुता परिदृश्य"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare dated political maps of India (1000–1700 CE) and analyse why terrain and local alliances shaped resistance and resilience.",
+    "hi": "1000–1700 ई. के भारत के ऐतिहासिक मानचित्रों की तुलना करें और समझें कि भूभाग व गठबंधनों ने प्रतिरोध को कैसे आकार दिया।"
+   },
+   "provenance": "reconstruction",
+   "controls": [
+    {
+     "id": "year",
+     "type": "chips",
+     "label": {
+      "en": "Snapshot year",
+      "hi": "वर्ष चुनें"
+     }
+    },
+    {
+     "id": "alliance",
+     "type": "toggle",
+     "label": {
+      "en": "Cross-community & terrain defence pact",
+      "hi": "स्थानीय गठबंधन व भूभाग रक्षा नीति"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T12.L2",
+   "learningObject": "T12.L2",
+   "theme": "T12",
+   "title": {
+    "en": "3D fort cutaway and fort-design challenge",
+    "hi": "3D दुर्ग अनुप्रस्थ-काट और दुर्ग निर्माण चुनौती"
+   },
+   "modality": "3d",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Design an Indian hill fort balancing bastions, bent defensive gates, double walls, rainwater cisterns and grain storage against long sieges.",
+    "hi": "लंबे घेरे से बचने के लिए बुर्ज, टेढ़े द्वार, दोहरी प्राचीर, वर्षा-जल कुंड व अन्न भंडार के साथ भारतीय पहाड़ी दुर्ग का डिज़ाइन बनाएँ।"
+   },
+   "provenance": "reconstruction",
+   "controls": [
+    {
+     "id": "bastions",
+     "type": "slider",
+     "label": {
+      "en": "Corner/flank bastions (burj)",
+      "hi": "बुर्ज संख्या"
+     }
+    },
+    {
+     "id": "bentGate",
+     "type": "toggle",
+     "label": {
+      "en": "Zig-zag bent gate (stops elephant charges)",
+      "hi": "टेढ़ा मुख्य द्वार (हाथी हमले रोकने हेतु)"
+     }
+    },
+    {
+     "id": "doubleWall",
+     "type": "toggle",
+     "label": {
+      "en": "Double concentric inner rampart",
+      "hi": "दोहरी भीतरी प्राचीर"
+     }
+    },
+    {
+     "id": "cisterns",
+     "type": "slider",
+     "label": {
+      "en": "Rock-cut rainwater cisterns (baori/tanka)",
+      "hi": "वर्षा जल कुंड / बावड़ी"
+     }
+    },
+    {
+     "id": "granaryMonths",
+     "type": "slider",
+     "label": {
+      "en": "Stored grain supply (months)",
+      "hi": "अन्न भंडार (महीने)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T12.L3",
+   "learningObject": "T12.L3",
+   "theme": "T12",
+   "title": {
+    "en": "Art, architecture, language and literature gallery",
+    "hi": "कला, स्थापत्य, भाषा और साहित्य दीर्घा"
+   },
+   "modality": "evidence",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Examine continuity and innovation in Indian art, architecture and regional languages between 1000 and 1700 CE.",
+    "hi": "1000 से 1700 ई. के बीच भारतीय कला, स्थापत्य और क्षेत्रीय भाषाओं में निरंतरता व नवाचार का अन्वेषण करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "cat",
+     "type": "chips",
+     "label": {
+      "en": "Heritage gallery",
+      "hi": "धरोहर दीर्घा"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T12.L4",
+   "learningObject": "T12.L4",
+   "theme": "T12",
+   "title": {
+    "en": "Bhakti tradition network map",
+    "hi": "भक्ति परंपरा नेटवर्क मानचित्र"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Map how Bhakti and Sufi traditions travelled across regions from South to North and East India, challenging caste/ritual barriers through vernacular devotion.",
+    "hi": "मानचित्र पर देखें कि भक्ति व सूफी परंपराएँ दक्षिण से उत्तर व पूर्व भारत में कैसे फैलीं और लोकभाषा द्वारा समता का संदेश दिया।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "focus",
+     "type": "chips",
+     "label": {
+      "en": "Saint / movement",
+      "hi": "संत / परंपरा चुनें"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T12.L5",
+   "learningObject": "T12.L5",
+   "theme": "T12",
+   "title": {
+    "en": "Continuity-and-change timeline (economy and state)",
+    "hi": "निरंतरता और परिवर्तन समय-रेखा (अर्थव्यवस्था व राज्य)"
+   },
+   "modality": "timeline",
+   "engine": "src/engines/domain/history.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Distinguish continuities from changes in economy, agriculture, currency and state governance across 1000–1700 CE.",
+    "hi": "1000–1700 ई. में अर्थव्यवस्था, कृषि, मुद्रा और राज्य शासन में निरंतरता तथा परिवर्तन की पहचान करें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "area",
+     "type": "chips",
+     "label": {
+      "en": "Domain of change",
+      "hi": "क्षेत्र चुनें"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T13.L1",
    "learningObject": "T13.L1",
    "theme": "T13",
    "title": {
-    "en": "Time-filtered trade routes with port and commodity cards"
+    "en": "Time-filtered trade routes with port and commodity cards",
+    "hi": "तिथि-आधारित व्यापार मार्ग, बंदरगाह और वस्तु कार्ड"
    },
    "modality": "map",
    "engine": "src/engines/domain/tradeRoutes.js",
@@ -767,11 +2825,462 @@
    ]
   },
   {
+   "id": "T13.L2",
+   "learningObject": "T13.L2",
+   "theme": "T13",
+   "title": {
+    "en": "Cultural exchange map and idea-tracing activity",
+    "hi": "सांस्कृतिक आदान-प्रदान मानचित्र व विचार-प्रवाह गतिविधि"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/tradeRoutes.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Trace how ideas—zero/numerals, Buddhism, Panchatantra stories and chess—travelled between India and the wider world (1900 BCE–1200 CE).",
+    "hi": "मानचित्र पर देखें कि शून्य/अंक, बौद्ध विचार, पंचतंत्र कथाएँ व शतरंज भारत और विश्व के बीच कैसे यात्रा करते थे।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "idea",
+     "type": "chips",
+     "label": {
+      "en": "Idea traced",
+      "hi": "प्रवाहित विचार"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T13.L3",
+   "learningObject": "T13.L3",
+   "theme": "T13",
+   "title": {
+    "en": "Indian Knowledge Systems gallery (source wording preserved)",
+    "hi": "भारतीय ज्ञान प्रणाली दीर्घा"
+   },
+   "modality": "inquiry",
+   "engine": "src/engines/domain/tradeRoutes.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Read preserved primary source descriptions of Indian Knowledge Systems in astronomy, surgery and metallurgy.",
+    "hi": "खगोलशास्त्र, शल्य-चिकित्सा और धातुकर्म में भारतीय ज्ञान प्रणालियों के मूल स्रोत-उद्धरण पढ़ें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "src",
+     "type": "chips",
+     "label": {
+      "en": "Source exhibit",
+      "hi": "स्रोत प्रदर्श"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T13.L4",
+   "learningObject": "T13.L4",
+   "theme": "T13",
+   "title": {
+    "en": "Artefact provenance activity",
+    "hi": "पुरावशेष उत्पत्ति पहचान गतिविधि"
+   },
+   "modality": "evidence",
+   "engine": "src/engines/domain/tradeRoutes.js",
+   "implementation": "src/modules/history/labs-history-later.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Deduce an artefact’s provenance—where it was made, where it was found and how trade moved it—from physical clues.",
+    "hi": "भौतिक सुरागों से किसी पुरावशेष की उत्पत्ति (कहाँ बना, कहाँ मिला और किस व्यापार मार्ग से आया) का निष्कर्ष निकालें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "art",
+     "type": "chips",
+     "label": {
+      "en": "Select excavated find",
+      "hi": "उत्खनित अवशेष चुनें"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 1,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T14.L1",
+   "learningObject": "T14.L1",
+   "theme": "T14",
+   "title": {
+    "en": "Sourced text explorer: Kautilya and Shukraniti",
+    "hi": "प्रामाणिक ग्रंथ अन्वेषक: कौटिल्य और शुक्रनीति"
+   },
+   "modality": "evidence",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/politics/labs-authority.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Interpret classical Indian political thought (Kautilya and Shukraniti) on how Danda (discipline), Nyaya (justice), and Bala (capacity) prevent disorder when balanced.",
+    "hi": "कौटिल्य और शुक्रनीति के संदर्भ में दंड (अनुशासन), न्याय और बल (सामर्थ्य) के संतुलन को समझें जो अव्यवस्था को रोकता है।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "text",
+     "type": "chips",
+     "label": {
+      "en": "Treatise",
+      "hi": "ग्रंथ"
+     }
+    },
+    {
+     "id": "danda",
+     "type": "slider",
+     "label": {
+      "en": "Danda / State Force (%)",
+      "hi": "दंड / राज्य बल (%)"
+     }
+    },
+    {
+     "id": "nyaya",
+     "type": "slider",
+     "label": {
+      "en": "Nyaya / Fairness & Accountability (%)",
+      "hi": "न्याय / निष्पक्षता व जवाबदेही (%)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T14.L2",
+   "learningObject": "T14.L2",
+   "theme": "T14",
+   "title": {
+    "en": "Authority, legitimacy, law, justice, security, citizen concept map",
+    "hi": "प्राधिकार, वैधता, कानून, न्याय, सुरक्षा व नागरिक अवधारणा मानचित्र"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/politics/labs-authority.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Connect authority, legitimacy, law, justice, security, and citizen participation in a causal diagram and test what happens when one link breaks.",
+    "hi": "प्राधिकार, वैधता, कानून, न्याय, सुरक्षा और नागरिक भागीदारी को एक कारण-संबंध आरेख में जोड़ें और देखें कि एक कड़ी टूटने पर क्या होता है।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "focus",
+     "type": "chips",
+     "label": {
+      "en": "Highlight pillar",
+      "hi": "स्तंभ चुनें"
+     }
+    },
+    {
+     "id": "citizenVoice",
+     "type": "toggle",
+     "label": {
+      "en": "Citizen participation & consent active",
+      "hi": "नागरिक भागीदारी व सहमति सक्रिय"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T14.L3",
+   "learningObject": "T14.L3",
+   "theme": "T14",
+   "title": {
+    "en": "Historical-to-constitutional timeline",
+    "hi": "ऐतिहासिक से संवैधानिक विकास समय-रेखा"
+   },
+   "modality": "timeline",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/politics/labs-authority.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Trace how Indian authority evolved from early assemblies and medieval local councils through colonial rule to the 1950 Constitutional Republic.",
+    "hi": "भारत में प्राधिकार के विकास को प्राचीन सभाओं व मध्यकालीन परिषदों से औपनिवेशिक काल होते हुए 1950 के संवैधानिक गणतंत्र तक देखें।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "eraIdx",
+     "type": "slider",
+     "label": {
+      "en": "Historical stage (1–4)",
+      "hi": "ऐतिहासिक चरण (1–4)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T14.L4",
+   "learningObject": "T14.L4",
+   "theme": "T14",
+   "title": {
+    "en": "Authority-type comparison (functional, sensitive, welfare-oriented)",
+    "hi": "प्राधिकार प्रकार तुलना (कार्यात्मक, संवेदनशील, कल्याणकारी)"
+   },
+   "modality": "inquiry",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/politics/labs-authority.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare functional, sensitive, and welfare-oriented forms of authority across real everyday institutions.",
+    "hi": "रोज़मर्रा की संस्थाओं में कार्यात्मक, संवेदनशील और कल्याणकारी प्राधिकार के रूपों की तुलना करें।"
+   },
+   "provenance": "schematic",
+   "controls": [
+    {
+     "id": "atype",
+     "type": "chips",
+     "label": {
+      "en": "Authority type",
+      "hi": "प्राधिकार प्रकार"
+     }
+    },
+    {
+     "id": "listening",
+     "type": "toggle",
+     "label": {
+      "en": "Public transparency & hearing enabled",
+      "hi": "जन-सुनवाई व पारदर्शिता लागू"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T14.L5",
+   "learningObject": "T14.L5",
+   "theme": "T14",
+   "title": {
+    "en": "Fictional public-service decision and citizen-to-institution workflow",
+    "hi": "काल्पनिक जन-सेवा निर्णय और नागरिक-से-संस्था शिकायत प्रक्रिया"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/society.js",
+   "implementation": "src/modules/politics/labs-authority.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Walk through a citizen’s peaceful, lawful escalation from local ward office to ombudsperson and judicial review when a public service fails.",
+    "hi": "सार्वजनिक सेवा विफल होने पर नागरिक की स्थानीय वार्ड कार्यालय से लोकपाल और न्यायिक समीक्षा तक शांतिपूर्ण व कानूनी प्रक्रिया का अभ्यास करें।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "issue",
+     "type": "chips",
+     "label": {
+      "en": "Civic issue",
+      "hi": "नागरिक समस्या"
+     }
+    },
+    {
+     "id": "daysWaited",
+     "type": "slider",
+     "label": {
+      "en": "Days since lawful complaint filed",
+      "hi": "कानूनी शिकायत दर्ज होने के दिन"
+     }
+    },
+    {
+     "id": "escalated",
+     "type": "toggle",
+     "label": {
+      "en": "Escalate formally with RTI / petition",
+      "hi": "सूचना का अधिकार / याचिका से औपचारिक अपील"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T15.L1",
+   "learningObject": "T15.L1",
+   "theme": "T15",
+   "title": {
+    "en": "Idea-to-enterprise journey and business-plan builder",
+    "hi": "विचार से उद्यम यात्रा और व्यवसाय-योजना निर्माता"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/startup.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Walk through the stages of turning an everyday problem into a viable enterprise using a business plan.",
+    "hi": "दैनिक जीवन की समस्या से व्यवसाय-योजना (बिज़नेस प्लान) के चरणों द्वारा एक सक्षम उद्यम बनाने की प्रक्रिया समझें।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "problemClarity",
+     "type": "slider",
+     "label": {
+      "en": "1. Problem & solution clarity (1–5)",
+      "hi": "1. समस्या व समाधान स्पष्टता (1–5)"
+     }
+    },
+    {
+     "id": "customerProof",
+     "type": "slider",
+     "label": {
+      "en": "2. Customer survey & prototype tests (1–5)",
+      "hi": "2. ग्राहक जांच व प्रोटोटाइप परीक्षण (1–5)"
+     }
+    },
+    {
+     "id": "unitMarginOk",
+     "type": "toggle",
+     "label": {
+      "en": "3. Price exceeds unit cost (positive margin)",
+      "hi": "3. मूल्य इकाई लागत से अधिक (सकारात्मक मार्जिन)"
+     }
+    },
+    {
+     "id": "capitalBufferMonths",
+     "type": "slider",
+     "label": {
+      "en": "4. Working capital runway (months)",
+      "hi": "4. कार्यशील पूंजी बैकअप (माह)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T15.L2",
    "learningObject": "T15.L2",
    "theme": "T15",
    "title": {
-    "en": "Business resource board and unit-economics lab"
+    "en": "Business resource board and unit-economics lab",
+    "hi": "व्यवसाय संसाधन पटल और इकाई-अर्थशास्त्र प्रयोगशाला"
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/startup.js",
@@ -832,11 +3341,112 @@
    ]
   },
   {
+   "id": "T15.L3",
+   "learningObject": "T15.L3",
+   "theme": "T15",
+   "title": {
+    "en": "Startup ecosystem map and MSME / unorganised-sector case gallery (sourced)",
+    "hi": "स्टार्टअप पारिस्थितिकी मानचित्र व एमएसएमई / असंगठित क्षेत्र दीर्घा"
+   },
+   "modality": "map",
+   "engine": "src/engines/domain/startup.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Locate India’s diverse startup & MSME clusters and compare how Startup India, Make in India, Digital India, MSMEs, and the unorganised sector create jobs.",
+    "hi": "भारत के स्टार्टअप व एमएसएमई केंद्रों को मानचित्र पर देखें और समझें कि स्टार्टअप इंडिया, मेक इन इंडिया, एमएसएमई व असंगठित क्षेत्र रोज़गार कैसे रचते हैं।"
+   },
+   "provenance": "documented",
+   "controls": [
+    {
+     "id": "focus",
+     "type": "chips",
+     "label": {
+      "en": "Sector lens",
+      "hi": "क्षेत्र दृष्टिकोण"
+     }
+    },
+    {
+     "id": "hubIdx",
+     "type": "slider",
+     "label": {
+      "en": "Highlight cluster (1–6)",
+      "hi": "क्लस्टर चुनें (1–6)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T15.L4",
+   "learningObject": "T15.L4",
+   "theme": "T15",
+   "title": {
+    "en": "Creative-destruction comparison scenario",
+    "hi": "सृजनात्मक विनाश तुलना परिदृश्य"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/startup.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Model \"creative destruction\": see how new innovations displace older industries while creating new jobs and higher productivity — and how worker retraining softens disruption.",
+    "hi": "“सृजनात्मक विनाश” का मॉडल देखें: नई तकनीक पुराने उद्योगों को विस्थापित करते हुए नए रोज़गार व उत्पादकता कैसे लाती है, और कौशल-पुनर्प्रशिक्षण संक्रमण को कैसे आसान बनाता है।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "techSpeed",
+     "type": "slider",
+     "label": {
+      "en": "Speed of new technology adoption (%)",
+      "hi": "नई तकनीक अपनाने की गति (%)"
+     }
+    },
+    {
+     "id": "retrainSupport",
+     "type": "slider",
+     "label": {
+      "en": "Worker upskilling & transition support (%)",
+      "hi": "श्रमिक पुनर्प्रशिक्षण सहायता (%)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
    "id": "T15.L5",
    "learningObject": "T15.L5",
    "theme": "T15",
    "title": {
-    "en": "Profit/loss calculator and simple accounting visual"
+    "en": "Profit/loss calculator and simple accounting visual",
+    "hi": "लाभ-हानि गणक और सरल लेखांकन दृश्य"
    },
    "modality": "calculator",
    "engine": "src/engines/domain/startup.js",
@@ -909,7 +3519,8 @@
    "learningObject": "T16.L1",
    "theme": "T16",
    "title": {
-    "en": "Monthly budget lab: income, needs, wants, savings"
+    "en": "Monthly budget lab: income, needs, wants, savings",
+    "hi": "मासिक बजट प्रयोगशाला: आय, आवश्यकताएँ, इच्छाएँ, बचत"
    },
    "modality": "calculator",
    "engine": "src/engines/domain/finance.js",
@@ -966,7 +3577,8 @@
    "learningObject": "T16.L2",
    "theme": "T16",
    "title": {
-    "en": "Inflation basket and purchasing-power comparison"
+    "en": "Inflation basket and purchasing-power comparison",
+    "hi": "मुद्रास्फीति टोकरी और क्रय-शक्ति तुलना"
    },
    "modality": "calculator",
    "engine": "src/engines/domain/finance.js",
@@ -1023,7 +3635,8 @@
    "learningObject": "T16.L3",
    "theme": "T16",
    "title": {
-    "en": "Simple vs compound interest curves"
+    "en": "Simple vs compound interest curves",
+    "hi": "साधारण बनाम चक्रवृद्धि ब्याज वक्र"
    },
    "modality": "graph",
    "engine": "src/engines/domain/finance.js",
@@ -1069,6 +3682,114 @@
    "hindiReview": "draft: subject-teacher review pending",
    "status": "implemented",
    "qaPassed": true,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T16.L4",
+   "learningObject": "T16.L4",
+   "theme": "T16",
+   "title": {
+    "en": "Instruments, risk-return and insurance-pooling scenarios (hypothetical)",
+    "hi": "बचत साधन, जोखिम-प्रतिफल और बीमा पूल परिदृश्य (काल्पनिक)"
+   },
+   "modality": "scenario",
+   "engine": "src/engines/domain/finance.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Compare savings accounts, fixed deposits, government bonds, and equity index funds across risk and return, and calculate how insurance pools risk across many households.",
+    "hi": "बचत खाता, सावधि जमा (FD), सरकारी बॉन्ड और इक्विटी इंडेक्स फंड के बीच जोखिम व प्रतिफल की तुलना करें, और बीमा द्वारा जोखिम-विभाजन की गणना करें।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "horizon",
+     "type": "slider",
+     "label": {
+      "en": "Investment horizon (years)",
+      "hi": "निवेश अवधि (वर्ष)"
+     }
+    },
+    {
+     "id": "poolSize",
+     "type": "slider",
+     "label": {
+      "en": "Families in insurance pool",
+      "hi": "बीमा पूल में परिवार"
+     }
+    },
+    {
+     "id": "claimProbPct",
+     "type": "slider",
+     "label": {
+      "en": "Annual accident risk (%)",
+      "hi": "वार्षिक दुर्घटना जोखिम (%)"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
+   "verification": [
+    "tests/engines.test.mjs",
+    "tests/labs.test.mjs",
+    "tests/lab-smoke.cjs"
+   ]
+  },
+  {
+   "id": "T16.L5",
+   "learningObject": "T16.L5",
+   "theme": "T16",
+   "title": {
+    "en": "Income-tax concept flow (no rates unless dated and sourced)",
+    "hi": "व्यक्तिगत आयकर अवधारणा प्रवाह (बिना वैधानिक दरों के)"
+   },
+   "modality": "diagram",
+   "engine": "src/engines/domain/finance.js",
+   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "kit": "src/components/lab-kit.js",
+   "objective": {
+    "en": "Understand the concept of personal income tax, progressive slab tiers, and how citizen taxes fund shared public goods like schools, roads, and healthcare.",
+    "hi": "व्यक्तिगत आयकर, प्रगतिशील कर-स्तरों (स्लैब) की अवधारणा और नागरिकों के कर से विद्यालय, सड़कें व स्वास्थ्य सेवाएँ कैसे चलती हैं, इसे समझें।"
+   },
+   "provenance": "fictional",
+   "controls": [
+    {
+     "id": "incomeUnits",
+     "type": "slider",
+     "label": {
+      "en": "Annual income index (abstract units)",
+      "hi": "वार्षिक आय सूचकांक (काल्पनिक इकाइयाँ)"
+     }
+    },
+    {
+     "id": "progressivity",
+     "type": "chips",
+     "label": {
+      "en": "Tax fairness structure",
+      "hi": "कर संरचना"
+     }
+    }
+   ],
+   "guidedDiscoveryPrompts": 2,
+   "predictions": 1,
+   "exitQuestions": 1,
+   "hasReflection": true,
+   "hasReset": true,
+   "bilingual": true,
+   "hindiReview": "draft: subject-teacher review pending",
+   "status": "implemented",
+   "qaPassed": false,
    "verification": [
     "tests/engines.test.mjs",
     "tests/labs.test.mjs",

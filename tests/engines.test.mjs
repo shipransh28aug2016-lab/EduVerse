@@ -100,3 +100,29 @@ test('finance: interest, doubling, inflation', () => {
 test('tectonics wrapper exposes the existing model', () => {
   near(E.tectonics.convergenceKm(5, 40), 2000); assert.equal(E.tectonics.layerAtDepth(3000).state, 'liquid');
 });
+test('terrain/atmosphere/ocean/ecosystem extended engines maintain invariants', () => {
+  const shSafe = E.terrain.slopeHazard({ slopeDeg: 20, rainMm: 60, forestPct: 80, checkWall: true });
+  const shRisk = E.terrain.slopeHazard({ slopeDeg: 55, rainMm: 280, forestPct: 5, glacierLake: true, checkWall: false });
+  assert.ok(shSafe.factorOfSafety > shRisk.factorOfSafety && shRisk.glofPeakMinutes > 0);
+  const cr = E.atmosphere.catchmentRunoff({ rainMm: 150, forestPct: 60, pavedPct: 10, checkDams: 2 });
+  near(cr.infiltrated + cr.damStored + cr.surfaceRunoff, cr.rainMm, 1e-6);
+  assert.ok(E.atmosphere.carbonFootprint({ solarPct: 100 }).electricity === 0);
+  assert.ok(E.ocean.oceanProfile({ trenchDepthM: 9000 }).some((p) => p.depthM > 8000));
+  assert.ok(E.ocean.fisheryRun({ boats: 25, closedMonths: 3, mangrovePct: 80 }).sustainable);
+  assert.ok(E.ecosystem.fireRisk({ firebreak: true }).effectiveIndex < E.ecosystem.fireRisk({ firebreak: false }).effectiveIndex);
+});
+test('history, politics, startup & finance extended engines produce consistent outcomes', () => {
+  assert.ok(E.history.settlementSim({ mode: 'farmer', storage: 0.8 }).finalPop > E.history.settlementSim({ mode: 'forager' }).finalPop);
+  assert.ok(E.history.harappanPlan({ coveredDrains: true }).sanitation > E.history.harappanPlan({ coveredDrains: false }).sanitation);
+  assert.ok(E.history.fortDesign({ bentGate: true, doubleWall: true }).defence > E.history.fortDesign({ bentGate: false, doubleWall: false }).defence);
+  assert.equal(E.society.assessDemocracyCase({ freeVote: true, multipleParties: true, freeMedia: false, equalLaw: false }).verdict, 'flawed');
+  assert.equal(E.society.delimitationOutcome('packedA').mismatch, true);
+  assert.equal(E.society.checkVoterRoll({ age: 17, resident: true, citizen: true }).eligible, false);
+  assert.equal(E.society.citizenWorkflow({ daysWaited: 30, escalated: true }).activeStage, 3);
+  assert.equal(E.market.scarcityAllocate({ budget: 100, books: 50, snack: 30, data: 20 }).remaining, 0);
+  assert.equal(E.market.householdShock({ savings: 6000, shockCost: 15000, safetyNetCoverPct: 60 }).debtRisk, false);
+  assert.equal(E.startup.planReadiness({ problemClarity: 5, customerProof: 5, unitMarginOk: true, capitalBufferMonths: 6 }).stage, 'launch-ready');
+  assert.ok(E.startup.creativeDestruction({ retrainSupport: 100 }).finalNetJobs > E.startup.creativeDestruction({ retrainSupport: 0 }).finalNetJobs);
+  near(E.finance.insurancePool({ poolSize: 200, claimProbPct: 3, claimAmount: 40000 }).fairPremium, 1200);
+  near(E.finance.taxConceptAlloc({ incomeUnits: 4, progressivity: 1 }).effectiveTax, 0);
+});

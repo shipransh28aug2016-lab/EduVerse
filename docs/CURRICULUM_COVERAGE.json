@@ -3,10 +3,10 @@
  "source": "CBSE Class IX Social Science (Subject Code 087) 2026-27",
  "summary": {
   "total": 78,
-  "implemented": 27,
+  "implemented": 78,
   "qaPassed": 27,
-  "planned": 51,
-  "themesWithAnyLab": 12,
+  "planned": 0,
+  "themesWithAnyLab": 16,
   "themes": 16
  },
  "themes": [
@@ -24,8 +24,8 @@
    "outcomes": 3,
    "learningObjects": {
     "total": 3,
-    "implemented": 0,
-    "planned": 3,
+    "implemented": 3,
+    "planned": 0,
     "qaPassed": 0
    },
    "items": [
@@ -33,25 +33,25 @@
      "id": "T01.L1",
      "modality": "diagram",
      "engine": "system-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/integrated/t01.js"
     },
     {
      "id": "T01.L2",
      "modality": "map",
      "engine": "lens-explorer",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/integrated/t01.js"
     },
     {
      "id": "T01.L3",
      "modality": "inquiry",
      "engine": "sorter",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/integrated/t01.js"
     }
    ]
   },
@@ -69,8 +69,8 @@
    "outcomes": 6,
    "learningObjects": {
     "total": 6,
-    "implemented": 4,
-    "planned": 2,
+    "implemented": 6,
+    "planned": 0,
     "qaPassed": 4
    },
    "items": [
@@ -110,17 +110,17 @@
      "id": "T02.L5",
      "modality": "3d",
      "engine": "landform-gallery",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-earth.js"
     },
     {
      "id": "T02.L6",
      "modality": "scenario",
      "engine": "hazard-lab",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-earth.js"
     }
    ]
   },
@@ -138,8 +138,8 @@
    "outcomes": 6,
    "learningObjects": {
     "total": 6,
-    "implemented": 2,
-    "planned": 4,
+    "implemented": 6,
+    "planned": 0,
     "qaPassed": 2
    },
    "items": [
@@ -155,17 +155,17 @@
      "id": "T03.L2",
      "modality": "graph",
      "engine": "climate-grapher",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T03.L3",
      "modality": "map",
      "engine": "monsoon-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T03.L4",
@@ -179,17 +179,17 @@
      "id": "T03.L5",
      "modality": "sandbox",
      "engine": "catchment",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T03.L6",
      "modality": "calculator",
      "engine": "carbon-footprint",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     }
    ]
   },
@@ -207,8 +207,8 @@
    "outcomes": 7,
    "learningObjects": {
     "total": 5,
-    "implemented": 2,
-    "planned": 3,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 2
    },
    "items": [
@@ -232,25 +232,25 @@
      "id": "T04.L3",
      "modality": "scenario",
      "engine": "settlement-sim",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     },
     {
      "id": "T04.L4",
      "modality": "3d",
      "engine": "harappan-city",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     },
     {
      "id": "T04.L5",
      "modality": "map",
      "engine": "civ-atlas",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     }
    ]
   },
@@ -268,8 +268,8 @@
    "outcomes": 4,
    "learningObjects": {
     "total": 5,
-    "implemented": 0,
-    "planned": 5,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 0
    },
    "items": [
@@ -277,41 +277,41 @@
      "id": "T05.L1",
      "modality": "map",
      "engine": "dated-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     },
     {
      "id": "T05.L2",
      "modality": "evidence",
      "engine": "source-room",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     },
     {
      "id": "T05.L3",
      "modality": "scenario",
      "engine": "admin-flow",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     },
     {
      "id": "T05.L4",
      "modality": "inquiry",
      "engine": "gallery",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     },
     {
      "id": "T05.L5",
      "modality": "map",
      "engine": "trade-routes",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-early.js"
     }
    ]
   },
@@ -329,8 +329,8 @@
    "outcomes": 4,
    "learningObjects": {
     "total": 4,
-    "implemented": 1,
-    "planned": 3,
+    "implemented": 4,
+    "planned": 0,
     "qaPassed": 1
    },
    "items": [
@@ -338,17 +338,17 @@
      "id": "T06.L1",
      "modality": "diagram",
      "engine": "concept-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-politics.js"
     },
     {
      "id": "T06.L2",
      "modality": "evidence",
      "engine": "gallery",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-politics.js"
     },
     {
      "id": "T06.L3",
@@ -362,9 +362,9 @@
      "id": "T06.L4",
      "modality": "inquiry",
      "engine": "country-compare",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-politics.js"
     }
    ]
   },
@@ -382,8 +382,8 @@
    "outcomes": 10,
    "learningObjects": {
     "total": 4,
-    "implemented": 2,
-    "planned": 2,
+    "implemented": 4,
+    "planned": 0,
     "qaPassed": 2
    },
    "items": [
@@ -391,9 +391,9 @@
      "id": "T07.L1",
      "modality": "diagram",
      "engine": "process-flow",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-politics.js"
     },
     {
      "id": "T07.L2",
@@ -407,9 +407,9 @@
      "id": "T07.L3",
      "modality": "map",
      "engine": "delimitation",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-politics.js"
     },
     {
      "id": "T07.L4",
@@ -435,8 +435,8 @@
    "outcomes": 6,
    "learningObjects": {
     "total": 5,
-    "implemented": 1,
-    "planned": 4,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 1
    },
    "items": [
@@ -444,9 +444,9 @@
      "id": "T08.L1",
      "modality": "scenario",
      "engine": "scarcity-game",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     },
     {
      "id": "T08.L2",
@@ -460,25 +460,25 @@
      "id": "T08.L3",
      "modality": "diagram",
      "engine": "flow",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     },
     {
      "id": "T08.L4",
      "modality": "inquiry",
      "engine": "system-compare",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     },
     {
      "id": "T08.L5",
      "modality": "scenario",
      "engine": "safety-net",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     }
    ]
   },
@@ -565,8 +565,8 @@
    "outcomes": 7,
    "learningObjects": {
     "total": 5,
-    "implemented": 2,
-    "planned": 3,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 2
    },
    "items": [
@@ -574,9 +574,9 @@
      "id": "T10.L1",
      "modality": "3d",
      "engine": "ocean-relief",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T10.L2",
@@ -590,9 +590,9 @@
      "id": "T10.L3",
      "modality": "scenario",
      "engine": "fisheries",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T10.L4",
@@ -606,9 +606,9 @@
      "id": "T10.L5",
      "modality": "diagram",
      "engine": "concept-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     }
    ]
   },
@@ -626,8 +626,8 @@
    "outcomes": 6,
    "learningObjects": {
     "total": 5,
-    "implemented": 1,
-    "planned": 4,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 1
    },
    "items": [
@@ -635,17 +635,17 @@
      "id": "T11.L1",
      "modality": "map",
      "engine": "biome-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T11.L2",
      "modality": "map",
      "engine": "reserve-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T11.L3",
@@ -659,17 +659,17 @@
      "id": "T11.L4",
      "modality": "sandbox",
      "engine": "fire-planner",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     },
     {
      "id": "T11.L5",
      "modality": "inquiry",
      "engine": "gallery",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/geography/labs-geo-extra.js"
     }
    ]
   },
@@ -687,8 +687,8 @@
    "outcomes": 4,
    "learningObjects": {
     "total": 5,
-    "implemented": 0,
-    "planned": 5,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 0
    },
    "items": [
@@ -696,41 +696,41 @@
      "id": "T12.L1",
      "modality": "map",
      "engine": "dated-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     },
     {
      "id": "T12.L2",
      "modality": "3d",
      "engine": "fort-3d",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     },
     {
      "id": "T12.L3",
      "modality": "evidence",
      "engine": "gallery",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     },
     {
      "id": "T12.L4",
      "modality": "map",
      "engine": "network-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     },
     {
      "id": "T12.L5",
      "modality": "timeline",
      "engine": "timeline",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     }
    ]
   },
@@ -748,8 +748,8 @@
    "outcomes": 4,
    "learningObjects": {
     "total": 4,
-    "implemented": 1,
-    "planned": 3,
+    "implemented": 4,
+    "planned": 0,
     "qaPassed": 1
    },
    "items": [
@@ -765,25 +765,25 @@
      "id": "T13.L2",
      "modality": "map",
      "engine": "exchange-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     },
     {
      "id": "T13.L3",
      "modality": "inquiry",
      "engine": "gallery",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     },
     {
      "id": "T13.L4",
      "modality": "evidence",
      "engine": "artefact-viewer",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/history/labs-history-later.js"
     }
    ]
   },
@@ -801,8 +801,8 @@
    "outcomes": 7,
    "learningObjects": {
     "total": 5,
-    "implemented": 0,
-    "planned": 5,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 0
    },
    "items": [
@@ -810,41 +810,41 @@
      "id": "T14.L1",
      "modality": "evidence",
      "engine": "source-room",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-authority.js"
     },
     {
      "id": "T14.L2",
      "modality": "diagram",
      "engine": "concept-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-authority.js"
     },
     {
      "id": "T14.L3",
      "modality": "timeline",
      "engine": "timeline",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-authority.js"
     },
     {
      "id": "T14.L4",
      "modality": "inquiry",
      "engine": "type-compare",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-authority.js"
     },
     {
      "id": "T14.L5",
      "modality": "scenario",
      "engine": "civic-scenario",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/politics/labs-authority.js"
     }
    ]
   },
@@ -862,8 +862,8 @@
    "outcomes": 9,
    "learningObjects": {
     "total": 5,
-    "implemented": 2,
-    "planned": 3,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 2
    },
    "items": [
@@ -871,9 +871,9 @@
      "id": "T15.L1",
      "modality": "scenario",
      "engine": "plan-builder",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     },
     {
      "id": "T15.L2",
@@ -887,17 +887,17 @@
      "id": "T15.L3",
      "modality": "map",
      "engine": "ecosystem-map",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     },
     {
      "id": "T15.L4",
      "modality": "scenario",
      "engine": "creative-destruction",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     },
     {
      "id": "T15.L5",
@@ -923,8 +923,8 @@
    "outcomes": 7,
    "learningObjects": {
     "total": 5,
-    "implemented": 3,
-    "planned": 2,
+    "implemented": 5,
+    "planned": 0,
     "qaPassed": 3
    },
    "items": [
@@ -956,17 +956,17 @@
      "id": "T16.L4",
      "modality": "scenario",
      "engine": "risk-return",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     },
     {
      "id": "T16.L5",
      "modality": "diagram",
      "engine": "tax-flow",
-     "status": "planned",
+     "status": "implemented",
      "qaPassed": false,
-     "implementation": null
+     "implementation": "src/modules/economics/labs-econ-extra.js"
     }
    ]
   }

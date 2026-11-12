@@ -4,7 +4,7 @@
 // Writes full-page screenshots to $SHOTS (default: ./test-shots) and prints a JSON summary line per theme.
 const { chromium } = require('playwright'); const http = require('http'), fs = require('fs'), path = require('path');
 const root = path.resolve(__dirname, '..'), shots = process.env.SHOTS || path.join(root, 'test-shots');
-const T = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json' };
+const T = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml' };
 const srv = http.createServer((q, s) => { let u = q.url.split('?')[0]; if (u.endsWith('/')) u += 'index.html'; fs.readFile(path.join(root, u), (e, d) => { if (e) { s.writeHead(404); s.end(); } else { s.writeHead(200, { 'content-type': T[path.extname(u)] }); s.end(d); } }); }).listen(0);
 (async () => {
   fs.mkdirSync(shots, { recursive: true });

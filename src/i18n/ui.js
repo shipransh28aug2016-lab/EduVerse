@@ -57,8 +57,8 @@ export const UI = {
 "hi":"देखें, प्रश्न पूछें, खोजें, अनुकरण करें, समझाएँ, लागू करें और चिंतन करें। शुरू करने के लिए कोई विषय चुनें।"
 },
 "home.honest":{
-"en":"Status badges are honest: only themes marked implemented have working interactive labs; the others show the syllabus and a planned placeholder.",
-"hi":"स्थिति-चिह्न ईमानदार हैं: केवल \"तैयार\" चिह्नित विषयों में कार्यशील इंटरैक्टिव प्रयोगशालाएँ हैं; शेष में पाठ्यक्रम और नियोजित स्थान-धारक दिखता है।"
+"en":"All 16 themes (78 interactive labs) are live. Models are classroom teaching simplifications, and draft Hindi awaits subject-teacher review.",
+"hi":"सभी 16 विषय (78 इंटरैक्टिव प्रयोगशालाएँ) उपलब्ध हैं। मॉडल कक्षा-शिक्षण के सरलीकरण हैं और हिन्दी पाठ विषय-शिक्षक की समीक्षा की प्रतीक्षा में है।"
 },
 "home.part1":{
 "en":"Part 1 ({h} hours)",

@@ -1,10 +1,16 @@
-// T04 — Early Humans and Beginning of Civilisation. L1 deep-time clock (linear vs log), L2 evidence vs inference. Dates are approximate.
+// T04 — Early Humans and Beginning of Civilisation:
+// L1 Deep-time clock, L2 Evidence vs inference, L3 Settlement sim, L4 3D Harappan City Planner, L5 Comparative Civilisation Atlas.
 import { h, esc, fmt } from '../../core/dom.js';
 import * as i18n from '../../core/i18n.js';
 import { t } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { chips, tabs, bi, relabelBi, predict, mcq, biHtml } from '../../components/widgets.js';
+import { createLab } from '../../components/lab-kit.js';
+import { createThreeLab } from '../../components/three-lab.js';
+import { createHarappan3d } from './harappan-3d.js';
+import { loadGeoAll } from '../../engines/viz.js';
 import * as M from './models.js';
+import { settlementLab, harappanCity, civAtlas } from './labs-history-early.js';
 
 const o = (id, en, hi, why) => ({ id, en, hi, ...(why ? { why } : {}) });
 const COL = { palaeo: '#b5651d', meso: '#8a9a3a', neo: '#2e8b57', harappa: '#7b3fa0', later: '#555' };
@@ -30,13 +36,20 @@ export function mount(root) {
   const S = store.simState('T04', { tab: 'time', mark: 'farming', ev: {}, done: {} }); S.ev ??= {}; S.done ??= {};
   const prog = store.progress('T04'); const persist = () => store.saveSim();
   const aname = (id) => t(`tl.age.${id}`);
+  let alive = true;
+
+  i18n.register({
+    'T04.tab.settle': { en: 'Settlement sim (L3)', hi: 'बस्ती प्रयोग (L3)' },
+    'T04.tab.city': { en: '3D Harappan city (L4)', hi: '3D हड़प्पा नगर (L4)' },
+    'T04.tab.atlas': { en: 'Civilisation atlas (L5)', hi: 'सभ्यता मानचित्र (L5)' },
+  });
 
   // ---- L1 clock
   const tl = (() => {
     const box = h('div', { class: 'chart-box' }), read = h('div', { class: 'readout', role: 'status', 'aria-live': 'polite' });
     const ch = chips({ name: 'ms', value: S.mark, options: M.MILESTONES.filter((m) => m.id !== 'now').map((m) => ({ id: m.id, key: `tl.ms.${m.id}` })), onSelect: (id) => { S.mark = id; draw(); } });
     function bar(pos, y, label, mark) {
-      const W = 640, x0 = 30, w = 580; let s = `<text class="lbl" x="${x0}" y="${y - 8}">${esc(label)}</text>`;
+      const x0 = 30, w = 580; let s = `<text class="lbl" x="${x0}" y="${y - 8}">${esc(label)}</text>`;
       M.AGES.forEach((a) => { const l = Math.min(pos(a.from), pos(a.to)), r = Math.max(pos(a.from), pos(a.to)); s += `<rect x="${x0 + l * w}" y="${y}" width="${Math.max(1.5, (r - l) * w)}" height="26" fill="${COL[a.id]}"/>`; });
       const mx = x0 + pos(mark) * w; return s + `<line x1="${mx}" x2="${mx}" y1="${y - 4}" y2="${y + 34}" stroke="currentColor" stroke-width="3"/><circle cx="${mx}" cy="${y + 13}" r="6" fill="#fff" stroke="currentColor" stroke-width="3"/>`;
     }
@@ -73,11 +86,39 @@ export function mount(root) {
     return { el, relabel() { render(); relabelBi(el); i18n.apply(el); } };
   })();
 
+  // ---- L3, L4 (3D+2D), L5
+  const lab3 = createLab(settlementLab, 'T04');
+  const lab4 = createThreeLab(harappanCity, 'T04', createHarappan3d);
+  const lab5 = createLab(civAtlas, 'T04');
+
+  loadGeoAll().then(() => { if (alive) lab5.draw(); });
+
   const exitBox = h('div', { class: 'exit' });
   const mcqs = EXIT.map((q) => { const e = mcq(q, { done: S.done, onDone: (id, v) => { prog.exit[id] = v; store.saveProgress(); persist(); } }); exitBox.append(h('div', { class: 'exit-q' }, e)); return e; });
   const ta = h('textarea', { class: 'reflect', rows: 3, 'data-k-aria': 'reflect.aria', placeholder: t('reflect.ph') }); ta.value = prog.reflection || ''; ta.addEventListener('input', () => { prog.reflection = ta.value; store.saveProgress(); });
-  const tb = tabs({ active: S.tab || 'time', onChange: (id) => { S.tab = id; persist(); }, tabs: [{ id: 'time', key: 'T04.tab.time', el: tl.el }, { id: 'evid', key: 'T04.tab.evid', el: ev.el }] });
+
+  const onTab = (id) => {
+    S.tab = id; persist();
+    if (id === 'city') lab4.enable(); else lab4.disable();
+  };
+  const tb = tabs({
+    active: S.tab || 'time',
+    onChange: onTab,
+    tabs: [
+      { id: 'time', key: 'T04.tab.time', el: tl.el },
+      { id: 'evid', key: 'T04.tab.evid', el: ev.el },
+      { id: 'settle', key: 'T04.tab.settle', el: lab3.el },
+      { id: 'city', key: 'T04.tab.city', el: lab4.el },
+      { id: 'atlas', key: 'T04.tab.atlas', el: lab5.el },
+    ],
+  });
   root.append(tb.root, h('section', { class: 'subsec' }, h('h3', { 'data-k': 'exit.h' }, t('exit.h')), exitBox, h('h3', { 'data-k': 'reflect.h' }, t('reflect.h')), bi(REFLECT, { tag: 'p', cls: 'note' }), ta, h('p', { class: 'note', 'data-k': 'reflect.local' }, t('reflect.local'))));
   i18n.apply(root);
-  return { relabel() { tl.relabel(); ev.relabel(); mcqs.forEach((q) => q.relabel()); relabelBi(root); i18n.apply(root); ta.placeholder = t('reflect.ph'); }, destroy() {}, debug: () => ({ S }) };
+  if (S.tab === 'city') lab4.enable();
+
+  return {
+    relabel() { tl.relabel(); ev.relabel(); lab3.relabel(); lab4.relabel(); lab5.relabel(); mcqs.forEach((q) => q.relabel()); relabelBi(root); i18n.apply(root); ta.placeholder = t('reflect.ph'); },
+    destroy() { alive = false; lab4.destroy(); },
+    debug: () => ({ S, settle: lab3.debug(), city: lab4.debug(), atlas: lab5.debug() }),
+  };
 }

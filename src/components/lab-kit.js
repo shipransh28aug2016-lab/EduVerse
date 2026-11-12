@@ -27,7 +27,7 @@ i18n.register({
   'lab.note.reconstruction': { en: 'A reconstruction: historians infer this from evidence and may disagree.', hi: 'यह पुनर्निर्माण है: इतिहासकार इसे साक्ष्य से अनुमानित करते हैं और उनमें मतभेद हो सकता है।' },
 });
 
-export function createLab(spec, themeId) {
+export function createLab(spec, themeId, { onDraw } = {}) {
   const S = store.simState(spec.id, spec.init());
   const base = spec.init(); for (const k of Object.keys(base)) if (!(k in S)) S[k] = base[k];
   S.done ??= {};
@@ -66,8 +66,9 @@ export function createLab(spec, themeId) {
     persist();
     const v = spec.view(S);
     chartBox.innerHTML = v.svg;
-    const svg = chartBox.querySelector('svg'); if (svg && v.aria) svg.setAttribute('aria-label', v.aria);
+    chartBox.querySelectorAll('svg[role="img"]').forEach((svg) => { if (v.aria && !svg.getAttribute('aria-label')) svg.setAttribute('aria-label', v.aria); });
     read.innerHTML = v.lines.map((l) => `<div class="ro-line ${l.cls ?? ''}">${biHtml(l, { block: true })}</div>`).join('');
+    onDraw?.(S);
   }
 
   const noteKey = `lab.note.${spec.note?.kind ?? 'schematic'}`;

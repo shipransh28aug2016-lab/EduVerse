@@ -5,10 +5,26 @@
   "type": "module",
   "description": "CBSE Class IX Social Science (087, 2026-27) bilingual immersive visualiser. Static ES modules, no bundler, no backend.",
   "scripts": {
+    "serve": "node tools/serve.mjs",
     "test": "node --test tests/*.test.mjs",
     "smoke": "node tests/lab-smoke.cjs T01 T02 T03 T04 T05 T06 T07 T08 T09 T10 T11 T12 T13 T14 T15 T16",
-    "a11y": "node tests/a11y-smoke.cjs T02 T03 T06 T07 T08 T09 T10 T11 T13 T15 T16",
+    "a11y": "node tests/a11y-smoke.cjs T01 T02 T03 T04 T05 T06 T07 T08 T09 T10 T11 T12 T13 T14 T15 T16",
     "catalog": "node tools/build-catalog.mjs",
     "sw": "node tools/build-sw.mjs"
+  },
+  "dependencies": {
+    "d3-array": "^3.2.5",
+    "d3-force": "^3.0.1",
+    "d3-geo": "^3.1.2",
+    "d3-path": "^3.1.1",
+    "d3-scale": "^4.0.3",
+    "d3-shape": "^3.2.1",
+    "lucide": "^1.72.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^31.0.0"
   }
 }
