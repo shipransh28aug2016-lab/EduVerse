@@ -626,7 +626,16 @@ export const traditionalConservation = {
   view(S) {
     const it = TRAD_CASES[S.item];
     const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="16" width="608" height="158" rx="12" fill="var(--ok-bg)" stroke="var(--ok)" stroke-width="2"/><circle cx="88" cy="95" r="42" fill="#146c2e"/><circle cx="72" cy="85" r="24" fill="#2e8b57"/><circle cx="105" cy="90" r="22" fill="#4fa36a"/><rect x="83" y="110" width="10" height="32" fill="#6b4423"/><text class="txt b" x="155" y="64">${esc(P(it.en, it.hi))}</text><text class="txt sm" x="155" y="92">${esc(P(it.place.en, it.place.hi))}</text><text class="txt sm mut" x="155" y="124">${esc(P('Stewardship by shared cultural rules & local memory', 'साझा सांस्कृतिक नियमों व स्थानीय स्मृति द्वारा संरक्षण'))}</text></svg>`;
-    return { svg, aria: `${it.en} (${it.place.en})`, lines: [{ en: it.en, hi: it.hi, cls: 'balanced' }, it.desc] };
+    return {
+      plate: {
+        src: 'assets/images/plates/t11-grove.jpg',
+        en: 'Community-protected sacred grove beside a village johad water tank and blackbuck habitat.',
+        hi: 'ग्रामीण जोहड़ जल-कुंड व काले हिरण आवास के किनारे समुदाय-संरक्षित पवित्र उपवन।',
+      },
+      svg,
+      aria: `${it.en} (${it.place.en})`,
+      lines: [{ en: it.en, hi: it.hi, cls: 'balanced' }, it.desc],
+    };
   },
   discover: [b('Compare all three traditions. What replaces armed fences in every single case?', 'तीनों परंपराओं की तुलना करें। हर उदाहरण में कँटीली बाड़ की जगह क्या चीज़ रक्षा करती है?')],
   predictions: [

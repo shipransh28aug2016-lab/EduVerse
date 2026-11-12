@@ -1,14 +1,14 @@
 # Test report
 
-Run: 2026-11-12, branch `arena/ebd4c500-eduverse`. Environment: Node `v22.22.3`, `jsdom` DOM harness (Chromium/Playwright binaries not available in the sandbox environment).
+Run: 2026-11-12, branch `arena/2fb90528-eduverse`. Environment: Node `v22.22.3`, `jsdom` DOM harness (Chromium/Playwright binaries not available in the sandbox environment).
 
 ## Summary
 
 | Suite | Command | Result |
 |---|---|---|
 | Engine unit tests (`tests/engines.test.mjs`) | `npm test` | 18 / 18 pass (terrain, atmosphere, ocean, ecosystem, timeline, tradeRoutes, institutions, election, market, startup, finance, tectonics, history, society) |
-| Lab-spec validation (`tests/labs.test.mjs`) | `npm test` | 7 / 7 pass across all 67 `lab-kit` specs (uniqueness, pedagogy structure, Devanagari Hindi parity, extreme control sweeps, prediction live runs, single-answer exit tickets, scientific spot checks, XR guard) |
-| Runtime DOM & HTTP verify (`tests/modules-dom.test.mjs`) | `npm test` | 4 / 4 pass (boots `src/main.js`, checks Home + all 16 modules `T01`–`T16` mounting/tabs/controls/relabel/EN+HI+BOTH/zero `NaN`/`undefined`/`Infinity`/SVG `aria-label`s, verifies all 87 `sw.js` files exist, verifies HTTP 200 static serving) |
+| Lab-spec validation (`tests/labs.test.mjs`) | `npm test` | 7 / 7 pass across all 67 `lab-kit` specs (uniqueness, pedagogy structure, Devanagari Hindi parity, extreme control sweeps, prediction live runs, single-answer exit tickets, scientific spot checks, XR guard, `v.plate` asset & caption checks) |
+| Runtime DOM & HTTP verify (`tests/modules-dom.test.mjs`) | `npm test` | 4 / 4 pass (boots `src/main.js`, checks Home + all 16 modules `T01`–`T16` mounting/tabs/controls/relabel/EN+HI+BOTH/zero `NaN`/`undefined`/`Infinity`/SVG `aria-label`s, `.lab-plate` 2D lab figures across `T01`, `T04`, `T05`, `T06`, `T11`, `T12`, `T13`, `T14`, verifies all 87 `sw.js` files exist, verifies HTTP 200 static serving including all `assets/images/t01..16.jpg` & `assets/images/plates/*.jpg`) |
 | Catalogue generator | `npm run catalog` | 78 learning objects, 78 implemented, 0 planned, 79 simulations (27 prior Chromium QA-verified in `data/coverage/qa-passed.json`) |
 | Service worker precache | `npm run sw` | 87 files precached |
 | Chromium smoke (`tests/lab-smoke.cjs`) | `npm run smoke` | Not executed here (no Chromium/Playwright binary in sandbox) |

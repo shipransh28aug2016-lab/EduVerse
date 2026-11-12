@@ -33,6 +33,11 @@ export const kautilyaExplorer = {
       + `<text class="txt sm" x="24" y="132">${esc(P('Nyaya (Justice)', 'न्याय'))}</text><rect x="180" y="116" width="${nW}" height="24" rx="4" fill="#15803d"/><text class="txt sm b" x="${188 + nW}" y="133">${S.nyaya}%</text>`
       + `<rect x="24" y="160" width="592" height="42" rx="8" fill="${col}" fill-opacity=".14" stroke="${col}" stroke-width="2"/><text class="txt b" x="320" y="186" text-anchor="middle">${esc(order === 'rajadharma' ? P('Balanced Authority (Yoga-kshema / Public Welfare)', 'संतुलित प्राधिकार (योगक्षेम / लोक-कल्याण)') : order === 'tyranny' ? P('Harsh Force without Justice → Unrest', 'न्याय के बिना कठोर बल → असंतोष') : order === 'matsya' ? P('Weak Enforcement → Matsya-nyaya (Chaos)', 'कमज़ोर नियम → मत्स्य-न्याय (अराजकता)') : P('Fragile Balance — Strengthen Justice & Clarity', 'कमज़ोर संतुलन — न्याय सुदृढ़ करें'))}</text></svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t14-authority.jpg',
+        en: 'Palm-leaf Arthashastra treatise, brass scales of Nyaya (justice) and royal Dharma Chakra emblem.',
+        hi: 'ताड़पत्र अर्थशास्त्र ग्रंथ, न्याय की पीतल तराजू और राजधर्म चक्र प्रतीक।',
+      },
       svg,
       aria: `${tx.en}: Danda ${S.danda}%, Nyaya ${S.nyaya}% gives ${order}`,
       lines: [

@@ -1,6 +1,8 @@
 // Structural, bilingual and numeric-safety checks for every lab spec across all 16 themes (no browser needed).
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import * as t01 from '../src/modules/integrated/t01.js';
 import * as earth from '../src/modules/geography/labs-earth.js';
 import * as geoExtra from '../src/modules/geography/labs-geo-extra.js';
@@ -60,6 +62,10 @@ test('control values: init inside range; every control extreme renders without N
       const v = s.view(S);
       assert.ok(v.svg.includes('<svg'), `${s.id} ${what} svg`);
       assert.ok(!BAD.test(v.svg), `${s.id} ${what}: bad number in svg`);
+      if (v.plate) {
+        assert.ok(v.plate.src && fs.existsSync(path.resolve(import.meta.dirname, '..', v.plate.src)), `${s.id} ${what}: missing plate ${v.plate.src}`);
+        assert.ok(v.plate.en && v.plate.hi && DEV.test(v.plate.hi), `${s.id} ${what}: plate lacks bilingual caption`);
+      }
       assert.ok(v.lines.length >= 1);
       for (const l of v.lines) {
         assert.ok(l.en && l.hi && DEV.test(l.hi), `${s.id} ${what}: line lacks Hindi`);

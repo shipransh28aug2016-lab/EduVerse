@@ -82,7 +82,11 @@ export function mount(root) {
       }));
     }
     render();
-    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Archaeologists find things (evidence) and then explain them (inference). Sort each statement.', hi: 'पुरातत्वविद् वस्तुएँ पाते हैं (प्रमाण) और फिर उनकी व्याख्या करते हैं (निष्कर्ष)। हर कथन को छाँटें।' })), list, h('p', { class: 'note', 'data-k': 'ev.fictional' }, t('ev.fictional')), h('div', { class: 'row' }, h('button', { type: 'button', class: 'btn', 'data-k': 'btn.reset', onclick: () => { S.ev = {}; persist(); render(); } }, t('btn.reset'))));
+    const plate = h('figure', { class: 'lab-plate' },
+      h('img', { src: 'assets/images/plates/t04-tools.jpg', alt: i18n.pair('Bhimbetka cave art, Palaeolithic handaxe, microliths, Neolithic axe and charred wheat grains.', 'भीमबेटका गुफ़ा चित्र, पुरापाषाण हस्त-कुठार, सूक्ष्म-पाषाण, नवपाषाण कुल्हाड़ी व जले गेहूँ के दाने।'), loading: 'eager', decoding: 'async' }),
+      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'Material finds (cave art, stone blades, polished axe, charred grain) form direct archaeological evidence before interpretation.', hi: 'भौतिक अवशेष (गुफ़ा चित्र, पाषाण फलक, पॉलिश कुल्हाड़ी, जले दाने) व्याख्या से पहले के प्रत्यक्ष पुरातात्विक प्रमाण हैं।' })),
+    );
+    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Archaeologists find things (evidence) and then explain them (inference). Sort each statement.', hi: 'पुरातत्वविद् वस्तुएँ पाते हैं (प्रमाण) और फिर उनकी व्याख्या करते हैं (निष्कर्ष)। हर कथन को छाँटें।' })), plate, list, h('p', { class: 'note', 'data-k': 'ev.fictional' }, t('ev.fictional')), h('div', { class: 'row' }, h('button', { type: 'button', class: 'btn', 'data-k': 'btn.reset', onclick: () => { S.ev = {}; persist(); render(); } }, t('btn.reset'))));
     return { el, relabel() { render(); relabelBi(el); i18n.apply(el); } };
   })();
 
