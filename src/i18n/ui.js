@@ -5,8 +5,8 @@ export const UI = {
 "hi":"मुख्य सामग्री पर जाएँ"
 },
 "app.title":{
-"en":"Class IX Social Science",
-"hi":"कक्षा IX सामाजिक विज्ञान"
+"en":"Social Science IX–X",
+"hi":"सामाजिक विज्ञान IX–X"
 },
 "lang.en":{
 "en":"English",
@@ -41,24 +41,24 @@ export const UI = {
 "hi":"शिक्षक दृश्य"
 },
 "foot.note":{
-"en":"Draft Hindi text is awaiting subject-teacher review. Models are teaching simplifications, not official data. Source: CBSE Social Science (087) Class IX 2026-27 syllabus.",
-"hi":"हिन्दी पाठ विषय-शिक्षक की समीक्षा की प्रतीक्षा में है। मॉडल शिक्षण-सरलीकरण हैं, आधिकारिक आँकड़े नहीं। स्रोत: सीबीएसई सामाजिक विज्ञान (087) कक्षा IX 2026-27 पाठ्यक्रम।"
+"en":"Draft Hindi text is awaiting subject-teacher review. Models are teaching simplifications, not official data. Sources: CBSE Social Science (087) Class IX 2026-27 syllabus; NCERT Class X textbooks.",
+"hi":"हिन्दी पाठ विषय-शिक्षक की समीक्षा की प्रतीक्षा में है। मॉडल शिक्षण-सरलीकरण हैं, आधिकारिक आँकड़े नहीं। स्रोत: सीबीएसई सामाजिक विज्ञान (087) कक्षा IX 2026-27 पाठ्यक्रम; NCERT कक्षा X पाठ्यपुस्तकें।"
 },
 "foot.priv":{
 "en":"No login, no ads, no tracking. Your answers stay in this browser only.",
 "hi":"कोई लॉगिन, विज्ञापन या ट्रैकिंग नहीं। आपके उत्तर केवल इसी ब्राउज़र में रहते हैं।"
 },
 "home.h1":{
-"en":"Interactive Social Science, Class IX",
-"hi":"इंटरैक्टिव सामाजिक विज्ञान, कक्षा IX"
+"en":"Social Science, alive in 2D and 3D",
+"hi":"सामाजिक विज्ञान, 2D और 3D में जीवंत"
 },
 "home.lead":{
-"en":"Observe, question, explore, simulate, explain, apply and reflect. Pick a theme to begin.",
-"hi":"देखें, प्रश्न पूछें, खोजें, अनुकरण करें, समझाएँ, लागू करें और चिंतन करें। शुरू करने के लिए कोई विषय चुनें।"
+"en":"Spin the globe, raise the map of India, open a dam, run a printing press. Every theme and chapter of Classes IX and X, in English and Hindi.",
+"hi":"ग्लोब घुमाइए, भारत का मानचित्र उभारिए, बाँध खोलिए, छापाख़ाना चलाइए। कक्षा IX और X का हर विषय और अध्याय, अंग्रेज़ी और हिन्दी में।"
 },
 "home.honest":{
-"en":"All 16 themes (78 interactive labs) are live. Models are classroom teaching simplifications, and draft Hindi awaits subject-teacher review.",
-"hi":"सभी 16 विषय (78 इंटरैक्टिव प्रयोगशालाएँ) उपलब्ध हैं। मॉडल कक्षा-शिक्षण के सरलीकरण हैं और हिन्दी पाठ विषय-शिक्षक की समीक्षा की प्रतीक्षा में है।"
+"en":"Models are classroom teaching simplifications, and draft Hindi awaits subject-teacher review.",
+"hi":"मॉडल कक्षा-शिक्षण के सरलीकरण हैं और हिन्दी पाठ विषय-शिक्षक की समीक्षा की प्रतीक्षा में है।"
 },
 "home.part1":{
 "en":"Part 1 ({h} hours)",

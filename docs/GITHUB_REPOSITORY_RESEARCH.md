@@ -95,3 +95,22 @@ It suggests "falling-sand" materials sandboxes. Our topics need explained, quant
 - three.js: MIT; copyright notice shipped in `vendor/three/LICENSE`.
 - Natural Earth coastlines (public domain) and PB2002 plate outlines (Bird 2003, ODC-By) were already credited in `README.md` and `data/geo/SOURCES.md`.
 - Atmosphere values follow the published US Standard Atmosphere 1976; tidal and tsunami formulas are standard physics.
+
+## Update 2026-11-12: libraries installed for the premium 2D/3D layer and Class X
+
+Installed from npm and vendored by `npm run vendor` (`tools/build-vendor.mjs`, esbuild). Nothing loads from a CDN; the app still runs offline. Sizes are the built files measured in this repository (raw, minified).
+
+| Repository | Licence | What is used | Vendored as | Size |
+|---|---|---|---|---|
+| mrdoob/three.js (`three@0.170.0` addons) | MIT | `OrbitControls`, `EffectComposer` + `UnrealBloomPass` + `OutputPass`, `RoomEnvironment` (PBR reflections), `CSS2DRenderer` (HTML labels), `RoundedBoxGeometry` | `vendor/three/three-fx.esm.js` (core stays external) | 43 KB |
+| d3/d3-hierarchy | ISC | tidy tree layouts for classification explorers | `vendor/d3/d3-plus.esm.js` | 38 KB (whole bundle) |
+| d3/d3-sankey | BSD-3-Clause | production-chain flow diagram | same bundle | |
+| d3/d3-interpolate, d3/d3-ease | ISC, BSD-3-Clause | bundled for transitions | same bundle | |
+| lucide-icons/lucide | ISC | 38 extra icons | `vendor/lucide/lucide-x.esm.js` | 9 KB |
+| rsms/inter (`@fontsource-variable/inter`) | SIL OFL 1.1 | UI text | `assets/fonts/inter.woff2` | 48 KB |
+| undercasetype/Fraunces (`@fontsource-variable/fraunces`) | SIL OFL 1.1 | display headings | `assets/fonts/fraunces.woff2` | 67 KB |
+| notofonts/devanagari (`@fontsource-variable/noto-sans-devanagari`) | SIL OFL 1.1 | Hindi text | `assets/fonts/noto-devanagari.woff2` | 121 KB |
+
+Earlier decisions that still stand: React-based libraries (react-three-fiber, drei, recharts) and second engines (A-Frame, CesiumJS) remain rejected because the app is a static ES-module site. `globe.gl` was not adopted: the globe is built here on three.js with d3-geo painting Natural Earth outlines onto a canvas texture, so no remote textures are fetched.
+
+This reverses one earlier line in this document ("no new runtime dependency was added"): the bloom, environment and label addons and the two d3 modules are new runtime code, loaded lazily only when a 3D stage or a Class X page opens.

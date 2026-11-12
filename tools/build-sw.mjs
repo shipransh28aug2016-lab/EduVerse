@@ -3,7 +3,7 @@
 // Strategy: stale-while-revalidate for same-origin GET (fast from cache, refreshed in the background). Re-run after adding files.
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 const roots = ['index.html', 'assets', 'src', 'data', 'vendor/d3', 'vendor/lucide'], files = [];
-const walk = (p) => { for (const e of fs.readdirSync(p, { withFileTypes: true })) { const f = path.join(p, e.name); if (e.isDirectory()) walk(f); else if (!/\.(md|png|jpg|jpeg|webp|pdf)$/.test(e.name) && !e.name.startsWith('LICENSE')) files.push(f.replaceAll('\\', '/')); } };
+const walk = (p) => { for (const e of fs.readdirSync(p, { withFileTypes: true })) { const f = path.join(p, e.name); if (e.isDirectory()) walk(f); else if (!/\.(md|png|jpg|jpeg|webp|pdf|txt)$/.test(e.name) && !e.name.startsWith('LICENSE')) files.push(f.replaceAll('\\', '/')); } };
 for (const r of roots) if (fs.existsSync(r)) fs.statSync(r).isDirectory() ? walk(r) : files.push(r);
 files.sort();
 const hash = crypto.createHash('sha1').update(files.map((f) => f + fs.statSync(f).size).join('|')).digest('hex').slice(0, 10);

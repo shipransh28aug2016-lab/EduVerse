@@ -19,8 +19,18 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
   let raf = 0, dirty = true, tween = null, disposed = false;
   const owned = []; // geometries/materials/textures created through track()
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.75));
-  const sun = new THREE.DirectionalLight(0xffffff, 1.05); sun.position.set(6, 12, 9); scene.add(sun);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8a94a8, 0.8));
+  const sun = new THREE.DirectionalLight(0xfff4e0, 1.15); sun.position.set(6, 12, 9); scene.add(sun);
+  const rim = new THREE.DirectionalLight(0x9cc4ff, 0.35); rim.position.set(-8, 5, -7); scene.add(rim);
+  // Soft image-based reflections for standard (PBR) materials; skipped in low-graphics mode.
+  let envRT = null;
+  if (!lowGraphics) {
+    try {
+      const { RoomEnvironment } = await import('../../vendor/three/three-fx.esm.js');
+      const pmrem = new THREE.PMREMGenerator(renderer); envRT = pmrem.fromScene(new RoomEnvironment(), 0.04); pmrem.dispose();
+      scene.environment = envRT.texture; scene.environmentIntensity = 0.3;
+    } catch { /* lighting above is sufficient */ }
+  }
 
   function place() {
     const s = Math.sin(view.pol);
@@ -59,6 +69,7 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
       disposed = true; cancelAnimationFrame(raf); ro.disconnect();
       scene.traverse((o) => { o.geometry?.dispose?.(); const m = o.material; if (m) (Array.isArray(m) ? m : [m]).forEach((x) => { x.map?.dispose?.(); x.dispose?.(); }); });
       owned.forEach((o) => o.dispose?.());
+      envRT?.dispose();
       renderer.dispose(); renderer.forceContextLoss?.(); renderer.domElement.remove();
     },
   };

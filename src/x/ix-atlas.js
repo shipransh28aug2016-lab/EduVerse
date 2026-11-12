@@ -1,0 +1,24 @@
+// "3D atlas" scenes added to Class IX themes that are about places. Pins are approximate; present-day borders are used.
+import { b, C, pt, arc, f, grp } from './data/_h.js';
+
+export const HOME_GLOBE = [{ kind: 'globe', dist: 3.7, focus: f(16, 80), highlight: { India: C.gold }, points: [pt(22, 79, 'India', 'भारत')],
+  arcs: [arc([22, 78], [41.9, 12.5], C.gold), arc([22, 78], [34.3, 108.9], C.teal), arc([22, 78], [-7.6, 110.2], C.coral), arc([22, 78], [33, 44], C.violet), arc([22, 78], [-20.2, 57.5], C.sky), arc([22, 78], [51.5, -0.13], C.pink)] }];
+
+export const IX_ATLAS = {
+  T01: [{ t: b('India in its neighbourhood', 'अपने पड़ोस में भारत'), kind: 'globe', dist: 2.6, focus: f(22, 80), highlight: { India: C.gold, Nepal: C.teal, Bhutan: C.teal, Bangladesh: C.teal, 'Sri Lanka': C.teal, Pakistan: C.teal, Myanmar: C.teal, China: '#3b6a99', Afghanistan: '#3b6a99' }, points: [pt(22, 79, 'India', 'भारत'), pt(9, 73, 'Arabian Sea', 'अरब सागर', C.sky), pt(14, 89, 'Bay of Bengal', 'बंगाल की खाड़ी', C.sky), pt(31, 82, 'The Himalaya', 'हिमालय', C.coral)] }],
+  T04: [{ t: b('Early sites on the map', 'मानचित्र पर आरंभिक स्थल'), kind: 'india', layers: [
+    { en: 'Stone Age sites', hi: 'पाषाण युग के स्थल', points: [pt(22.94, 77.61, 'Bhimbetka: rock shelters and paintings', 'भीमबेटका: शैलाश्रय और चित्र', C.coral), pt(34.17, 74.87, 'Burzahom: Neolithic pit dwellings', 'बुर्ज़होम: नवपाषाण गर्त-आवास', C.teal), pt(15.5, 78.1, 'Kurnool caves', 'कुरनूल गुफाएँ', C.gold)] },
+    { en: 'Harappan cities in present-day India', hi: 'आज के भारत में हड़प्पा नगर', groups: [grp('States with major Harappan sites', 'प्रमुख हड़प्पा स्थलों वाले राज्य', C.orange, ['Gujarat', 'Rajasthan', 'Haryana'])], points: [pt(23.89, 70.21, 'Dholavira: water reservoirs', 'धोलावीरा: जलाशय', C.gold), pt(22.52, 72.25, 'Lothal: dockyard', 'लोथल: गोदी', C.gold), pt(29.47, 74.13, 'Kalibangan: ploughed field', 'कालीबंगा: जुता खेत', C.gold), pt(29.29, 76.11, 'Rakhigarhi', 'राखीगढ़ी', C.gold)] },
+  ] }],
+  T10: [{ t: b('The world ocean', 'विश्व महासागर'), kind: 'globe', dist: 3.2, layers: [
+    { en: 'Indian Ocean', hi: 'हिंद महासागर', focus: f(-8, 78), highlight: { India: C.gold }, points: [pt(-18, 78, 'Indian Ocean', 'हिंद महासागर', C.sky), pt(14, 64, 'Arabian Sea', 'अरब सागर', C.teal), pt(14, 89, 'Bay of Bengal', 'बंगाल की खाड़ी', C.teal)] },
+    { en: 'Pacific Ocean', hi: 'प्रशांत महासागर', focus: f(5, -165), points: [pt(0, -160, 'Pacific Ocean: the largest', 'प्रशांत महासागर: सबसे बड़ा', C.sky), pt(11.35, 142.2, 'Mariana Trench: the deepest', 'मारियाना गर्त: सबसे गहरा', C.coral)] },
+    { en: 'Atlantic Ocean', hi: 'अटलांटिक महासागर', focus: f(10, -32), points: [pt(5, -30, 'Atlantic Ocean', 'अटलांटिक महासागर', C.sky), pt(30, -42, 'Mid-Atlantic Ridge', 'मध्य-अटलांटिक कटक', C.coral)] },
+    { en: 'Polar oceans', hi: 'ध्रुवीय महासागर', focus: f(-62, 30), points: [pt(-64, 30, 'Southern Ocean', 'दक्षिणी महासागर', C.sky), pt(86, 0, 'Arctic Ocean', 'आर्कटिक महासागर', C.teal)] },
+  ] }],
+  T11: [{ t: b('Biosphere reserves of India', 'भारत के जैवमंडल आरक्षित क्षेत्र'), kind: 'india', points: [pt(11.5, 76.9, 'Nilgiri', 'नीलगिरि', C.green), pt(30.4, 79.9, 'Nanda Devi', 'नंदा देवी', C.teal), pt(21.9, 88.9, 'Sundarban', 'सुंदरबन', C.gold), pt(9.1, 79.1, 'Gulf of Mannar', 'मन्नार की खाड़ी', C.sky), pt(25.5, 90.3, 'Nokrek', 'नोकरेक', C.green), pt(7.0, 93.8, 'Great Nicobar', 'ग्रेट निकोबार', C.sky), pt(21.8, 86.3, 'Simlipal', 'सिमलीपाल', C.coral), pt(22.47, 78.43, 'Pachmarhi', 'पचमढ़ी', C.orange), pt(23.8, 70.0, 'Kachchh', 'कच्छ', C.pink), pt(27.6, 88.3, 'Khangchendzonga', 'कंचनजंघा', C.violet)] }],
+  T13: [{ t: b('India and the ancient world', 'भारत और प्राचीन विश्व'), kind: 'globe', dist: 2.9, layers: [
+    { en: 'Westward: Mesopotamia, Greece, Rome', hi: 'पश्चिम की ओर: मेसोपोटामिया, यूनान, रोम', focus: f(28, 50), highlight: { India: C.gold, Iraq: C.violet, Greece: C.sky, Italy: C.coral }, points: [pt(22.52, 72.25, 'Lothal', 'लोथल'), pt(10.2, 76.2, 'Muziris', 'मुज़िरिस'), pt(33, 44, 'Mesopotamia', 'मेसोपोटामिया', C.violet), pt(38, 23.7, 'Greece', 'यूनान', C.sky), pt(41.9, 12.5, 'Rome', 'रोम', C.coral)], arcs: [arc([22.52, 72.25], [33, 44], C.violet), arc([10.2, 76.2], [41.9, 12.5], C.coral), arc([31, 74], [38, 23.7], C.sky)] },
+    { en: 'Eastward: China and Southeast Asia', hi: 'पूर्व की ओर: चीन और दक्षिण-पूर्व एशिया', focus: f(18, 100), highlight: { India: C.gold, China: C.coral, Cambodia: C.teal, Indonesia: C.teal, Vietnam: C.teal, Thailand: C.teal }, points: [pt(22.3, 87.9, 'Tamralipti', 'ताम्रलिप्ति'), pt(11.9, 79.82, 'Arikamedu', 'अरिकामेडु'), pt(34.3, 108.9, 'China', 'चीन', C.coral), pt(13.4, 103.9, 'Angkor', 'अंगकोर', C.teal), pt(-7.6, 110.2, 'Borobudur', 'बोरोबुदुर', C.teal)], arcs: [arc([22.3, 87.9], [13.4, 103.9], C.teal), arc([11.9, 79.82], [-7.6, 110.2], C.teal), arc([25.6, 85.1], [34.3, 108.9], C.coral)] },
+  ] }],
+};

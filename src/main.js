@@ -9,10 +9,16 @@ import { OPENINGS } from './modules/openings.js';
 import { MODULES, TEACHER, LIMITS } from './modules/registry.js';
 import { HERO_MEDIA, THEME_MEDIA, themeBannerEl } from './core/media.js';
 import { iconEl } from './engines/viz.js';
+import { icon } from './x/icons.js';
+import { stageView } from './x/stage-view.js';
+import { IX_ATLAS, HOME_GLOBE } from './x/ix-atlas.js';
 
 i18n.register(UI);
 const root = $('#main'), bar = $('#topbar'), foot = $('#foot');
 let cur = null; // { id, mod } mounted module
+let extras = []; // 3D stages owned by the shell (home globe, Class IX atlas)
+const loadX = () => import('./x/page.js');
+const B = (en, hi) => ({ en, hi });
 let CUR = null; // curriculum manifest
 const DISC = { geography: 'disc.geography', history: 'disc.history', 'political-science': 'disc.political', economics: 'disc.economics', integrated: 'disc.integrated' };
 
@@ -32,30 +38,43 @@ function applyPrefs() {
 function renderBar() {
   const L = [['en', 'lang.en'], ['hi', 'lang.hi'], ['both', 'lang.both']];
   bar.replaceChildren(
-    h('a', { class: 'brand', href: '#/' }, iconEl('GraduationCap', { size: 20, className: 'brand-ico' }), h('span', { 'data-k': 'app.title' }, t('app.title'))),
+    h('a', { class: 'brand', href: '#/' }, h('span', { class: 'brand-mark' }, iconEl('GraduationCap', { size: 20, className: 'brand-ico' })), h('span', { class: 'brand-txt' }, h('b', {}, 'EduVerse'), h('span', { 'data-k': 'app.title' }, t('app.title')))),
+    h('nav', { class: 'cls-nav', 'aria-label': 'Class' }, h('a', { href: '#/', 'data-cls': 'ix' }, titleEl('span', B('Class IX', 'कक्षा IX'))), h('a', { href: '#/x', 'data-cls': 'x' }, titleEl('span', B('Class X', 'कक्षा X')))),
     h('div', { class: 'tools' },
       h('div', { class: 'seg', role: 'group', 'data-k-aria': 'bar.lang', 'aria-label': t('bar.lang') }, ...L.map(([id, k]) => h('button', { type: 'button', class: 'seg-b', 'data-lang': id, 'aria-pressed': store.get().lang === id ? 'true' : 'false', 'data-k': k, onclick: () => store.set({ lang: id }) }, t(k)))),
-      ...[['lowGraphics', 'bar.low'], ['reducedMotion', 'bar.motion'], ['projector', 'bar.proj'], ['teacher', 'bar.teacher']].map(([p, k]) => h('button', { type: 'button', class: 'tool', 'data-pref': p, 'aria-pressed': store.get()[p] ? 'true' : 'false', 'data-k': k, onclick: () => store.set({ [p]: !store.get()[p] }) }, t(k)))));
+      ...[['lowGraphics', 'bar.low', 'ZapOff'], ['reducedMotion', 'bar.motion', 'Pause'], ['projector', 'bar.proj', 'Projector'], ['teacher', 'bar.teacher', 'BookOpen']].map(([p, k, ic]) => h('button', { type: 'button', class: 'tool', 'data-pref': p, 'aria-pressed': store.get()[p] ? 'true' : 'false', 'data-k-title': k, title: t(k), onclick: () => store.set({ [p]: !store.get()[p] }) }, iconEl(ic, { size: 16 }), h('span', { class: 'tool-t', 'data-k': k }, t(k))))));
 }
 function renderFoot() {
   foot.replaceChildren(h('p', { 'data-k': 'foot.note' }, t('foot.note')), h('p', { 'data-k': 'foot.priv' }, t('foot.priv')));
 }
 function onLang() {
   bar.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.lang === store.get().lang ? 'true' : 'false'));
-  i18n.apply(bar); i18n.apply(foot); i18n.apply(root); relabelBi(root); relabelTitles(); cur?.mod?.relabel?.();
+  i18n.apply(bar); i18n.apply(foot); i18n.apply(root); relabelBi(root); relabelTitles(); cur?.mod?.relabel?.(); extras.forEach((x) => x.relabel?.());
 }
-function relabelTitles() { root.querySelectorAll('[data-title]').forEach((el) => { const o = JSON.parse(el.dataset.title); el.textContent = i18n.pair(o.en, o.hi); }); }
+function relabelTitles() { document.querySelectorAll('[data-title]').forEach((el) => { const o = JSON.parse(el.dataset.title); el.textContent = i18n.pair(o.en, o.hi); }); }
 const titleEl = (tag, o, cls) => { const e = h(tag, { class: cls, 'data-title': JSON.stringify({ en: o.en, hi: o.hi }) }, i18n.pair(o.en, o.hi)); return e; };
 const status = (th) => { const n = th.learningObjects.length, k = th.learningObjects.filter((l) => l.status === 'implemented').length; return { n, k, label: k === 0 ? 'planned' : k === n ? 'implemented' : 'partial' }; };
 
-function destroyCur() { try { cur?.mod?.destroy?.(); } catch (e) { console.warn(e); } cur = null; }
+function destroyCur() { try { cur?.mod?.destroy?.(); extras.forEach((x) => x.destroy?.()); } catch (e) { console.warn(e); } cur = null; extras = []; }
 async function route() {
   destroyCur();
-  const m = location.hash.match(/^#\/theme\/(T\d\d)$/);
+  const hash = location.hash, m = hash.match(/^#\/theme\/(T\d\d)$/), x = hash.match(/^#\/x(?:\/([A-Z]\d))?$/);
   root.replaceChildren(); window.scrollTo(0, 0);
-  if (m && CUR.themes.some((x) => x.id === m[1])) await themePage(m[1]); else home();
+  const isX = !!x;
+  document.documentElement.dataset.cls = isX ? 'x' : 'ix';
+  bar.querySelectorAll('[data-cls]').forEach((a) => (a.dataset.cls === (isX ? 'x' : 'ix') ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
+  let title = 'Social Science IX–X';
+  if (m && CUR.themes.some((t_) => t_.id === m[1])) { await themePage(m[1]); title = `${m[1]} · Class IX Social Science`; }
+  else if (x && x[1]) {
+    try {
+      const X = await loadX();
+      if (location.hash !== hash) return;
+      const ch = X.CHAPTERS.find((c) => c.id === x[1]);
+      if (ch) { cur = { id: ch.id, mod: X.mountChapter(root, ch.id) }; title = `${ch.en} · Class X Social Science`; } else home('x');
+    } catch (e) { console.error(e); root.replaceChildren(h('p', { class: 'note err', 'data-k': 'th.err' }, t('th.err'))); }
+  } else home(isX ? 'x' : 'ix');
   i18n.apply(root); root.focus({ preventScroll: true });
-  document.title = (m ? `${m[1]} · ` : '') + 'Class IX Social Science';
+  document.title = `${title} · EduVerse`;
 }
 function card(th) {
   const s = status(th);
@@ -69,18 +88,32 @@ function card(th) {
     h('span', { class: 'card-meta' }, h('span', { 'data-k': DISC[th.discipline] }, t(DISC[th.discipline])), h('span', {}, ` · ${th.hours} `), h('span', { 'data-k': 'hours' }, t('hours'))),
     h('span', { class: `badge ${s.label}`, 'data-k': `st.${s.label}`, 'data-p': JSON.stringify({ k: s.k, n: s.n }) }, t(`st.${s.label}`, { k: s.k, n: s.n })));
 }
-function home() {
+function home(cls = 'ix') {
   const part = (n, label) => h('section', { class: 'part', 'aria-labelledby': `part${n}` }, h('h2', { id: `part${n}`, 'data-k': label, 'data-p': JSON.stringify({ h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) }) }, t(label, { h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) })), h('div', { class: 'grid' }, ...CUR.themes.filter((x) => x.part === n).map(card)));
+  const globe = stageView(HOME_GLOBE, { compact: true, chrome: false }); extras.push(globe);
+  const stat = (n, label) => h('div', { class: 'stat' }, h('b', {}, n), titleEl('span', label));
+  const labs = CUR.themes.reduce((a, x) => a + x.learningObjects.length, 0);
+  const tab = (id, href, label, sub) => h('a', { class: 'cls-tab', href, 'aria-current': cls === id ? 'page' : null }, h('b', {}, titleEl('span', label)), titleEl('small', sub));
+  const list = h('div', { class: 'cls-list' });
   root.append(
     h('section', { class: 'hero hero-shell' },
       h('div', { class: 'hero-copy' },
-        h('h1', { 'data-k': 'home.h1' }, t('home.h1')),
+        h('p', { class: 'eyebrow' }, icon('Sparkles', { size: 15 }), titleEl('span', B('CBSE Social Science · Classes IX and X', 'CBSE सामाजिक विज्ञान · कक्षा IX और X'))),
+        h('h1', { class: 'display', 'data-k': 'home.h1' }, t('home.h1')),
         h('p', { class: 'lead', 'data-k': 'home.lead' }, t('home.lead')),
+        h('div', { class: 'stats' }, stat('16', B('Class IX themes', 'कक्षा IX विषय')), stat('22', B('Class X chapters', 'कक्षा X अध्याय')), stat(String(labs + 30), B('2D explorers', '2D अन्वेषक')), stat('38', B('3D scenes', '3D दृश्य'))),
         h('p', { class: 'note', 'data-k': 'home.honest' }, t('home.honest'))),
-      h('figure', { class: 'hero-art' },
-        h('img', { src: HERO_MEDIA.src, alt: i18n.pair(HERO_MEDIA.en, HERO_MEDIA.hi), loading: 'eager', decoding: 'async' }))),
-    part(1, 'home.part1'),
-    part(2, 'home.part2'));
+      h('div', { class: 'hero-art' }, globe.el,
+        h('img', { class: 'hero-img', src: HERO_MEDIA.src, alt: i18n.pair(HERO_MEDIA.en, HERO_MEDIA.hi), loading: 'eager', decoding: 'async' }))),
+    h('nav', { class: 'cls-tabs', 'aria-label': 'Choose class' },
+      tab('ix', '#/', B('Class IX', 'कक्षा IX'), B('16 themes · 2026-27 syllabus', '16 विषय · 2026-27 पाठ्यक्रम')),
+      tab('x', '#/x', B('Class X', 'कक्षा X'), B('22 chapters · four NCERT textbooks', '22 अध्याय · चार NCERT पाठ्यपुस्तकें'))),
+    list);
+  if (cls === 'x') {
+    list.append(h('p', { class: 'note', 'data-k': 'th.loading' }, t('th.loading')));
+    const at = location.hash;
+    loadX().then((X) => { if (location.hash === at) list.replaceChildren(...X.chapterGrid()); }).catch((e) => { console.error(e); list.replaceChildren(h('p', { class: 'note err', 'data-k': 'th.err' }, t('th.err'))); });
+  } else list.append(part(1, 'home.part1'), part(2, 'home.part2'));
 }
 const lst = (items, fn) => h('ul', { class: 'plain' }, ...items.map((x) => h('li', {}, fn(x))));
 async function themePage(id) {
@@ -95,12 +128,13 @@ async function themePage(id) {
   const teach = TEACHER[id];
   root.append(...[
     h('a', { class: 'back', href: '#/', 'data-k': 'nav.back' }, t('nav.back')),
-    h('header', { class: 'theme-h theme-head-wrap' },
+    h('header', { class: `theme-h theme-head-wrap disc-${th.discipline}` },
       h('div', { class: 'theme-head-txt' },
         h('span', { class: 'card-id' }, media ? iconEl(media.icon, { size: 15, className: 'th-ico' }) : null, id),
         titleEl('h1', th.title),
         h('p', { class: 'card-meta' }, h('span', { 'data-k': DISC[th.discipline] }, t(DISC[th.discipline])), ` · ${th.hours} `, h('span', { 'data-k': 'hours' }, t('hours')), ' · ', h('span', { class: `badge ${s.label}`, 'data-k': `st.${s.label}`, 'data-p': JSON.stringify({ k: s.k, n: s.n }) }, t(`st.${s.label}`, { k: s.k, n: s.n })))),
       themeBannerEl(id)),
+    IX_ATLAS[id] ? (() => { const sv = stageView(IX_ATLAS[id]); extras.push(sv); return h('section', { class: 'atlas' }, h('h2', { class: 'xsec-h' }, icon('Earth', { size: 20 }), titleEl('span', B('3D atlas', '3D एटलस'))), sv.el); })() : null,
     h('section', { class: 'opening', 'aria-labelledby': 'op-h' }, h('h2', { id: 'op-h', 'data-k': 'th.opening' }, t('th.opening')), bi(opening, { tag: 'p', cls: 'q' })),
     modSlot,
     h('section', { class: 'subsec' }, h('h2', { 'data-k': 'th.lo' }, t('th.lo')), lst(th.learningObjects, loChip)),
