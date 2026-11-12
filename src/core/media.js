@@ -19,13 +19,13 @@ export const THEME_MEDIA = {
   T07: { src: 'assets/images/t07.jpg', icon: 'Vote', en: 'Voters queuing at a sunlit Indian polling booth with indelible ink mark', hi: 'अमिट स्याही के निशान के साथ भारतीय मतदान केंद्र पर कतार में मतदाता' },
   T08: { src: 'assets/images/t08.jpg', icon: 'Coins', en: 'Indian farms, solar microgrid, artisan workshop and village market', hi: 'भारतीय खेत, सौर ग्रिड, शिल्पकार कार्यशाला और ग्रामीण बाज़ार' },
   T09: { src: 'assets/images/t09.jpg', icon: 'TrendingUp', en: 'Morning Indian wholesale tomato mandi with weighing scales', hi: 'तराजू और टमाटर की टोकरियों के साथ भारतीय सुबह की मंडी' },
-  T10: { src: 'assets/images/t10.svg', icon: 'Waves', en: 'Indian Ocean waves above coral reef and deep seafloor canyon', hi: 'प्रवाल भित्ति और गहरी समुद्री खाई के ऊपर हिंद महासागर की लहरें' },
-  T11: { src: 'assets/images/t11.svg', icon: 'Trees', en: 'Misty Indian forest biosphere reserve and river wetlands', hi: 'कोहरे से ढका भारतीय जैवमंडल आरक्षित क्षेत्र और नदी आर्द्रभूमि' },
-  T12: { src: 'assets/images/t12.svg', icon: 'Shield', en: 'Indian hill fort ramparts, stepped reservoir and mandapa pavilion', hi: 'भारतीय पहाड़ी दुर्ग की प्राचीर, सीढ़ीदार बावड़ी और मंडप' },
-  T13: { src: 'assets/images/t13.svg', icon: 'Ship', en: 'Ancient Malabar port with merchant ships, spices and silk bales', hi: 'व्यापारिक जहाजों, मसालों और रेशम के साथ प्राचीन मालाबार बंदरगाह' },
-  T14: { src: 'assets/images/t14.svg', icon: 'BookOpen', en: 'Classical stone court with balance scales and ancient treatise', hi: 'तराजू और प्राचीन ग्रंथ के साथ शास्त्रीय न्याय-सभा' },
-  T15: { src: 'assets/images/t15.svg', icon: 'Lightbulb', en: 'Indian clean-tech innovation workshop and growth chart', hi: 'भारतीय स्वच्छ-तकनीक नवाचार कार्यशाला और प्रगति ग्राफ़' },
-  T16: { src: 'assets/images/t16.svg', icon: 'Wallet', en: 'Personal budget ledger, rupee coins and growing savings sapling', hi: 'व्यक्तिगत बजट बही, रुपये के सिक्के और बढ़ता बचत पौधा' },
+  T10: { src: 'assets/images/t10.jpg', icon: 'Waves', en: 'Turquoise Indian Ocean coast with coral reef shelf, mangrove shoreline and traditional fishing boats', hi: 'प्रवाल भित्ति, मैंग्रोव तट और पारंपरिक मछुआरों की नावों के साथ हिंद महासागर का तट' },
+  T11: { src: 'assets/images/t11.jpg', icon: 'Trees', en: 'Misty Indian forest biosphere reserve with chital deer and river wetlands', hi: 'कोहरे से ढका भारतीय जैवमंडल आरक्षित क्षेत्र, चीतल और नदी आर्द्रभूमि' },
+  T12: { src: 'assets/images/t12.jpg', icon: 'Shield', en: 'Indian sandstone hill fort ramparts, stepped reservoir and mandapa pavilion', hi: 'भारतीय पहाड़ी दुर्ग की प्राचीर, सीढ़ीदार बावड़ी और मंडप' },
+  T13: { src: 'assets/images/t13.jpg', icon: 'Ship', en: 'Ancient Malabar port with merchant ships, spices and silk bales', hi: 'व्यापारिक जहाजों, मसालों और रेशम के साथ प्राचीन मालाबार बंदरगाह' },
+  T14: { src: 'assets/images/t14.jpg', icon: 'BookOpen', en: 'Classical sandstone pavilion with balance scales and ancient manuscripts', hi: 'तराजू और प्राचीन ग्रंथों के साथ शास्त्रीय न्याय-सभा प्रांगण' },
+  T15: { src: 'assets/images/t15.jpg', icon: 'Lightbulb', en: 'Indian clean-tech solar workshop and craft artisans collaborating in sunlight', hi: 'भारतीय सौर स्वच्छ-तकनीक और हस्तशिल्प नवाचार कार्यशाला' },
+  T16: { src: 'assets/images/t16.jpg', icon: 'Wallet', en: 'Personal budget ledger, terracotta coin jar and growing savings sapling', hi: 'व्यक्तिगत बजट बही, गुल्लक के सिक्के और बढ़ता बचत पौधा' },
 };
 
 export function themeBannerEl(id) {
