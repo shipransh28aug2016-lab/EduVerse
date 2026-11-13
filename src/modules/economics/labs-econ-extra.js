@@ -404,13 +404,13 @@ export const ecosystemMap = {
     });
     return {
       plate: {
-        src: 'assets/images/t15.jpg',
-        en: 'India’s enterprise ecosystem — tap pins to jump between Startup India hubs, MSME workshops and unorganised artisans.',
-        hi: 'भारत का उद्यम पारिस्थितिकी तंत्र — स्टार्टअप केंद्र, एमएसएमई क्लस्टर व असंगठित कारीगर देखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t15-ecosystem.jpg',
+        en: 'India’s enterprise ecosystem — tap EV/UPI startups, textile MSME workshop or rural artisan shipping hub.',
+        hi: 'भारत का उद्यम पारिस्थितिकी तंत्र — EV/UPI स्टार्टअप, वस्त्र MSME कार्यशाला व कारीगर पैकिंग केंद्र पर टैप करें।',
         spots: [
-          { x: 24, y: 50, en: 'Startup India & UPI Tech Hubs', hi: 'स्टार्टअप इंडिया व डिजिटल केंद्र', detail: b('Explore DPIIT startups powered by instant digital payments across hubs.', 'UPI व डिजिटल अवसंरचना से जुड़े स्टार्टअप केंद्र देखें।'), set: { focus: 'hubs', hubIdx: 0 } },
-          { x: 54, y: 46, en: 'Make in India MSME Clusters', hi: 'मेक इन इंडिया MSME क्लस्टर', detail: b('Inspect Surat/Coimbatore-style small factories creating widespread local jobs.', 'स्थानीय रोज़गार रचने वाले लघु व मध्यम उद्योग क्लस्टर देखें।'), set: { focus: 'msme', hubIdx: 3 } },
-          { x: 80, y: 56, en: 'Artisans & Unorganised Sector', hi: 'असंगठित क्षेत्र व कारीगर', detail: b('See how formal bank credit & e-commerce uplift small craft workers.', 'बैंक ऋण व डिजिटल पहुँच से कारीगरों को मिलने वाली शक्ति देखें।'), set: { focus: 'unorg', hubIdx: 5 } },
+          { x: 20, y: 68, en: 'Startup India & UPI Tech Hubs', hi: 'स्टार्टअप इंडिया व डिजिटल केंद्र', detail: b('Explore DPIIT startups powered by instant digital payments across hubs.', 'UPI व डिजिटल अवसंरचना से जुड़े स्टार्टअप केंद्र देखें।'), set: { focus: 'hubs', hubIdx: 0 } },
+          { x: 48, y: 64, en: 'Make in India MSME Clusters', hi: 'मेक इन इंडिया MSME क्लस्टर', detail: b('Inspect Surat/Coimbatore-style small factories creating widespread local jobs.', 'स्थानीय रोज़गार रचने वाले लघु व मध्यम उद्योग क्लस्टर देखें।'), set: { focus: 'msme', hubIdx: 3 } },
+          { x: 88, y: 56, en: 'Artisans & Unorganised Sector', hi: 'असंगठित क्षेत्र व कारीगर', detail: b('See how formal bank credit & e-commerce uplift small craft workers.', 'बैंक ऋण व डिजिटल पहुँच से कारीगरों को मिलने वाली शक्ति देखें।'), set: { focus: 'unorg', hubIdx: 5 } },
         ],
       },
       svg,
@@ -468,13 +468,13 @@ export const creativeDestruction = {
     ch.text(10, res.output[10][1], P('total output', 'कुल उत्पादन'), 'lbl', 'end', -4, -8);
     return {
       plate: {
-        src: 'assets/images/t15.jpg',
-        en: 'Creative destruction over 10 years — tap pins to compare fast disruption without reskilling vs supported worker transition.',
-        hi: '10 वर्षों में सृजनात्मक विनाश — बिना प्रशिक्षण तेज़ बदलाव बनाम कौशल-उन्नयन की तुलना हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t15-ecosystem.jpg',
+        en: 'Creative destruction across traditional shops & EV/digital startups — tap pins to test disruption vs worker reskilling.',
+        hi: 'सृजनात्मक विनाश व तकनीकी परिवर्तन — बिना प्रशिक्षण विस्थापन बनाम कौशल-उन्नयन की तुलना हेतु पिन पर टैप करें।',
         spots: [
-          { x: 24, y: 50, en: 'Fast Tech + Zero Reskilling (Stress)', hi: 'तेज़ बदलाव, शून्य प्रशिक्षण', detail: b('Old jobs vanish quickly while new roles lag behind — painful displacement!', 'पुरानी नौकरियाँ घटती हैं पर कौशल न मिलने से नए अवसर छूटते हैं!'), set: { techSpeed: 80, retrainSupport: 10 } },
-          { x: 54, y: 46, en: 'Fast Tech + 90% Upskilling Boost', hi: 'तेज़ बदलाव + 90% पुनर्प्रशिक्षण', detail: b('Vocational training turns disruption into net job expansion & rising output!', 'कौशल प्रशिक्षण विस्थापन को शुद्ध रोज़गार व उत्पादन वृद्धि में बदलता है!'), set: { techSpeed: 80, retrainSupport: 90 } },
-          { x: 80, y: 54, en: 'Gradual Steady Adaptation (30%)', hi: 'धीमा क्रमिक तकनीकी बदलाव', detail: b('Slower adoption softens short-term shocks while lifting output moderately.', 'धीमा परिवर्तन अल्पकालिक झटका कम कर मध्यम वृद्धि देता है।'), set: { techSpeed: 30, retrainSupport: 50 } },
+          { x: 48, y: 64, en: 'Fast Tech + Zero Reskilling (Stress)', hi: 'तेज़ बदलाव, शून्य प्रशिक्षण', detail: b('Old jobs vanish quickly while new roles lag behind — painful displacement!', 'पुरानी नौकरियाँ घटती हैं पर कौशल न मिलने से नए अवसर छूटते हैं!'), set: { techSpeed: 80, retrainSupport: 10 } },
+          { x: 20, y: 68, en: 'Fast Tech + 90% Upskilling Boost', hi: 'तेज़ बदलाव + 90% पुनर्प्रशिक्षण', detail: b('Vocational training turns disruption into net job expansion & rising output!', 'कौशल प्रशिक्षण विस्थापन को शुद्ध रोज़गार व उत्पादन वृद्धि में बदलता है!'), set: { techSpeed: 80, retrainSupport: 90 } },
+          { x: 88, y: 56, en: 'Gradual Steady Adaptation (30%)', hi: 'धीमा क्रमिक तकनीकी बदलाव', detail: b('Slower adoption softens short-term shocks while lifting output moderately.', 'धीमा परिवर्तन अल्पकालिक झटका कम कर मध्यम वृद्धि देता है।'), set: { techSpeed: 30, retrainSupport: 50 } },
         ],
       },
       svg: ch.html({ label: P('Creative destruction jobs and output over 10 years', '10 वर्षों में सृजनात्मक विनाश के रोज़गार व उत्पादन वक्र') }),
@@ -543,13 +543,13 @@ export const riskReturn = {
       + `<text class="txt sm b" x="320" y="217" text-anchor="middle">${esc(P(`🛡️ Insurance Pool: ${S.poolSize} families × ₹40,000 cover → Fair premium ≈ ${rs(pool.fairPremium)}/yr`, `🛡️ बीमा पूल: ${S.poolSize} परिवार × ₹40,000 सुरक्षा → उचित प्रीमियम ≈ ${rs(pool.fairPremium)}/वर्ष`))}</text>`;
     return {
       plate: {
-        src: 'assets/images/t16.jpg',
-        en: 'Instruments, risk-return & insurance pooling — tap pins to shift from short-term safety to 18-yr compounding or shock pooling.',
-        hi: 'निवेश साधन, जोखिम-प्रतिफल व बीमा पूल — अल्पकालिक सुरक्षा, दीर्घकालिक चक्रवृद्धि व जोखिम-विभाजन हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t16-inflation.jpg',
+        en: 'Emergency cash, growing compound sapling & brass insurance shield — tap pins to match horizon & risk protection.',
+        hi: 'आपातकालीन नकद, बढ़ता निवेश पौधा व बीमा कवच — अवधि व जोखिम सुरक्षा मिलाने हेतु पिन पर टैप करें।',
         spots: [
-          { x: 24, y: 50, en: '2-Year Horizon (Safety First)', hi: '2-वर्षीय लक्ष्य (सुरक्षा पहले)', detail: b('Short goals need steady Savings/FD rather than short-term equity swings.', 'अल्पकालिक लक्ष्यों के लिए स्थिर बचत या FD उपयुक्त है।'), set: { horizon: 2, poolSize: 200, claimProbPct: 3 } },
-          { x: 52, y: 46, en: '18-Year Wealth Gap (Index Curve)', hi: '18-वर्षीय दीर्घकालिक वृद्धि', detail: b('Over decades higher-return compounding pulls dramatically ahead of plain cash!', 'दशकों में उच्च प्रतिफल चक्रवृद्धि सुरक्षित विकल्पों से कहीं आगे निकलता है!'), set: { horizon: 18, poolSize: 200, claimProbPct: 3 } },
-          { x: 80, y: 54, en: 'High-Risk Insurance Pool (8%)', hi: 'उच्च जोखिम बीमा पूल (8%)', detail: b('Watch 200 households pool together to absorb frequent ₹40,000 shocks safely.', '200 परिवार मिलकर ₹40,000 के संकट को सहज वार्षिक प्रीमियम में बाँट लेते हैं।'), set: { poolSize: 200, claimProbPct: 8 } },
+          { x: 24, y: 58, en: '2-Year Horizon (Safety First)', hi: '2-वर्षीय लक्ष्य (सुरक्षा पहले)', detail: b('Short goals need steady Savings/FD rather than short-term equity swings.', 'अल्पकालिक लक्ष्यों के लिए स्थिर बचत या FD उपयुक्त है।'), set: { horizon: 2, poolSize: 200, claimProbPct: 3 } },
+          { x: 54, y: 42, en: '18-Year Wealth Gap (Index Curve)', hi: '18-वर्षीय दीर्घकालिक वृद्धि', detail: b('Over decades higher-return compounding pulls dramatically ahead of plain cash!', 'दशकों में उच्च प्रतिफल चक्रवृद्धि सुरक्षित विकल्पों से कहीं आगे निकलता है!'), set: { horizon: 18, poolSize: 200, claimProbPct: 3 } },
+          { x: 76, y: 58, en: 'High-Risk Insurance Shield (8%)', hi: 'उच्च जोखिम बीमा पूल (8%)', detail: b('Watch 200 households pool together to absorb frequent ₹40,000 shocks safely.', '200 परिवार मिलकर ₹40,000 के संकट को सहज वार्षिक प्रीमियम में बाँट लेते हैं।'), set: { poolSize: 200, claimProbPct: 8 } },
         ],
       },
       svg: `<svg viewBox="0 0 640 242" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,

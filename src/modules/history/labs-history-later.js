@@ -128,13 +128,13 @@ export const fortBuilder = {
     g += `<text class="txt b" x="505" y="158" text-anchor="middle" fill="${col}">${esc(P('Overall fort score', 'कुल दुर्ग स्कोर'))}: ${f.overall}%</text>`;
     return {
       plate: {
-        src: 'assets/images/t12.jpg',
-        en: 'Indian sandstone hill-fort bastions, double ramparts and stepped cistern — tap pins to configure siege defences.',
-        hi: 'पहाड़ी दुर्ग के बुर्ज, दोहरी प्राचीर व वर्षा-जल कुंड — घेराबंदी रक्षा परखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t12-fort.jpg',
+        en: 'Indian hill-fort defences: tap the circular stone bastions, 90° bent Hathipol gate or stepped baori water cistern.',
+        hi: 'पहाड़ी दुर्ग रक्षा-व्यवस्था: गोलाकार बुर्ज, टेढ़े हाथीपोल द्वार व सीढ़ीदार जल बावड़ी पर टैप करें।',
         spots: [
-          { x: 28, y: 44, en: '8 Flank Bastions + Double Rampart', hi: '8 बुर्ज व दोहरी प्राचीर', detail: b('Layered circular bastions give defenders cross-fire coverage.', 'गोलाकार बुर्ज व दोहरी दीवारें चारों ओर से रक्षकों को सुरक्षित कोण देती हैं।'), set: { bastions: 8, doubleWall: true } },
-          { x: 56, y: 64, en: 'Zig-Zag Bent Gate (Hathipol)', hi: 'टेढ़ा द्वार (हाथीपोल)', detail: b('Sharp 90° turn breaks war-elephant ramming charges instantly.', '90° का मोड़ भारी दरवाज़ों पर हाथी के सीधे प्रहार का वेग तोड़ देता है।'), set: { bentGate: true } },
-          { x: 80, y: 58, en: '5 Baori Cisterns + 12-Mo Granary', hi: '5 जल बावड़ी व 12 माह अन्न', detail: b('Captured monsoon rock cisterns let defenders outlast dry-season sieges.', 'चट्टानी वर्षा-जल कुंड सूखे मौसम की लंबी घेराबंदी में भी जीवन बचाते हैं।'), set: { cisterns: 5, granaryMonths: 12 } },
+          { x: 16, y: 64, en: '8 Flank Bastions + Double Rampart', hi: '8 बुर्ज व दोहरी प्राचीर', detail: b('Layered circular bastions give defenders cross-fire coverage.', 'गोलाकार बुर्ज व दोहरी दीवारें चारों ओर से रक्षकों को सुरक्षित कोण देती हैं।'), set: { bastions: 8, doubleWall: true } },
+          { x: 56, y: 44, en: 'Zig-Zag Bent Gate (Hathipol)', hi: 'टेढ़ा द्वार (हाथीपोल)', detail: b('Sharp 90° turn breaks war-elephant ramming charges instantly.', '90° का मोड़ भारी दरवाज़ों पर हाथी के सीधे प्रहार का वेग तोड़ देता है।'), set: { bentGate: true } },
+          { x: 82, y: 78, en: '5 Baori Cisterns + 12-Mo Granary', hi: '5 जल बावड़ी व 12 माह अन्न', detail: b('Captured monsoon rock cisterns beside vaulted granary outlast dry-season sieges.', 'चट्टानी वर्षा-जल कुंड व अन्न भंडार लंबी घेराबंदी में भी जीवन बचाते हैं।'), set: { cisterns: 5, granaryMonths: 12 } },
         ],
       },
       svg: `<svg viewBox="0 0 640 250" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,

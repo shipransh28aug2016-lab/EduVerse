@@ -107,13 +107,13 @@ export const harappanCity = {
     if (S.coveredDrains) g += `<line x1="250" y1="124" x2="598" y2="124" stroke="#334155" stroke-width="6" stroke-dasharray="10 4"/><text class="txt sm b" x="424" y="140" text-anchor="middle">${esc(P('Covered street drain', 'ढकी सड़क नाली'))}</text>`;
     return {
       plate: {
-        src: 'assets/images/t04.jpg',
-        en: 'Harappan baked-brick urban grid, Great Bath & drains — tap pins to inspect urban engineering features.',
-        hi: 'हड़प्पा की पक्की ईंटों की नगर योजना, महास्नानागार व नालियाँ — नगर अभियांत्रिकी परखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t04-harappa.jpg',
+        en: 'Indus Valley city reconstruction: tap the raised western Citadel, checkerboard grid streets or sunken Great Bath tank.',
+        hi: 'हड़प्पा नगर पुनर्निर्माण: ऊँचे पश्चिमी दुर्ग, समकोण सड़क ग्रिड व महास्नानागार पर टैप कर नगर योजना परखें।',
         spots: [
-          { x: 28, y: 46, en: 'Raised Citadel & Great Bath', hi: 'ऊँचा दुर्ग व महास्नानागार', detail: b('Bitumen-lined watertight pool & elevated brick granary safe above river floods.', 'डामर से जलरोधी स्नानागार और नदी बाढ़ से ऊपर सुरक्षित दुर्ग अन्नागार।'), set: { greatBath: true, granary: true } },
-          { x: 56, y: 62, en: 'Right-Angle Grid & Covered Drains', hi: 'समकोण सड़क व ढकी नालियाँ', detail: b('Kiln-brick street drains slope smoothly with inspection traps for civic hygiene.', 'पक्की ईंट की ढकी नालियाँ निरीक्षण हौजों संग गलियों को स्वच्छ रखती थीं।'), set: { gridStreets: true, coveredDrains: true } },
-          { x: 80, y: 54, en: 'Unplanned Without Drains', hi: 'बिना नाली अनियोजित बस्ती', detail: b('Turn off grids & drains to see sanitation score tumble sharply!', 'ग्रिड व नालियाँ बंद करके देखें कि स्वच्छता स्कोर कैसे गिरता है!'), set: { gridStreets: false, coveredDrains: false } },
+          { x: 24, y: 38, en: 'Raised Brick Citadel & Granary', hi: 'ऊँचा दुर्ग व अन्नागार', detail: b('Elevated mud-and-baked brick citadel keeps public halls and grain safe above river floods.', 'नदी बाढ़ से ऊपर सुरक्षित दुर्ग चबूतरे पर सार्वजनिक भवन व अन्नागार बने थे।'), set: { greatBath: true, granary: true } },
+          { x: 52, y: 52, en: 'Checkerboard Grid & Drains', hi: 'समकोण सड़क व ढकी नालियाँ', detail: b('Kiln-brick street drains slope smoothly with inspection traps for civic hygiene.', 'पक्की ईंट की ढकी नालियाँ निरीक्षण हौजों संग गलियों को स्वच्छ रखती थीं।'), set: { gridStreets: true, coveredDrains: true } },
+          { x: 80, y: 62, en: 'Great Bath & Hygiene Test', hi: 'महास्नानागार व स्वच्छता जांच', detail: b('Watertight bitumen-lined stepped tank; toggle streets/drains off to see sanitation plunge!', 'डामर से जलरोधी स्नानागार; सड़क-नाली बंद कर स्वच्छता गिरावट देखें!'), set: { gridStreets: false, coveredDrains: false } },
         ],
       },
       svg: `<svg viewBox="0 0 640 250" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,

@@ -167,13 +167,13 @@ export function mount(root, ctx = {}) {
     const ta = h('textarea', { class: 'reflect', rows: 3, 'data-k-aria': 'hz.aria', 'aria-label': t('hz.aria') }); ta.value = prog.hazard || '';
     ta.addEventListener('input', () => { prog.hazard = ta.value; store.saveProgress(); });
     const bxPlate = createInteractivePlate(() => ({
-      src: 'assets/images/t02.jpg',
-      en: 'Tectonic landscapes: tap any pin to switch the live 3D & 2D boundary simulation between collision, trench, rift or transform.',
-      hi: 'विवर्तनिक भू-दृश्य: किसी भी पिन पर टैप करके 3D/2D सीमा मॉडल को वलित पर्वत, गर्त, अपसारी या रूपांतर सीमा में बदलें।',
+      src: 'assets/images/plates/t02-boundaries.jpg',
+      en: 'Tectonic landscapes: tap Himalayan fold peaks, deep ocean subduction trench or seafloor spreading rift.',
+      hi: 'विवर्तनिक भू-दृश्य: हिमालयी वलित पर्वत, महासागरीय गर्त या अपसारी दरार पर टैप कर सीमा मॉडल बदलें।',
       spots: [
         { x: 25, y: 34, en: 'Continent Collision (Himalaya)', hi: 'महाद्वीपीय टक्कर (हिमालय)', detail: b('Two buoyant continents buckle upward into fold peaks instead of sinking.', 'दो हल्के महाद्वीप धँसने के बजाय ऊपर मुड़कर वलित पर्वत बनाते हैं।'), set: { type: 'conv-cc', speed: 5, time: 45 } },
-        { x: 48, y: 66, en: 'Ocean–Continent Subduction', hi: 'महासागर-महाद्वीप अधोगमन', detail: b('Dense oceanic slab bends into the mantle, forming deep trenches & volcanoes.', 'भारी समुद्री प्लेट नीचे धँसकर गहरा गर्त व ज्वालामुखी चाप बनाती है।'), set: { type: 'conv-oc', speed: 6, time: 30 } },
-        { x: 74, y: 58, en: 'Divergent Seafloor Rift', hi: 'अपसारी समुद्र-तल दरार', detail: b('Plates pull apart while rising magma freezes into fresh oceanic crust.', 'प्लेटें दूर हटती हैं और उठता मैग्मा नई समुद्री पर्पटी बनाता है।'), set: { type: 'div', speed: 4, time: 30 } },
+        { x: 54, y: 48, en: 'Ocean–Continent Subduction', hi: 'महासागर-महाद्वीप अधोगमन', detail: b('Dense oceanic slab bends into the mantle, forming deep trenches & volcanoes.', 'भारी समुद्री प्लेट नीचे धँसकर गहरा गर्त व ज्वालामुखी चाप बनाती है।'), set: { type: 'conv-oc', speed: 6, time: 30 } },
+        { x: 82, y: 54, en: 'Divergent Seafloor Rift', hi: 'अपसारी समुद्र-तल दरार', detail: b('Plates pull apart while rising magma freezes into fresh oceanic crust.', 'प्लेटें दूर हटती हैं और उठता मैग्मा नई समुद्री पर्पटी बनाता है।'), set: { type: 'div', speed: 4, time: 30 } },
       ],
     }), (patch) => { Object.assign(S, patch); sync(); });
     sync();

@@ -159,13 +159,13 @@ export const tides = {
     const small = `<svg viewBox="0 0 280 120" class="chart" role="img" xmlns="http://www.w3.org/2000/svg" style="max-height:140px"><circle class="sunmoon" cx="262" cy="60" r="14"/><text class="txt sm" x="262" y="92" text-anchor="middle">${esc(P('Sun', 'सूर्य'))}</text><circle class="earth" cx="${ex}" cy="${ey}" r="14"/><circle class="moon" cx="${mx.toFixed(0)}" cy="${my.toFixed(0)}" r="8"/><text class="txt sm" x="${ex}" y="${ey + 30}" text-anchor="middle">${esc(P('Earth', 'पृथ्वी'))}</text><text class="txt sm" x="${mx.toFixed(0)}" y="${(my - 12).toFixed(0)}" text-anchor="middle">${esc(P('Moon', 'चंद्रमा'))}</text></svg>`;
     return {
       plate: {
-        src: 'assets/images/t10.jpg',
-        en: 'Ocean waves and coastal tides: tap any pin to switch lunar alignment between Spring and Neap tides.',
-        hi: 'सागरीय लहरें व ज्वार: वृहत् ज्वार व निम्न ज्वार की चंद्र स्थिति बदलने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t10-tides.jpg',
+        en: 'Indian Ocean high-tide jetty, open sea & low-tide mudflats — tap pins to shift lunar phase between Spring and Neap tides.',
+        hi: 'उच्च ज्वार बंदरगाह, खुला सागर व निम्न ज्वार तट — वृहत् व निम्न ज्वार की चंद्र स्थिति बदलने हेतु पिन पर टैप करें।',
         spots: [
-          { x: 28, y: 46, en: 'New Moon Spring Tide', hi: 'अमावस्या वृहत् ज्वार', detail: b('Sun and Moon align on one side — gravitational pulls combine for maximum tidal range.', 'सूर्य और चंद्रमा एक सीध में — दोनों के खिंचाव जुड़कर अधिकतम ज्वार लाते हैं।'), set: { phase: '0' } },
-          { x: 54, y: 34, en: 'First Quarter Neap Tide', hi: 'अष्टमी निम्न ज्वार', detail: b('Sun and Moon pull at 90°, partially cancelling for the mildest high and low tides.', 'सूर्य-चंद्रमा 90° पर होने से आंशिक कटौती होती है और छोटा ज्वारीय परिसर मिलता है।'), set: { phase: '90' } },
-          { x: 76, y: 58, en: 'Full Moon Spring Tide', hi: 'पूर्णिमा वृहत् ज्वार', detail: b('Sun and Moon on opposite sides still stretch oceans along the same line.', 'सूर्य और चंद्रमा विपरीत दिशा से भी एक ही रेखा पर ऊँचा वृहत् ज्वार बनाते हैं।'), set: { phase: '180' } },
+          { x: 22, y: 66, en: 'New Moon Spring High Tide', hi: 'अमावस्या वृहत् उच्च ज्वार', detail: b('Sun and Moon align on one side — boats ride maximum high tide right up to the jetty.', 'सूर्य और चंद्रमा एक सीध में — दोनों के खिंचाव जुड़कर अधिकतम ज्वार लाते हैं।'), set: { phase: '0' } },
+          { x: 58, y: 46, en: 'First Quarter Neap Tide', hi: 'अष्टमी निम्न ज्वार', detail: b('Sun and Moon pull at 90°, giving milder swells across the open harbour.', 'सूर्य-चंद्रमा 90° पर होने से आंशिक कटौती होती है और छोटा ज्वारीय परिसर मिलता है।'), set: { phase: '90' } },
+          { x: 88, y: 68, en: 'Full Moon Extreme Low Mudflat', hi: 'पूर्णिमा वृहत् निम्न जल तट', detail: b('Spring tides bring both the highest flood tides and the widest exposed low-tide flats.', 'पूर्णिमा पर उच्चतम ज्वार के साथ सबसे विस्तृत निम्न-जल तट भी उभरते हैं।'), set: { phase: '180' } },
         ],
       },
       svg: small + ch.html({ label: P('Tide height over three days', 'तीन दिन में ज्वार की ऊँचाई') }), aria: `Tide range ${fmt(range, 2)} metres at ${PH[psi].en}.`,
@@ -300,13 +300,13 @@ export const foodweb = {
     ];
     return {
       plate: {
-        src: 'assets/images/t11.jpg',
-        en: 'Forest trophic web: tap pins to compare intact predator–prey balance against predator removal.',
-        hi: 'वन्य खाद्य-जाल: प्राकृतिक शिकारी-शिकार संतुलन बनाम शिकारी हटाने का प्रभाव देखें।',
+        src: 'assets/images/plates/t11-reserves.jpg',
+        en: 'Deer grazing beside forest stream & patrol edge — tap pins to simulate intact food webs vs predator removal.',
+        hi: 'नदी किनारे हिरण व वन्य खाद्य-जाल — प्राकृतिक शिकारी संतुलन बनाम शिकारी हटाने का प्रभाव पिन से परखें।',
         spots: [
-          { x: 25, y: 52, en: 'Intact Natural Food Web', hi: 'संतुलित प्राकृतिक खाद्य-जाल', detail: b('Predators keep herbivore surges in check so forest saplings regenerate safely.', 'शिकारी शाकाहारियों को संतुलित रखकर नए पौधों को बढ़ने देते हैं।'), set: { cull: 0, cullYear: 10 } },
-          { x: 56, y: 42, en: 'Remove 80% Top Predators', hi: '80% शीर्ष शिकारी हटाना', detail: b('Watch herbivore numbers surge sharply after year 10, stressing forest undergrowth.', 'वर्ष 10 के बाद शाकाहारियों में तेज़ उछाल और वनस्पति पर दबाव देखें।'), set: { cull: 0.8, cullYear: 10 } },
-          { x: 82, y: 56, en: 'Early Intervention Shock', hi: 'प्रारंभिक हस्तक्षेप झटका', detail: b('Removing predators early in year 4 destabilises trophic cycles right away.', 'वर्ष 4 में ही शिकारी हटने पर पूरा खाद्य-चक्र तुरंत डगमगा जाता है।'), set: { cull: 0.7, cullYear: 4 } },
+          { x: 20, y: 56, en: 'Intact Deer–Predator Web', hi: 'संतुलित हिरण-शिकारी जाल', detail: b('Predators keep herbivore surges in check so forest undergrowth regenerates safely.', 'शिकारी शाकाहारियों को संतुलित रखकर नए पौधों को बढ़ने देते हैं।'), set: { cull: 0, cullYear: 10 } },
+          { x: 50, y: 66, en: 'Remove 80% Top Predators', hi: '80% शीर्ष शिकारी हटाना', detail: b('Watch herbivore numbers spike after year 10, overgrazing young saplings!', 'वर्ष 10 के बाद शाकाहारियों में तेज़ उछाल और वनस्पति पर दबाव देखें!'), set: { cull: 0.8, cullYear: 10 } },
+          { x: 80, y: 58, en: 'Early Year-4 Disturbance', hi: 'वर्ष 4 का प्रारंभिक हस्तक्षेप', detail: b('Removing predators early in year 4 destabilises trophic cycles right away.', 'वर्ष 4 में ही शिकारी हटने पर पूरा खाद्य-चक्र तुरंत डगमगा जाता है।'), set: { cull: 0.7, cullYear: 4 } },
         ],
       },
       svg: ch.html({ label: P('Predator and prey populations', 'शिकारी और शिकार की जनसंख्या') }), aria: 'Predator and prey populations over 40 years.', lines,

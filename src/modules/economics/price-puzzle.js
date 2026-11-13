@@ -353,13 +353,13 @@ export function mount(root, ctx) {
       explain: () => { const r = M.usedBikes(0.5, false); return { en: `Buyers can only offer the average value, ₹${fmt(r.offer, 0)}k, which is below the ₹60k that good-bike owners want. They withdraw, mostly poor bikes remain, and the market shrinks. Switch on “inspection report” to see trade return.`, hi: `खरीदार केवल औसत मूल्य ₹${fmt(r.offer, 0)} हज़ार दे सकते हैं, जो अच्छी बाइक के मालिकों के ₹60 हज़ार से कम है। वे बाइक हटा लेते हैं, ज़्यादातर खराब बाइकें बचती हैं और बाज़ार सिकुड़ जाता है। “निरीक्षण रिपोर्ट” चालू करके देखें कि व्यापार वापस आ जाता है।` }; } }, { done: S.done, onDone: persist });
     draw();
     const iaPlate = createInteractivePlate(() => ({
-      src: 'assets/images/t09.jpg',
-      en: 'Asymmetric information in used-goods markets — tap pins to compare uninspected “lemons” collapse vs certified mechanic inspection.',
-      hi: 'असममित सूचना बाज़ार — बिना जांच बाज़ार सिमटने बनाम प्रमाणित निरीक्षण से विश्वास बहाली हेतु पिन पर टैप करें।',
+      src: 'assets/images/plates/t09-lemons.jpg',
+      en: 'Used-bike repair courtyard — tap the glossy uninspected bike, mechanic’s inspection loupe or reliable commuter bike.',
+      hi: 'पुरानी साइकिल मरम्मत कार्यशाला — बिना जाँची चमकदार साइकिल, मिस्त्री की जाँच व टिकाऊ साइकिल पर टैप करें।',
       spots: [
-        { x: 24, y: 52, en: 'Only 40% Good Bikes (Collapse)', hi: 'केवल 40% अच्छी बाइक (बाज़ार सिमटा)', detail: { en: 'Average offer drops below ₹60k — good bike owners pull out leaving only lemons!', hi: 'औसत प्रस्ताव ₹60k से नीचे गिरता है — अच्छी बाइकों के मालिक हट जाते हैं!' }, set: { g: 0.4, inspect: false } },
-        { x: 52, y: 46, en: '80% Good Bikes (Quality Survives)', hi: '80% अच्छी बाइक (गुणवत्ता टिकती है)', detail: { en: 'When enough trusted bikes are in the pool, the average offer passes ₹60k.', hi: 'अच्छी बाइकों का हिस्सा पर्याप्त होने पर औसत दाम ₹60k पार कर जाता है।' }, set: { g: 0.8, inspect: false } },
-        { x: 80, y: 54, en: 'Certified Inspection Report ON', hi: 'निरीक्षण रिपोर्ट चालू (पूर्ण व्यापार)', detail: { en: 'Third-party inspection reveals true quality so good and bad bikes trade at fair prices!', hi: 'स्वतंत्र जांच असली गुणवत्ता दिखाती है जिससे दोनों तरह की बाइकों का उचित व्यापार होता है!' }, set: { g: 0.4, inspect: true } },
+        { x: 20, y: 68, en: 'Only 40% Good Bikes (Collapse)', hi: 'केवल 40% अच्छी (बाज़ार सिमटा)', detail: { en: 'Average offer drops below ₹60k — good owners pull out leaving hidden lemons!', hi: 'औसत प्रस्ताव ₹60k से नीचे गिरता है — अच्छे विक्रेता हट जाते हैं!' }, set: { g: 0.4, inspect: false } },
+        { x: 62, y: 42, en: 'Certified Mechanic Inspection ON', hi: 'प्रमाणित मिस्त्री जाँच चालू', detail: { en: 'Independent inspection reveals true condition so both good and poor bikes trade fairly!', hi: 'स्वतंत्र जांच असली गुणवत्ता दिखाती है जिससे दोनों का उचित व्यापार होता है!' }, set: { g: 0.4, inspect: true } },
+        { x: 84, y: 66, en: '80% Good Bikes (Quality Survives)', hi: '80% अच्छी साइकिलें (विश्वास बना)', detail: { en: 'When enough quality sellers stay, the average offer stays above ₹60k.', hi: 'पर्याप्त अच्छी गुणवत्ता होने पर औसत प्रस्ताव ₹60k पार रहता है।' }, set: { g: 0.8, inspect: false } },
       ],
     }), (patch) => { Object.assign(i, patch); sg.set(Math.round(i.g * 100)); ti.set(i.inspect); draw(); });
     const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'When the seller knows more than the buyer, the buyer can only offer an average price. Move the share of good bikes and see who leaves the market.', hi: 'जब विक्रेता खरीदार से अधिक जानता है, तो खरीदार केवल औसत कीमत दे सकता है। अच्छी बाइकों का अनुपात बदलें और देखें कि कौन बाज़ार छोड़ता है।' }, { tag: 'span' })),

@@ -49,13 +49,13 @@ export const democracyMap = {
     const cls = res.verdict === 'democratic' ? 'balanced' : res.verdict === 'flawed' ? 'warn' : 'warn';
     return {
       plate: {
-        src: 'assets/images/t06.jpg',
-        en: 'Democracy’s four pillars: tap pins to stress-test full democracy vs single-party rule vs silenced media.',
-        hi: 'लोकतंत्र के चारों स्तंभ: पूर्ण लोकतंत्र, एक-दलीय शासन व मीडिया रोक का परीक्षण करने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t06-pillars.jpg',
+        en: 'Constitutional democracy in action — tap polling queue, court scales of justice or free press desk to stress-test all 4 pillars.',
+        hi: 'संवैधानिक लोकतंत्र के स्तंभ — मतदान कतार, न्याय तराजू व स्वतंत्र प्रेस मेज़ पर टैप कर चारों मानदंड परखें।',
         spots: [
-          { x: 24, y: 48, en: 'Full Democracy (4/4 Pillars)', hi: 'पूर्ण लोकतंत्र (4/4 स्तंभ)', detail: b('Free vote + multi-party competition + free press + equal law keep rulers accountable.', 'निष्पक्ष चुनाव, बहु-दलीय विकल्प, स्वतंत्र मीडिया व समान कानून जवाबदेही रखते हैं।'), set: { preset: 'full' } },
-          { x: 52, y: 54, en: 'Single-Party Ballot Trap', hi: 'एक-दलीय चुनाव जाल', detail: b('Notice voting alone without opposition or free courts scores only 1/4!', 'विपक्ष और स्वतंत्र न्यायपालिका बिना केवल मतदान 4 में से 1 ही अंक देता है!'), set: { preset: 'oneparty' } },
-          { x: 78, y: 50, en: 'Media Censorship Failure', hi: 'मीडिया सेंसरशिप विफलता', detail: b('Silencing journalists blinds citizens between elections even with rival parties.', 'पत्रकारों को चुप कराना चुनावों के बीच नागरिकों की निगरानी छीन लेता है।'), set: { preset: 'pressban' } },
+          { x: 18, y: 60, en: 'Full Democracy (4/4 Pillars)', hi: 'पूर्ण लोकतंत्र (4/4 स्तंभ)', detail: b('Free vote + multi-party competition + free press + equal law keep rulers accountable.', 'निष्पक्ष चुनाव, बहु-दलीय विकल्प, स्वतंत्र मीडिया व समान कानून जवाबदेही रखते हैं।'), set: { preset: 'full' } },
+          { x: 50, y: 64, en: 'Single-Party Ballot Trap', hi: 'एक-दलीय चुनाव जाल', detail: b('Notice voting alone without opposition or independent courts scores only 1/4!', 'विपक्ष और स्वतंत्र न्यायपालिका बिना केवल मतदान 4 में से 1 ही अंक देता है!'), set: { preset: 'oneparty' } },
+          { x: 84, y: 68, en: 'Media Censorship Failure', hi: 'मीडिया सेंसरशिप विफलता', detail: b('Silencing journalists blinds citizens between elections even with rival parties.', 'पत्रकारों को चुप कराना चुनावों के बीच नागरिकों की निगरानी छीन लेता है।'), set: { preset: 'pressban' } },
         ],
       },
       svg,

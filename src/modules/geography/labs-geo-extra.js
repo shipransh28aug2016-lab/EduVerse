@@ -48,13 +48,13 @@ export const climateGrapher = {
     g += `<text class="txt sm b" x="${x1 - 4}" y="16" text-anchor="end" fill="#2563eb">${esc(P('Bars: Rainfall (mm)', 'पट्टियाँ: वर्षा (मिमी)'))} · ${esc(P('Red: Primary °C', 'लाल: मुख्य °C'))}</text>`;
     return {
       plate: {
-        src: 'assets/images/t03.jpg',
-        en: 'India’s contrasting monsoon & altitude zones: tap pins to compare coastal Mumbai, arid Jaipur and high-altitude Leh.',
-        hi: 'भारत के विषम जलवायु क्षेत्र: तटीय मुंबई, शुष्क जयपुर और उच्च-ऊँचाई लेह की तुलना हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t03-pressure.jpg',
+        en: 'Global atmospheric pressure belts — tap equatorial storm clouds, subtropical desert high or temperate polar front.',
+        hi: 'वैश्विक वायुदाब व पवन कटिबंध — विषुवतीय निम्न दाब, उपोष्ण उच्च दाब व ध्रुवीय वाताग्र पर टैप करें।',
         spots: [
-          { x: 24, y: 56, en: 'Mumbai (Coastal Monsoon)', hi: 'मुंबई (तटीय मानसून)', detail: b('Ocean moderation keeps temperatures mild year-round with heavy June–Sept rain.', 'समुद्र तापमान को सम रखता है; जून–सितंबर भारी मानसूनी वर्षा।'), set: { station: 'mumbai', compare: 'jaipur' } },
-          { x: 52, y: 42, en: 'Jaipur (Semi-Arid Inland)', hi: 'जयपुर (आंतरिक अर्ध-शुष्क)', detail: b('Far from sea, summer peaks and winter nights swing wildly.', 'समुद्र से दूरी के कारण गर्मी व सर्दी के तापमान में बहुत अंतर रहता है।'), set: { station: 'jaipur', compare: 'mumbai' } },
-          { x: 76, y: 24, en: 'Leh (High Rain-Shadow)', hi: 'लेह (उच्च वृष्टि-छाया)', detail: b('At ~3,500 m, thin mountain air drops below freezing with minimal rain.', '~3,500 मी ऊँचाई और हिमालयी वृष्टि-छाया से ठंडी व बहुत कम वर्षा।'), set: { station: 'leh', compare: 'mumbai' } },
+          { x: 26, y: 38, en: 'Mumbai (Humid Monsoon Low)', hi: 'मुंबई (तटीय मानसून निम्न दाब)', detail: b('Warm rising ocean-fed clouds keep Mumbai wet & mild year-round.', 'गर्म उठती समुद्री हवा मुंबई में भारी मानसूनी वर्षा व सम तापमान रखती है।'), set: { station: 'mumbai', compare: 'jaipur' } },
+          { x: 52, y: 58, en: 'Jaipur (Subtropical Dry Belt)', hi: 'जयपुर (उपोष्ण शुष्क उच्च दाब)', detail: b('Descending dry air inland gives scorching summers and wide seasonal swings.', 'उतरती शुष्क हवा व समुद्र से दूरी जयपुर में तीव्र गर्मी-सर्दी लाती है।'), set: { station: 'jaipur', compare: 'mumbai' } },
+          { x: 76, y: 48, en: 'Leh (High Cold Polar-Like)', hi: 'लेह (उच्च पर्वतीय शीत क्षेत्र)', detail: b('Thin alpine air at ~3,500 m drops winter nights far below freezing.', '~3,500 मी ऊँचाई की विरल हवा तापमान को शून्य से नीचे गिरा देती है।'), set: { station: 'leh', compare: 'mumbai' } },
         ],
       },
       svg: `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
@@ -473,13 +473,13 @@ export const maritimeCoop = {
     };
     return {
       plate: {
-        src: 'assets/images/t10.jpg',
-        en: 'Shared ocean corridors: tap pins to inspect maritime law, shared tsunami sensors or blue-economy reef rules.',
-        hi: 'साझा महासागर गलियारे: समुद्री कानून, साझा सुनामी सेंसर व प्रवाल संरक्षण परखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t10-tides.jpg',
+        en: 'Indian Ocean harbour, open sea lanes & coastal mangrove radar — tap pins to explore UNCLOS, tsunami alerts & blue economy.',
+        hi: 'हिंद महासागर बंदरगाह, समुद्री मार्ग व तटीय मैंग्रोव राडार — समुद्री कानून, सुनामी चेतावनी व नीली अर्थव्यवस्था देखें।',
         spots: [
-          { x: 26, y: 48, en: 'UNCLOS 200-nm EEZ Rules', hi: 'UNCLOS 200 नॉटिकल मील नियम', detail: b('Defines peaceful coastal resource rights alongside open high-seas navigation.', 'तटीय संसाधन अधिकार व खुले समुद्र की शांतिपूर्ण नौवहन स्वतंत्रता तय करता है।'), set: { focus: 'law' } },
-          { x: 54, y: 38, en: 'Basin-Wide Tsunami Sensors', hi: 'साझा सुनामी चेतावनी नेटवर्क', detail: b('Cross-border warning buoys broadcast seismic sea alerts across Indian Ocean coasts.', 'सीमा-पार सेंसर बोया पूरे हिंद महासागर तटों को समय पर चेतावनी भेजते हैं।'), set: { focus: 'rescue' } },
-          { x: 78, y: 62, en: 'Blue Economy & Corals', hi: 'नीली अर्थव्यवस्था व प्रवाल', detail: b('Marine protected parks and green shipping keep ocean fisheries alive.', 'समुद्री उद्यान व स्वच्छ पोत-परिवहन सागरीय जीवन की रक्षा करते हैं।'), set: { focus: 'blue' } },
+          { x: 58, y: 46, en: 'UNCLOS 200-nm Sea Lanes', hi: 'UNCLOS 200 नॉटिकल मील मार्ग', detail: b('Defines peaceful coastal resource rights alongside open high-seas navigation.', 'तटीय संसाधन अधिकार व खुले समुद्र की शांतिपूर्ण नौवहन स्वतंत्रता तय करता है।'), set: { focus: 'law' } },
+          { x: 92, y: 38, en: 'Coastal Cyclone & Tsunami Radar', hi: 'चक्रवात व सुनामी चेतावनी केंद्र', detail: b('Cross-border warning buoys & radar broadcast seismic sea alerts across Indian Ocean coasts.', 'सीमा-पार सेंसर बोया पूरे हिंद महासागर तटों को समय पर चेतावनी भेजते हैं।'), set: { focus: 'rescue' } },
+          { x: 24, y: 66, en: 'Fisher Harbour & Blue Economy', hi: 'मछुआरा बंदरगाह व नीली अर्थव्यवस्था', detail: b('Sustainable coastal ports and mangrove nurseries keep fisheries thriving.', 'टिकाऊ बंदरगाह व मैंग्रोव नर्सरी मत्स्य जीवन की रक्षा करते हैं।'), set: { focus: 'blue' } },
         ],
       },
       svg, aria: `Maritime cooperation node ${S.focus}`, lines: [desc[S.focus]],
@@ -601,13 +601,13 @@ export const reserveMap = {
         : b('Transition zone: outer belt where local communities farm, gather non-timber produce sustainably, and co-manage forests.', 'संक्रमण क्षेत्र: बाहरी पट्टी जहाँ स्थानीय समुदाय टिकाऊ खेती व वन-उपज सह-प्रबंधन करते हैं।');
     return {
       plate: {
-        src: 'assets/images/t11.jpg',
-        en: 'India’s biosphere reserves: tap concentric zones (Core, Buffer, Transition) to see how wildlife & villages coexist.',
-        hi: 'भारत के जैवमंडल क्षेत्र: कोर, बफ़र व संक्रमण पट्टियों की भूमिका परखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t11-reserves.jpg',
+        en: 'Indian biosphere reserve landscape: tap dense river Core forest, ranger Buffer station or terraced Transition village.',
+        hi: 'भारतीय जैवमंडल क्षेत्र: नदी तटीय कोर वन, बफ़र रेंजर चौकी और संक्रमण क्षेत्र के गाँव पर टैप करें।',
         spots: [
-          { x: 26, y: 44, en: 'Core Zone (Strict Refuge)', hi: 'कोर क्षेत्र (कठोर संरक्षण)', detail: b('Zero logging or construction — safe sanctuary where tigers, lion-tailed macaques & rare flora breed.', 'पूर्णतः सुरक्षित क्षेत्र जहाँ दुर्लभ वन्यजीव व वनस्पति बिना मानवीय दखल के पनपते हैं।'), set: { zone: 'core', reserve: 'nilgiri' } },
-          { x: 54, y: 54, en: 'Buffer Zone (Research & Patrol)', hi: 'बफ़र क्षेत्र (शोध व निगरानी)', detail: b('Field stations, regulated nature trails and ecological monitoring ring the Core.', 'वैज्ञानिक शोध, निगरानी व नियंत्रित पारिस्थितिक अध्ययन की मध्यवर्ती पट्टी।'), set: { zone: 'buffer', reserve: 'nanda' } },
-          { x: 80, y: 58, en: 'Transition Zone (Local Villages)', hi: 'संक्रमण क्षेत्र (समुदाय साझेदारी)', detail: b('Surrounding villages co-manage honey, bamboo & tourism sustainably alongside Sundarbans/Nilgiri ecosystems.', 'बाहरी गाँव टिकाऊ आजीविका व सामुदायिक संरक्षण में साझेदार बनते हैं।'), set: { zone: 'trans', reserve: 'sundarbans' } },
+          { x: 20, y: 56, en: 'Core Zone (Dense Deer Refuge)', hi: 'कोर क्षेत्र (कठोर वन्यजीव संरक्षण)', detail: b('Zero logging or construction — safe sanctuary where deer, tigers & rare flora breed.', 'पूर्णतः सुरक्षित क्षेत्र जहाँ वन्यजीव बिना मानवीय दखल के पनपते हैं।'), set: { zone: 'core', reserve: 'nilgiri' } },
+          { x: 50, y: 66, en: 'Buffer Zone (Ranger Watchtower)', hi: 'बफ़र क्षेत्र (रेंजर निगरानी चौकी)', detail: b('Field stations, regulated trails and ecological monitoring ring the Core.', 'वैज्ञानिक शोध, निगरानी व नियंत्रित पारिस्थितिक अध्ययन की मध्यवर्ती पट्टी।'), set: { zone: 'buffer', reserve: 'nanda' } },
+          { x: 80, y: 58, en: 'Transition Zone (Bamboo & Honey)', hi: 'संक्रमण क्षेत्र (समुदाय साझेदारी)', detail: b('Surrounding villages farm terraces and tend bee hives sustainably alongside forests.', 'बाहरी गाँव टिकाऊ कृषि व मधुमक्खी पालन संग संरक्षण में साझेदार बनते हैं।'), set: { zone: 'trans', reserve: 'sundarbans' } },
         ],
       },
       svg, aria: `${res.en} — ${res.species.en}`, lines: [{ en: `${res.en} · Key species: ${res.species.en}.`, hi: `${res.hi} · प्रमुख प्रजातियाँ: ${res.species.hi}।`, cls: 'balanced' }, zInfo],
@@ -667,13 +667,13 @@ export const firePlanner = {
     g += `<text class="txt b" x="445" y="122" text-anchor="middle" fill="${col}">${r.effectiveIndex}/100 · ${esc(P(`Spread: ${r.spreadMMin} m/min`, `फैलाव: ${r.spreadMMin} मी/मि`))}</text>`;
     return {
       plate: {
-        src: 'assets/images/t11.jpg',
-        en: 'Mountain conifer & broadleaf canopy: tap pins to test dry pre-summer wind danger vs cleared firebreaks.',
-        hi: 'पर्वतीय वन आवरण: सूखी गर्मी में आग के जोखिम बनाम फायर-लाइन सुरक्षा परखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t11-reserves.jpg',
+        en: 'Forest canopy, cleared earthen firebreak & hillside village — tap pins to test dry wind danger vs firebreak defence.',
+        hi: 'वन आवरण, साफ़ मिट्टी की फायर-लाइन व ग्राम सीमा — सूखी हवा के खतरे बनाम फायर-लाइन सुरक्षा हेतु पिन पर टैप करें।',
         spots: [
-          { x: 26, y: 42, en: 'Peak Summer Wind Danger', hi: 'ग्रीष्म पवन खतरा', detail: b('41°C heat, 15% dry air and 38 km/h wind with dense dry pine needles push danger extreme!', '41°C गर्मी, 15% सूखापन व 38 किमी/घं हवा में सूखी पिरुल आग को भड़काती है!'), set: { temp: 41, humidity: 15, wind: 38, litter: 0.9, firebreak: false } },
-          { x: 54, y: 56, en: '10 m Firebreak + Briquettes', hi: '10 मी फायर-लाइन सुरक्षा', detail: b('Turning dry needles into fuel briquettes & clearing strips breaks the fire triangle!', 'सूखी पत्तियाँ हटाने व 10 मी फायर-लाइन से ईंधन कड़ी टूट जाती है!'), set: { firebreak: true } },
-          { x: 80, y: 48, en: 'Moist Monsoon Canopy', hi: 'नम मानसूनी वन', detail: b('75% humidity and moist green floor halt wildfire spread naturally.', '75% आर्द्रता व हरी-नम सतह प्राकृतिक रूप से आग को रोक देती है।'), set: { temp: 24, humidity: 75, wind: 10, litter: 0.3 } },
+          { x: 20, y: 56, en: 'Moist River Forest (Low Risk)', hi: 'नम नदी वन (कम जोखिम)', detail: b('75% humidity and moist green floor halt wildfire spread naturally.', '75% आर्द्रता व हरी-नम सतह प्राकृतिक रूप से आग को रोक देती है।'), set: { temp: 24, humidity: 75, wind: 10, litter: 0.3, firebreak: false } },
+          { x: 50, y: 66, en: '10 m Cleared Earthen Firebreak', hi: '10 मी साफ़ फायर-लाइन पट्टी', detail: b('Clearing dry litter along this road cuts fire spread in half so villages stay safe!', 'इस मार्ग पर सूखी पत्तियाँ हटाने से आग फैलने की गति आधी रह जाती है!'), set: { temp: 38, humidity: 20, wind: 26, litter: 0.7, firebreak: true } },
+          { x: 80, y: 58, en: 'Peak Summer Wind Danger', hi: 'ग्रीष्म पवन व सूखी घास खतरा', detail: b('41°C heat, 15% dry air and 38 km/h wind push danger extreme without firebreaks!', '41°C गर्मी, 15% सूखापन व 38 किमी/घं हवा बिना फायर-लाइन के खतरा चरम पर लाते हैं!'), set: { temp: 41, humidity: 15, wind: 38, litter: 0.9, firebreak: false } },
         ],
       },
       svg: `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,

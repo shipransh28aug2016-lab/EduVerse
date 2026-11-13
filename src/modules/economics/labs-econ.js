@@ -123,13 +123,13 @@ export const pnl = {
     g += `<text class="txt b" x="8" y="${y + 17}">${esc(profit >= 0 ? P('PROFIT', 'लाभ') : P('LOSS', 'हानि'))}</text><rect class="${profit >= 0 ? 'bar-s' : 'bar-bad'}" x="${X(Math.min(0, profit)).toFixed(1)}" y="${y}" width="${Math.max(Math.abs(X(profit) - X(0)), 1).toFixed(1)}" height="26"/><text class="txt b" x="${(X(Math.max(0, profit)) + 6).toFixed(1)}" y="${y + 18}">${rs(Math.abs(profit))}</text><line x1="${X(0)}" x2="${X(0)}" y1="4" y2="${y + 34}" stroke="var(--ink)"/>`;
     return {
       plate: {
-        src: 'assets/images/t15.jpg',
-        en: 'Small tailoring workshop waterfall — tap pins to simulate busy festival orders vs slow rent-heavy months.',
-        hi: 'लघु सिलाई कार्यशाला — व्यस्त त्योहारी ऑर्डर बनाम मंदी के महीने का लाभ-हानि देखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t15-ecosystem.jpg',
+        en: 'Small tailoring workshop waterfall — tap pins to simulate festival stitching orders, balanced months or overhead loss.',
+        hi: 'लघु सिलाई कार्यशाला — त्योहारी ऑर्डर, सामान्य माह व धीमे माह की लाभ-हानि परखने हेतु पिन पर टैप करें।',
         spots: [
-          { x: 24, y: 52, en: 'Festival Rush (90 Garments)', hi: 'त्योहारी भीड़ (90 कपड़े)', detail: b('High garment orders lift total income far above cloth, wages & shop rent.', 'अधिक ऑर्डर से आय कपड़ा, मज़दूरी व किराए से कहीं ऊपर निकल जाती है।'), set: { jobs: 90, rate: 400, rent: 4000 } },
-          { x: 52, y: 48, en: 'Balanced Normal Month (60 Garments)', hi: 'सामान्य संतुलित माह (60 कपड़े)', detail: b('Modest profit covers owner’s household margin after paying helpers.', 'सहायक की मज़दूरी व किराए के बाद मालिक के लिए ₹3,000 शुद्ध लाभ।'), set: { jobs: 60, rate: 400, cloth: 8000, wages: 9000, rent: 4000 } },
-          { x: 78, y: 56, en: 'Slow Month Loss (30 Garments)', hi: 'मंदा माह हानि (30 कपड़े)', detail: b('Rent and wages keep running even when orders fall, creating a monthly loss.', 'ऑर्डर घटने पर भी किराया व मज़दूरी चलती रहती है, जिससे हानि होती है।'), set: { jobs: 30, rate: 400, cloth: 5000, wages: 9000, rent: 6000 } },
+          { x: 48, y: 64, en: 'Festival Rush (90 Garments)', hi: 'त्योहारी भीड़ (90 कपड़े)', detail: b('High garment orders lift total income far above cloth, wages & shop rent.', 'अधिक ऑर्डर से आय कपड़ा, मज़दूरी व किराए से कहीं ऊपर निकल जाती है।'), set: { jobs: 90, rate: 400, rent: 4000 } },
+          { x: 20, y: 68, en: 'Balanced Normal Month (60 Garments)', hi: 'सामान्य संतुलित माह (60 कपड़े)', detail: b('Modest profit covers owner’s household margin after paying helpers.', 'सहायक की मज़दूरी व किराए के बाद मालिक के लिए ₹3,000 शुद्ध लाभ।'), set: { jobs: 60, rate: 400, cloth: 8000, wages: 9000, rent: 4000 } },
+          { x: 88, y: 56, en: 'Slow Month Loss (30 Garments)', hi: 'मंदा माह हानि (30 कपड़े)', detail: b('Rent and wages keep running even when orders fall, creating a monthly loss.', 'ऑर्डर घटने पर भी किराया व मज़दूरी चलती रहती है, जिससे हानि होती है।'), set: { jobs: 30, rate: 400, cloth: 5000, wages: 9000, rent: 6000 } },
         ],
       },
       svg: `<svg viewBox="0 0 640 ${y + 44}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Income ${income}, profit ${profit}.`, lines: [
@@ -248,13 +248,13 @@ export const inflation = {
     ch.text(S.years, last.cash, P('kept as cash', 'नकद रखा'), 'lbl', 'end', -4, 18); ch.text(S.years, last.saved, P('saved with interest', 'ब्याज के साथ बचाया'), 'lbl', 'end', -4, -8);
     return {
       plate: {
-        src: 'assets/images/t16.jpg',
-        en: 'Inflation vs real interest rate — tap pins to see cash eroding in a cupboard vs beating inflation in savings.',
-        hi: 'मुद्रास्फीति बनाम ब्याज — अलमारी में रखे नकद की घटती क्रय-शक्ति परखने हेतु पिन पर टैप करें।',
+        src: 'assets/images/plates/t16-inflation.jpg',
+        en: 'Cash box, grocery basket & compound savings tree — tap pins to see cupboard cash shrink vs inflation-beating saving.',
+        hi: 'नकद बक्सा, राशन टोकरी व बढ़ता बचत पौधा — महँगाई में नकद घटने बनाम चक्रवृद्धि सुरक्षा हेतु पिन पर टैप करें।',
         spots: [
-          { x: 24, y: 50, en: 'Idle Cash Eroding (0% vs 6% Infl)', hi: 'अलमारी में नकद (0% ब्याज)', detail: b('₹1,000 kept as notes buys half as much after ~12 years at 6% inflation!', '6% महँगाई पर अलमारी में रखे नोटों की क्रय-शक्ति 12 वर्ष में आधी रह जाती है!'), set: { infl: 6, nominal: 0, years: 15 } },
-          { x: 54, y: 46, en: 'Negative Real Return (4% vs 6%)', hi: 'नकारात्मक वास्तविक लाभ (4% vs 6%)', detail: b('Even earning 4% interest loses real purchasing power if prices rise at 6%!', 'यदि कीमतें 6% बढ़ें और ब्याज 4% मिले, तब भी क्रय-शक्ति घटती है!'), set: { infl: 6, nominal: 4, years: 15 } },
-          { x: 80, y: 54, en: 'Positive Real Growth (9% vs 6%)', hi: 'वास्तविक धन वृद्धि (9% vs 6%)', detail: b('Beating inflation grows real purchasing power steadily over time.', 'मुद्रास्फीति से अधिक दर पर ही वास्तविक क्रय-शक्ति बढ़ती है।'), set: { infl: 6, nominal: 9, years: 15 } },
+          { x: 24, y: 58, en: 'Idle Cash Eroding (0% vs 6% Infl)', hi: 'अलमारी में नकद (0% ब्याज)', detail: b('₹1,000 kept as notes buys half as much after ~12 years at 6% inflation!', '6% महँगाई पर अलमारी में रखे नोटों की क्रय-शक्ति 12 वर्ष में आधी रह जाती है!'), set: { infl: 6, nominal: 0, years: 15 } },
+          { x: 54, y: 42, en: 'Negative Real Return (4% vs 6%)', hi: 'नकारात्मक वास्तविक लाभ (4% vs 6%)', detail: b('Even earning 4% interest loses real purchasing power if prices rise at 6%!', 'यदि कीमतें 6% बढ़ें और ब्याज 4% मिले, तब भी क्रय-शक्ति घटती है!'), set: { infl: 6, nominal: 4, years: 15 } },
+          { x: 76, y: 58, en: 'Positive Real Growth (9% vs 6%)', hi: 'वास्तविक धन वृद्धि (9% vs 6%)', detail: b('Beating inflation grows real purchasing power steadily over time.', 'मुद्रास्फीति से अधिक दर पर ही वास्तविक क्रय-शक्ति बढ़ती है।'), set: { infl: 6, nominal: 9, years: 15 } },
         ],
       },
       svg: ch.html({ label: P('Buying power over time', 'समय के साथ क्रय-शक्ति') }), aria: `After ${S.years} years ₹1000 cash buys ${fmt(last.cash, 0)} rupees worth; saved buys ${fmt(last.saved, 0)}.`, lines: [
