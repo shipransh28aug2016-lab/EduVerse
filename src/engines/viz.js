@@ -58,7 +58,8 @@ export function indiaMapSvg({
 } = {}) {
   const proj = indiaProjection(w, h, 20);
   const pathGen = d3.geoPath(proj);
-  let g = `<rect class="${bgClass}" x="0" y="0" width="${w}" height="${h}" rx="10"/>`;
+  let g = `<defs><linearGradient id="viz-sea" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#cfe9fb"/><stop offset="100%" stop-color="#e8f5fe"/></linearGradient><filter id="viz-sh" x="-5%" y="-5%" width="110%" height="110%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#0b3052" flood-opacity=".18"/></filter></defs>`;
+  g += `<rect class="${bgClass}" x="0" y="0" width="${w}" height="${h}" rx="12" style="fill:url(#viz-sea)"/>`;
 
   // Graticule grid over India
   for (let lon = 70; lon <= 95; lon += 5) {

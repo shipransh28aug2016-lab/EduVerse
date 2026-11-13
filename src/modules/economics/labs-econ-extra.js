@@ -179,9 +179,10 @@ export const econSystems = {
       + `<text class="txt sm mut" x="34" y="57">${esc(P(e.owner, e.ownerHi))} · ${esc(P(e.price, e.priceHi))}</text>`;
     bars.forEach((br, i) => {
       const y = 92 + i * 44;
-      g += `<text class="txt sm" x="24" y="${y + 18}">${esc(br.lab)}</text>`
-        + `<rect x="240" y="${y}" width="${br.val * 3.3}" height="24" rx="4" fill="${br.col}"/>`
-        + `<text class="txt sm b" x="${248 + br.val * 3.3}" y="${y + 17}">${br.val}/100</text>`;
+      g += `<text class="txt sm b" x="24" y="${y + 18}">${esc(br.lab)}</text>`
+        + `<rect x="240" y="${y}" width="330" height="24" rx="6" fill="#e2e8f0"/>`
+        + `<rect x="240" y="${y}" width="${br.val * 3.3}" height="24" rx="6" fill="${br.col}"/>`
+        + `<text class="txt sm b" x="${248 + br.val * 3.3}" y="${y + 17}" fill="#0f172a">${br.val}/100</text>`;
     });
     const svg = `<svg viewBox="0 0 640 225" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
     return {
@@ -467,18 +468,26 @@ export const riskReturn = {
   ],
   view(S) {
     const pool = F.insurancePool({ poolSize: S.poolSize, claimProbPct: S.claimProbPct, claimAmount: 40000 });
-    const g = F.INSTRUMENTS.map((ins, i) => {
-      const y = 18 + i * 44;
+    // Risk-Return 2D Quadrant Scatter + Horizon Bar Growth + Insurance Pool Shield Banner
+    let g = `<rect x="16" y="12" width="608" height="170" rx="10" fill="#f8fafc" stroke="var(--line)"/>`
+      + `<line x1="64" y1="158" x2="600" y2="158" stroke="var(--ink)" stroke-width="1.5"/><line x1="64" y1="22" x2="64" y2="158" stroke="var(--ink)" stroke-width="1.5"/>`
+      + `<text class="txt sm mut" x="330" y="175" text-anchor="middle">${esc(P('Volatility / Risk Index →', 'जोखिम सूचकांक →'))}</text>`
+      + `<text class="txt sm mut" transform="translate(28,90) rotate(-90)" text-anchor="middle">${esc(P(`Value of ₹10,000 (${S.horizon}y)`, `${S.horizon} वर्ष में ₹10,000`))}</text>`;
+    const cols = ['#0ea5e9', '#15803d', '#0369a1', '#b45309'];
+    const dots = [];
+    const curvePts = F.INSTRUMENTS.map((ins, i) => {
       const val = F.compoundAmount(10000, ins.returnPct, S.horizon);
-      const w = Math.min(260, (val / 85000) * 260);
-      return `<text class="txt sm" x="16" y="${y + 18}">${esc(P(ins.en, ins.hi))}</text>`
-        + `<rect x="175" y="${y}" width="${w.toFixed(1)}" height="24" rx="4" fill="${ins.risk > 40 ? '#b45309' : '#15803d'}"/>`
-        + `<text class="txt sm b" x="${(182 + w).toFixed(1)}" y="${y + 17}">${rs(val)} · ${esc(P('Risk', 'जोखिम'))} ${ins.risk}</text>`;
-    }).join('')
-      + `<rect x="16" y="194" width="608" height="36" rx="8" fill="#e0f2fe" stroke="#0369a1"/>`
-      + `<text class="txt sm b" x="320" y="217" text-anchor="middle">${esc(P(`Insurance Pool: ${S.poolSize} families × ₹40,000 cover → Fair annual premium ≈ ${rs(pool.fairPremium)}/family`, `बीमा पूल: ${S.poolSize} परिवार × ₹40,000 सुरक्षा → उचित वार्षिक प्रीमियम ≈ ${rs(pool.fairPremium)}/परिवार`))}</text>`;
+      const cx = (78 + (ins.risk / 75) * 490).toFixed(1);
+      const cy = (154 - Math.min(1, val / 85000) * 124).toFixed(1);
+      dots.push(`<circle cx="${cx}" cy="${cy}" r="${Math.min(20, 9 + val / 8000).toFixed(1)}" fill="${cols[i % cols.length]}" opacity=".86" stroke="#fff" stroke-width="2"/>`
+        + `<text class="txt sm b" x="${cx}" y="${(Number(cy) - 14).toFixed(1)}" text-anchor="middle">${esc(P(ins.en.split(' (')[0], ins.hi.split(' (')[0]))} (${rs(val)})</text>`);
+      return `${cx},${cy}`;
+    });
+    g += `<polyline points="${curvePts.join(' ')}" fill="none" stroke="var(--mut)" stroke-width="2" stroke-dasharray="5 4"/>` + dots.join('');
+    g += `<rect x="16" y="192" width="608" height="40" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>`
+      + `<text class="txt sm b" x="320" y="217" text-anchor="middle">${esc(P(`🛡️ Insurance Pool: ${S.poolSize} families × ₹40,000 cover → Fair premium ≈ ${rs(pool.fairPremium)}/yr`, `🛡️ बीमा पूल: ${S.poolSize} परिवार × ₹40,000 सुरक्षा → उचित प्रीमियम ≈ ${rs(pool.fairPremium)}/वर्ष`))}</text>`;
     return {
-      svg: `<svg viewBox="0 0 640 240" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
+      svg: `<svg viewBox="0 0 640 242" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Over ${S.horizon} years ₹10,000 grows fastest in higher-risk index fund; insurance fair premium ${pool.fairPremium} rupees`,
       lines: [
         { en: `Risk-Return Trade-off (${S.horizon} yrs on ₹10,000): Safe FDs/Bonds give steady modest growth, while Equity Index Funds offer higher average returns with short-term volatility (risk 65).`, hi: `जोखिम-प्रतिफल संबंध (${S.horizon} वर्ष में ₹10,000): FD व बॉन्ड स्थिर बढ़त देते हैं, जबकि इंडेक्स फंड अधिक औसत लाभ के साथ अल्पकालिक उतार-चढ़ाव (जोखिम 65) रखते हैं।`, cls: 'note' },

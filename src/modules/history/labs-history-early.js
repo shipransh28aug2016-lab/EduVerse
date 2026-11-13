@@ -439,6 +439,11 @@ export const guildTrade = {
     const profit = S.shreniJoin ? 145 : 80;
     const risk = S.shreniJoin ? 'low (pooled escorts + guild credit)' : 'high (lone trader risk)';
     return {
+      plate: {
+        src: 'assets/images/plates/t05-guilds.jpg',
+        en: 'Ancient Uttarapatha merchant guild (shreni): spice sacks, terracotta jars, silver punch-marked coins and ivory trade seal.',
+        hi: 'प्राचीन उत्तरापथ की श्रेणी (व्यापारी संघ): मसालों की बोरियाँ, मिट्टी के घड़े, चाँदी के आहत सिक्के व व्यापारिक मुहर।',
+      },
       svg,
       aria: `${S.route} with shreni=${S.shreniJoin}`,
       lines: [

@@ -41,7 +41,8 @@ export class Chart {
   dot(x, y, cls, r = 6) { return this.add(`<circle class="${cls}" cx="${this.X(x).toFixed(1)}" cy="${this.Y(y).toFixed(1)}" r="${r}"/>`); }
   text(x, y, s, cls = 'lbl', anchor = 'start', dx = 0, dy = 0) { return this.add(`<text class="${cls}" x="${(this.X(x) + dx).toFixed(1)}" y="${(this.Y(y) + dy).toFixed(1)}" text-anchor="${anchor}">${esc(s)}</text>`); }
   html({ label = '' } = {}) {
-    return `<svg viewBox="0 0 ${this.w} ${this.h}" role="img" aria-label="${esc(label)}" class="chart" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">${this.parts.join('')}${this.over.join('')}</svg>`;
+    const defs = `<defs><linearGradient id="ev-plot-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fbff" stop-opacity=".65"/><stop offset="100%" stop-color="#ffffff" stop-opacity=".1"/></linearGradient><filter id="ev-shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0b1f33" flood-opacity=".14"/></filter></defs><rect x="${this.m.l}" y="${this.m.t}" width="${this.w - this.m.l - this.m.r}" height="${this.h - this.m.t - this.m.b}" fill="url(#ev-plot-bg)" rx="6"/>`;
+    return `<svg viewBox="0 0 ${this.w} ${this.h}" role="img" aria-label="${esc(label)}" class="chart" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">${defs}${this.parts.join('')}${this.over.join('')}</svg>`;
   }
 }
 // sample a function over [lo,hi] keeping only points where fy>=0 (curves stop at the axis instead of going negative)

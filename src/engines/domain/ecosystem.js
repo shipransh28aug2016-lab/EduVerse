@@ -41,6 +41,7 @@ export const INDIA_RESERVES = [
   { id: 'manas', lon: 91.0, lat: 26.7, state: 'Assam', en: 'Manas / Kaziranga belt (Assam)', hi: 'मानस / काजीरंगा क्षेत्र (असम)', species: { en: 'One-horned Rhino, Golden Langur', hi: 'एक-सींग वाला गैंडा, सुनहरा लंगूर' } },
   { id: 'pachmarhi', lon: 78.4, lat: 22.5, state: 'Madhya Pradesh', en: 'Pachmarhi (Madhya Pradesh, 1999)', hi: 'पचमढ़ी (मध्य प्रदेश, 1999)', species: { en: 'Indian Giant Squirrel, Teak & Sal', hi: 'भारतीय विशाल गिलहरी, सागौन-साल' } },
   { id: 'similipal', lon: 86.3, lat: 21.8, state: 'Odisha', en: 'Similipal (Odisha, 1994)', hi: 'सिमलीपाल (ओडिशा, 1994)', species: { en: 'Asian Elephant, Sal Forests', hi: 'एशियाई हाथी, साल वन' } },
+  { id: 'palamau', lon: 84.2, lat: 23.9, state: 'Jharkhand', en: 'Palamau-Betla (Jharkhand)', hi: 'पलामू-बेतला (झारखंड)', species: { en: 'Asian Elephant, Gaur, Sal & Bamboo', hi: 'एशियाई हाथी, गौर, साल व बाँस' } },
   { id: 'nicobar', lon: 93.8, lat: 7.0, state: 'Andaman & Nicobar', en: 'Great Nicobar (A&N Islands, 1989)', hi: 'ग्रेट निकोबार (1989)', species: { en: 'Nicobar Megapode, Leatherback Turtle', hi: 'निकोबार मेगापोड, समुद्री कछुआ' } },
 ];
 

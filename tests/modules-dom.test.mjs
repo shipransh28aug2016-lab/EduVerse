@@ -189,9 +189,21 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     assert.ok(document.querySelector('.hero-shell .hero-art img'), 'Home should render hero illustration');
     assert.equal(document.querySelectorAll('#main .card .card-media img').length, 16, 'All 16 cards should have media banners');
     assert.equal(document.querySelectorAll('#main .badge.implemented').length, 16, 'All 16 cards should show implemented badge');
+    assert.ok(document.querySelector('#main .hud-bar'), 'Home should render interactive HUD bar');
+    assert.ok(document.querySelector('#topbar [data-pref="sound"]'), 'Topbar should render sound toggle');
+    assert.ok(document.querySelector('#topbar .star-pill'), 'Topbar should render star counter');
+
+    // Test discipline filter pills on Home
+    const geoFilter = document.querySelector('.filter-pills button[data-disc="geography"]');
+    assert.ok(geoFilter, 'Geography filter pill should exist');
+    geoFilter.click();
+    const visibleGeo = [...document.querySelectorAll('#main .card')].filter((c) => !c.hidden);
+    assert.ok(visibleGeo.length >= 4 && visibleGeo.length < 16, 'Geography filter should narrow visible cards');
+    document.querySelector('.filter-pills button[data-disc="all"]').click();
+    assert.equal([...document.querySelectorAll('#main .card')].filter((c) => !c.hidden).length, 16);
 
     // Toggle UI preferences in topbar
-    for (const pref of ['lowGraphics', 'reducedMotion', 'projector', 'teacher']) {
+    for (const pref of ['lowGraphics', 'reducedMotion', 'projector', 'teacher', 'sound']) {
       const btn = document.querySelector(`#topbar [data-pref="${pref}"]`);
       assert.ok(btn, `Missing topbar button for ${pref}`);
       btn.click();
@@ -214,6 +226,10 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     assert.ok(document.querySelector('#main .theme-banner img'), 'Theme page should render banner');
     assert.ok(document.querySelector('#module .lab'), 'Theme T12 should mount lab inside #module');
     assert.ok(document.querySelector('#main dl.gloss dd[data-term-def]'), 'Theme T12 should render bilingual glossary definitions');
+    const firstCard = document.querySelector('#main .gloss-card');
+    assert.ok(firstCard, 'Theme glossary should render flip-cards');
+    firstCard.click();
+    assert.ok(firstCard.classList.contains('flipped'), 'Glossary card click should flip it open');
     assert.equal(/⟦[^⟧]+⟧/.test(mainHtml), false, 'Theme page has unresolved i18n key');
     assert.equal(/\b(NaN|undefined|Infinity)\b/.test(mainHtml), false, 'Theme page contains invalid literal');
 
@@ -233,6 +249,56 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     assert.equal(document.querySelectorAll('#main .card').length, 16);
   } finally {
     globalThis.fetch = realFetch;
+  }
+});
+
+test('3D diorama library + Hero globe + T09 public goods plate build cleanly with vendored Three.js', async () => {
+  setupDom();
+  const THREE = await import('../vendor/three/three.module.min.js');
+  const { createHeroGlobe3d, createTheme3d } = await import('../src/components/diorama-3d.js');
+  const labelHost = document.createElement('div');
+  const mkApi = () => ({
+    THREE,
+    scene: new THREE.Scene(),
+    target: new THREE.Vector3(),
+    markPickable() {},
+    clearPickables() {},
+    setPlaying() {},
+    invalidate() {},
+    project: (v) => ({ x: v.x * 10 + 100, y: v.y * 10 + 100, visible: true }),
+  });
+
+  const gApi = mkApi();
+  const hero = createHeroGlobe3d(gApi);
+  hero.tick(1500);
+  hero.dispose();
+  assert.equal(gApi.scene.children.length, 0);
+
+  const states = {
+    T01: { focus: 'decisions', shock: false },
+    T03: { alt: 25 },
+    T05: { era: 'maurya' },
+    T06: { support: 45, vote: true },
+    T07: { swing: 10 },
+    T08: { a: 7, b: 4, tech: true },
+    T09: { price: 75, eqP: 50 },
+    T11: { harvest: 60 },
+    T13: { year: 100 },
+    T14: { escalated: true },
+    T15: { units: 160, price: 45, fixed: 1500, varCost: 25 },
+    T16: { income: 24000, needs: 12000, wants: 5000, years: 10 },
+  };
+  for (const [id, st] of Object.entries(states)) {
+    const builder = createTheme3d(id);
+    assert.ok(builder, `Missing 3D diorama builder for ${id}`);
+    const api = mkApi();
+    const inst = builder(api, labelHost);
+    inst.update(st);
+    inst.place(true);
+    inst.tick?.(1200);
+    inst.relabel();
+    inst.dispose();
+    assert.equal(api.scene.children.length, 0, `${id} diorama left geometries in scene after dispose`);
   }
 });
 

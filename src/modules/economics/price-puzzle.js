@@ -6,6 +6,8 @@ import { t, pairHtml } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { Chart, sampleCurve } from '../../engines/chart.js';
 import { slider, button, toggle, chips, tabs, bi, relabelBi, predict, mcq, biHtml } from '../../components/widgets.js';
+import { attachThreeStage } from '../../components/three-lab.js';
+import { createTheme3d } from '../../components/diorama-3d.js';
 import * as M from './models.js';
 import { OPT, EXIT, REFLECT } from './content.js';
 
@@ -67,6 +69,7 @@ export function mount(root, ctx) {
       const step = (now) => { const k = Math.min(1, (now - t0) / dur), e = 1 - (1 - k) ** 3; m.price = from + (target - from) * e; sPrice.set(Math.round(m.price)); draw(); if (k < 1) raf = requestAnimationFrame(step); else { m.price = target; sync(); } };
       raf = requestAnimationFrame(step);
     }
+    let stage3dMk = null;
     function sync() { clampShifts(); sc.select(m.scenario); sPrice.set(Math.round(m.price)); sD.set(m.sD); sS.set(m.sS); tCeil.set(m.ceilingOn); sCeil.set(m.ceiling); sCeil.input.disabled = !m.ceilingOn; draw(); }
 
     const status = (st) => ({ surplus: t('mk.st.surplus'), shortage: t('mk.st.shortage'), balanced: t('mk.st.balanced') }[st]);
@@ -117,6 +120,7 @@ export function mount(root, ctx) {
       let tb = `<table class="tbl"><caption class="sr-only">${esc(t('mk.tbl.cap'))}</caption><thead><tr><th>${esc(t('mk.tbl.p'))}</th><th>${esc(t('mk.tbl.qd'))}</th><th>${esc(t('mk.tbl.qs'))}</th><th>${esc(t('mk.tbl.st'))}</th></tr></thead><tbody>`;
       for (const r of c.rows) tb += `<tr class="${r.status}${Math.abs(r.P - at.P) < 5 ? ' cur' : ''}"><td>₹${r.P}</td><td>${fmt(r.Qd, 0)}</td><td>${fmt(r.Qs, 0)}</td><td>${esc(status(r.status))}</td></tr>`;
       tableBox.innerHTML = tb + '</tbody></table>';
+      stage3dMk?.update({ price: m.price, eqP: eq.P });
     }
     // drag the price line directly on the graph
     chartBox.addEventListener('pointerdown', (e) => {
@@ -181,7 +185,8 @@ export function mount(root, ctx) {
     sync();
     const el = h('div', { class: 'lab' }, h('div', { class: 'lab-grid' }, left, right),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), predBox));
-    return { el, relabel() { mkImg.alt = i18n.pair('Indian neighborhood produce and spice stall with brass balance scale reflecting supply-and-demand prices.', 'स्थानीय सब्ज़ी व मसाला मंडी में पीतल तराजू — दैनिक माँग-पूर्ति से मूल्य निर्धारण।'); predEls.forEach((p) => p.relabel()); draw(); }, snapshot: () => ({ m: { ...m }, c: M.compute(m) }) };
+    stage3dMk = attachThreeStage(el, () => ({ price: m.price, eqP: M.equilibrium(m).P }), createTheme3d('T09'), { insertBeforeEl: chartBox });
+    return { el, enable3d: () => stage3dMk.enable(), disable3d: () => stage3dMk.disable(), relabel() { mkImg.alt = i18n.pair('Indian neighborhood produce and spice stall with brass balance scale reflecting supply-and-demand prices.', 'स्थानीय सब्ज़ी व मसाला मंडी में पीतल तराजू — दैनिक माँग-पूर्ति से मूल्य निर्धारण।'); predEls.forEach((p) => p.relabel()); stage3dMk.relabel(); draw(); }, snapshot: () => ({ m: { ...m }, c: M.compute(m) }), destroy() { stage3dMk.destroy(); } };
   })();
 
   // ============================ EXTERNALITY LAB (L4) ============================
@@ -261,6 +266,7 @@ export function mount(root, ctx) {
 
     // free-rider street light (fictional numbers)
     const g = S.pg; const frBox = h('div', { class: 'chart-box fr' }), frRead = h('div', { class: 'readout', role: 'status', 'aria-live': 'polite' });
+    let stage3dPg = null;
     const sk = slider({ id: 'pg-k', labelKey: 'pg.ctl.k', min: 0, max: M.FR.households, step: 1, value: g.k, format: (v) => `${v} / ${M.FR.households}`, onInput: (v) => { g.k = v; draw(); } });
     const tx = toggle({ id: 'pg-tax', labelKey: 'pg.ctl.tax', checked: g.tax, onChange: (v) => { g.tax = v; draw(); } });
     function draw() {
@@ -286,16 +292,28 @@ export function mount(root, ctx) {
         if (r.lit && g.k < n) html += `<div class="ro-line warn">${esc(t('pg.ro.free', num))}</div>`;
       }
       frRead.innerHTML = html;
+      stage3dPg?.update({ k: g.k, tax: g.tax });
     }
     const pr = predict({ id: 'g1', stem: { en: 'The street light costs ₹60 a month to run. Each of 10 households is asked to pay ₹10 voluntarily, and 5 of them agree. Does the light stay on?', hi: 'सड़क की बत्ती चलाने का खर्च ₹60 प्रति माह है। 10 परिवारों से स्वेच्छा से ₹10 देने को कहा जाता है और 5 सहमत होते हैं। क्या बत्ती जलती रहेगी?' },
       options: ['yes', 'no'].map(opt), run: () => { g.tax = false; g.k = 5; tx.set(false); sk.set(5); draw(); return M.freeRider(5).lit ? 'yes' : 'no'; },
       explain: () => { const r = M.freeRider(5); return { en: `5 × ₹10 = ₹${fmt(r.collected, 0)}, less than the ₹60 needed, so the light stays off. Each household hopes the others will pay (free-riding), and if too many wait, nobody gets the light. At least ${r.needed} must pay, or the cost can be collected from everyone as a tax.`, hi: `5 × ₹10 = ₹${fmt(r.collected, 0)}, जो ज़रूरी ₹60 से कम है, इसलिए बत्ती बंद रहती है। हर परिवार आशा करता है कि दूसरे भुगतान करेंगे (फ्री-राइडिंग), और अधिक लोग रुकें तो किसी को बत्ती नहीं मिलती। कम से कम ${r.needed} को भुगतान करना होगा, या खर्च सबसे कर के रूप में वसूला जा सकता है।` }; } }, { done: S.done, onDone: persist });
     draw();
+    const pgImg = h('img', {
+      src: 'assets/images/plates/t09-publicgoods.jpg',
+      alt: i18n.pair('Glowing village streetlamp illuminating all ten cottages equally, illustrating non-excludable and non-rival public goods.', 'सभी दस घरों को समान रोशनी देता गली का लैंप — सार्वजनिक वस्तुओं का उदाहरण।'),
+      loading: 'eager',
+      decoding: 'async',
+    });
+    const pgPlate = h('figure', { class: 'lab-plate' },
+      pgImg,
+      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'One shared streetlamp lights every passerby equally — once lit, non-payers cannot be shut out (free-rider dilemma).', hi: 'साझा स्ट्रीट-लैंप हर राहगीर को समान रोशनी देता है — एक बार जलने पर भुगतान न करने वालों को भी रोका नहीं जा सकता।' })),
+    );
     const el = h('div', { class: 'lab' },
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.classify' }, t('pg.h.classify')), h('p', { class: 'note' }, bi({ en: 'A public good is BOTH non-excludable and non-rival. Decide each question for every item, then check.', hi: 'सार्वजनिक वस्तु अपवर्जन-रहित और प्रतिद्वंद्विता-रहित दोनों होती है। हर वस्तु के लिए दोनों प्रश्न तय करें, फिर जाँचें।' }, { tag: 'span' })), itemsBox),
-      h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.fr' }, t('pg.h.fr')), h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, frBox, frRead), h('div', { class: 'lab-side' }, sk.root, tx.root, h('p', { class: 'note', 'data-k': 'pg.fictional' }, t('pg.fictional')), h('div', { class: 'row' }, button('btn.reset', () => { g.k = 3; g.tax = false; sk.set(3); tx.set(false); draw(); })))),
+      h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.fr' }, t('pg.h.fr')), pgPlate, h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, frBox, frRead), h('div', { class: 'lab-side' }, sk.root, tx.root, h('p', { class: 'note', 'data-k': 'pg.fictional' }, t('pg.fictional')), h('div', { class: 'row' }, button('btn.reset', () => { g.k = 3; g.tax = false; sk.set(3); tx.set(false); draw(); })))),
         h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
-    return { el, relabel() { pr.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
+    stage3dPg = attachThreeStage(el, () => ({ k: g.k, tax: g.tax }), createTheme3d('T09'), { insertBeforeEl: frBox });
+    return { el, enable3d: () => stage3dPg.enable(), disable3d: () => stage3dPg.disable(), relabel() { pgImg.alt = i18n.pair('Glowing village streetlamp illuminating all ten cottages equally, illustrating non-excludable and non-rival public goods.', 'सभी दस घरों को समान रोशनी देता गली का लैंप — सार्वजनिक वस्तुओं का उदाहरण।'); pr.relabel(); relabelBi(el); i18n.apply(el); stage3dPg.relabel(); draw(); }, destroy() { stage3dPg.destroy(); } };
   })();
 
   // ============================ INFORMATION ASYMMETRY (L6) ============================
@@ -336,14 +354,21 @@ export function mount(root, ctx) {
   ta.addEventListener('input', () => { prog.reflection = ta.value; store.saveProgress(); });
   const exitSec = h('section', { class: 'subsec' }, h('h3', { 'data-k': 'exit.h' }, t('exit.h')), exitBox, h('h3', { 'data-k': 'reflect.h' }, t('reflect.h')), bi(REFLECT, { tag: 'p', cls: 'note' }), ta, h('p', { class: 'note', 'data-k': 'reflect.local' }, t('reflect.local')));
 
-  const tb = tabs({ active: S.tab || 'market', onChange: (id) => { S.tab = id; persist(); },
+  const onTab = (id) => {
+    S.tab = id; persist();
+    if (id === 'market') { pg.disable3d?.(); mk.enable3d?.(); }
+    else if (id === 'pg') { mk.disable3d?.(); pg.enable3d?.(); }
+    else { mk.disable3d?.(); pg.disable3d?.(); }
+  };
+  const tb = tabs({ active: S.tab || 'market', onChange: onTab,
     tabs: [{ id: 'market', key: 'T09.tab.market', el: mk.el }, { id: 'ext', key: 'T09.tab.ext', el: ex.el }, { id: 'pg', key: 'T09.tab.pg', el: pg.el }, { id: 'ia', key: 'T09.tab.ia', el: ia.el }] });
   root.append(tb.root, exitSec);
   i18n.apply(root);
+  onTab(S.tab || 'market');
 
   return {
     relabel() { mk.relabel(); ex.relabel(); pg.relabel(); ia.relabel(); mcqs.forEach((q) => q.relabel()); relabelBi(root); i18n.apply(root); ta.placeholder = t('reflect.ph'); },
-    destroy() { cancelAnimationFrame(raf); },
+    destroy() { cancelAnimationFrame(raf); mk.destroy?.(); pg.destroy?.(); },
     // test hook (used by e2e): read-only model snapshot
     debug: () => ({ market: mk.snapshot(), S }),
   };

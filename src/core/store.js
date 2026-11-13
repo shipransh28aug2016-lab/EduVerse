@@ -1,13 +1,14 @@
-// Central state: language, accessibility switches, teacher mode, per-theme progress and per-simulation state.
+// Central state: language, accessibility switches, sound, teacher mode, per-theme progress, stars & simulation state.
 // Persisted in localStorage (never sent anywhere; no login, no telemetry). Safe when storage is blocked.
 const KEY = 'eduverse.ix.ss.v1';
-const defaults = () => ({ lang: 'both', lowGraphics: false, reducedMotion: null, teacher: false, projector: false, progress: {}, sim: {} });
+const defaults = () => ({ lang: 'both', lowGraphics: false, reducedMotion: null, teacher: false, projector: false, sound: true, progress: {}, sim: {}, stars: {} });
 let state = defaults();
 const subs = new Set();
 const memoryOnly = { v: false };
 try { const raw = localStorage.getItem(KEY); if (raw) state = { ...defaults(), ...JSON.parse(raw) }; } catch { memoryOnly.v = true; }
 if (state.reducedMotion == null) state.reducedMotion = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!['en', 'hi', 'both'].includes(state.lang)) state.lang = 'both';
+state.stars ??= {};
 
 const save = () => { if (memoryOnly.v) return; try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { memoryOnly.v = true; } };
 export const get = () => state;
@@ -19,4 +20,20 @@ export const saveSim = () => save();
 export const resetSim = (id) => { delete state.sim[id]; save(); };
 export function progress(themeId) { return (state.progress[themeId] ??= { visited: false, predictions: {}, exit: {}, reflection: '' }); }
 export const saveProgress = () => save();
+export function awardStar(key) {
+  if (!key || state.stars[key]) return false;
+  state.stars[key] = true;
+  save();
+  subs.forEach((f) => f(state, ['stars']));
+  return true;
+}
+export function summaryStats() {
+  const visited = Object.values(state.progress).filter((p) => p?.visited).length;
+  const stars = Object.keys(state.stars || {}).length;
+  let solved = 0;
+  for (const p of Object.values(state.progress)) {
+    for (const v of Object.values(p?.exit || {})) if (v?.ok) solved++;
+  }
+  return { visited, stars, solved };
+}
 export const storageBlocked = () => memoryOnly.v;

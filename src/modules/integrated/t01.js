@@ -125,6 +125,13 @@ const PLACES = {
     pol: b('Urban municipal governance, lake-restoration citizen petitions, and metro transit planning.', 'नगरीय शासन, झील-पुनरुद्धार नागरिक याचिकाएँ और मेट्रो परिवहन योजना।'),
     econ: b('Software exports, aerospace/biotech startups, silk weaving, and urban service jobs.', 'सॉफ़्टवेयर निर्यात, अंतरिक्ष/जैव-तकनीक स्टार्टअप, रेशम बुनाई और शहरी सेवाएँ।'),
   },
+  chotanagpur: {
+    lon: 85.3, lat: 23.3, state: 'Jharkhand', en: 'Chotanagpur Plateau (Ranchi)', hi: 'छोटानागपुर पठार (राँची)',
+    geo: b('Ancient undulating granite-gneiss plateau (~650 m), Subarnarekha and Damodar river valleys, Hundru waterfall nickpoints, and sal-forest hills.', 'प्राचीन ग्रेनाइट पठार (~650 मी), सुवर्णरेखा व दामोदर घाटियाँ, हुंडरू जलप्रपात व साल वन।'),
+    hist: b('Rich stone-shelter art and iron-working heritage alongside community forest movements and landmark Chotanagpur land-tenancy protections.', 'शैलचित्र व लौह-शिल्प परंपरा, सामुदायिक वन आंदोलन और भूमि-अधिकार संरक्षण की ऐतिहासिक विरासत।'),
+    pol: b('Gram Sabhas, PESA local self-governance institutions, and mineral-royalty & forest-conservation councils.', 'ग्राम सभाएँ, पेसा (PESA) स्थानीय स्वशासन संस्थाएँ और खनिज-वन संरक्षण परिषदें।'),
+    econ: b('Iron-steel & mineral hubs, tussar silk and lac cooperatives, non-timber forest produce, and lively weekly haat markets.', 'इस्पात व खनिज केंद्र, तसर रेशम व लाख सहकारी समितियाँ, वनोपज और साप्ताहिक हाट बाज़ार।'),
+  },
 };
 const LENS_LBL = {
   geo: b('Geography (Where & Why There)', 'भूगोल (कहाँ व क्यों)'),

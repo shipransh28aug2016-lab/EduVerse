@@ -56,15 +56,34 @@ export function mount(root) {
     function draw() {
       persist();
       const ya = M.MILESTONES.find((m) => m.id === S.mark).ya, c = M.clockLabel(ya);
-      box.innerHTML = `<svg viewBox="0 0 640 190" class="chart" role="img" aria-label="${esc(t('tl.aria'))}" xmlns="http://www.w3.org/2000/svg" style="color:var(--ink)">${bar(M.linearPos, 40, t('tl.lin'), ya)}${bar(M.logPos, 120, t('tl.log'), ya)}<text class="tick" x="30" y="180">${esc(t('tl.left'))}</text><text class="tick" x="610" y="180" text-anchor="end">${esc(t('tl.right'))}</text></svg>` + `<div class="legend">${M.AGES.map((a) => `<span class="lg"><i style="background:${COL[a.id]}"></i><b>${esc(aname(a.id))}</b></span>`).join('')}</div>`;
+      const minLeft = M.minutesBeforeMidnight(ya);
+      const angDeg = Math.min(359, Math.max(0.5, (minLeft / 60) * 30)); // wedge on 12-hour analog clock near midnight
+      const rad = ((90 + angDeg) * Math.PI) / 180;
+      const wx = (555 + 42 * Math.cos(rad)).toFixed(1), wy = (95 - 42 * Math.sin(rad)).toFixed(1);
+      const dial = `<circle cx="555" cy="95" r="52" fill="#f8fafc" stroke="var(--ink)" stroke-width="2.5"/><path d="M555,95 L555,53 A42,42 0 ${angDeg > 180 ? 1 : 0},0 ${wx},${wy} Z" fill="${COL[M.ageOf(ya) ?? 'later']}" opacity=".38"/><line x1="555" y1="95" x2="555" y2="54" stroke="var(--ink)" stroke-width="2.5"/><line x1="555" y1="95" x2="${wx}" y2="${wy}" stroke="var(--d)" stroke-width="2.5"/><text class="txt sm b" x="555" y="164" text-anchor="middle">${esc(c.text)}</text>`;
+      const barNarrow = (pos, y, label, mark) => {
+        const x0 = 26, w = 440; let s = `<text class="lbl" x="${x0}" y="${y - 8}">${esc(label)}</text>`;
+        M.AGES.forEach((a) => { const l = Math.min(pos(a.from), pos(a.to)), r = Math.max(pos(a.from), pos(a.to)); s += `<rect x="${x0 + l * w}" y="${y}" width="${Math.max(1.5, (r - l) * w)}" height="24" rx="3" fill="${COL[a.id]}"/>`; });
+        const mx = x0 + pos(mark) * w; return s + `<line x1="${mx}" x2="${mx}" y1="${y - 4}" y2="${y + 32}" stroke="currentColor" stroke-width="3"/><circle cx="${mx}" cy="${y + 12}" r="6" fill="#fff" stroke="currentColor" stroke-width="3"/>`;
+      };
+      box.innerHTML = `<svg viewBox="0 0 640 190" class="chart" role="img" aria-label="${esc(t('tl.aria'))}" xmlns="http://www.w3.org/2000/svg" style="color:var(--ink)">${barNarrow(M.linearPos, 40, t('tl.lin'), ya)}${barNarrow(M.logPos, 120, t('tl.log'), ya)}${dial}<text class="tick" x="26" y="180">${esc(t('tl.left'))}</text><text class="tick" x="466" y="180" text-anchor="end">${esc(t('tl.right'))}</text></svg>` + `<div class="legend">${M.AGES.map((a) => `<span class="lg"><i style="background:${COL[a.id]}"></i><b>${esc(aname(a.id))}</b></span>`).join('')}</div>`;
       read.innerHTML = `<div class="ro-line">${esc(t('tl.ro.ya', { ya: fmt(ya, 0), age: aname(M.ageOf(ya) ?? 'later') }))}</div><div class="ro-line"><strong>${esc(t('tl.ro.clock', { time: c.text, min: fmt(c.minutes, 1) }))}</strong></div><div class="ro-line note">${esc(t('tl.note'))}</div>`;
     }
+    const tlImg = h('img', {
+      src: 'assets/images/plates/t04-timeline.jpg',
+      alt: i18n.pair('24-hour deep-time clock compressing human prehistory alongside miniature stone tools and clay grains.', '20 लाख वर्ष के मानव इतिहास को 24-घंटे की घड़ी और पाषाण-युग से आरंभिक खेती के मॉडलों में दर्शाता चित्र।'),
+      loading: 'eager',
+      decoding: 'async',
+    });
+    const tlPlate = h('figure', { class: 'lab-plate' },
+      tlImg,
+      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'Two million years of stone-tool history compressed onto one 24-hour dial — farming and cities appear only minutes before midnight.', hi: '20 लाख वर्षों का पाषाण इतिहास 24 घंटे की घड़ी पर — खेती और नगर मध्यरात्रि से कुछ ही मिनट पहले दिखते हैं।' })));
     const pr = predict({ id: 't1', stem: { en: 'Squeeze the last 2 million years into ONE day (midnight = today). Farming began about 8,000 years ago. How long before midnight is that?', hi: 'पिछले 20 लाख वर्षों को एक दिन में समेट दें (मध्यरात्रि = आज)। खेती लगभग 8,000 वर्ष पहले शुरू हुई। यह मध्यरात्रि से कितना पहले है?' }, options: [o('min', 'A few minutes', 'कुछ मिनट'), o('hour', 'About an hour', 'लगभग एक घंटा'), o('hours', 'Several hours', 'कई घंटे')],
       run: () => { S.mark = 'farming'; ch.select('farming'); draw(); const m = M.minutesBeforeMidnight(8000); return m < 30 ? 'min' : m < 180 ? 'hour' : 'hours'; },
       explain: () => ({ en: `8,000 ÷ 2,000,000 × 24 hours = ${fmt(M.minutesBeforeMidnight(8000), 1)} minutes. Almost the whole story of human tool-making happened before farming; farming, cities and writing all fit in the last few minutes.`, hi: `8,000 ÷ 20,00,000 × 24 घंटे = ${fmt(M.minutesBeforeMidnight(8000), 1)} मिनट। मानव द्वारा औज़ार बनाने की लगभग पूरी कहानी खेती से पहले की है; खेती, नगर और लेखन सब अंतिम कुछ मिनटों में आते हैं।` }) }, { done: S.done, onDone: persist });
     draw();
-    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Pick a moment and see where it falls on a straight timeline and on a stretched (log) timeline.', hi: 'कोई क्षण चुनें और देखें कि वह सीधी समय-रेखा और खिंची हुई (लघुगणकीय) समय-रेखा पर कहाँ आता है।' })), h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, box, read), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'tl.h' }, t('tl.h')), ch.root)), h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
-    return { el, relabel() { pr.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
+    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Pick a moment and see where it falls on a straight timeline and on a stretched (log) timeline.', hi: 'कोई क्षण चुनें और देखें कि वह सीधी समय-रेखा और खिंची हुई (लघुगणकीय) समय-रेखा पर कहाँ आता है।' })), h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, tlPlate, box, read), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'tl.h' }, t('tl.h')), ch.root)), h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
+    return { el, relabel() { tlImg.alt = i18n.pair('24-hour deep-time clock compressing human prehistory alongside miniature stone tools and clay grains.', '20 लाख वर्ष के मानव इतिहास को 24-घंटे की घड़ी और पाषाण-युग से आरंभिक खेती के मॉडलों में दर्शाता चित्र।'); pr.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
   })();
 
   // ---- L2 evidence vs inference

@@ -73,7 +73,7 @@ export const gradation = {
 
 // ---------------- T02.L5 Landform gallery (3D + 2D) ----------------
 const LF_INFO = {
-  river: { en: 'Erosion: V-shaped valley, gorge, waterfall. Deposition: meander floodplain, oxbow lake, Sundarbans delta.', hi: 'अपरदन: V-आकार घाटी, गॉर्ज, जलप्रपात। निक्षेपण: विसर्प, गोखुर झील, सुंदरबन डेल्टा।' },
+  river: { en: 'Erosion: V-shaped valley, gorge, waterfall nickpoint (e.g. Hundru on Subarnarekha, Dhuandhar on Narmada). Deposition: meander floodplain, oxbow lake, Sundarbans delta.', hi: 'अपरदन: V-आकार घाटी, गॉर्ज, जलप्रपात (जैसे हुंडरू व धुआँधार)। निक्षेपण: विसर्प, गोखुर झील, सुंदरबन डेल्टा।' },
   waves: { en: 'Erosion: sea cliff, sea cave, arch and stack. Deposition: sandy beach, spit and lagoon (e.g. Chilika).', hi: 'अपरदन: समुद्री भृगु, गुफा, मेहराब व स्टैक। निक्षेपण: पुलिन, स्पिट व लैगून (जैसे चिल्का)।' },
   wind: { en: 'Erosion: mushroom rock and deflation hollow. Deposition: crescent barchan dunes (Thar Desert) and loess plains.', hi: 'अपरदन: छत्रक शैल व अपवाहन गर्त। निक्षेपण: अर्धचंद्राकार बरखान टिब्बे (थार) व लोयस।' },
   glacier: { en: 'Erosion: cirque, pyramidal peak and U-shaped valley. Deposition: lateral and terminal moraines in upper Himalaya.', hi: 'अपरदन: सर्क, हिमशृंग व U-आकार घाटी। निक्षेपण: हिमोढ़ (उच्च हिमालय)।' },

@@ -419,15 +419,30 @@ export const coalition = {
   ],
   view(S) {
     const r = E.run(S.system, S.swing), mw = E.minimalWinningCoalitions(r.seats), single = E.PARTIES.find((p) => r.seats[p] >= mw.need);
-    const max = 10; let g = '';
-    E.PARTIES.forEach((p, i) => { const y = 20 + i * 52; g += `<text class="lbl" x="10" y="${y + 20}">${esc(P(PNAME[p].en, PNAME[p].hi))}</text><rect class="bar-n" x="130" y="${y}" width="${(r.seats[p] / max) * 440}" height="30" opacity="${r.seats[p] >= mw.need ? 1 : 0.75}"/><text class="txt b" x="${136 + (r.seats[p] / max) * 440}" y="${y + 21}">${r.seats[p]} ${esc(P('seats', 'सीटें'))} · ${fmt(r.voteShare[p] * 100, 0)}% ${esc(P('votes', 'मत'))}</text>`; });
-    g += `<line x1="${130 + (mw.need / max) * 440 - 0}" x2="${130 + (mw.need / max) * 440}" y1="10" y2="228" stroke="var(--bad)" stroke-width="3" stroke-dasharray="6 4"/><text class="txt sm b" x="${130 + (mw.need / max) * 440}" y="244" text-anchor="middle" fill="var(--bad)">${esc(P('majority: 6', 'बहुमत: 6'))}</text>`;
+    const max = 10, pcol = { R: '#dc2626', B: '#2563eb', G: '#16a34a', Y: '#d97706' };
+    // Build 10-seat semicircular Parliamentary Hemicycle
+    const seatParties = E.PARTIES.flatMap((p) => Array(r.seats[p]).fill(p));
+    let g = `<path d="M210,112 A110,110 0 0,1 430,112" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 4"/>`;
+    seatParties.forEach((p, idx) => {
+      const ang = Math.PI - (idx + 0.5) / 10 * Math.PI;
+      const sx = (320 + Math.cos(ang) * 92).toFixed(1), sy = (112 - Math.sin(ang) * 86).toFixed(1);
+      g += `<circle cx="${sx}" cy="${sy}" r="11" fill="${pcol[p]}" stroke="#fff" stroke-width="2"/><text class="txt sm b" x="${sx}" y="${(Number(sy) + 4).toFixed(1)}" text-anchor="middle" fill="#fff">${p}</text>`;
+    });
+    g += `<text class="txt sm b" x="320" y="114" text-anchor="middle">${esc(P('10-Seat House (Need 6)', '10-सीट सदन (बहुमत 6)'))}</text>`;
+    E.PARTIES.forEach((p, i) => { const y = 136 + i * 44; g += `<text class="lbl" x="10" y="${y + 20}">${esc(P(PNAME[p].en, PNAME[p].hi))}</text><rect x="130" y="${y}" width="${(r.seats[p] / max) * 420}" height="28" rx="6" fill="${pcol[p]}" opacity="${r.seats[p] >= mw.need ? 1 : 0.82}"/><text class="txt b" x="${138 + (r.seats[p] / max) * 420}" y="${y + 20}">${r.seats[p]} ${esc(P('seats', 'सीटें'))} · ${fmt(r.voteShare[p] * 100, 0)}% ${esc(P('votes', 'मत'))}</text>`; });
+    g += `<line x1="${130 + (mw.need / max) * 420}" x2="${130 + (mw.need / max) * 420}" y1="128" y2="314" stroke="var(--bad)" stroke-width="3" stroke-dasharray="6 4"/><text class="txt sm b" x="${130 + (mw.need / max) * 420}" y="330" text-anchor="middle" fill="var(--bad)">${esc(P('majority: 6', 'बहुमत: 6'))}</text>`;
     const names = (c) => c.parties.map((p) => PNAME[p].en).join(' + '), namesHi = (c) => c.parties.map((p) => PNAME[p].hi).join(' + ');
     const lines = [single ? { en: `${PNAME[single].en} has ${r.seats[single]} of 10 seats: a single-party majority government. No coalition is needed.`, hi: `${PNAME[single].hi} के पास 10 में से ${r.seats[single]} सीटें हैं: एकल-दल बहुमत की सरकार। गठबंधन की आवश्यकता नहीं।`, cls: 'balanced' }
       : { en: `No party reaches ${mw.need} seats (a hung house). Possible minimal coalitions: ${mw.coalitions.map((c) => `${names(c)} (${c.seats})`).join('; ') || 'none'}.`, hi: `कोई दल ${mw.need} सीटों तक नहीं पहुँचता (त्रिशंकु सदन)। संभावित न्यूनतम गठबंधन: ${mw.coalitions.map((c) => `${namesHi(c)} (${c.seats})`).join('; ') || 'कोई नहीं'}।`, cls: 'warn' },
       r.mismatch ? { en: 'The party with the most votes does not have the most seats: the system, not the voters’ wishes alone, shaped the result.', hi: 'सबसे अधिक मत पाने वाले दल के पास सबसे अधिक सीटें नहीं हैं: परिणाम केवल मतदाताओं की इच्छा से नहीं, प्रणाली से भी बना।', cls: 'warn' } : { en: 'The party with the most votes also has the most seats here.', hi: 'यहाँ सबसे अधिक मत पाने वाले दल के पास सबसे अधिक सीटें भी हैं।', cls: 'note' },
       { en: 'Anti-Defection Law (10th Schedule, 1985): if individual legislators defect after an election for personal gain, they lose their seat — curbing instability while party mergers still require a two-thirds threshold.', hi: 'दलबदल-रोधी कानून (10वीं अनुसूची, 1985): चुनाव के बाद व्यक्तिगत लाभ के लिए दलबदल करने वाले सदस्य की सीट समाप्त हो जाती है — इससे सरकार की अस्थिरता रुकती है।', cls: 'note' }];
-    return { svg: `<svg viewBox="0 0 640 255" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Seats: ${E.PARTIES.map((p) => `${p} ${r.seats[p]}`).join(', ')}.`, lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t07-coalition.jpg',
+        en: 'Semicircular parliamentary chamber showing rainbow coalition benches reaching a governing majority.',
+        hi: 'अर्धवृत्ताकार संसद कक्ष जहाँ विभिन्न दलों के सदस्य मिलकर बहुमत गठबंधन बनाते हैं।',
+      },
+      svg: `<svg viewBox="0 0 640 342" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Seats: ${E.PARTIES.map((p) => `${p} ${r.seats[p]}`).join(', ')}.`, lines };
   },
   discover: [b('Switch to proportional representation. How many parties do you need to form a government now?', 'आनुपातिक प्रतिनिधित्व चुनें। अब सरकार बनाने के लिए कितने दल चाहिए?'), b('Switch to first-past-the-post and move the swing slider until the majority party changes.', 'FPTP चुनें और झुकाव स्लाइडर तब तक बदलें जब तक बहुमत वाला दल न बदल जाए।')],
   predictions: [{ id: 'p1', stem: b('With proportional representation and no swing, does any single party win 6 or more of the 10 seats?', 'आनुपातिक प्रतिनिधित्व और शून्य झुकाव पर क्या किसी एक दल को 10 में से 6 या अधिक सीटें मिलती हैं?'), options: [opt('yes', 'Yes, one party has a majority', 'हाँ, एक दल के पास बहुमत है'), opt('no', 'No, a coalition is needed', 'नहीं, गठबंधन चाहिए')],

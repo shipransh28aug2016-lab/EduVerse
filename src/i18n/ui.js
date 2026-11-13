@@ -405,8 +405,72 @@ export const UI = {
 "hi":"3D दृश्य खुल रहा है…"
 },
 "pb.mode.3d":{
-"en":"3D view on. A flat labelled cross-section is always shown below it.",
-"hi":"3D दृश्य चालू। नीचे नामांकित समतल काट हमेशा दिखती है।"
+"en":"3D scene live — drag to rotate, click parts to inspect.",
+"hi":"3D दृश्य चालू — घुमाने के लिए खींचें, भाग देखने के लिए क्लिक करें।"
+},
+"pb.btn.spin":{
+"en":"Spin 3D",
+"hi":"3D घुमाएँ"
+},
+"bar.sound":{
+"en":"Sound",
+"hi":"ध्वनि"
+},
+"bar.stars":{
+"en":"Stars",
+"hi":"सितारे"
+},
+"lab.goalBtn":{
+"en":"Goal & Model Note",
+"hi":"उद्देश्य व मॉडल नोट"
+},
+"lab.playDemo":{
+"en":"Auto-Play",
+"hi":"स्वतः चलाएँ"
+},
+"lab.pauseDemo":{
+"en":"Pause",
+"hi":"रोकें"
+},
+"lab.dock.predict":{
+"en":"Predict ⭐",
+"hi":"अनुमान ⭐"
+},
+"lab.dock.try":{
+"en":"Try This",
+"hi":"आज़माएँ"
+},
+"lab.dock.quiz":{
+"en":"Quick Quiz",
+"hi":"त्वरित प्रश्न"
+},
+"lab.dock.note":{
+"en":"Reflect",
+"hi":"चिंतन"
+},
+"home.all":{
+"en":"All (16)",
+"hi":"सभी (16)"
+},
+"home.surprise":{
+"en":"Surprise Lab",
+"hi":"रोचक प्रयोग खोलें"
+},
+"home.hud.explored":{
+"en":"Explored",
+"hi":"खोजे गए विषय"
+},
+"home.hud.stars":{
+"en":"Stars",
+"hi":"सितारे"
+},
+"home.badge.3d":{
+"en":"3D Live",
+"hi":"3D लाइव"
+},
+"gloss.flip":{
+"en":"Tap card to flip",
+"hi":"पलटने के लिए टैप करें"
 },
 "pb.mode.2d":{
 "en":"Showing the flat cross-section (3D is off: low graphics or not supported).",

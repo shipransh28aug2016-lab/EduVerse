@@ -307,7 +307,12 @@ export const oceanRelief = {
     g += `<polygon points="35,242 ${polyPts} 615,242" fill="#7c5e42" stroke="#3f2e1e" stroke-width="2.5"/>`;
     g += `<text class="txt sm b" x="75" y="28">${esc(P('Shelf', 'मग्नतट'))}</text><text class="txt sm b" x="230" y="135">${esc(P('Abyssal plain', 'गहन मैदान'))}</text><text class="txt sm b" x="${X(52).toFixed(0)}" y="${(Y(3900 - S.ridgeHeight) - 8).toFixed(0)}" text-anchor="middle">${esc(P('Ridge (divergent)', 'कटक (अपसारी)'))}</text><text class="txt sm b" x="${X(78).toFixed(0)}" y="${(Y(S.trenchDepth) + 14).toFixed(0)}" text-anchor="middle" fill="#fff">${esc(P('Trench (subduction)', 'गर्त (अधोगमन)'))}</text>`;
     return {
-      svg: `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
+      plate: {
+        src: 'assets/images/plates/t10-oceanfloor.jpg',
+        en: '3D oceanic trench, mid-ocean ridge volcanic vent and continental shelf cross-section.',
+        hi: 'महाद्वीपीय मग्नतट, मध्य-महासागरीय कटक और गहरे गर्त की 3D सागरीय काट।',
+      },
+      svg: `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="oc-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0369a1"/></linearGradient></defs>${g}</svg>`,
       aria: `Ocean floor profile: shelf ${S.shelfKm} km, trench ${S.trenchDepth} m`,
       lines: [
         { en: `Shallow continental shelf (~0–200 m depth, ${S.shelfKm} km wide) holds sunlit fisheries and oil/gas beds; deepest trench reaches ${fmt(S.trenchDepth, 0)} m where a plate subducts.`, hi: `उथला महाद्वीपीय मग्नतट (~0–200 मी गहराई, ${S.shelfKm} किमी चौड़ा) मत्स्य और खनिजों का केंद्र है; सबसे गहरा गर्त ${fmt(S.trenchDepth, 0)} मी तक जाता है जहाँ प्लेट धँसती है।`, cls: 'balanced' },
@@ -477,6 +482,11 @@ export const biomeMap = {
     }));
     const svg = worldMapSvg({ w: 640, h: 320, markers, aria: `World biome map highlighting ${match.en}` });
     return {
+      plate: {
+        src: 'assets/images/plates/t11-biomes.jpg',
+        en: 'Earth’s contrasting biome belts — tropical monsoon forest, savannah, desert dunes and snowline tundra.',
+        hi: 'पृथ्वी के प्रमुख बायोम क्षेत्र — उष्णकटिबंधीय वन, सवाना, मरुस्थल और हिमाच्छादित टुंड्रा।',
+      },
       svg,
       aria: `Closest biome for ${S.temp}C and ${S.rain} mm: ${match.en}`,
       lines: [
@@ -632,7 +642,7 @@ export const firePlanner = {
 
 // ================================================================ T11.L5 Traditional conservation gallery
 const TRAD_CASES = {
-  sacred: { en: 'Sacred Groves (Devrai / Kavu / Oran)', hi: 'पवित्र उपवन (देवराई / कावु / ओरान)', place: b('Maharashtra, Kerala, Rajasthan, Meghalaya', 'महाराष्ट्र, केरल, राजस्थान, मेघालय'), desc: b('Community-protected forest patches dedicated to local deities where cutting trees is forbidden — preserving rare medicinal plants and spring water.', 'स्थानीय देवों को समर्पित समुदाय-संरक्षित वन-खंड जहाँ कटाई वर्जित है — दुर्लभ औषधीय पौधों और झरनों की रक्षा होती है।') },
+  sacred: { en: 'Sacred Groves (Devrai / Sarna / Kavu / Oran)', hi: 'पवित्र उपवन (देवराई / सरना / कावु / ओरान)', place: b('Maharashtra, Jharkhand, Kerala, Rajasthan, Meghalaya', 'महाराष्ट्र, झारखंड, केरल, राजस्थान, मेघालय'), desc: b('Community-protected sal, banyan and forest patches dedicated to local traditions where cutting trees is forbidden — preserving rare medicinal plants and spring water.', 'समुदाय द्वारा संरक्षित साल, वट और वन-खंड जहाँ कटाई वर्जित है — दुर्लभ औषधीय पौधों और झरनों की रक्षा होती है।') },
   bishnoi: { en: 'Bishnoi Community Ethic (Khejarli)', hi: 'बिश्नोई समाज संरक्षण परंपरा (खेजड़ली)', place: b('Western Rajasthan (1730 CE Khejarli sacrifice)', 'पश्चिमी राजस्थान (1730 ई. खेजड़ली)'), desc: b('29 principles strictly forbid felling green Khejri trees or harming blackbuck/chinkara, keeping desert wildlife thriving near villages.', '29 नियम हरे खेजड़ी वृक्ष काटने व काले हिरण को हानि पहुँचाने से रोकते हैं, जिससे मरुस्थल में भी वन्यजीव गाँवों संग पलते हैं।') },
   johad: { en: 'Johad & Apatani Water-Forest Farming', hi: 'जोहड़ व अपातानी जल-वन कृषि', place: b('Alwar (Rajasthan) & Ziro Valley (Arunachal)', 'अलवर (राजस्थान) व ज़ीरो घाटी (अरुणाचल)'), desc: b('Community earthen check-dams (johads) revived dry rivers; Apatani terraced paddy integrates bamboo forests with fish culture cleanly.', 'ग्रामीण मिट्टी के जोहड़ों ने सूखी नदियाँ जीवित कीं; अपातानी सीढ़ीदार धान-मछली व बाँस वनों को जोड़ती है।') },
 };
@@ -645,7 +655,7 @@ export const traditionalConservation = {
   controls: [{ id: 'item', type: 'chips', label: b('Community tradition', 'सामुदायिक परंपरा'), options: Object.entries(TRAD_CASES).map(([id, o]) => ({ id, en: o.en.split(' (')[0], hi: o.hi.split(' (')[0] })) }],
   view(S) {
     const it = TRAD_CASES[S.item];
-    const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="16" width="608" height="158" rx="12" fill="var(--ok-bg)" stroke="var(--ok)" stroke-width="2"/><circle cx="88" cy="95" r="42" fill="#146c2e"/><circle cx="72" cy="85" r="24" fill="#2e8b57"/><circle cx="105" cy="90" r="22" fill="#4fa36a"/><rect x="83" y="110" width="10" height="32" fill="#6b4423"/><text class="txt b" x="155" y="64">${esc(P(it.en, it.hi))}</text><text class="txt sm" x="155" y="92">${esc(P(it.place.en, it.place.hi))}</text><text class="txt sm mut" x="155" y="124">${esc(P('Stewardship by shared cultural rules & local memory', 'साझा सांस्कृतिक नियमों व स्थानीय स्मृति द्वारा संरक्षण'))}</text></svg>`;
+    const svg = `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tr-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#dcfce7"/><stop offset="100%" stop-color="#f0fdf4"/></linearGradient><radialGradient id="tr-leaf"><stop offset="0%" stop-color="#4ade80"/><stop offset="100%" stop-color="#14532d"/></radialGradient></defs><rect x="14" y="14" width="612" height="176" rx="14" fill="url(#tr-bg)" stroke="#15803d" stroke-width="2"/><path d="M14,160 Q160,128 320,148 T626,154 L626,190 L14,190 Z" fill="#86efac" opacity=".55"/><circle cx="92" cy="96" r="46" fill="url(#tr-leaf)"/><circle cx="72" cy="84" r="24" fill="#22c55e" opacity=".75"/><circle cx="114" cy="90" r="22" fill="#166534" opacity=".8"/><rect x="86" y="114" width="12" height="44" rx="4" fill="#6b4423"/><circle cx="566" cy="144" r="14" fill="#0ea5e9" opacity=".35"/><text class="txt b" x="164" y="66">${esc(P(it.en, it.hi))}</text><text class="txt sm" x="164" y="96">${esc(P(it.place.en, it.place.hi))}</text><text class="txt sm mut" x="164" y="128">${esc(P('Stewardship by shared cultural rules & local memory', 'साझा सांस्कृतिक नियमों व स्थानीय स्मृति द्वारा संरक्षण'))}</text></svg>`;
     return {
       plate: {
         src: 'assets/images/plates/t11-grove.jpg',

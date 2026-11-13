@@ -16,13 +16,13 @@ export const trade = {
   controls: [{ id: 'year', type: 'slider', label: b('Year (BCE negative)', 'वर्ष (ई.पू. ऋणात्मक)'), min: -2700, max: 1500, step: 50, fmt: year }],
   view(S) {
     const active = R.activeRoutes(S.year), pj = (c) => R.project(R.CITIES[c], W, Hh);
-    let g = `<rect class="sea-fill" x="0" y="0" width="${W}" height="${Hh}"/>`;
+    let g = `<defs><linearGradient id="tr-sea" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#cde9fc"/><stop offset="100%" stop-color="#e8f5ff"/></linearGradient></defs><rect class="sea-fill" x="0" y="0" width="${W}" height="${Hh}" style="fill:url(#tr-sea)" rx="8"/>`;
     for (let lon = 30; lon <= 120; lon += 30) { const [x] = R.project({ lat: 0, lon }, W, Hh); g += `<line class="grid" x1="${x}" x2="${x}" y1="0" y2="${Hh}"/><text class="txt sm mut" x="${x + 3}" y="${Hh - 4}">${lon}°E</text>`; }
     for (let lat = 0; lat <= 40; lat += 20) { const [, y] = R.project({ lat, lon: 20 }, W, Hh); g += `<line class="grid" x1="0" x2="${W}" y1="${y}" y2="${y}"/><text class="txt sm mut" x="3" y="${y - 3}">${lat}°N</text>`; }
     if (LAND.polys) for (const poly of LAND.polys) { const d = 'M' + poly[0].map(([lo, la]) => R.project({ lat: la, lon: lo }, W, Hh).map((v) => v.toFixed(1)).join(',')).join('L') + 'Z'; g += `<path class="land-fill" d="${d}"/>`; }
     const used = new Set();
-    for (const r of active) { const pts = r.stops.map(pj); g += `<path class="route" style="stroke:${COL[r.id]}${r.mode === 'caravan' ? ';stroke-dasharray:9 6' : ''}" d="M${pts.map((p) => p.map((v) => v.toFixed(1)).join(',')).join('L')}"/>`; r.stops.forEach((s) => used.add(s)); }
-    for (const s of used) { const [x, y] = pj(s), c = R.CITIES[s]; g += `<circle class="stop" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5"/><text class="txt sm b" x="${(x + 7).toFixed(1)}" y="${(y - 6).toFixed(1)}">${esc(P(c.en, c.hi))}</text>`; }
+    for (const r of active) { const pts = r.stops.map(pj); g += `<path class="route" style="stroke:${COL[r.id]};opacity:.22;stroke-width:8" d="M${pts.map((p) => p.map((v) => v.toFixed(1)).join(',')).join('L')}"/><path class="route" style="stroke:${COL[r.id]}${r.mode === 'caravan' ? ';stroke-dasharray:9 6' : ''}" d="M${pts.map((p) => p.map((v) => v.toFixed(1)).join(',')).join('L')}"/>`; r.stops.forEach((s) => used.add(s)); }
+    for (const s of used) { const [x, y] = pj(s), c = R.CITIES[s]; g += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="9" fill="#f59e0b" opacity=".25"/><circle class="stop" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5"/><text class="txt sm b" x="${(x + 7).toFixed(1)}" y="${(y - 6).toFixed(1)}">${esc(P(c.en, c.hi))}</text>`; }
     g += `<text class="txt b" x="${W - 8}" y="20" text-anchor="end">${esc(year(S.year))}</text>`;
     const lines = [];
     if (!active.length) lines.push({ en: `${year(S.year)}: none of the routes in this lab were in use yet (or any more). Move the year.`, hi: `${year(S.year)}: इस प्रयोगशाला का कोई मार्ग अभी प्रचलित नहीं था (या अब नहीं रहा)। वर्ष बदलें।`, cls: 'warn' });
@@ -31,7 +31,13 @@ export const trade = {
       lines.push({ en: `${names.map((c) => c.en).join(' → ')} (${m.en}): about ${fmt(km, 0)} km in straight legs, at least ${fmt(d, 0)} days. Goods: ${r.goods.map((x) => x.en).join(', ')}. ${r.note.en}`, hi: `${names.map((c) => c.hi).join(' → ')} (${m.hi}): सीधी रेखाओं में लगभग ${fmt(km, 0)} किमी, कम से कम ${fmt(d, 0)} दिन। वस्तुएँ: ${r.goods.map((x) => x.hi).join(', ')}। ${r.note.hi}` });
     }
     lines.push({ en: 'Solid line = sea route; dashed line = overland caravan route.', hi: 'ठोस रेखा = समुद्री मार्ग; बिंदुकित रेखा = स्थल कारवाँ मार्ग।', cls: 'note' });
-    return { svg: `<svg viewBox="0 0 ${W} ${Hh}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Trade routes active in ${year(S.year)}: ${active.map((r) => r.id).join(', ') || 'none'}.`, lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t13-silkspice.jpg',
+        en: 'Overland Silk Road camel caravan and coastal Indian Ocean spice dhow routes trading across continents.',
+        hi: 'महाद्वीपों को जोड़ते रेशम मार्ग के कारवाँ और हिंद महासागर के मसाला व्यापारिक जहाज़।',
+      },
+      svg: `<svg viewBox="0 0 ${W} ${Hh}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Trade routes active in ${year(S.year)}: ${active.map((r) => r.id).join(', ') || 'none'}.`, lines };
   },
   discover: [b('Set the year to 2000 BCE, then 100 CE. Which routes appear and disappear?', 'वर्ष 2000 ई.पू. और फिर 100 ई. करें। कौन-से मार्ग प्रकट और लुप्त होते हैं?'), b('Compare the sea route Berenike → Muziris with the overland Silk Road. Which one carried goods across more distance per day?', 'बेरेनिके → मुज़िरिस समुद्री मार्ग की तुलना स्थल रेशम मार्ग से करें। कौन-सा प्रतिदिन अधिक दूरी तय करता था?'), b('The monsoon winds made the sea voyage to India practical. Why would sailors wait for the right season?', 'मानसूनी हवाओं ने भारत की समुद्री यात्रा को व्यावहारिक बनाया। नाविक सही ऋतु की प्रतीक्षा क्यों करते थे?')],
   predictions: [
