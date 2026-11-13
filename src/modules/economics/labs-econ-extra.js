@@ -110,6 +110,11 @@ export const econFlow = {
     ];
     const svg = forceGraphSvg({ w: 640, h: 265, nodes, links, activeId: 'prod', aria: P('Three central economic problems flow', 'अर्थव्यवस्था की तीन केंद्रीय समस्याओं का प्रवाह') });
     return {
+      plate: {
+        src: 'assets/images/plates/t08-economy.jpg',
+        en: 'Interconnected local economy: handloom weavers, grain traders, potters and small workshops.',
+        hi: 'परस्पर जुड़ी स्थानीय अर्थव्यवस्था: हथकरघा, अनाज व्यापार, कुम्हारी और लघु कार्यशालाएँ।',
+      },
       svg,
       aria: `What ${S.consumerShare}% consumer goods, How ${S.labourShare}% labour, For Whom ${S.equityTransfer}% reach. Jobs index ${jobs}, growth index ${futureGrowth}`,
       lines: [
@@ -291,6 +296,11 @@ export const planBuilder = {
     const col = res.stage === 'launch-ready' ? '#15803d' : res.stage === 'pilot-needed' ? '#b45309' : '#b91c1c';
     g += `<rect x="20" y="194" width="600" height="32" rx="8" fill="${col}" fill-opacity=".14" stroke="${col}"/><text class="txt b" x="320" y="215" text-anchor="middle">${esc(P(`Readiness Score: ${res.score}/100 (${res.stage})`, `तैयारी स्कोर: ${res.score}/100`))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t15-startup.jpg',
+        en: 'Indian craft-tech founders testing bamboo water filter, solar lamp and handloom prototypes.',
+        hi: 'बाँस जल-फ़िल्टर, सौर लैंप और हथकरघा प्रोटोटाइप पर काम करते भारतीय युवा उद्यमी।',
+      },
       svg: `<svg viewBox="0 0 640 236" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Business plan readiness ${res.score} out of 100 (${res.stage})`,
       lines: [

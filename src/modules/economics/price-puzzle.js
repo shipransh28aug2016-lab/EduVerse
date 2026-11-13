@@ -161,7 +161,17 @@ export function mount(root, ctx) {
     const predBox = h('div', { class: 'predicts' });
     const predEls = preds.map((p) => { const el = predict(p, { done: S.done, onDone: persist }); predBox.append(el); return el; });
 
-    const left = h('div', { class: 'lab-main' }, chartBox, legend, read, h('details', { class: 'fold' }, h('summary', { 'data-k': 'mk.tbl.title' }, t('mk.tbl.title')), tableBox), desc);
+    const mkImg = h('img', {
+      src: 'assets/images/plates/t09-market.jpg',
+      alt: i18n.pair('Indian neighborhood produce and spice stall with brass balance scale reflecting supply-and-demand prices.', 'स्थानीय सब्ज़ी व मसाला मंडी में पीतल तराजू — दैनिक माँग-पूर्ति से मूल्य निर्धारण।'),
+      loading: 'eager',
+      decoding: 'async',
+    });
+    const mkPlate = h('figure', { class: 'lab-plate' },
+      mkImg,
+      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'Every mandi stall clears daily supply against shopper demand — surplus spoils by evening, shortage drives prices up.', hi: 'मंडी की हर दुकान पर दैनिक पूर्ति और ग्राहक माँग का संतुलन तय होता है — अधिशेष बचने से दाम गिरते और कमी से बढ़ते हैं।' })),
+    );
+    const left = h('div', { class: 'lab-main' }, mkPlate, chartBox, legend, read, h('details', { class: 'fold' }, h('summary', { 'data-k': 'mk.tbl.title' }, t('mk.tbl.title')), tableBox), desc);
     const right = h('div', { class: 'lab-side' },
       h('h3', { 'data-k': 'mk.h.scen' }, t('mk.h.scen')), sc.root, scNote,
       h('h3', { 'data-k': 'mk.h.vars' }, t('mk.h.vars')), sPrice.root, sD.root, sS.root,
@@ -171,7 +181,7 @@ export function mount(root, ctx) {
     sync();
     const el = h('div', { class: 'lab' }, h('div', { class: 'lab-grid' }, left, right),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), predBox));
-    return { el, relabel() { predEls.forEach((p) => p.relabel()); draw(); }, snapshot: () => ({ m: { ...m }, c: M.compute(m) }) };
+    return { el, relabel() { mkImg.alt = i18n.pair('Indian neighborhood produce and spice stall with brass balance scale reflecting supply-and-demand prices.', 'स्थानीय सब्ज़ी व मसाला मंडी में पीतल तराजू — दैनिक माँग-पूर्ति से मूल्य निर्धारण।'); predEls.forEach((p) => p.relabel()); draw(); }, snapshot: () => ({ m: { ...m }, c: M.compute(m) }) };
   })();
 
   // ============================ EXTERNALITY LAB (L4) ============================

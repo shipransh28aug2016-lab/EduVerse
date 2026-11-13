@@ -244,6 +244,11 @@ export const electionTimeline = {
     }).join('');
     const svg = `<svg viewBox="0 0 640 232" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t07-elections.jpg',
+        en: 'Indian polling station courtyard: shaded voting booth, neat citizen queue and secret ballot box.',
+        hi: 'भारतीय मतदान केंद्र: छायादार मतदान बूथ, शांतिपूर्ण नागरिक कतार व गुप्त मतपेटी।',
+      },
       svg,
       aria: `Stage ${st.id}: ${st.en}. Independent ECI: ${S.independentEci}`,
       lines: [

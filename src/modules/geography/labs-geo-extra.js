@@ -117,6 +117,11 @@ export const monsoonMap = {
         ? b('Rain-shadow regions (interior Maharashtra, Karnataka, Rajasthan) grow drought-resilient millets (jowar, bajra, ragi).', 'वृष्टि-छाया क्षेत्रों (आंतरिक दक्कन, राजस्थान) में सूखा-सहिष्णु मोटे अनाज (ज्वार, बाजरा, रागी) उगाए जाते हैं।')
         : b('Rough SW monsoon seas prompt a seasonal trawling ban to protect fish breeding; calmer post-monsoon waters resume full coastal catch.', 'तेज़ द.-प. मानसूनी समुद्र में प्रजनन रक्षा हेतु मत्स्य-निषेध रहता है; शांत मौसम में तटीय मछुआरे लौटते हैं।');
     return {
+      plate: {
+        src: 'assets/images/plates/t03-monsoon.jpg',
+        en: 'Advancing monsoon rain curtains sweeping across Sahyadri hills and green terraced paddy fields.',
+        hi: 'सह्याद्रि पहाड़ियों व हरे सीढ़ीदार धान खेतों पर बरसते मानसूनी बादल।',
+      },
       svg,
       aria: `${sw ? 'SW monsoon' : 'NE monsoon'} and ${S.crop} livelihoods`,
       lines: [
@@ -180,6 +185,11 @@ export const catchment = {
       g += `<text class="txt sm" x="15" y="${y + 18}">${esc(it.k)}</text><rect x="215" y="${y}" width="${w.toFixed(1)}" height="26" rx="4" fill="${it.col}"/><text class="txt sm b" x="${(223 + w).toFixed(1)}" y="${y + 18}">${fmt(it.v, 0)} mm</text>`;
     });
     return {
+      plate: {
+        src: 'assets/images/plates/t03-watershed.jpg',
+        en: 'Forested watershed hills, stone check-dam reservoir and contour terraces conserving monsoon runoff.',
+        hi: 'वन आच्छादित जलग्रहण ढलान, पत्थर का चेक-डैम जलाशय व वर्षा-जल संरक्षण।',
+      },
       svg: `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Rain ${r.rainMm} mm: ${fmt(r.infiltrated, 0)} mm infiltrated, ${fmt(r.damStored, 0)} mm stored, ${fmt(r.surfaceRunoff, 0)} mm flood runoff`,
       lines: [
@@ -344,6 +354,11 @@ export const fisheries = {
     ch.hline(r.K * 0.3, 'guide', 0, 25);
     ch.line(r.series.map((v, y) => [y, v]), r.sustainable ? 'curve g' : 'curve d');
     return {
+      plate: {
+        src: 'assets/images/plates/t10-fisheries.jpg',
+        en: 'Traditional coastal fishing boats moored beside protective mangrove roots in Kerala backwaters.',
+        hi: 'केरल के बैकवाटर में मैंग्रोव जड़ों के किनारे खड़ी पारंपरिक मत्स्य नावें।',
+      },
       svg: ch.html({ label: P('25-year coastal fish stock', '25 वर्षों में तटीय मत्स्य भंडार') }),
       aria: `Final fish stock ${fmt(r.finalStock, 0)}, total catch ${fmt(r.totalCatch, 0)}`,
       lines: [
