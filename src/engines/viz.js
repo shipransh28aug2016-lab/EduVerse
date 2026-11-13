@@ -1,7 +1,7 @@
 // Open-source visualization & icon toolkit powered by vendored d3 (geo, scale, shape, force, array),
 // topojson-client, world-atlas, datta07/INDIAN-SHAPEFILES, and lucide.
 import * as d3 from '../../vendor/d3/d3-viz.esm.js';
-import { iconEl, iconSvg } from '../../vendor/lucide/lucide-icons.esm.js';
+import { iconEl, iconSvg } from './icons.js';
 import { esc } from '../core/dom.js';
 import { pair as P } from '../core/i18n.js';
 

@@ -1,73 +1,50 @@
 # Implementation audit
 
-Audit date: 2026-11-11. Scope: the code in this repository at `main` (merge of PR #3) and the changes made on top of it in this work.
+Audit date: 2026-11-12 (updated from 2026-11-11 baseline). Scope: `/home/user/EduVerse` on branch `arena/7ded2df7-eduverse`.
 
-## 1. What was found
+## 1. Current Coverage & Capabilities
 
-| Finding | Evidence | Action |
-|---|---|---|
-| Files had been uploaded flat into the repository root; the browser got 404s | `git ls-files` at `afe6eea` | Restored the folder structure from the files' own `import`/`fetch` paths (PR #2, #3) |
-| Files that exist only in the author's working copy were missing: `geography/models.js`, `history/models.js`, `economics/models.js`, `economics/content.js` (same-named files overwrote each other in the flat upload) | `node` import check: 7 unresolved imports | **Re-created** from how the UI uses them (see §4: these are reconstructions, not the originals) |
-| `curriculum.json` at the root, `vendor/three/` absent | 404 on `src/curriculum/curriculum.json`, `vendor/three/three.module.min.js` | Moved; vendored three.js r170 (MIT) from npm |
-| `tools/` and `tests/` directories absent, although `README.md` and `package.json` describe 41 unit tests and 45 browser checks | no such files in the repository | Cannot be verified. New tests written (§5); the old claims in this document were removed |
-| `main.js` appended the literal text `null` to every theme page that has no teacher notes or limits | rendered text `nullnull` on T03, T06, T13 | Fixed (`filter(Boolean)`) |
-| Chip control initialised with a number while its option ids were strings (T10 tides: no chip selected on load) | found by the new lab test suite | Fixed |
-| Pre-existing, not changed: Hindi text is draft everywhere; Hindi plate names only for 8 major plates; 3D labels can overlap at some angles | earlier audit, README | Still open |
+All **78 / 78 learning objects** across all **16 / 16 curriculum themes** (`T01`–`T16`) are implemented (`79` interactive simulations, `56` plate illustrations, `17` banner/hero visuals, `91` bilingual glossary terms, `32` competency-based assertion-reason questions, and Class X Board Bridge + Portfolio views).
 
-## 2. Architecture (as of this work)
+Authoritative machine-generated manifests:
+- `docs/CURRICULUM_COVERAGE.json` (`npm run catalog`): 16 themes, 78 implemented LOs, 0 planned, 27 prior Chromium QA-passed (`data/coverage/qa-passed.json`).
+- `docs/SIMULATION_CATALOG.json` (`npm run catalog`): 79 simulation definitions linked to domain engines, lab implementations, and controls.
+- `sw.js` (`npm run sw`): precaches all runtime static HTML, CSS, JS modules, geodata, vendored libraries, and images.
+
+## 2. Modular Architecture (Post-Sprout Quartermaster Refactoring)
 
 ```
-index.html → src/main.js (router, curriculum, language, status)
-  src/core            store (persisted state), i18n (3 language modes), dom helpers
-  src/components      widgets (slider, chips, tabs, predict, mcq)   lab-kit (declarative lab runner, NEW)
-  src/engines         chart (SVG), three-scene + webgl (lazy 3D)    xr (capability detection, NEW)
-  src/engines/domain  12 pure, DOM-free domain engines (NEW)
-  src/modules         per-discipline: models (pure) + UI + lab specs, loaded lazily through registry.js
-  data/, vendor/three, docs/, tests/, tools/
+index.html (<link rel="modulepreload"> critical path)
+  └── src/main.js (hash router, topbar/HUD, flip-card glossary, Hero 3D globe)
+        ├── src/core/{dom,store,i18n,media,sound}.js         (pure UI runtime utilities; zero components/modules imports)
+        ├── src/i18n/core.js (101 shell keys)               + lazy src/i18n/modules/{t02,t04,t07,t09,bridge}.js (233 keys; ui.js barrel retained)
+        ├── src/engines/domain/*.js (14 pure models)        + index.js (zero DOM/window/upward imports; modules/*/models.js are barrels)
+        ├── src/engines/{icons,viz,three-scene,webgl,xr}.js (D3 separated from lightweight Lucide icons facade)
+        ├── src/components/
+        │     ├── widgets.js, lab-kit.js, three-lab.js      (cycle-free: createThreeLab moved into lab-kit.js; async 3D builders)
+        │     ├── nep-bridge.js (lazy on theme routes)
+        │     └── diorama/{toolkit,hero-globe,part1,part2,loader}.js (+ sync facade diorama-3d.js)
+        └── src/modules/
+              ├── registry.js (`MODULES[T01..T16]` + lazy `loadTeacherMeta()`)
+              ├── class-x-bridge.js (lazy on #/bridge & #/portfolio)
+              └── <discipline>/tXX-specs.js (12 isolated per-theme spec modules + 7 legacy labs-*.js barrels)
 ```
 
-Reused unchanged: routing, store, i18n, widgets, chart, the 3D scene, `T02` plate map / boundary explorer / interior, `T04` deep-time clock, `T07` electoral-systems sandbox, `T09` Price Puzzle. `T02` and `T07` are now wrapped by composite modules (`geography/earth.js`, `politics/elections-plus.js`) that mount the original module first and add the new labs below it.
+### Key Structural Improvements Verified
+- **Home Static Boot Budget**: Cut initial `#/` closure from `21` modules (`~245 KB` raw incl. D3 & `teacher-meta`) down to **`16` modules (`79.0 KB` raw)** by extracting `src/engines/icons.js`, splitting `src/i18n/core.js`, isolating `HeroGlobe3d` from `part1`/`part2` 3D builders, and deferring `nep-bridge.js`, `class-x-bridge.js`, and `teacher-meta.js`.
+- **Zero Static Circular Imports**: Eliminated the `lab-kit.js <-> three-lab.js` import cycle by unifying `createThreeLab` inside `src/components/lab-kit.js`.
+- **Strict Pure Domain Layer**: Moved pure mathematical implementations out of `src/modules/{geography,politics,economics}/models.js` into `src/engines/domain/{tectonics,election,market}.js`, preserving downward re-export barrels in `models.js`.
+- **Automated Enforcement**: Added `tools/verify-architecture.mjs` (`npm run verify` + `tests/architecture.test.mjs`) and `.sprout/agents/` + `AGENTS.md` + `docs/SPROUT_PLANNER_BLUEPRINT.md`.
 
-## 3. Status after this work
+## 3. Verification Performed
 
-27 of 78 learning objects are implemented (12 before), covering 12 of 16 themes. Source of truth: `docs/CURRICULUM_COVERAGE.json` and `docs/SIMULATION_CATALOG.json`, generated by `node tools/build-catalog.mjs`.
+- `npm run verify`: passes `tools/verify-architecture.mjs` (`0` errors across all 102 `src/` files) and all **33 / 33** Node + JSDOM tests (`architecture`, `engines`, `labs`, `modules-dom`).
+- `npm run catalog && npm run sw`: cleanly regenerates `CURRICULUM_COVERAGE.json`, `SIMULATION_CATALOG.json`, and `sw.js`.
+- `tools/serve.mjs`: HTTP `200 OK` static serving verified for `/`, ESM chunks, geojson, and images.
 
-| Theme | Implemented | Engine | Not built |
-|---|---|---|---|
-| T02 Shaping of the Earth | L1, L2, L3 (existing), **L4** | tectonics, terrain | L5 3D landform gallery, L6 hazard lab |
-| T03 Atmosphere and Climate | **L1, L4** | atmosphere | L2 climate grapher, L3 monsoon map, L5 catchment, L6 carbon footprint |
-| T04 Early Humans | L1, L2 (existing) | timeline | L3–L5 |
-| T06 Democracy | **L3** | institutions | L1, L2, L4 |
-| T07 Elections | L2 (existing), **L4** | election | L1, L3 |
-| T08 Building Blocks | **L2** | market | L1, L3, L4, L5 |
-| T09 Price Puzzle | L1–L6 (existing) | market | none |
-| T10 Oceans and Life | **L2, L4** | ocean | L1 3D relief, L3 fisheries, L5 |
-| T11 Life on Earth | **L3** (+ food-web lab) | ecosystem | L1, L2, L4, L5 |
-| T13 India and the World-I | **L1** | tradeRoutes | L2–L4 |
-| T15 From Ideas to Startups | **L2, L5** | startup | L1, L3, L4 |
-| T16 Smart Ways to Manage Finances | **L1, L2, L3** | finance | L4, L5 |
-| T01, T05, T12, T14 | none | — | all |
+## 4. Open Risks & Pending Human/Browser Sign-Offs
 
-Engine coverage against the brief's twelve: all twelve exist and are unit-tested. Engines whose UI is thin or absent: **historical timeline reconstructed environments** (only the existing deep-time clock; no reconstructed 3D environment such as the Harappan street), **terrain** (2-D profile only, no 3D landform gallery).
-
-## 4. Reconstructed files: what to check
-
-`geography/models.js`, `history/models.js`, `economics/models.js`, `economics/content.js` were rebuilt, not recovered. Specific choices that may differ from the originals and should be compared if the originals turn up:
-
-- Economics: demand/supply slopes per scenario, shift limits, the black-market price rule, public-good items and their rationale text, three exit-ticket questions, teacher notes.
-- History: period boundaries (Mesolithic 12,000–8,000 ya, Neolithic 8,000–4,600 ya, mature Harappan 4,600–3,900 ya) and the three milestones.
-- Geography: thresholds at which trench, arc, uplift, ridge and stress appear.
-
-## 5. Verification performed
-
-- `node --test tests/*.test.mjs`: 23 tests (engines: physics and economics identities, conservation, boundary cases; labs: structure, Hindi presence for every English string, numeric safety at every control extreme, prediction/exit-ticket integrity, XR detection).
-- `node tests/lab-smoke.cjs T01 … T16` (Chromium via Playwright): drives every slider, chip, prediction and exit option on every tab, cycles the three languages, and fails on console errors, failed requests, unresolved i18n keys, `NaN`/`undefined`/`Infinity` and horizontal overflow. Run at 1100 px and 360 px (touch). See `TEST_REPORT.md`.
-
-## 6. Known gaps and risks
-
-- 51 of 78 learning objects remain planned. Themes T01, T05, T12, T14 have no lab.
-- All Hindi is draft and has not been reviewed by a subject teacher; Hindi for the new labs was written for this work and is unreviewed.
-- Historical route data (`tradeRoutes.js`) is approximate and schematic; dates and cities should be checked against the textbook before classroom use.
-- No test on a physical Android device, no frame-rate measurement on a GPU, no WebXR session test (no headset). See `PERFORMANCE_AUDIT.md`.
-- "Improved student comprehension" has not been measured; that needs a classroom pilot (protocol in `INTEGRATION_ARCHITECTURE.md` §9).
-- Source oddities D1–D10 are recorded in `docs/CURRICULUM_COVERAGE_AUDIT.md`.
+- **Chromium / Playwright (`npm run smoke`, `npm run a11y`, `perf-size.cjs`, `perf-throttle.cjs`)**: Chromium binaries are absent in this container sandbox; 51 of 78 LOs have automated Node/JSDOM verification (`33/33` tests pass) and await live Chromium visual/touch-target QA in CI or desktop Playwright (`data/coverage/qa-passed.json` records `27` prior Chromium QA passes).
+- **Hindi Review**: All 174 curriculum rows and module dictionaries remain `draft-needs-teacher-review` awaiting Hindi subject-teacher validation.
+- **Physical Hardware Checks**: No physical Android GPU frame-rate telemetry or WebXR headset testing has been run in-sandbox.
+- **Source Oddities**: Historical PDF wording discrepancies `D1`–`D10` are preserved faithfully per `docs/CURRICULUM_COVERAGE_AUDIT.md`.

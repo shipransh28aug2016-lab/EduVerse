@@ -1,8 +1,7 @@
 // T15 — From Ideas to Startups: L1 Business plan, L2 Unit economics, L3 India hubs & MSMEs, L4 Creative destruction, L5 Profit & loss.
 import { mountLabs } from '../../components/lab-kit.js';
 import { loadGeoAll } from '../../engines/viz.js';
-import { unit, pnl } from './labs-econ.js';
-import { planBuilder, ecosystemMap, creativeDestruction } from './labs-econ-extra.js';
+import { unit, pnl, planBuilder, ecosystemMap, creativeDestruction } from './t15-specs.js';
 
 export function mount(root) {
   const res = mountLabs(

@@ -5,18 +5,16 @@ import * as i18n from './core/i18n.js';
 import { t, pair } from './core/i18n.js';
 import { playTap, playFlip } from './core/sound.js';
 import { bi, relabelBi } from './components/widgets.js';
-import { UI } from './i18n/ui.js';
+import { UI_CORE } from './i18n/core.js';
 import { OPENINGS } from './modules/openings.js';
-import { MODULES, TEACHER, LIMITS } from './modules/registry.js';
+import { MODULES, loadTeacherMeta } from './modules/registry.js';
 import { HERO_MEDIA, THEME_MEDIA, themeBannerEl } from './core/media.js';
-import { iconEl } from './engines/viz.js';
+import { iconEl } from './engines/icons.js';
 import { webglAvailable } from './engines/webgl.js';
 import { createScene } from './engines/three-scene.js';
-import { createHeroGlobe3d } from './components/diorama-3d.js';
-import { createNepBridge } from './components/nep-bridge.js';
-import { renderBridge, renderPortfolio } from './modules/class-x-bridge.js';
+import { createHeroGlobe3d } from './components/diorama/hero-globe.js';
 
-i18n.register(UI);
+i18n.register(UI_CORE);
 const root = $('#main'), bar = $('#topbar'), foot = $('#foot');
 let cur = null; // { id, mod } mounted module
 let heroCleanup = null; // Home 3D Earth cleanup handle
@@ -80,9 +78,13 @@ async function route() {
   const hStr = location.hash;
   root.replaceChildren(); window.scrollTo(0, 0);
   if (hStr === '#/bridge') {
+    const { renderBridge } = await import('./modules/class-x-bridge.js');
+    if (location.hash !== '#/bridge') return;
     cur = { id: 'bridge', mod: renderBridge(root, CUR) };
     document.title = 'Class X Bridge · Class IX Social Science';
   } else if (hStr === '#/portfolio') {
+    const { renderPortfolio } = await import('./modules/class-x-bridge.js');
+    if (location.hash !== '#/portfolio') return;
     cur = { id: 'portfolio', mod: renderPortfolio(root, CUR) };
     document.title = 'NEP Portfolio · Class IX Social Science';
   } else {
@@ -207,6 +209,11 @@ async function themePage(id) {
   const loChip = (l) => h('span', { class: `chip-lo ${l.status}` }, h('b', {}, l.id.split('.')[1]), ' ', bi({ en: l.en, hi: l.hi }, { tag: 'span' }), ' ', h('i', { 'data-k': `lo.${l.status}` }, t(`lo.${l.status}`)));
   const opening = OPENINGS[id];
   const modSlot = h('div', { class: 'module', id: 'module' });
+  const [{ createNepBridge }, { TEACHER, LIMITS }] = await Promise.all([
+    import('./components/nep-bridge.js'),
+    loadTeacherMeta(),
+  ]);
+  if (location.hash !== `#/theme/${id}`) return;
   const nepBridge = createNepBridge(id, CUR);
   const nav = h('nav', { class: 'pager', 'aria-label': 'Theme navigation' }, idx > 0 ? h('a', { href: `#/theme/${CUR.themes[idx - 1].id}`, rel: 'prev' }, '← ', CUR.themes[idx - 1].id) : h('span'), h('a', { href: '#/', 'data-k': 'nav.all' }, t('nav.all')), idx < 15 ? h('a', { href: `#/theme/${CUR.themes[idx + 1].id}`, rel: 'next' }, CUR.themes[idx + 1].id, ' →') : h('span'));
   const glossary = (window.__glossary || []).filter((g) => (g.themes || []).includes(id));

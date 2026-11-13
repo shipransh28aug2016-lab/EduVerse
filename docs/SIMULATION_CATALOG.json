@@ -411,7 +411,7 @@
    },
    "modality": "diagram",
    "engine": "src/engines/domain/atmosphere.js",
-   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "implementation": "src/modules/geography/t03-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Describe the layers of the atmosphere and show how temperature, air pressure and the amount of air change with altitude.",
@@ -453,7 +453,7 @@
    },
    "modality": "graph",
    "engine": "src/engines/domain/atmosphere.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t03-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Read and compare temperature-rainfall climographs across contrasting Indian stations shaped by latitude, altitude, coast and relief.",
@@ -503,7 +503,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/atmosphere.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t03-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Trace India’s advancing (SW) and retreating (NE) monsoon winds on an India map and link rainfall seasons to farming and coastal livelihoods.",
@@ -553,7 +553,7 @@
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/atmosphere.js",
-   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "implementation": "src/modules/geography/t03-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Explain why the wind near a coast reverses between day and night using the different heating of land and sea.",
@@ -603,7 +603,7 @@
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/atmosphere.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t03-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Test how forests, paved surfaces and check-dams change rainwater infiltration versus flash-flood surface runoff.",
@@ -669,7 +669,7 @@
    },
    "modality": "calculator",
    "engine": "src/engines/domain/atmosphere.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t03-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Calculate household greenhouse emissions across electricity, travel and food, and link emissions to sea-level and glacier risks.",
@@ -777,7 +777,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t04-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Compare mobile foraging bands with early farming villages across food surplus, storage, population growth and harvest shocks.",
@@ -835,7 +835,7 @@
    },
    "modality": "3d",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t04-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Plan an Indus-Sarasvati (Harappan) town with Citadel, Great Bath, Granary, right-angle grid streets and covered drains, and inspect its 3D layout.",
@@ -909,7 +909,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t04-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Compare the four Bronze Age river-valley civilisations—Harappan, Mesopotamia, Egypt and Shang China—on a world atlas.",
@@ -951,11 +951,11 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t05-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
-    "en": "Track historical geography shifts from Sapta-Sindhu pastoral clans to Ganga Mahajanapadas, Mauryan edicts and classical kingdoms up to 1000 CE.",
-    "hi": "सप्त-सिंधु के कबीलों से गंगा महाजनपदों, मौर्य अभिलेखों और 1000 ई. तक के राज्यों तक भारत के ऐतिहासिक भूगोल को मानचित्र पर देखें।"
+    "en": "Trace how political institutions evolved from Sapta-Sindhu assemblies and Vajji republics to Mauryan highways and 10th-century Chola village self-rule.",
+    "hi": "सप्त-सिंधु सभाओं और वज्जि गणसंघ से मौर्य राजमार्गों और 10वीं सदी के चोल ग्राम स्वशासन तक राजनीतिक संस्थाओं का विकास मानचित्र पर देखें।"
    },
    "provenance": "reconstruction",
    "controls": [
@@ -963,8 +963,16 @@
      "id": "era",
      "type": "chips",
      "label": {
-      "en": "Historical period",
-      "hi": "ऐतिहासिक काल"
+      "en": "Historical period (up to 1000 CE)",
+      "hi": "ऐतिहासिक काल (1000 ई. तक)"
+     }
+    },
+    {
+     "id": "showTrade",
+     "type": "toggle",
+     "label": {
+      "en": "Overlay river & maritime trade links",
+      "hi": "नदी व समुद्री व्यापार मार्ग दिखाएँ"
      }
     }
    ],
@@ -993,11 +1001,11 @@
    },
    "modality": "evidence",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t05-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
-    "en": "Compare inscriptions, literary texts and material artefacts as historical sources—identifying what each reveals and hides.",
-    "hi": "अभिलेखों, साहित्यिक ग्रंथों और भौतिक पुरावशेषों की तुलना करें—प्रत्येक क्या दिखाता और क्या छोड़ता है।"
+    "en": "Practise historian triangulation: compare inscriptions, texts, material finds and royal prashastis to spot bias and raise confidence.",
+    "hi": "इतिहासकार की त्रिकोणीय जाँच सीखें: अभिलेख, ग्रंथ, पुरावशेष और प्रशस्ति की तुलना कर पक्षपात पहचानें।"
    },
    "provenance": "documented",
    "controls": [
@@ -1005,8 +1013,16 @@
      "id": "src",
      "type": "chips",
      "label": {
-      "en": "Source type",
-      "hi": "स्रोत प्रकार"
+      "en": "Evidence category",
+      "hi": "साक्ष्य वर्ग"
+     }
+    },
+    {
+     "id": "corroborate",
+     "type": "toggle",
+     "label": {
+      "en": "Triangulate with other independent sources",
+      "hi": "अन्य स्वतंत्र स्रोतों से मिलान करें"
      }
     }
    ],
@@ -1035,36 +1051,44 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t05-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
-    "en": "Trace how early empires (such as Mauryan & Gupta states) organised revenue, provinces, roads and justice, and test over-taxation risks.",
-    "hi": "समझें कि प्राचीन साम्राज्यों (मौर्य व गुप्त) ने राजस्व, प्रांत, सड़कें और न्याय कैसे संगठित किए, और अत्यधिक कर के जोखिम परखें।"
+    "en": "Test Kautilya’s Saptanga statecraft model up to 1000 CE: balance taxes, highways, irrigation and local assemblies (Gana, Maurya, Samanta, Chola Sabha).",
+    "hi": "1000 ई. तक के सप्तांग राज्य-मॉडल को परखें: कर, राजमार्ग, सिंचाई और स्थानीय सभाओं (गणसंघ, मौर्य, सामंत, चोल सभा) में संतुलन बनाएँ।"
    },
-   "provenance": "reconstruction",
+   "provenance": "schematic",
    "controls": [
+    {
+     "id": "govMode",
+     "type": "chips",
+     "label": {
+      "en": "State architecture",
+      "hi": "शासन प्रणाली"
+     }
+    },
     {
      "id": "taxRate",
      "type": "slider",
      "label": {
-      "en": "Agricultural tax share (bhaga %)",
-      "hi": "कृषि कर अंश (भाग %)"
+      "en": "Agricultural tax (bhaga %)",
+      "hi": "कृषि कर (भाग %)"
      }
     },
     {
      "id": "roadsInvest",
      "type": "slider",
      "label": {
-      "en": "Public works (canals, roads, inns)",
-      "hi": "लोक निर्माण (नहरें, सड़कें, सराय)"
+      "en": "Highways, inns & wells (%)",
+      "hi": "राजमार्ग, सराय व कुएँ (%)"
      }
     },
     {
-     "id": "decentralized",
-     "type": "toggle",
+     "id": "irrigationInvest",
+     "type": "slider",
      "label": {
-      "en": "Samanta / local provincial autonomy",
-      "hi": "सामंत / प्रांतीय स्वायत्तता"
+      "en": "Canals & village tanks (%)",
+      "hi": "नहरें व ग्राम तालाब (%)"
      }
     }
    ],
@@ -1093,11 +1117,11 @@
    },
    "modality": "inquiry",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t05-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
-    "en": "Explore India’s early knowledge traditions across grammar, medicine, mathematics/astronomy and residential universities.",
-    "hi": "व्याकरण, चिकित्सा, गणित/खगोल और आवासीय विश्वविद्यालयों में भारत की प्राचीन ज्ञान परंपराओं का अन्वेषण करें।"
+    "en": "Explore India’s ancient knowledge systems up to 1000 CE — grammar algorithms, zero, surgery, metallurgy & Nalanda/Vikramashila debates — and connect them to AI-era thinking.",
+    "hi": "1000 ई. तक की भारतीय ज्ञान परंपराओं — व्याकरण सूत्र, शून्य, शल्य-चिकित्सा, धातुकर्म और नालंदा-विक्रमशिला शास्त्रार्थ — को एआई युग की सोच से जोड़ें।"
    },
    "provenance": "documented",
    "controls": [
@@ -1105,8 +1129,16 @@
      "id": "topic",
      "type": "chips",
      "label": {
-      "en": "Knowledge strand",
-      "hi": "ज्ञान क्षेत्र"
+      "en": "Knowledge tradition",
+      "hi": "ज्ञान परंपरा"
+     }
+    },
+    {
+     "id": "compareAi",
+     "type": "toggle",
+     "label": {
+      "en": "Highlight 21st-century AI & STEM connection",
+      "hi": "21वीं सदी एआई / विज्ञान जुड़ाव दिखाएँ"
      }
     }
    ],
@@ -1135,11 +1167,11 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-early.js",
+   "implementation": "src/modules/history/t05-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
-    "en": "Plan caravan and coastal shipments along India’s ancient Uttarapatha and Dakshinapatha routes and understand how merchant guilds (shrenis) lowered risk.",
-    "hi": "प्राचीन भारत के उत्तरापथ व दक्षिणापथ मार्गों पर व्यापार योजना बनाएँ और जानें कि श्रेणी (व्यापारी संघ) ने जोखिम कैसे घटाया।"
+    "en": "Simulate overland and maritime commerce along Uttarapatha, Dakshinapatha & Bay of Bengal guild routes up to 1000 CE (Shreni, Manigramam, Ayyavole 500).",
+    "hi": "1000 ई. तक उत्तरापथ, दक्षिणापथ व बंगाल की खाड़ी मार्गों पर श्रेणी, मणिग्रामम व अय्यावोले संघों के व्यापार व जोखिम का अनुकरण करें।"
    },
    "provenance": "reconstruction",
    "controls": [
@@ -1147,16 +1179,32 @@
      "id": "route",
      "type": "chips",
      "label": {
-      "en": "Trade corridor",
-      "hi": "व्यापार गलियारा"
+      "en": "Trade corridor (up to 1000 CE)",
+      "hi": "व्यापार मार्ग (1000 ई. तक)"
+     }
+    },
+    {
+     "id": "cargoValue",
+     "type": "slider",
+     "label": {
+      "en": "Shipment capital (gold units)",
+      "hi": "व्यापार पूंजी (स्वर्ण इकाई)"
      }
     },
     {
      "id": "shreniJoin",
      "type": "toggle",
      "label": {
-      "en": "Operate inside a Shreni (merchant guild)",
-      "hi": "श्रेणी (व्यापारी संघ) में शामिल हों"
+      "en": "Join a Guild (Shreni / Manigramam)",
+      "hi": "श्रेणी / व्यापार संघ में शामिल हों"
+     }
+    },
+    {
+     "id": "monsoonInsurance",
+     "type": "toggle",
+     "label": {
+      "en": "Pooled caravan / sea risk fund",
+      "hi": "सामूहिक जोखिम सुरक्षा कोष"
      }
     }
    ],
@@ -1185,7 +1233,7 @@
    },
    "modality": "diagram",
    "engine": "src/engines/domain/institutions.js",
-   "implementation": "src/modules/politics/labs-politics.js",
+   "implementation": "src/modules/politics/t06-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Test whether a fictional polity meets all four core criteria of democracy: free elections, multi-party choice, free media, and equal rule of law.",
@@ -1259,7 +1307,7 @@
    },
    "modality": "evidence",
    "engine": "src/engines/domain/institutions.js",
-   "implementation": "src/modules/politics/labs-politics.js",
+   "implementation": "src/modules/politics/t06-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Examine documented early Indian deliberative and participatory institutions (Sabha-Samiti, Vajji Gana-Sangha, and Uttaramerur village sabha).",
@@ -1309,7 +1357,7 @@
    },
    "modality": "diagram",
    "engine": "src/engines/domain/institutions.js",
-   "implementation": "src/modules/politics/labs-politics.js",
+   "implementation": "src/modules/politics/t06-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Compare how the executive and the legislature are related in a parliamentary and a presidential system, and what happens when the government loses the legislature’s support.",
@@ -1367,7 +1415,7 @@
    },
    "modality": "inquiry",
    "engine": "src/engines/domain/institutions.js",
-   "implementation": "src/modules/politics/labs-politics.js",
+   "implementation": "src/modules/politics/t06-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Locate India, USA, France, Canada, and Russia on the world map and compare how their executives, legislatures, and heads of state are structured.",
@@ -1409,7 +1457,7 @@
    },
    "modality": "diagram",
    "engine": "src/engines/domain/election.js",
-   "implementation": "src/modules/politics/labs-politics.js",
+   "implementation": "src/modules/politics/t07-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Trace the Indian election workflow led by the Election Commission of India (ECI) under Article 324 and the Representation of the People Acts (1950, 1951).",
@@ -1476,7 +1524,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/election.js",
-   "implementation": "src/modules/politics/labs-politics.js",
+   "implementation": "src/modules/politics/t07-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Explore how drawing constituency boundaries (delimitation) shapes seat outcomes from identical block votes, and check voter-roll eligibility rules.",
@@ -1534,7 +1582,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/election.js",
-   "implementation": "src/modules/politics/labs-politics.js",
+   "implementation": "src/modules/politics/t07-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Find which parties can form a government when no party wins a majority of seats, and examine how the Anti-Defection Law promotes stability.",
@@ -1584,7 +1632,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/market.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t08-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Allocate a fixed ₹100 weekly allowance across books, snacks, and mobile data to feel scarcity, trade-offs, and opportunity cost firsthand.",
@@ -1642,7 +1690,7 @@
    },
    "modality": "graph",
    "engine": "src/engines/domain/market.js",
-   "implementation": "src/modules/economics/labs-econ.js",
+   "implementation": "src/modules/economics/t08-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Use a production possibility frontier to show scarcity, choice and opportunity cost: producing more of one good means giving up some of another.",
@@ -1700,7 +1748,7 @@
    },
    "modality": "diagram",
    "engine": "src/engines/domain/market.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t08-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Analyse the three central problems of every economy — What to produce, How to produce (labour vs machines), and For Whom to produce.",
@@ -1758,7 +1806,7 @@
    },
    "modality": "inquiry",
    "engine": "src/engines/domain/market.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t08-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Compare free-market, centrally planned, and mixed economic systems on ownership, price signals, efficiency, and equity.",
@@ -1800,7 +1848,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/market.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t08-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Test how a social safety net (health insurance, crop/disaster aid, PDS food security) prevents a sudden household shock from trapping a family in poverty debt.",
@@ -1952,7 +2000,7 @@
    },
    "modality": "3d",
    "engine": "src/engines/domain/ocean.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t10-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Identify the main zones of the ocean floor—continental shelf, slope, abyssal plain, mid-ocean ridge and trench—and relate depth to plate processes.",
@@ -2018,7 +2066,7 @@
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/ocean.js",
-   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "implementation": "src/modules/geography/t10-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Explain how the Moon and Sun produce tides and why the tidal range is largest at new and full moon (spring tides) and smallest at the quarters (neap tides).",
@@ -2060,7 +2108,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/ocean.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t10-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Balance fishing fleet size, net mesh rules, closed spawning seasons and mangrove nurseries to sustain coastal livelihoods.",
@@ -2126,7 +2174,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/ocean.js",
-   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "implementation": "src/modules/geography/t10-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Calculate how fast a tsunami travels, why it slows near the coast, and how much time a community has to evacuate after a warning.",
@@ -2184,7 +2232,7 @@
    },
    "modality": "diagram",
    "engine": "src/engines/domain/ocean.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t10-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Map why nations cooperate on maritime trade, cyclone/tsunami warning, coral conservation and ocean law.",
@@ -2226,7 +2274,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/ecosystem.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t11-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Match temperature and rainfall belts to Earth’s major biomes on a world map.",
@@ -2276,7 +2324,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/ecosystem.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t11-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Locate India’s biosphere reserves on a map and understand how Core, Buffer and Transition zones protect biodiversity alongside local communities.",
@@ -2326,7 +2374,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/ecosystem.js",
-   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "implementation": "src/modules/geography/t11-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Show how plants, herbivores and predators depend on one another and how removing predators changes the whole food web.",
@@ -2376,7 +2424,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/ecosystem.js",
-   "implementation": "src/modules/geography/labs-air-water-life.js",
+   "implementation": "src/modules/geography/t11-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Decide how much of a forest can be harvested each year without destroying it, using regrowth and the maximum sustainable yield.",
@@ -2426,7 +2474,7 @@
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/ecosystem.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t11-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Test how heat, dry humidity, wind and dry pine needles drive forest-fire spread, and how firebreaks and community patrols lower risk.",
@@ -2500,7 +2548,7 @@
    },
    "modality": "inquiry",
    "engine": "src/engines/domain/ecosystem.js",
-   "implementation": "src/modules/geography/labs-geo-extra.js",
+   "implementation": "src/modules/geography/t11-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Examine how India’s traditional community practices—sacred groves, Bishnoi ethics and indigenous water-forest systems—conserve biodiversity.",
@@ -2542,7 +2590,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t12-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Compare dated political maps of India (1000–1700 CE) and analyse why terrain and local alliances shaped resistance and resilience.",
@@ -2592,7 +2640,7 @@
    },
    "modality": "3d",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t12-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Design an Indian hill fort balancing bastions, bent defensive gates, double walls, rainwater cisterns and grain storage against long sieges.",
@@ -2666,7 +2714,7 @@
    },
    "modality": "evidence",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t12-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Examine continuity and innovation in Indian art, architecture and regional languages between 1000 and 1700 CE.",
@@ -2708,7 +2756,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t12-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Map how Bhakti and Sufi traditions travelled across regions from South to North and East India, challenging caste/ritual barriers through vernacular devotion.",
@@ -2750,7 +2798,7 @@
    },
    "modality": "timeline",
    "engine": "src/engines/domain/history.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t12-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Distinguish continuities from changes in economy, agriculture, currency and state governance across 1000–1700 CE.",
@@ -2834,7 +2882,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/tradeRoutes.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t13-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Trace how ideas—zero/numerals, Buddhism, Panchatantra stories and chess—travelled between India and the wider world (1900 BCE–1200 CE).",
@@ -2876,7 +2924,7 @@
    },
    "modality": "inquiry",
    "engine": "src/engines/domain/tradeRoutes.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t13-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Read preserved primary source descriptions of Indian Knowledge Systems in astronomy, surgery and metallurgy.",
@@ -2918,7 +2966,7 @@
    },
    "modality": "evidence",
    "engine": "src/engines/domain/tradeRoutes.js",
-   "implementation": "src/modules/history/labs-history-later.js",
+   "implementation": "src/modules/history/t13-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Deduce an artefact’s provenance—where it was made, where it was found and how trade moved it—from physical clues.",
@@ -3218,7 +3266,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/startup.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t15-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Walk through the stages of turning an everyday problem into a viable enterprise using a business plan.",
@@ -3284,7 +3332,7 @@
    },
    "modality": "sandbox",
    "engine": "src/engines/domain/startup.js",
-   "implementation": "src/modules/economics/labs-econ.js",
+   "implementation": "src/modules/economics/t15-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Use price, variable cost, fixed cost and units sold to find a small business’s profit and break-even point.",
@@ -3350,7 +3398,7 @@
    },
    "modality": "map",
    "engine": "src/engines/domain/startup.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t15-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Locate India’s diverse startup & MSME clusters and compare how Startup India, Make in India, Digital India, MSMEs, and the unorganised sector create jobs.",
@@ -3400,7 +3448,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/startup.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t15-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Model \"creative destruction\": see how new innovations displace older industries while creating new jobs and higher productivity — and how worker retraining softens disruption.",
@@ -3450,7 +3498,7 @@
    },
    "modality": "calculator",
    "engine": "src/engines/domain/startup.js",
-   "implementation": "src/modules/economics/labs-econ.js",
+   "implementation": "src/modules/economics/t15-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Read a simple profit-and-loss statement: income minus every cost gives profit or loss, and the order of subtraction shows where money goes.",
@@ -3524,7 +3572,7 @@
    },
    "modality": "calculator",
    "engine": "src/engines/domain/finance.js",
-   "implementation": "src/modules/economics/labs-econ.js",
+   "implementation": "src/modules/economics/t16-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Plan a monthly budget by splitting income into needs, wants and savings, and see what happens when spending is larger than income.",
@@ -3582,7 +3630,7 @@
    },
    "modality": "calculator",
    "engine": "src/engines/domain/finance.js",
-   "implementation": "src/modules/economics/labs-econ.js",
+   "implementation": "src/modules/economics/t16-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Show how rising prices (inflation) reduce what a fixed amount of money can buy, and why interest must beat inflation to grow real wealth.",
@@ -3640,7 +3688,7 @@
    },
    "modality": "graph",
    "engine": "src/engines/domain/finance.js",
-   "implementation": "src/modules/economics/labs-econ.js",
+   "implementation": "src/modules/economics/t16-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Compare simple and compound interest over time and see why starting to save early matters.",
@@ -3698,7 +3746,7 @@
    },
    "modality": "scenario",
    "engine": "src/engines/domain/finance.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t16-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Compare savings accounts, fixed deposits, government bonds, and equity index funds across risk and return, and calculate how insurance pools risk across many households.",
@@ -3756,7 +3804,7 @@
    },
    "modality": "diagram",
    "engine": "src/engines/domain/finance.js",
-   "implementation": "src/modules/economics/labs-econ-extra.js",
+   "implementation": "src/modules/economics/t16-specs.js",
    "kit": "src/components/lab-kit.js",
    "objective": {
     "en": "Understand the concept of personal income tax, progressive slab tiers, and how citizen taxes fund shared public goods like schools, roads, and healthcare.",

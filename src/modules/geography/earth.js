@@ -1,8 +1,7 @@
 // T02 composite: plate map, 3D/2D boundary explorer, Earth interior (L1-L3), plus gradation (L4), 3D landform gallery (L5), and hazard lab (L6).
 import { h } from '../../core/dom.js';
 import { bi } from '../../components/widgets.js';
-import { createLab } from '../../components/lab-kit.js';
-import { createThreeLab } from '../../components/three-lab.js';
+import { createLab, createThreeLab } from '../../components/lab-kit.js';
 import { createLandform3d } from './landforms-3d.js';
 import * as i18n from '../../core/i18n.js';
 import * as tectonics from './tectonics.js';

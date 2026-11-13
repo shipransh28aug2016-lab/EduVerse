@@ -6,6 +6,9 @@ import * as store from '../../core/store.js';
 import { slider, button, chips, bi, relabelBi, predict, mcq } from '../../components/widgets.js';
 import { createInteractivePlate } from '../../components/lab-kit.js';
 import * as M from './models.js';
+import { UI_T07 } from '../../i18n/modules/t07.js';
+
+i18n.register(UI_T07);
 
 const SYS = ['fptp', 'runoff', 'pr'];
 const PN = { R: ['Red party', 'लाल दल'], B: ['Blue party', 'नीला दल'], G: ['Green party', 'हरा दल'], Y: ['Yellow party', 'पीला दल'] };

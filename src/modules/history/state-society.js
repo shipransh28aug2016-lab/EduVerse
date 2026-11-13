@@ -1,7 +1,7 @@
 // T05 — State and Society (upto 1000 CE): L1 Historical Map, L2 Source Corroboration, L3 Saptanga Admin, L4 IKS & AI Parallels, L5 Guilds & Sea Trade, L6 AI Audit Studio.
 import { mountLabs } from '../../components/lab-kit.js';
 import { loadGeoAll } from '../../engines/viz.js';
-import { vedicDatedMap, sourceRoom, empireAdmin, knowledgeGallery, guildTrade, aiAuditLab } from './labs-history-early.js';
+import { vedicDatedMap, sourceRoom, empireAdmin, knowledgeGallery, guildTrade, aiAuditLab } from './t05-specs.js';
 
 export function mount(root) {
   const res = mountLabs(

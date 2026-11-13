@@ -5,19 +5,24 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as t01 from '../src/modules/integrated/t01.js';
 import * as earth from '../src/modules/geography/labs-earth.js';
-import * as geoExtra from '../src/modules/geography/labs-geo-extra.js';
-import * as awl from '../src/modules/geography/labs-air-water-life.js';
-import * as histEarly from '../src/modules/history/labs-history-early.js';
-import * as histLater from '../src/modules/history/labs-history-later.js';
+import * as t03 from '../src/modules/geography/t03-specs.js';
+import * as t10 from '../src/modules/geography/t10-specs.js';
+import * as t11 from '../src/modules/geography/t11-specs.js';
+import * as t04 from '../src/modules/history/t04-specs.js';
+import * as t05 from '../src/modules/history/t05-specs.js';
+import * as t12 from '../src/modules/history/t12-specs.js';
+import * as t13 from '../src/modules/history/t13-specs.js';
 import * as trade from '../src/modules/history/labs-trade.js';
-import * as pol from '../src/modules/politics/labs-politics.js';
+import * as t06 from '../src/modules/politics/t06-specs.js';
+import * as t07 from '../src/modules/politics/t07-specs.js';
 import * as auth from '../src/modules/politics/labs-authority.js';
-import * as econ from '../src/modules/economics/labs-econ.js';
-import * as econExtra from '../src/modules/economics/labs-econ-extra.js';
+import * as t08 from '../src/modules/economics/t08-specs.js';
+import * as t15 from '../src/modules/economics/t15-specs.js';
+import * as t16 from '../src/modules/economics/t16-specs.js';
 import { xrSupport } from '../src/engines/xr.js';
 
 const SPECS = [
-  t01, earth, geoExtra, awl, histEarly, histLater, trade, pol, auth, econ, econExtra,
+  t01, earth, t03, t10, t11, t04, t05, t12, t13, trade, t06, t07, auth, t08, t15, t16,
 ].flatMap((m) => Object.values(m).filter((v) => v && typeof v === 'object' && v.id && v.view && v.controls));
 
 const DEV = /[ऀ-ॿ]/, BAD = /NaN|undefined|Infinity|\[object/;
@@ -118,9 +123,9 @@ test('exit tickets: exactly one correct option, wrong options explain themselves
 });
 
 test('scientific spot checks surfaced in the labs', () => {
-  const S = awl.tsunami.init(); assert.match(awl.tsunami.view(S).lines[0].en, /713/);
-  assert.match(awl.cutaway.view({ alt: 11 }).lines[0].en, /-56|−56/);
-  assert.match(econ.interest.view({ principal: 10000, rate: 8, years: 30 }).lines[0].en, /1,00,626|1,00,627/);
+  const S = t10.tsunami.init(); assert.match(t10.tsunami.view(S).lines[0].en, /713/);
+  assert.match(t03.cutaway.view({ alt: 11 }).lines[0].en, /-56|−56/);
+  assert.match(t16.interest.view({ principal: 10000, rate: 8, years: 30 }).lines[0].en, /1,00,626|1,00,627/);
 });
 
 test('xr detection never throws and defaults to unsupported', async () => {

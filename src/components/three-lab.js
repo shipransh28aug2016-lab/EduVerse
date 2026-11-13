@@ -7,7 +7,6 @@ import { button } from './widgets.js';
 import { webglAvailable } from '../engines/webgl.js';
 import { xrSupport } from '../engines/xr.js';
 import { createScene } from '../engines/three-scene.js';
-import { createLab } from './lab-kit.js';
 import { THEME_NEP } from '../data/nep-cbq.js';
 
 export function attachThreeStage(labEl, getState, create3dView, { ariaKey = 'pb.gl.aria', insertBeforeEl, themeId, tourStops } = {}) {
@@ -131,7 +130,9 @@ export function attachThreeStage(labEl, getState, create3dView, { ariaKey = 'pb.
         onPick: showInspect,
       });
       if (destroyed) { api.dispose(); api = null; return; }
-      view3dObj = create3dView(api, glLabels);
+      const built = create3dView(api, glLabels);
+      view3dObj = typeof built?.then === 'function' ? await built : built;
+      if (destroyed || !view3dObj) { view3dObj?.dispose?.(); api?.dispose(); api = null; view3dObj = null; return; }
       view3dObj.update(getState());
       presets.hidden = false;
       modeNote.dataset.k = 'pb.mode.3d';
@@ -175,22 +176,5 @@ export function attachThreeStage(labEl, getState, create3dView, { ariaKey = 'pb.
       modeNote.textContent = t(modeNote.dataset.k || 'pb.mode.2d');
     },
     destroy() { destroyed = true; offStore(); disable(); },
-  };
-}
-
-export function createThreeLab(spec, themeId, create3dView, opts = {}) {
-  let stage3d = null;
-  const lab = createLab(spec, themeId, {
-    ...opts,
-    skipAuto3d: true,
-    onDraw: (S) => stage3d?.update(S),
-  });
-  stage3d = attachThreeStage(lab.el, () => lab.state, create3dView, { themeId, ...opts });
-  return {
-    ...lab,
-    enable: stage3d.enable,
-    disable: stage3d.disable,
-    relabel() { lab.relabel(); stage3d.relabel(); },
-    destroy() { stage3d.destroy(); lab.destroy?.(); },
   };
 }

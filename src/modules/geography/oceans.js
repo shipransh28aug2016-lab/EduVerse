@@ -1,12 +1,10 @@
 // T10 — Oceans and Life: L1 3D Ocean-Floor Cutaway, L2 Tides, L3 Marine Fisheries, L4 Tsunami, L5 Maritime Cooperation.
 import * as i18n from '../../core/i18n.js';
 import * as store from '../../core/store.js';
-import { createLab } from '../../components/lab-kit.js';
-import { createThreeLab } from '../../components/three-lab.js';
+import { createLab, createThreeLab } from '../../components/lab-kit.js';
 import { createOcean3d } from './ocean-3d.js';
 import { tabs as mkTabs } from '../../components/widgets.js';
-import { tides, tsunami } from './labs-air-water-life.js';
-import { oceanRelief, fisheries, maritimeCoop } from './labs-geo-extra.js';
+import { tides, tsunami, oceanRelief, fisheries, maritimeCoop } from './t10-specs.js';
 
 export function mount(root) {
   const lab1 = createThreeLab(oceanRelief, 'T10', createOcean3d);

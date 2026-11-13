@@ -2,7 +2,7 @@
 import { mountLabs } from '../../components/lab-kit.js';
 import { loadGeoAll } from '../../engines/viz.js';
 import { trade, LAND } from './labs-trade.js';
-import { exchangeMap, iksGallery, artefactProvenance } from './labs-history-later.js';
+import { exchangeMap, iksGallery, artefactProvenance } from './t13-specs.js';
 
 export function mount(root) {
   const res = mountLabs(

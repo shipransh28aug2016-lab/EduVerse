@@ -5,7 +5,7 @@ import * as store from '../../core/store.js';
 import { tabs as mkTabs } from '../../components/widgets.js';
 import { createLab } from '../../components/lab-kit.js';
 import * as elections from './elections.js';
-import { electionTimeline, delimitationLab, coalition } from './labs-politics.js';
+import { electionTimeline, delimitationLab, coalition } from './t07-specs.js';
 
 export function mount(root, ctx) {
   const lab1 = createLab(electionTimeline, 'T07');

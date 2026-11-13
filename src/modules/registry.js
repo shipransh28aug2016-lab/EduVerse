@@ -1,5 +1,5 @@
-// Lazy module registry: a theme's code and assets load only when its page is opened. Small text-only content is imported statically.
-export { TEACHER, LIMITS } from './teacher-meta.js';
+// Lazy module registry: theme code, teacher metadata, and assets load only when opened.
+export const loadTeacherMeta = () => import('./teacher-meta.js');
 
 export const MODULES = {
   T01: () => import('./integrated/t01.js'),

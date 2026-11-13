@@ -7,6 +7,9 @@ import { playTap, playWin, playTry } from '../core/sound.js';
 import { indiaMapSvg, indiaProjection, loadGeoAll } from '../engines/viz.js';
 import { bi, relabelBi } from '../components/widgets.js';
 import { CG_META, THEME_NEP } from '../data/nep-cbq.js';
+import { UI_BRIDGE } from '../i18n/modules/bridge.js';
+
+i18n.register(UI_BRIDGE);
 
 export const BOARD_MAP_PINS = [
   { id: 'calcutta-1920', cat: 'hist', lon: 88.36, lat: 22.57, en: 'Calcutta (Sept 1920 INC Session)', hi: 'कलकत्ता (सितंबर 1920 कांग्रेस अधिवेशन)', noteEn: 'Class X Nationalism in India — Non-Cooperation resolution passed.', noteHi: 'कक्षा 10 भारत में राष्ट्रवाद — असहयोग प्रस्ताव पारित।' },

@@ -1,7 +1,6 @@
 // T16 — Smart Ways to Manage Your Finances: L1 Budget, L2 Inflation, L3 Interest, L4 Risk & insurance, L5 Income tax concept.
 import { mountLabs } from '../../components/lab-kit.js';
-import { budget, inflation, interest } from './labs-econ.js';
-import { riskReturn, taxFlow } from './labs-econ-extra.js';
+import { budget, inflation, interest, riskReturn, taxFlow } from './t16-specs.js';
 
 export const mount = (root) => mountLabs(
   root,
