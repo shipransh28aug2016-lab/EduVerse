@@ -41,7 +41,9 @@ export function createOcean3d(api, labelHost) {
 
     const crustGeo = new THREE.ExtrudeGeometry(shape, { depth: 7.5, bevelEnabled: false });
     crustGeo.translate(0, 0, -3.75);
-    group.add(new THREE.Mesh(crustGeo, new THREE.MeshStandardMaterial({ color: 0x6f5845, roughness: 0.9 })));
+    const crustMesh = new THREE.Mesh(crustGeo, new THREE.MeshStandardMaterial({ color: 0x6f5845, roughness: 0.9 }));
+    api.markPickable?.(crustMesh, { en: 'Continental shelf, abyssal plain & trench', hi: 'महाद्वीपीय मग्नतट, गहन मैदान व गर्त' });
+    group.add(crustMesh);
 
     // Translucent ocean slab above seafloor
     const sea = new THREE.Mesh(new THREE.BoxGeometry(16, 4.6, 7.5), new THREE.MeshStandardMaterial({
@@ -54,7 +56,16 @@ export function createOcean3d(api, labelHost) {
     const riftY = toY(Math.max(500, 3900 - S.ridgeHeight));
     const rift = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.3, 7.6), new THREE.MeshBasicMaterial({ color: 0xff5a1f }));
     rift.position.set(toX(52), riftY, 0);
+    api.markPickable?.(rift, { en: 'Mid-ocean ridge spreading magma zone', hi: 'मध्य-महासागरीय कटक अपसारी मैग्मा क्षेत्र' });
     group.add(rift);
+
+    // Sunlit shallow shelf fish markers
+    for (let i = 0; i < 4; i++) {
+      const fish = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 8), new THREE.MeshStandardMaterial({ color: 0xfacc15 }));
+      fish.position.set(-6.5 + i * 0.45, 2.0 + (i % 2) * 0.25, -1.2 + i * 0.8);
+      fish.userData.swimPhase = i * 1.4;
+      group.add(fish);
+    }
 
     addLabel(new THREE.Vector3(-6.2, 2.3, 1), 'Continental shelf', 'महाद्वीपीय मग्नतट');
     addLabel(new THREE.Vector3(-4.0, 0.6, 1), 'Continental slope', 'महाद्वीपीय ढाल');
@@ -71,6 +82,15 @@ export function createOcean3d(api, labelHost) {
       l.el.hidden = !showLabels || !q.visible;
     }
   }
+  function tick(now) {
+    const sec = now * 0.001;
+    group.traverse((o) => {
+      if (o.userData?.swimPhase != null) {
+        o.position.x = -6.5 + Math.sin(sec * 1.4 + o.userData.swimPhase) * 0.65;
+        o.position.y = 1.95 + Math.cos(sec * 2.1 + o.userData.swimPhase) * 0.14;
+      }
+    });
+  }
   const relabel = () => labels.forEach((l) => { l.el.textContent = i18n.pair(l.en, l.hi); });
-  return { update, place, relabel, dispose() { clear(); scene.remove(group); } };
+  return { update, place, tick, relabel, dispose() { clear(); scene.remove(group); } };
 }

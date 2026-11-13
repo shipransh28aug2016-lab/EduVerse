@@ -25,8 +25,13 @@ export const cutaway = {
     const W = 640, H = 420, x0 = 90, x1 = 600, yTop = 20, yBot = 380, Y = (km) => yBot - (Math.min(km, 100) / 100) * (yBot - yTop);
     const TX = (c) => x0 + ((c + 100) / 130) * (x1 - x0);
     const cols = { troposphere: 'layer-t', stratosphere: 'layer-s', mesosphere: 'layer-m', thermosphere: 'layer-h' };
-    let g = '';
-    for (const l of A.LAYERS) { const a = Math.min(l.from, 100), z = Math.min(l.to, 100); if (a >= 100) continue; g += `<rect class="${cols[l.id]}" x="${x0}" y="${Y(z)}" width="${x1 - x0}" height="${Y(a) - Y(z)}"/><text class="txt b" x="${x1 - 6}" y="${Y(z) + 16}" text-anchor="end">${esc(P(LAYER[l.id].en, LAYER[l.id].hi))}</text>`; }
+    let g = `<defs><linearGradient id="atm-t" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#bae6fd"/><stop offset="100%" stop-color="#e0f2fe"/></linearGradient><linearGradient id="atm-s" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#e0f2fe"/><stop offset="40%" stop-color="#a5f3fc" stop-opacity=".65"/><stop offset="100%" stop-color="#c7d2fe"/></linearGradient><linearGradient id="atm-m" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#c7d2fe"/><stop offset="100%" stop-color="#6366f1" stop-opacity=".45"/></linearGradient><linearGradient id="atm-h" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#312e81" stop-opacity=".42"/><stop offset="100%" stop-color="#0f172a" stop-opacity=".82"/></linearGradient></defs>`;
+    const fills = { troposphere: 'url(#atm-t)', stratosphere: 'url(#atm-s)', mesosphere: 'url(#atm-m)', thermosphere: 'url(#atm-h)' };
+    for (const l of A.LAYERS) { const a = Math.min(l.from, 100), z = Math.min(l.to, 100); if (a >= 100) continue; g += `<rect class="${cols[l.id]}" x="${x0}" y="${Y(z)}" width="${x1 - x0}" height="${Y(a) - Y(z)}" style="fill:${fills[l.id]}"/><text class="txt b" x="${x1 - 6}" y="${Y(z) + 16}" text-anchor="end">${esc(P(LAYER[l.id].en, LAYER[l.id].hi))}</text>`; }
+    // Iconic atmospheric depth markers: Everest peak, commercial jet, ozone band, meteor trail
+    g += `<polygon points="110,${Y(0)} 135,${Y(8.8)} 160,${Y(0)}" fill="#64748b" opacity=".6"/><text class="txt sm" x="165" y="${Y(6)}">${esc(P('Mt Everest 8.8 km', 'माउंट एवरेस्ट 8.8 किमी'))}</text>`;
+    g += `<rect x="${x0}" y="${Y(30)}" width="${x1 - x0}" height="18" fill="#06b6d4" opacity=".22"/><text class="txt sm" x="${x0 + 8}" y="${Y(27)}">${esc(P('Ozone belt (~20–30 km)', 'ओज़ोन परत (~20–30 किमी)'))}</text>`;
+    g += `<line x1="210" y1="${Y(78)}" x2="250" y2="${Y(64)}" stroke="#f97316" stroke-width="3" stroke-linecap="round"/><circle cx="250" cy="${Y(64)}" r="4" fill="#fbbf24"/>`;
     let d = ''; for (let km = 0; km <= 100; km += 1) d += `${km ? 'L' : 'M'}${TX(A.temperatureC(km)).toFixed(1)},${Y(km).toFixed(1)}`;
     g += `<path class="curve d" d="${d}" fill="none" stroke-width="4"/>`;
     for (const t of [-100, -50, 0, 15]) g += `<text class="txt sm mut" x="${TX(t)}" y="${yBot + 16}" text-anchor="middle">${t}°C</text><line class="grid" x1="${TX(t)}" x2="${TX(t)}" y1="${yTop}" y2="${yBot}"/>`;
@@ -36,6 +41,11 @@ export const cutaway = {
     g += `<text class="txt sm b" x="${(x0 + x1) / 2}" y="${H - 6}" text-anchor="middle">${esc(P('Temperature (°C) — red line', 'तापमान (°C) — लाल रेखा'))}</text>`;
     const l = A.layerAt(S.alt), pr = A.pressureHPa(S.alt), mass = A.massBelow(S.alt) * 100;
     return {
+      plate: {
+        src: 'assets/images/plates/t03-atmosphere.jpg',
+        en: 'Atmospheric layers from clouds in the troposphere through the ozone jet belt up to aurora space.',
+        hi: 'क्षोभमंडल के बादलों व समतापमंडल के ओज़ोन स्तर से लेकर अंतरिक्ष ध्रुवीय ज्योति तक वायुमंडल की परतें।',
+      },
       svg: `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Atmosphere at ${S.alt} km: ${l.id}, ${fmt(T, 0)} degrees Celsius, ${fmt(pr, 0)} hectopascals.`,
       lines: [
         { en: `At ${fmt(S.alt, 1)} km you are in the ${LAYER[l.id].en}. Temperature ${fmt(T, 0)} °C, pressure ${pr >= 10 ? fmt(pr, 0) : fmt(pr, 2)} hPa (sea level = 1013 hPa).`, hi: `${fmt(S.alt, 1)} किमी पर आप ${LAYER[l.id].hi} में हैं। तापमान ${fmt(T, 0)} °C, दाब ${pr >= 10 ? fmt(pr, 0) : fmt(pr, 2)} hPa (समुद्र तल = 1013 hPa)।` },
@@ -78,9 +88,19 @@ export const breeze = {
     const L = [], Sx = []; for (let hh = 0; hh <= 24; hh++) { const w = A.localWind({ hour: hh % 24, mean: S.mean, cloud: S.cloud }); L.push([hh, w.land]); Sx.push([hh, w.sea]); }
     ch.line(L, 'curve d'); ch.line(Sx, 'curve s'); ch.vline(S.hour, 'guide'); ch.dot(S.hour, cur.land, 'pt d', 6); ch.dot(S.hour, cur.sea, 'pt s', 6);
     ch.text(1, 38, P('Land', 'भूमि'), 'curve-lbl d', 'start'); ch.text(1, 35, P('Sea', 'समुद्र'), 'curve-lbl s', 'start');
-    const dir = cur.kind === 'sea-breeze' ? 1 : cur.kind === 'land-breeze' ? -1 : 0, ax = 322, ay = 330, ln = 20 + cur.speed * 6;
-    const arrow = dir ? `<line class="edge" style="stroke:var(--pri);stroke-width:5" x1="${ax - dir * ln}" y1="${ay}" x2="${ax + dir * ln}" y2="${ay}"/><path d="M${ax + dir * ln},${ay} l${-dir * 12},-8 l0,16 z" fill="var(--pri)"/>` : '';
-    const diagram = `<svg viewBox="0 0 640 110" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect class="sea-fill" x="0" y="40" width="320" height="70"/><rect class="land-fill" x="320" y="40" width="320" height="70"/><text class="txt b" x="160" y="95" text-anchor="middle">${esc(P('Sea', 'समुद्र'))} ${fmt(cur.sea, 0)}°C</text><text class="txt b" x="480" y="95" text-anchor="middle">${esc(P('Land', 'भूमि'))} ${fmt(cur.land, 0)}°C</text>${dir ? `<line x1="${320 - dir * 110}" y1="24" x2="${320 + dir * 110}" y2="24" stroke="var(--pri)" stroke-width="5"/><path d="M${320 + dir * 110},24 l${-dir * 12},-8 l0,16 z" fill="var(--pri)"/>` : ''}<text class="txt sm" x="320" y="12" text-anchor="middle">${esc(cur.kind === 'sea-breeze' ? P('Sea breeze (surface wind from sea)', 'समुद्री समीर (सतह पर समुद्र से आती हवा)') : cur.kind === 'land-breeze' ? P('Land breeze (surface wind from land)', 'स्थलीय समीर (सतह पर भूमि से आती हवा)') : P('Calm', 'शांत'))}</text></svg>`;
+    const dir = cur.kind === 'sea-breeze' ? 1 : cur.kind === 'land-breeze' ? -1 : 0;
+    const isDay = S.hour >= 6 && S.hour <= 18;
+    const sunX = isDay ? Math.round(90 + ((S.hour - 6) / 12) * 460) : 540;
+    const skyTop = isDay ? '#38bdf8' : '#0f172a', skyBot = isDay ? '#e0f2fe' : '#1e293b';
+    const cloudOp = Math.min(0.88, S.cloud * 0.85).toFixed(2);
+    const plumeX = cur.kind === 'sea-breeze' ? 485 : cur.kind === 'land-breeze' ? 160 : 0;
+    const plume = plumeX ? `<path d="M${plumeX - 18},88 q-8,-14 4,-26 t4,-24 M${plumeX + 18},88 q-8,-14 4,-26 t4,-24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="4 3" opacity=".85"/>` : '';
+    const clouds = S.cloud > 0.05 ? `<g opacity="${cloudOp}" fill="#ffffff"><ellipse cx="190" cy="30" rx="46" ry="14"/><ellipse cx="220" cy="24" rx="34" ry="12"/><ellipse cx="445" cy="34" rx="50" ry="14"/></g>` : '';
+    const orb = isDay
+      ? `<circle cx="${sunX}" cy="28" r="13" fill="#fbbf24"/><circle cx="${sunX}" cy="28" r="19" fill="#fde047" opacity=".32"/>`
+      : `<circle cx="${sunX}" cy="26" r="11" fill="#fef08a"/><circle cx="${sunX - 4}" cy="23" r="9" fill="${skyTop}"/><circle cx="110" cy="22" r="1.5" fill="#fff"/><circle cx="290" cy="18" r="1.5" fill="#fff"/>`;
+    const breezeArrow = dir ? `<line x1="${320 - dir * 115}" y1="48" x2="${320 + dir * 115}" y2="48" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/><path d="M${320 + dir * 122},48 l${-dir * 16},-9 l0,18 z" fill="#0284c7"/>` : '';
+    const diagram = `<svg viewBox="0 0 640 132" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="brz-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${skyTop}"/><stop offset="100%" stop-color="${skyBot}"/></linearGradient><linearGradient id="brz-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient><linearGradient id="brz-land" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#84cc16"/><stop offset="100%" stop-color="#b45309"/></linearGradient></defs><rect x="0" y="0" width="640" height="78" fill="url(#brz-sky)"/>${orb}${clouds}<path d="M0,78 Q40,72 80,78 T160,78 T240,78 T320,78 L320,132 L0,132 Z" fill="url(#brz-sea)"/><path d="M320,78 Q420,76 500,66 Q575,54 640,68 L640,132 L320,132 Z" fill="url(#brz-land)"/>${plume}${breezeArrow}<text class="txt b" x="155" y="114" fill="#ffffff" text-anchor="middle">${esc(P('Sea', 'समुद्र'))} ${fmt(cur.sea, 0)}°C</text><text class="txt b" x="485" y="114" fill="#ffffff" text-anchor="middle">${esc(P('Land', 'भूमि'))} ${fmt(cur.land, 0)}°C</text><rect x="170" y="4" width="300" height="22" rx="11" fill="#ffffff" opacity=".88"/><text class="txt sm b" x="320" y="19" text-anchor="middle">${esc(cur.kind === 'sea-breeze' ? P('Sea breeze (surface wind from sea)', 'समुद्री समीर (सतह पर समुद्र से आती हवा)') : cur.kind === 'land-breeze' ? P('Land breeze (surface wind from land)', 'स्थलीय समीर (सतह पर भूमि से आती हवा)') : P('Calm', 'शांत'))}</text></svg>`;
     return {
       svg: diagram + ch.html({ label: P('Land and sea temperature through the day', 'दिनभर भूमि और समुद्र का तापमान') }), aria: `At ${hourLabel(S.hour)} land ${fmt(cur.land, 0)} degrees, sea ${fmt(cur.sea, 0)} degrees: ${cur.kind}.`,
       lines: [

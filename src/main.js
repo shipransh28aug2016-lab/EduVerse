@@ -1,27 +1,38 @@
-// App shell: top bar, hash router, theme navigator, theme page (the 14-item contract), lazy module mounting.
+// App shell: top bar, hash router, interactive 3D hero globe, discipline filter, sound/stars HUD, flip-card glossary, lazy module mounting.
 import { h, $ } from './core/dom.js';
 import * as store from './core/store.js';
 import * as i18n from './core/i18n.js';
-import { t } from './core/i18n.js';
+import { t, pair } from './core/i18n.js';
+import { playTap, playFlip } from './core/sound.js';
 import { bi, relabelBi } from './components/widgets.js';
 import { UI } from './i18n/ui.js';
 import { OPENINGS } from './modules/openings.js';
 import { MODULES, TEACHER, LIMITS } from './modules/registry.js';
 import { HERO_MEDIA, THEME_MEDIA, themeBannerEl } from './core/media.js';
 import { iconEl } from './engines/viz.js';
+import { webglAvailable } from './engines/webgl.js';
+import { createScene } from './engines/three-scene.js';
+import { createHeroGlobe3d } from './components/diorama-3d.js';
 
 i18n.register(UI);
 const root = $('#main'), bar = $('#topbar'), foot = $('#foot');
 let cur = null; // { id, mod } mounted module
+let heroCleanup = null; // Home 3D Earth cleanup handle
 let CUR = null; // curriculum manifest
+let activeFilter = 'all';
 const DISC = { geography: 'disc.geography', history: 'disc.history', 'political-science': 'disc.political', economics: 'disc.economics', integrated: 'disc.integrated' };
 
 async function boot() {
   const [cur_, gl] = await Promise.all([fetch('src/curriculum/curriculum.json').then((r) => r.json()), fetch('data/glossary.json').then((r) => r.json())]);
   CUR = cur_; i18n.setGlossary(gl.terms); window.__glossary = gl.terms;
-  renderBar(); renderFoot(); applyPrefs();
+  renderBar(); renderFoot(); applyPrefs(); updateStarPill();
   addEventListener('hashchange', route);
-  store.subscribe((s, keys) => { if (keys.includes('lang')) onLang(); if (keys.some((k) => ['lowGraphics', 'reducedMotion', 'projector', 'teacher'].includes(k))) applyPrefs(); });
+  store.subscribe((s, keys) => {
+    if (keys.includes('lang')) onLang();
+    if (keys.some((k) => ['sound', 'lowGraphics', 'reducedMotion', 'projector', 'teacher'].includes(k))) applyPrefs();
+    if (keys.some((k) => ['stars', 'progress', 'lang'].includes(k))) updateStarPill();
+    if (keys.includes('lowGraphics') && !location.hash.match(/^#\/theme\/(T\d\d)$/)) route();
+  });
   route();
 }
 function applyPrefs() {
@@ -29,13 +40,21 @@ function applyPrefs() {
   c.toggle('low-g', !!s.lowGraphics); c.toggle('reduce-motion', !!s.reducedMotion); c.toggle('projector', !!s.projector); c.toggle('teacher', !!s.teacher);
   bar.querySelectorAll('[data-pref]').forEach((b) => b.setAttribute('aria-pressed', s[b.dataset.pref] ? 'true' : 'false'));
 }
+function updateStarPill() {
+  const pill = bar.querySelector('.star-pill-val');
+  if (pill) pill.textContent = `★ ${store.summaryStats().starCount}`;
+  const hudStars = root.querySelector('.hud-stars-n');
+  if (hudStars) hudStars.textContent = String(store.summaryStats().starCount);
+}
 function renderBar() {
   const L = [['en', 'lang.en'], ['hi', 'lang.hi'], ['both', 'lang.both']];
+  const prefs = [['sound', 'bar.sound'], ['lowGraphics', 'bar.low'], ['reducedMotion', 'bar.motion'], ['projector', 'bar.proj'], ['teacher', 'bar.teacher']];
   bar.replaceChildren(
     h('a', { class: 'brand', href: '#/' }, iconEl('GraduationCap', { size: 20, className: 'brand-ico' }), h('span', { 'data-k': 'app.title' }, t('app.title'))),
     h('div', { class: 'tools' },
-      h('div', { class: 'seg', role: 'group', 'data-k-aria': 'bar.lang', 'aria-label': t('bar.lang') }, ...L.map(([id, k]) => h('button', { type: 'button', class: 'seg-b', 'data-lang': id, 'aria-pressed': store.get().lang === id ? 'true' : 'false', 'data-k': k, onclick: () => store.set({ lang: id }) }, t(k)))),
-      ...[['lowGraphics', 'bar.low'], ['reducedMotion', 'bar.motion'], ['projector', 'bar.proj'], ['teacher', 'bar.teacher']].map(([p, k]) => h('button', { type: 'button', class: 'tool', 'data-pref': p, 'aria-pressed': store.get()[p] ? 'true' : 'false', 'data-k': k, onclick: () => store.set({ [p]: !store.get()[p] }) }, t(k)))));
+      h('span', { class: 'star-pill', title: t('bar.stars') }, h('span', { class: 'star-pill-val' }, `★ ${store.summaryStats().starCount}`)),
+      h('div', { class: 'seg', role: 'group', 'data-k-aria': 'bar.lang', 'aria-label': t('bar.lang') }, ...L.map(([id, k]) => h('button', { type: 'button', class: 'seg-b', 'data-lang': id, 'aria-pressed': store.get().lang === id ? 'true' : 'false', 'data-k': k, onclick: () => { playTap(); store.set({ lang: id }); } }, t(k)))),
+      ...prefs.map(([p, k]) => h('button', { type: 'button', class: 'tool', 'data-pref': p, 'aria-pressed': store.get()[p] ? 'true' : 'false', 'data-k': k, onclick: () => { store.set({ [p]: !store.get()[p] }); if (store.get().sound) playTap(); } }, t(k)))));
 }
 function renderFoot() {
   foot.replaceChildren(h('p', { 'data-k': 'foot.note' }, t('foot.note')), h('p', { 'data-k': 'foot.priv' }, t('foot.priv')));
@@ -45,10 +64,15 @@ function onLang() {
   i18n.apply(bar); i18n.apply(foot); i18n.apply(root); relabelBi(root); relabelTitles(); cur?.mod?.relabel?.();
 }
 function relabelTitles() { root.querySelectorAll('[data-title]').forEach((el) => { const o = JSON.parse(el.dataset.title); el.textContent = i18n.pair(o.en, o.hi); }); }
-const titleEl = (tag, o, cls) => { const e = h(tag, { class: cls, 'data-title': JSON.stringify({ en: o.en, hi: o.hi }) }, i18n.pair(o.en, o.hi)); return e; };
+const titleEl = (tag, o, cls) => h(tag, { class: cls, 'data-title': JSON.stringify({ en: o.en, hi: o.hi }) }, i18n.pair(o.en, o.hi));
 const status = (th) => { const n = th.learningObjects.length, k = th.learningObjects.filter((l) => l.status === 'implemented').length; return { n, k, label: k === 0 ? 'planned' : k === n ? 'implemented' : 'partial' }; };
 
-function destroyCur() { try { cur?.mod?.destroy?.(); } catch (e) { console.warn(e); } cur = null; }
+function destroyCur() {
+  try { heroCleanup?.(); } catch {}
+  heroCleanup = null;
+  try { cur?.mod?.destroy?.(); } catch (e) { console.warn(e); }
+  cur = null;
+}
 async function route() {
   destroyCur();
   const m = location.hash.match(/^#\/theme\/(T\d\d)$/);
@@ -60,16 +84,89 @@ async function route() {
 function card(th) {
   const s = status(th);
   const media = THEME_MEDIA[th.id];
-  return h('a', { class: `card disc-${th.discipline} st-${s.label}`, href: `#/theme/${th.id}`, 'data-theme': th.id },
+  return h('a', { class: `card disc-${th.discipline} st-${s.label}`, href: `#/theme/${th.id}`, 'data-theme': th.id, 'data-disc': th.discipline },
     media ? h('div', { class: 'card-media' },
       h('img', { src: media.src, alt: '', loading: 'lazy', decoding: 'async' }),
+      h('span', { class: 'card-3d-tag', 'data-k': 'home.badge.3d' }, t('home.badge.3d')),
       h('span', { class: 'card-ico' }, iconEl(media.icon, { size: 15 }))) : null,
     h('span', { class: 'card-id' }, th.id),
     titleEl('span', th.title, 'card-title'),
     h('span', { class: 'card-meta' }, h('span', { 'data-k': DISC[th.discipline] }, t(DISC[th.discipline])), h('span', {}, ` · ${th.hours} `), h('span', { 'data-k': 'hours' }, t('hours'))),
     h('span', { class: `badge ${s.label}`, 'data-k': `st.${s.label}`, 'data-p': JSON.stringify({ k: s.k, n: s.n }) }, t(`st.${s.label}`, { k: s.k, n: s.n })));
 }
+
+function mountHomeGlobe(heroArt) {
+  if (store.get().lowGraphics || !webglAvailable()) return;
+  const host = h('div', { class: 'hero-gl' });
+  const pinBanner = h('a', { class: 'hero-pin-pill', hidden: true, href: '#/' });
+  const fallbackImg = heroArt.querySelector('img');
+  heroArt.append(host, pinBanner);
+  let alive = true, api = null, globe = null;
+  (async () => {
+    try {
+      api = await createScene(host, {
+        lowGraphics: store.get().lowGraphics,
+        reducedMotion: store.get().reducedMotion,
+        onTick: (now) => globe?.tick?.(now),
+        onPick: (info) => {
+          if (!info || !alive) return;
+          playTap();
+          pinBanner.href = `#/theme/${info.theme || 'T01'}`;
+          pinBanner.textContent = `${pair(info.en, info.hi)} →`;
+          pinBanner.hidden = false;
+        },
+      });
+      if (!alive) { api.dispose(); return; }
+      globe = createHeroGlobe3d(api);
+      api.setAutoRotate?.(!store.get().reducedMotion);
+      if (fallbackImg) fallbackImg.classList.add('gl-under');
+    } catch {
+      host.remove();
+      pinBanner.remove();
+    }
+  })();
+  heroCleanup = () => { alive = false; globe?.dispose?.(); api?.dispose?.(); };
+}
+
 function home() {
+  const stats = store.summaryStats();
+  const heroArt = h('figure', { class: 'hero-art' },
+    h('img', { src: HERO_MEDIA.src, alt: i18n.pair(HERO_MEDIA.en, HERO_MEDIA.hi), loading: 'eager', decoding: 'async' }));
+
+  const surpriseBtn = h('button', {
+    type: 'button',
+    class: 'btn primary',
+    'data-k': 'home.surprise',
+    onclick: () => {
+      playTap();
+      const pick = CUR.themes[Math.floor(Math.random() * CUR.themes.length)];
+      location.hash = `#/theme/${pick.id}`;
+    },
+  }, t('home.surprise'));
+
+  const filterKeys = [['all', 'home.all'], ['geography', 'disc.geography'], ['history', 'disc.history'], ['political-science', 'disc.political'], ['economics', 'disc.economics'], ['integrated', 'disc.integrated']];
+  const filterBar = h('div', { class: 'filter-pills', role: 'group' },
+    ...filterKeys.map(([id, key]) => h('button', {
+      type: 'button',
+      class: 'chip',
+      'data-disc': id,
+      'aria-checked': activeFilter === id ? 'true' : 'false',
+      'data-k': key,
+      onclick: () => {
+        playTap();
+        activeFilter = id;
+        filterBar.querySelectorAll('.chip').forEach((b, idx) => b.setAttribute('aria-checked', filterKeys[idx][0] === id ? 'true' : 'false'));
+        root.querySelectorAll('.card[data-disc]').forEach((c) => { c.hidden = id !== 'all' && c.dataset.disc !== id; });
+      },
+    }, t(key))));
+
+  const hud = h('section', { class: 'hud-bar' },
+    h('div', { class: 'hud-stats' },
+      h('span', { class: 'hud-chip' }, '⭐ ', h('strong', { class: 'hud-stars-n' }, String(stats.starCount)), ' ', h('span', { 'data-k': 'home.hud.stars' }, t('home.hud.stars'))),
+      h('span', { class: 'hud-chip' }, '🧭 ', h('strong', {}, `${stats.visitedCount}/16`), ' ', h('span', { 'data-k': 'home.hud.explored' }, t('home.hud.explored'))),
+      surpriseBtn),
+    filterBar);
+
   const part = (n, label) => h('section', { class: 'part', 'aria-labelledby': `part${n}` }, h('h2', { id: `part${n}`, 'data-k': label, 'data-p': JSON.stringify({ h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) }) }, t(label, { h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) })), h('div', { class: 'grid' }, ...CUR.themes.filter((x) => x.part === n).map(card)));
   root.append(
     h('section', { class: 'hero hero-shell' },
@@ -77,11 +174,17 @@ function home() {
         h('h1', { 'data-k': 'home.h1' }, t('home.h1')),
         h('p', { class: 'lead', 'data-k': 'home.lead' }, t('home.lead')),
         h('p', { class: 'note', 'data-k': 'home.honest' }, t('home.honest'))),
-      h('figure', { class: 'hero-art' },
-        h('img', { src: HERO_MEDIA.src, alt: i18n.pair(HERO_MEDIA.en, HERO_MEDIA.hi), loading: 'eager', decoding: 'async' }))),
+      heroArt),
+    hud,
     part(1, 'home.part1'),
     part(2, 'home.part2'));
+
+  if (activeFilter !== 'all') {
+    root.querySelectorAll('.card[data-disc]').forEach((c) => { c.hidden = c.dataset.disc !== activeFilter; });
+  }
+  mountHomeGlobe(heroArt);
 }
+
 const lst = (items, fn) => h('ul', { class: 'plain' }, ...items.map((x) => h('li', {}, fn(x))));
 async function themePage(id) {
   const th = CUR.themes.find((x) => x.id === id), s = status(th), idx = CUR.themes.indexOf(th);
@@ -93,6 +196,26 @@ async function themePage(id) {
   const nav = h('nav', { class: 'pager', 'aria-label': 'Theme navigation' }, idx > 0 ? h('a', { href: `#/theme/${CUR.themes[idx - 1].id}`, rel: 'prev' }, '← ', CUR.themes[idx - 1].id) : h('span'), h('a', { href: '#/', 'data-k': 'nav.all' }, t('nav.all')), idx < 15 ? h('a', { href: `#/theme/${CUR.themes[idx + 1].id}`, rel: 'next' }, CUR.themes[idx + 1].id, ' →') : h('span'));
   const glossary = (window.__glossary || []).filter((g) => (g.themes || []).includes(id));
   const teach = TEACHER[id];
+
+  // Visual interactive flashcard glossary preserving semantic <dl class="gloss"><dt><dd data-term-def>
+  const glossBlock = glossary.length
+    ? h('details', { class: 'subsec' },
+      h('summary', { 'data-k': 'th.gloss' }, t('th.gloss')),
+      h('p', { class: 'note', 'data-k': 'gloss.flip' }, t('gloss.flip')),
+      h('dl', { class: 'gloss gloss-grid' }, ...glossary.map((g) => {
+        const pairBox = h('div', {
+          class: 'gloss-card',
+          tabindex: '0',
+          role: 'button',
+          onclick: () => { playFlip(); pairBox.classList.toggle('flipped'); },
+          onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playFlip(); pairBox.classList.toggle('flipped'); } },
+        },
+        h('dt', { 'data-term': g.id }, i18n.term(g.id)),
+        h('dd', { 'data-term-def': g.id }, i18n.termDef(g.id)));
+        return pairBox;
+      })))
+    : null;
+
   root.append(...[
     h('a', { class: 'back', href: '#/', 'data-k': 'nav.back' }, t('nav.back')),
     h('header', { class: 'theme-h theme-head-wrap' },
@@ -105,7 +228,7 @@ async function themePage(id) {
     modSlot,
     h('section', { class: 'subsec' }, h('h2', { 'data-k': 'th.lo' }, t('th.lo')), lst(th.learningObjects, loChip)),
     h('details', { class: 'subsec', open: th.learningObjects.every((l) => l.status === 'planned') ? '' : null }, h('summary', { 'data-k': 'th.src' }, t('th.src')), h('h3', { 'data-k': 'th.concepts' }, t('th.concepts')), lst(th.concepts, (c) => [bi({ en: c.display || c.text, hi: c.hi }, { tag: 'span' }), ' ', h('small', {}, `p.${c.pdfPage}`)]), h('h3', { 'data-k': 'th.outcomes' }, t('th.outcomes')), lst(th.outcomes, (o) => [bi({ en: o.display || o.text, hi: o.hi }, { tag: 'span' }), ' ', h('small', {}, `p.${o.pdfPage}`)])),
-    glossary.length ? h('details', { class: 'subsec' }, h('summary', { 'data-k': 'th.gloss' }, t('th.gloss')), h('dl', { class: 'gloss' }, ...glossary.flatMap((g) => [h('dt', { 'data-term': g.id }, i18n.term(g.id)), h('dd', { 'data-term-def': g.id }, i18n.termDef(g.id))]))) : null,
+    glossBlock,
     teach ? h('details', { class: 'subsec teacher-only' }, h('summary', { 'data-k': 'th.teacher' }, t('th.teacher')), h('ol', {}, ...teach.flow.map((f) => h('li', {}, bi({ en: (f.m ? `${f.m} min — ` : '') + f.en, hi: (f.m ? `${f.m} मिनट — ` : '') + f.hi }, { tag: 'div' })))), ...(teach.prompts ? [h('h3', { 'data-k': 'th.prompts' }, t('th.prompts')), ...teach.prompts.map((p) => bi(p, { tag: 'p' }))] : []), ...(teach.misconceptions ? [h('h3', { 'data-k': 'th.misc' }, t('th.misc')), ...teach.misconceptions.map((p) => bi(p, { tag: 'p' }))] : [])) : null,
     LIMITS[id] ? h('aside', { class: 'limits' }, h('strong', { 'data-k': 'th.limits' }, t('th.limits')), ' ', bi(LIMITS[id], { tag: 'span' })) : null,
     nav].filter(Boolean));

@@ -167,13 +167,22 @@ export function mount(root, ctx = {}) {
       for (let i = 1; i < pts.length; i++) if (d <= pts[i]) return R * (rr[i - 1] + (rr[i] - rr[i - 1]) * (d - pts[i - 1]) / (pts[i] - pts[i - 1]));
       return 0;
     }
+    const intPlateImg = h('img', {
+      src: 'assets/images/plates/t02-interior.jpg',
+      alt: i18n.pair('3D cutaway diorama showing Earth crust, flowing orange mantle, liquid outer core and solid inner core.', 'भूपर्पटी, बहते नारंगी मैंटल, द्रव बाह्य क्रोड व ठोस आंतरिक क्रोड दिखाता 3D पृथ्वी मॉडल।'),
+      loading: 'eager',
+      decoding: 'async',
+    });
+    const intPlate = h('figure', { class: 'lab-plate' },
+      intPlateImg,
+      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: '3D layered cutaway: thin rocky crust over slow-flowing mantle, liquid iron outer core, and dense solid inner core.', hi: 'पृथ्वी की अनुप्रस्थ काट: पतली भूपर्पटी, धीमे बहता मैंटल, द्रव लोहे का बाह्य क्रोड और ठोस आंतरिक क्रोड।' })));
     function draw() {
       persist();
       const cx = 170, cy = 170, l = M.layerAtDepth(S.depth);
-      let s = `<svg viewBox="0 0 340 340" class="chart interior" role="img" aria-label="${esc(t('in.aria'))}" xmlns="http://www.w3.org/2000/svg">`;
-      M.LAYERS.forEach((L) => { s += `<circle class="ly ly-${L.id}${L.id === l.id ? ' on' : ''}" cx="${cx}" cy="${cy}" r="${radius(L.from).toFixed(1)}"/>`; });
-      [...M.LAYERS].reverse().forEach(() => {}); // painted outer→inner above, so inner circles overlay outer ones
-      const r = radius(S.depth); s += `<circle class="probe" cx="${cx}" cy="${cy}" r="${r.toFixed(1)}"/><line class="probe-line" x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 150}"/><circle class="probe-dot" cx="${cx}" cy="${(cy - r).toFixed(1)}" r="6"/></svg>`;
+      let s = `<svg viewBox="0 0 340 340" class="chart interior" role="img" aria-label="${esc(t('in.aria'))}" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="g-mantle"><stop offset="35%" stop-color="#f97316"/><stop offset="100%" stop-color="#b45309"/></radialGradient><radialGradient id="g-ocore"><stop offset="30%" stop-color="#facc15"/><stop offset="100%" stop-color="#ea580c"/></radialGradient><radialGradient id="g-icore"><stop offset="0%" stop-color="#fef9c3"/><stop offset="100%" stop-color="#f59e0b"/></radialGradient></defs>`;
+      const fills = { crust: '#78563c', mantle: 'url(#g-mantle)', outer_core: 'url(#g-ocore)', inner_core: 'url(#g-icore)' };
+      M.LAYERS.forEach((L) => { s += `<circle class="ly ly-${L.id}${L.id === l.id ? ' on' : ''}" cx="${cx}" cy="${cy}" r="${radius(L.from).toFixed(1)}" style="fill:${fills[L.id]}"/>`; });
+      const r = radius(S.depth); s += `<circle class="probe" cx="${cx}" cy="${cy}" r="${r.toFixed(1)}"/><line class="probe-line" x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 150}"/><circle class="probe-dot" cx="${cx}" cy="${(cy - r).toFixed(1)}" r="7"/></svg>`;
       box.innerHTML = s;
       read.innerHTML = `<div class="ro-line"><strong>${esc(t('in.ro.depth', { d: fmt(S.depth, 0) }))}</strong> ${esc(t('layer.' + l.id))} (${esc(t('state.' + l.state))})</div><div class="ro-line note">${esc(t('layer.' + l.id + '.note'))}${l.ambiguous ? ' ' + esc(t('in.ro.vary')) : ''}</div>`;
     }
@@ -182,9 +191,9 @@ export function mount(root, ctx = {}) {
       explain: () => ({ en: 'At 1,500 km the mantle is hot but under huge pressure, so it is solid; over millions of years it flows slowly, like very thick dough. Only the outer core (2,900–5,150 km) is liquid.', hi: '1,500 किमी पर मैंटल गर्म पर भारी दाब में होने से ठोस है; लाखों वर्षों में यह गाढ़े आटे की तरह धीरे बहता है। केवल बाह्य क्रोड (2,900–5,150 किमी) द्रव है।' }) }, { done: S.done, onDone: persist });
     draw();
     const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Travel down from the surface. Which layer are you in, and is it solid or liquid? Switch scale to see how thin the crust really is.', hi: 'सतह से नीचे जाएँ। आप किस परत में हैं, और वह ठोस है या द्रव? पैमाना बदलकर देखें कि भूपर्पटी वास्तव में कितनी पतली है।' })),
-      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, box, read), h('div', { class: 'lab-side' }, sDepth.root, tScale.root, h('p', { class: 'note', 'data-k': 'in.note' }, t('in.note')))),
+      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, intPlate, box, read), h('div', { class: 'lab-side' }, sDepth.root, tScale.root, h('p', { class: 'note', 'data-k': 'in.note' }, t('in.note')))),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), prM));
-    return { el, relabel() { prM.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
+    return { el, relabel() { intPlateImg.alt = i18n.pair('3D cutaway diorama showing Earth crust, flowing orange mantle, liquid outer core and solid inner core.', 'भूपर्पटी, बहते नारंगी मैंटल, द्रव बाह्य क्रोड व ठोस आंतरिक क्रोड दिखाता 3D पृथ्वी मॉडल।'); prM.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
   })();
 
   // ============================ EXIT + TABS ============================

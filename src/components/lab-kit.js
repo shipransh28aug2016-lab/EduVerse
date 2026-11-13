@@ -1,33 +1,28 @@
-// Lab kit: turns a declarative spec + a pure domain engine into a complete learning experience with the standard pedagogy:
-// objective → (data-provenance note) → controls → live graphic → real-time explanation → guided discovery → predict-then-test
-// → exit ticket → reflection → reset. Everything bilingual ({en, hi}); state persists via the store; no network, no WebGL.
-//
-// spec = {
-//   id, objective:{en,hi}, note:{kind:'fictional'|'schematic'|'documented'|'reconstruction', en?, hi?},
-//   init(): state,                                   // plain JSON state, restored from the store
-//   controls: [{id, type:'slider'|'chips'|'toggle', label:{en,hi}, min,max,step, fmt?, hint?, options?:[{id,en,hi}]}],
-//   view(state): { svg, aria, lines:[{en,hi,cls?}] },// PURE: derive everything from the engine
-//   discover: [{en,hi}], predictions: [{id, stem, options, run(state)->outcomeId, explain(state)->{en,hi}}],
-//   exit: [mcq defs], reflect: {en,hi}
-// }
+// Visual-first interactive lab builder:
+//  • Interactive Visual Stage (3D Diorama + 2.5D SVG + 3D-style miniature plate) + Tactile Controls + Auto-Play
+//  • Compact collapsible Goal & Model Note drawer (eliminates prose walls before visuals)
+//  • Interactive 4-Pill Challenge Dock (Predict ⭐ | Try This | Quick Quiz | Reflect) keeping all DOM interactive nodes live.
 import { h, esc } from '../core/dom.js';
 import * as i18n from '../core/i18n.js';
 import { t } from '../core/i18n.js';
 import * as store from '../core/store.js';
+import { playTap } from '../core/sound.js';
 import { slider, chips, toggle, tabs as mkTabs, bi, relabelBi, predict, mcq, biHtml, button } from './widgets.js';
+import { attachThreeStage } from './three-lab.js';
+import { createTheme3d } from './diorama-3d.js';
 
 i18n.register({
   'lab.obj': { en: 'Learning objective', hi: 'सीखने का उद्देश्य' },
   'lab.try': { en: 'Try this (guided discovery)', hi: 'यह आज़माएँ (निर्देशित खोज)' },
   'lab.live': { en: 'What is happening now', hi: 'अभी क्या हो रहा है' },
-  'lab.controls': { en: 'Change the model', hi: 'मॉडल बदलें' },
+  'lab.controls': { en: 'Play & adjust', hi: 'चलाएँ व बदलें' },
   'lab.note.fictional': { en: 'Fictional numbers for teaching, not real observations.', hi: 'ये शिक्षण के लिए काल्पनिक संख्याएँ हैं, वास्तविक प्रेक्षण नहीं।' },
   'lab.note.schematic': { en: 'Schematic model: shows how the process works, not exact measurements.', hi: 'योजनाबद्ध मॉडल: प्रक्रिया कैसे काम करती है यह दिखाता है, सटीक माप नहीं।' },
   'lab.note.documented': { en: 'Based on documented science or evidence; values are rounded for teaching.', hi: 'प्रलेखित विज्ञान या साक्ष्य पर आधारित; मान शिक्षण के लिए पूर्णांकित हैं।' },
   'lab.note.reconstruction': { en: 'A reconstruction: historians infer this from evidence and may disagree.', hi: 'यह पुनर्निर्माण है: इतिहासकार इसे साक्ष्य से अनुमानित करते हैं और उनमें मतभेद हो सकता है।' },
 });
 
-export function createLab(spec, themeId, { onDraw } = {}) {
+export function createLab(spec, themeId, { onDraw, skipAuto3d = false } = {}) {
   const S = store.simState(spec.id, spec.init());
   const base = spec.init(); for (const k of Object.keys(base)) if (!(k in S)) S[k] = base[k];
   S.done ??= {};
@@ -36,12 +31,13 @@ export function createLab(spec, themeId, { onDraw } = {}) {
   const persist = () => store.saveSim();
   const dict = {};
   const widgets = {};
+  let demoTimer = 0;
 
   const chartBox = h('div', { class: 'chart-box lab-graphic', 'aria-live': 'off' });
   const read = h('div', { class: 'readout', role: 'status', 'aria-live': 'polite' });
   const side = h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'lab.controls' }, t('lab.controls')));
 
-  for (const c of spec.controls) {   // register labels BEFORE building widgets so they render translated immediately
+  for (const c of spec.controls) {
     const key = `${spec.id}.c.${c.id}`; dict[key] = c.label;
     if (c.hint) dict[`${key}.hint`] = c.hint;
     for (const o of c.options ?? []) dict[`${key}.${o.id}`] = o;
@@ -61,7 +57,8 @@ export function createLab(spec, themeId, { onDraw } = {}) {
   }
 
   function sync() { for (const c of spec.controls) { const w = widgets[c.id]; if (c.type === 'chips') w.select(S[c.id]); else w.set(S[c.id]); } draw(); }
-  function reset() { Object.assign(S, spec.init()); S.done = S.done ?? {}; sync(); }
+  function stopDemo() { if (demoTimer) { clearInterval(demoTimer); demoTimer = 0; demoBtn.dataset.k = 'lab.playDemo'; demoBtn.textContent = t('lab.playDemo'); demoBtn.setAttribute('aria-pressed', 'false'); } }
+  function reset() { stopDemo(); Object.assign(S, spec.init()); S.done = S.done ?? {}; sync(); }
   function draw() {
     persist();
     const v = spec.view(S);
@@ -74,44 +71,114 @@ export function createLab(spec, themeId, { onDraw } = {}) {
     onDraw?.(S);
   }
 
+  // Auto-play demo button: gently cycles the first slider or chip so passive exploration comes alive
+  const demoBtn = h('button', {
+    type: 'button',
+    class: 'btn ghost demo-btn',
+    'data-k': 'lab.playDemo',
+    'aria-pressed': 'false',
+    onclick: () => {
+      playTap();
+      if (demoTimer) { stopDemo(); return; }
+      const primary = spec.controls.find((c) => c.type === 'slider') || spec.controls[0];
+      if (!primary) return;
+      demoBtn.dataset.k = 'lab.pauseDemo';
+      demoBtn.textContent = t('lab.pauseDemo');
+      demoBtn.setAttribute('aria-pressed', 'true');
+      let dir = 1;
+      demoTimer = setInterval(() => {
+        if (primary.type === 'slider') {
+          const step = (primary.max - primary.min) / 14;
+          let nv = S[primary.id] + step * dir;
+          if (nv >= primary.max) { nv = primary.max; dir = -1; }
+          else if (nv <= primary.min) { nv = primary.min; dir = 1; }
+          const snap = primary.step ? Math.round(nv / primary.step) * primary.step : nv;
+          S[primary.id] = Math.max(primary.min, Math.min(primary.max, snap));
+        } else if (primary.type === 'chips') {
+          const idx = primary.options.findIndex((o) => o.id === S[primary.id]);
+          S[primary.id] = primary.options[(idx + 1) % primary.options.length].id;
+        } else if (primary.type === 'toggle') {
+          S[primary.id] = !S[primary.id];
+        }
+        sync();
+      }, 950);
+    },
+  }, t('lab.playDemo'));
+
   const noteKey = `lab.note.${spec.note?.kind ?? 'schematic'}`;
   const note = h('p', { class: `note lab-note ${spec.note?.kind ?? 'schematic'}` }, h('strong', { 'data-k': noteKey }, t(noteKey)), spec.note?.en ? ' ' : null, spec.note?.en ? bi({ en: spec.note.en, hi: spec.note.hi }, { tag: 'span' }) : null);
-  const discover = spec.discover?.length ? h('section', { class: 'subsec' }, h('h3', { 'data-k': 'lab.try' }, t('lab.try')), h('ol', { class: 'try' }, ...spec.discover.map((d) => h('li', {}, bi(d, { tag: 'span' }))))) : null;
+  const objFold = h('details', { class: 'goal-pill' },
+    h('summary', { 'data-k': 'lab.goalBtn' }, t('lab.goalBtn')),
+    h('div', { class: 'goal-body' },
+      h('section', { class: 'objective' }, h('h3', { 'data-k': 'lab.obj' }, t('lab.obj')), bi(spec.objective, { tag: 'p', cls: 'lead' })),
+      note));
 
+  const discover = spec.discover?.length ? h('div', { class: 'dock-panel' }, h('ol', { class: 'try' }, ...spec.discover.map((d) => h('li', {}, bi(d, { tag: 'span' }))))) : null;
   const preds = (spec.predictions ?? []).map((p) => predict({ ...p, run: () => { const r = p.run(S); sync(); return r; }, explain: () => p.explain(S) }, { done: S.done, onDone: persist }));
-  const predBox = preds.length ? h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), ...preds) : null;
-
+  const predBox = preds.length ? h('div', { class: 'dock-panel' }, ...preds) : null;
   const exitEls = (spec.exit ?? []).map((q) => mcq(q, { done: S.done, onDone: (id, v) => { prog.exit[`${spec.id}.${id}`] = v; store.saveProgress(); persist(); } }));
   const ta = h('textarea', { class: 'reflect', rows: 3, 'data-k-aria': 'reflect.aria', placeholder: t('reflect.ph') }); ta.value = prog.reflect[spec.id] || '';
   ta.addEventListener('input', () => { prog.reflect[spec.id] = ta.value; store.saveProgress(); });
-  const exitBox = exitEls.length ? h('section', { class: 'subsec' }, h('h3', { 'data-k': 'exit.h' }, t('exit.h')), ...exitEls.map((e) => h('div', { class: 'exit-q' }, e)),
-    spec.reflect ? [h('h3', { 'data-k': 'reflect.h' }, t('reflect.h')), bi(spec.reflect, { tag: 'p', cls: 'note' }), ta, h('p', { class: 'note', 'data-k': 'reflect.local' }, t('reflect.local'))] : null) : null;
+  const exitBox = exitEls.length ? h('div', { class: 'dock-panel' }, ...exitEls.map((e) => h('div', { class: 'exit-q' }, e))) : null;
+  const noteBox = spec.reflect ? h('div', { class: 'dock-panel' }, bi(spec.reflect, { tag: 'p', cls: 'note' }), ta, h('p', { class: 'note', 'data-k': 'reflect.local' }, t('reflect.local'))) : null;
 
-  side.append(h('div', { class: 'row' }, button('btn.reset', reset, 'btn')));
+  // Interactive 4-pill challenge dock keeps all challenge elements live in DOM while eliminating vertical prose clutter
+  const dockList = [];
+  if (predBox) dockList.push({ id: 'predict', key: 'lab.dock.predict', el: predBox });
+  if (discover) dockList.push({ id: 'try', key: 'lab.dock.try', el: discover });
+  if (exitBox) dockList.push({ id: 'quiz', key: 'lab.dock.quiz', el: exitBox });
+  if (noteBox) dockList.push({ id: 'reflect', key: 'lab.dock.note', el: noteBox });
+  const dock = dockList.length ? mkTabs({ active: dockList[0].id, tabs: dockList }) : null;
+
+  side.append(h('div', { class: 'row' }, demoBtn, button('btn.reset', reset, 'btn')));
   const el = h('div', { class: 'lab', id: `lab-${spec.id.replace(/\./g, '-')}` },
-    h('section', { class: 'objective' }, h('h3', { 'data-k': 'lab.obj' }, t('lab.obj')), bi(spec.objective, { tag: 'p', cls: 'lead' })),
-    note,
+    objFold,
     h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, chartBox, h('h3', { class: 'sr-only', 'data-k': 'lab.live' }, t('lab.live')), read), side),
-    discover, predBox, exitBox);
+    dock ? h('section', { class: 'lab-dock' }, dock.root) : null);
+
+  let auto3d = null;
+  if (!skipAuto3d) {
+    const builder = createTheme3d(themeId);
+    if (builder) {
+      auto3d = attachThreeStage(el, () => S, builder);
+      const prevOnDraw = onDraw;
+      onDraw = (st) => { prevOnDraw?.(st); auto3d?.update(st); };
+    }
+  }
   draw();
   i18n.apply(el);
+
   return {
     el, state: S, reset, draw,
-    relabel() { preds.forEach((p) => p.relabel()); exitEls.forEach((q) => q.relabel()); relabelBi(el); i18n.apply(el); ta.placeholder = t('reflect.ph'); draw(); },
+    enable3d: () => auto3d?.enable?.(),
+    disable3d: () => auto3d?.disable?.(),
+    relabel() { preds.forEach((p) => p.relabel()); exitEls.forEach((q) => q.relabel()); relabelBi(el); i18n.apply(el); ta.placeholder = t('reflect.ph'); auto3d?.relabel?.(); draw(); },
+    destroy() { stopDemo(); auto3d?.destroy?.(); },
     debug: () => ({ state: { ...S }, view: spec.view(S) }),
   };
 }
 
-/** Tabbed module made of several labs; returns the standard mount() interface expected by the registry. */
+/** Tabbed module made of several labs; attaches lazy single-context 3D Diorama switching across tabs. */
 export function mountLabs(root, themeId, defs, tabs) {
   const labs = defs.map((d) => createLab(d, themeId));
   const dict = {}; defs.forEach((d, i) => { dict[`${themeId}.tab.${d.id}`] = tabs[i]; }); i18n.register(dict);
   const ui = store.simState(`${themeId}.ui`, { tab: defs[0].id.replace(/\./g, '-') });
-  const tb = mkTabs({ active: ui.tab, onChange: (id) => { ui.tab = id; store.saveSim(); }, tabs: defs.map((d, i) => ({ id: d.id.replace(/\./g, '-'), key: `${themeId}.tab.${d.id}`, el: labs[i].el })) });
+  const sync3dTab = (tabId) => {
+    labs.forEach((l, idx) => {
+      if (defs[idx].id.replace(/\./g, '-') === tabId) l.enable3d?.();
+      else l.disable3d?.();
+    });
+  };
+  const tb = mkTabs({
+    active: ui.tab,
+    onChange: (id) => { ui.tab = id; store.saveSim(); sync3dTab(id); },
+    tabs: defs.map((d, i) => ({ id: d.id.replace(/\./g, '-'), key: `${themeId}.tab.${d.id}`, el: labs[i].el })),
+  });
   root.append(tb.root); i18n.apply(root);
+  sync3dTab(ui.tab);
   return {
     relabel() { labs.forEach((l) => l.relabel()); i18n.apply(root); },
-    destroy() {},
+    destroy() { labs.forEach((l) => l.destroy?.()); },
     debug: () => Object.fromEntries(labs.map((l, i) => [defs[i].id, l.debug()])),
   };
 }

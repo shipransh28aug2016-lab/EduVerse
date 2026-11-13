@@ -214,12 +214,18 @@ export const authorityTypes = {
   view(S) {
     const a = ATYPES.find((x) => x.id === S.atype) || ATYPES[0];
     const trust = Math.max(25, a.trust - (S.listening ? 0 : 35)), fair = Math.max(20, a.fairness - (S.listening ? 0 : 40));
-    const svg = `<svg viewBox="0 0 640 215" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">`
-      + `<rect x="20" y="16" width="600" height="58" rx="8" fill="#e0f2fe" stroke="#0369a1"/><text class="txt b" x="34" y="39">${esc(P(a.en, a.hi))}</text><text class="txt sm mut" x="34" y="60">${esc(P(a.ex, a.exHi))}</text>`
-      + `<text class="txt sm" x="24" y="114">${esc(P('Citizen Trust', 'नागरिक विश्वास'))}</text><rect x="170" y="96" width="${trust * 4}" height="24" rx="4" fill="#15803d"/><text class="txt sm b" x="${178 + trust * 4}" y="113">${trust}%</text>`
-      + `<text class="txt sm" x="24" y="156">${esc(P('Perceived Fairness', 'निष्पक्षता बोध'))}</text><rect x="170" y="138" width="${fair * 4}" height="24" rx="4" fill="#1d4ed8"/><text class="txt sm b" x="${178 + fair * 4}" y="155">${fair}%</text>`
-      + `<text class="txt sm mut" x="24" y="196">${esc(P(a.descEn, a.descHi))}</text></svg>`;
+    const C = 2 * Math.PI * 34;
+    const svg = `<svg viewBox="0 0 640 225" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">`
+      + `<rect x="20" y="14" width="600" height="58" rx="10" fill="#e0f2fe" stroke="#0369a1"/><text class="txt b" x="36" y="38">${esc(P(a.en, a.hi))}</text><text class="txt sm mut" x="36" y="59">${esc(P(a.ex, a.exHi))}</text>`
+      + `<circle cx="155" cy="134" r="34" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="155" cy="134" r="34" fill="none" stroke="#15803d" stroke-width="10" stroke-dasharray="${((trust / 100) * C).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 155 134)" stroke-linecap="round"/><text class="txt b" x="155" y="139" text-anchor="middle">${trust}%</text><text class="txt sm" x="155" y="186" text-anchor="middle">${esc(P('Citizen Trust', 'नागरिक विश्वास'))}</text>`
+      + `<circle cx="485" cy="134" r="34" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="485" cy="134" r="34" fill="none" stroke="#1d4ed8" stroke-width="10" stroke-dasharray="${((fair / 100) * C).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 485 134)" stroke-linecap="round"/><text class="txt b" x="485" y="139" text-anchor="middle">${fair}%</text><text class="txt sm" x="485" y="186" text-anchor="middle">${esc(P('Perceived Fairness', 'निष्पक्षता बोध'))}</text>`
+      + `<text class="txt sm mut" x="320" y="212" text-anchor="middle">${esc(P(a.descEn, a.descHi))}</text></svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t14-justice.jpg',
+        en: 'Scales of justice beside constitutional law books and civic community shelter symbolising fair authority.',
+        hi: 'संविधान की पुस्तक व सामुदायिक न्याय-संतुलन के प्रतीक तराजू।',
+      },
       svg,
       aria: `${a.en}: trust ${trust}%, fairness ${fair}%`,
       lines: [
