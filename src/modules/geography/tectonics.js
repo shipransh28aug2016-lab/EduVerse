@@ -14,6 +14,9 @@ import { profile } from './plate-profiles.js';
 import { svgProfile } from './plate-svg.js';
 import { createPlateView } from './plate-3d.js';
 import { PLATE_HI, PRED, EXIT, HAZARD, REFLECT } from './content.js';
+import { UI_T02 } from '../../i18n/modules/t02.js';
+
+i18n.register(UI_T02);
 
 const GEO = { plates: null, land: null };
 async function loadGeo() {

@@ -3,15 +3,20 @@
 import fs from 'node:fs';
 import * as t01 from '../src/modules/integrated/t01.js';
 import * as earth from '../src/modules/geography/labs-earth.js';
-import * as geoExtra from '../src/modules/geography/labs-geo-extra.js';
-import * as awl from '../src/modules/geography/labs-air-water-life.js';
-import * as histEarly from '../src/modules/history/labs-history-early.js';
-import * as histLater from '../src/modules/history/labs-history-later.js';
+import * as t03 from '../src/modules/geography/t03-specs.js';
+import * as t10 from '../src/modules/geography/t10-specs.js';
+import * as t11 from '../src/modules/geography/t11-specs.js';
+import * as t04 from '../src/modules/history/t04-specs.js';
+import * as t05 from '../src/modules/history/t05-specs.js';
+import * as t12 from '../src/modules/history/t12-specs.js';
+import * as t13 from '../src/modules/history/t13-specs.js';
 import * as trade from '../src/modules/history/labs-trade.js';
-import * as pol from '../src/modules/politics/labs-politics.js';
+import * as t06 from '../src/modules/politics/t06-specs.js';
+import * as t07 from '../src/modules/politics/t07-specs.js';
 import * as auth from '../src/modules/politics/labs-authority.js';
-import * as econ from '../src/modules/economics/labs-econ.js';
-import * as econExtra from '../src/modules/economics/labs-econ-extra.js';
+import * as t08 from '../src/modules/economics/t08-specs.js';
+import * as t15 from '../src/modules/economics/t15-specs.js';
+import * as t16 from '../src/modules/economics/t16-specs.js';
 
 const cur = JSON.parse(fs.readFileSync('src/curriculum/curriculum.json', 'utf8'));
 const qa = new Set(JSON.parse(fs.readFileSync('data/coverage/qa-passed.json', 'utf8')).passed);
@@ -19,15 +24,20 @@ const qa = new Set(JSON.parse(fs.readFileSync('data/coverage/qa-passed.json', 'u
 const MODS = [
   ['src/modules/integrated/t01.js', t01],
   ['src/modules/geography/labs-earth.js', earth],
-  ['src/modules/geography/labs-geo-extra.js', geoExtra],
-  ['src/modules/geography/labs-air-water-life.js', awl],
-  ['src/modules/history/labs-history-early.js', histEarly],
-  ['src/modules/history/labs-history-later.js', histLater],
+  ['src/modules/geography/t03-specs.js', t03],
+  ['src/modules/geography/t10-specs.js', t10],
+  ['src/modules/geography/t11-specs.js', t11],
+  ['src/modules/history/t04-specs.js', t04],
+  ['src/modules/history/t05-specs.js', t05],
+  ['src/modules/history/t12-specs.js', t12],
+  ['src/modules/history/t13-specs.js', t13],
   ['src/modules/history/labs-trade.js', trade],
-  ['src/modules/politics/labs-politics.js', pol],
+  ['src/modules/politics/t06-specs.js', t06],
+  ['src/modules/politics/t07-specs.js', t07],
   ['src/modules/politics/labs-authority.js', auth],
-  ['src/modules/economics/labs-econ.js', econ],
-  ['src/modules/economics/labs-econ-extra.js', econExtra],
+  ['src/modules/economics/t08-specs.js', t08],
+  ['src/modules/economics/t15-specs.js', t15],
+  ['src/modules/economics/t16-specs.js', t16],
 ];
 
 const specs = [];

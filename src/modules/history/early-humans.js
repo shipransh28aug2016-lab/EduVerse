@@ -5,12 +5,14 @@ import * as i18n from '../../core/i18n.js';
 import { t } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { chips, tabs, bi, relabelBi, predict, mcq, biHtml } from '../../components/widgets.js';
-import { createLab, createInteractivePlate } from '../../components/lab-kit.js';
-import { createThreeLab } from '../../components/three-lab.js';
+import { createLab, createInteractivePlate, createThreeLab } from '../../components/lab-kit.js';
 import { createHarappan3d } from './harappan-3d.js';
 import { loadGeoAll } from '../../engines/viz.js';
 import * as M from './models.js';
-import { settlementLab, harappanCity, civAtlas } from './labs-history-early.js';
+import { settlementLab, harappanCity, civAtlas } from './t04-specs.js';
+import { UI_T04 } from '../../i18n/modules/t04.js';
+
+i18n.register(UI_T04);
 
 const b = (en, hi) => ({ en, hi });
 const o = (id, en, hi, why) => ({ id, en, hi, ...(why ? { why } : {}) });

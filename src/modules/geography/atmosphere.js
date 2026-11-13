@@ -1,8 +1,7 @@
 // T03 — Atmosphere and Climate: L1 Cutaway, L2 Climate Grapher, L3 Monsoon Map, L4 Local Breeze, L5 Catchment, L6 Carbon Footprint.
 import { mountLabs } from '../../components/lab-kit.js';
 import { loadGeoAll } from '../../engines/viz.js';
-import { cutaway, breeze } from './labs-air-water-life.js';
-import { climateGrapher, monsoonMap, catchment, carbonFootprint } from './labs-geo-extra.js';
+import { cutaway, breeze, climateGrapher, monsoonMap, catchment, carbonFootprint } from './t03-specs.js';
 
 export function mount(root) {
   const res = mountLabs(

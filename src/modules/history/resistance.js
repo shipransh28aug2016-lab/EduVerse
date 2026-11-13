@@ -1,12 +1,11 @@
 // T12 — Resistance and Resilience (1000–1700 CE): L1 Polities map, L2 3D Fort Cutaway, L3 Art & Lit gallery, L4 Bhakti map, L5 Continuity timeline.
 import * as i18n from '../../core/i18n.js';
 import * as store from '../../core/store.js';
-import { createLab } from '../../components/lab-kit.js';
-import { createThreeLab } from '../../components/three-lab.js';
+import { createLab, createThreeLab } from '../../components/lab-kit.js';
 import { createFort3d } from './fort-3d.js';
 import { tabs as mkTabs } from '../../components/widgets.js';
 import { loadGeoAll } from '../../engines/viz.js';
-import { regionalPolitiesMap, fortBuilder, heritageGallery, bhaktiNetwork, continuityTimeline } from './labs-history-later.js';
+import { regionalPolitiesMap, fortBuilder, heritageGallery, bhaktiNetwork, continuityTimeline } from './t12-specs.js';
 
 export function mount(root) {
   const lab1 = createLab(regionalPolitiesMap, 'T12');

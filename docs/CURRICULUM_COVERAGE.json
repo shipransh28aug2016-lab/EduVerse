@@ -149,7 +149,7 @@
      "engine": "atmosphere-cutaway",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/geography/labs-air-water-life.js"
+     "implementation": "src/modules/geography/t03-specs.js"
     },
     {
      "id": "T03.L2",
@@ -157,7 +157,7 @@
      "engine": "climate-grapher",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t03-specs.js"
     },
     {
      "id": "T03.L3",
@@ -165,7 +165,7 @@
      "engine": "monsoon-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t03-specs.js"
     },
     {
      "id": "T03.L4",
@@ -173,7 +173,7 @@
      "engine": "local-wind",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/geography/labs-air-water-life.js"
+     "implementation": "src/modules/geography/t03-specs.js"
     },
     {
      "id": "T03.L5",
@@ -181,7 +181,7 @@
      "engine": "catchment",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t03-specs.js"
     },
     {
      "id": "T03.L6",
@@ -189,7 +189,7 @@
      "engine": "carbon-footprint",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t03-specs.js"
     }
    ]
   },
@@ -234,7 +234,7 @@
      "engine": "settlement-sim",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t04-specs.js"
     },
     {
      "id": "T04.L4",
@@ -242,7 +242,7 @@
      "engine": "harappan-city",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t04-specs.js"
     },
     {
      "id": "T04.L5",
@@ -250,7 +250,7 @@
      "engine": "civ-atlas",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t04-specs.js"
     }
    ]
   },
@@ -279,7 +279,7 @@
      "engine": "dated-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t05-specs.js"
     },
     {
      "id": "T05.L2",
@@ -287,7 +287,7 @@
      "engine": "source-room",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t05-specs.js"
     },
     {
      "id": "T05.L3",
@@ -295,7 +295,7 @@
      "engine": "admin-flow",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t05-specs.js"
     },
     {
      "id": "T05.L4",
@@ -303,7 +303,7 @@
      "engine": "gallery",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t05-specs.js"
     },
     {
      "id": "T05.L5",
@@ -311,7 +311,7 @@
      "engine": "trade-routes",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-early.js"
+     "implementation": "src/modules/history/t05-specs.js"
     }
    ]
   },
@@ -340,7 +340,7 @@
      "engine": "concept-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/politics/labs-politics.js"
+     "implementation": "src/modules/politics/t06-specs.js"
     },
     {
      "id": "T06.L2",
@@ -348,7 +348,7 @@
      "engine": "gallery",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/politics/labs-politics.js"
+     "implementation": "src/modules/politics/t06-specs.js"
     },
     {
      "id": "T06.L3",
@@ -356,7 +356,7 @@
      "engine": "system-flow",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/politics/labs-politics.js"
+     "implementation": "src/modules/politics/t06-specs.js"
     },
     {
      "id": "T06.L4",
@@ -364,7 +364,7 @@
      "engine": "country-compare",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/politics/labs-politics.js"
+     "implementation": "src/modules/politics/t06-specs.js"
     }
    ]
   },
@@ -393,7 +393,7 @@
      "engine": "process-flow",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/politics/labs-politics.js"
+     "implementation": "src/modules/politics/t07-specs.js"
     },
     {
      "id": "T07.L2",
@@ -409,7 +409,7 @@
      "engine": "delimitation",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/politics/labs-politics.js"
+     "implementation": "src/modules/politics/t07-specs.js"
     },
     {
      "id": "T07.L4",
@@ -417,7 +417,7 @@
      "engine": "coalition",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/politics/labs-politics.js"
+     "implementation": "src/modules/politics/t07-specs.js"
     }
    ]
   },
@@ -446,7 +446,7 @@
      "engine": "scarcity-game",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t08-specs.js"
     },
     {
      "id": "T08.L2",
@@ -454,7 +454,7 @@
      "engine": "ppf",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/economics/labs-econ.js"
+     "implementation": "src/modules/economics/t08-specs.js"
     },
     {
      "id": "T08.L3",
@@ -462,7 +462,7 @@
      "engine": "flow",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t08-specs.js"
     },
     {
      "id": "T08.L4",
@@ -470,7 +470,7 @@
      "engine": "system-compare",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t08-specs.js"
     },
     {
      "id": "T08.L5",
@@ -478,7 +478,7 @@
      "engine": "safety-net",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t08-specs.js"
     }
    ]
   },
@@ -576,7 +576,7 @@
      "engine": "ocean-relief",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t10-specs.js"
     },
     {
      "id": "T10.L2",
@@ -584,7 +584,7 @@
      "engine": "ocean-motion",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/geography/labs-air-water-life.js"
+     "implementation": "src/modules/geography/t10-specs.js"
     },
     {
      "id": "T10.L3",
@@ -592,7 +592,7 @@
      "engine": "fisheries",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t10-specs.js"
     },
     {
      "id": "T10.L4",
@@ -600,7 +600,7 @@
      "engine": "coastal-hazard",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/geography/labs-air-water-life.js"
+     "implementation": "src/modules/geography/t10-specs.js"
     },
     {
      "id": "T10.L5",
@@ -608,7 +608,7 @@
      "engine": "concept-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t10-specs.js"
     }
    ]
   },
@@ -637,7 +637,7 @@
      "engine": "biome-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t11-specs.js"
     },
     {
      "id": "T11.L2",
@@ -645,7 +645,7 @@
      "engine": "reserve-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t11-specs.js"
     },
     {
      "id": "T11.L3",
@@ -653,7 +653,7 @@
      "engine": "forest-tradeoffs",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/geography/labs-air-water-life.js"
+     "implementation": "src/modules/geography/t11-specs.js"
     },
     {
      "id": "T11.L4",
@@ -661,7 +661,7 @@
      "engine": "fire-planner",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t11-specs.js"
     },
     {
      "id": "T11.L5",
@@ -669,7 +669,7 @@
      "engine": "gallery",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/geography/labs-geo-extra.js"
+     "implementation": "src/modules/geography/t11-specs.js"
     }
    ]
   },
@@ -698,7 +698,7 @@
      "engine": "dated-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t12-specs.js"
     },
     {
      "id": "T12.L2",
@@ -706,7 +706,7 @@
      "engine": "fort-3d",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t12-specs.js"
     },
     {
      "id": "T12.L3",
@@ -714,7 +714,7 @@
      "engine": "gallery",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t12-specs.js"
     },
     {
      "id": "T12.L4",
@@ -722,7 +722,7 @@
      "engine": "network-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t12-specs.js"
     },
     {
      "id": "T12.L5",
@@ -730,7 +730,7 @@
      "engine": "timeline",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t12-specs.js"
     }
    ]
   },
@@ -767,7 +767,7 @@
      "engine": "exchange-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t13-specs.js"
     },
     {
      "id": "T13.L3",
@@ -775,7 +775,7 @@
      "engine": "gallery",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t13-specs.js"
     },
     {
      "id": "T13.L4",
@@ -783,7 +783,7 @@
      "engine": "artefact-viewer",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/history/labs-history-later.js"
+     "implementation": "src/modules/history/t13-specs.js"
     }
    ]
   },
@@ -873,7 +873,7 @@
      "engine": "plan-builder",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t15-specs.js"
     },
     {
      "id": "T15.L2",
@@ -881,7 +881,7 @@
      "engine": "startup-lab",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/economics/labs-econ.js"
+     "implementation": "src/modules/economics/t15-specs.js"
     },
     {
      "id": "T15.L3",
@@ -889,7 +889,7 @@
      "engine": "ecosystem-map",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t15-specs.js"
     },
     {
      "id": "T15.L4",
@@ -897,7 +897,7 @@
      "engine": "creative-destruction",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t15-specs.js"
     },
     {
      "id": "T15.L5",
@@ -905,7 +905,7 @@
      "engine": "accounting",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/economics/labs-econ.js"
+     "implementation": "src/modules/economics/t15-specs.js"
     }
    ]
   },
@@ -934,7 +934,7 @@
      "engine": "budget-lab",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/economics/labs-econ.js"
+     "implementation": "src/modules/economics/t16-specs.js"
     },
     {
      "id": "T16.L2",
@@ -942,7 +942,7 @@
      "engine": "inflation",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/economics/labs-econ.js"
+     "implementation": "src/modules/economics/t16-specs.js"
     },
     {
      "id": "T16.L3",
@@ -950,7 +950,7 @@
      "engine": "interest",
      "status": "implemented",
      "qaPassed": true,
-     "implementation": "src/modules/economics/labs-econ.js"
+     "implementation": "src/modules/economics/t16-specs.js"
     },
     {
      "id": "T16.L4",
@@ -958,7 +958,7 @@
      "engine": "risk-return",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t16-specs.js"
     },
     {
      "id": "T16.L5",
@@ -966,7 +966,7 @@
      "engine": "tax-flow",
      "status": "implemented",
      "qaPassed": false,
-     "implementation": "src/modules/economics/labs-econ-extra.js"
+     "implementation": "src/modules/economics/t16-specs.js"
     }
    ]
   }

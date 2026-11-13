@@ -1,7 +1,6 @@
 // T08 — Building Blocks in Economics: L1 Scarcity, L2 PPF, L3 What/How/For Whom, L4 Economic systems, L5 Safety net.
 import { mountLabs } from '../../components/lab-kit.js';
-import { ppf } from './labs-econ.js';
-import { scarcityGame, econFlow, econSystems, safetyNet } from './labs-econ-extra.js';
+import { ppf, scarcityGame, econFlow, econSystems, safetyNet } from './t08-specs.js';
 
 export const mount = (root) => mountLabs(
   root,

@@ -35,13 +35,14 @@ function setupDom() {
 test('DOM + module mount/relabel/a11y/interaction check across all 16 themes (T01–T16)', async () => {
   setupDom();
   try {
-    const [{ UI }, { MODULES, TEACHER, LIMITS }, store, i18n, { HERO_MEDIA, THEME_MEDIA, themeBannerEl }, { iconEl }] = await Promise.all([
+    const [{ UI }, { MODULES }, { TEACHER, LIMITS }, store, i18n, { HERO_MEDIA, THEME_MEDIA, themeBannerEl }, { iconEl }] = await Promise.all([
       import('../src/i18n/ui.js'),
       import('../src/modules/registry.js'),
+      import('../src/modules/teacher-meta.js'),
       import('../src/core/store.js'),
       import('../src/core/i18n.js'),
       import('../src/core/media.js'),
-      import('../src/engines/viz.js'),
+      import('../src/engines/icons.js'),
     ]);
 
     const cur = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/curriculum/curriculum.json'), 'utf8'));
@@ -303,7 +304,9 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     // Navigate to #/bridge and verify India Board Map Lab + Locate-Me drill + IDP + 16-theme matrix
     location.hash = '#/bridge';
     window.dispatchEvent(new Event('hashchange'));
-    await new Promise((r) => setTimeout(r, 20));
+    for (let i = 0; i < 40 && !document.querySelector('#main .bridge-map-host svg.geomap'); i++) {
+      await new Promise((r) => setTimeout(r, 15));
+    }
     assert.ok(document.querySelector('#main .bridge-map-host svg.geomap'), '#/bridge should render India SVG map');
     const bridgePins = document.querySelectorAll('#main .bridge-pin');
     assert.equal(bridgePins.length, 12, '#/bridge should render 12 board map pins');
@@ -318,12 +321,24 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     // Navigate to #/portfolio and verify KPIs + CG1-CG9 mastery bars
     location.hash = '#/portfolio';
     window.dispatchEvent(new Event('hashchange'));
-    await new Promise((r) => setTimeout(r, 20));
+    for (let i = 0; i < 40 && !document.querySelector('#main .port-kpis .kpi-card'); i++) {
+      await new Promise((r) => setTimeout(r, 15));
+    }
     assert.equal(document.querySelectorAll('#main .port-kpis .kpi-card').length, 4, '#/portfolio should render 4 KPI cards');
     assert.equal(document.querySelectorAll('#main .cg-bars .cg-row').length, 9, '#/portfolio should render all 9 Curricular Goals');
     const portHtml = document.getElementById('main').innerHTML;
     assert.equal(/⟦[^⟧]+⟧/.test(portHtml), false, '#/portfolio has unresolved i18n key');
     assert.equal(/\b(NaN|undefined|Infinity)\b/.test(portHtml), false, '#/portfolio contains invalid literal');
+
+    // Verify lazy i18n slices for T02, T04, T07, T09 render without missing keys when navigated via app shell
+    for (const lazyId of ['T02', 'T04', 'T07', 'T09']) {
+      location.hash = `#/theme/${lazyId}`;
+      window.dispatchEvent(new Event('hashchange'));
+      for (let i = 0; i < 40 && !document.querySelector('#module .lab, #module svg'); i++) {
+        await new Promise((r) => setTimeout(r, 15));
+      }
+      assert.equal(/⟦[^⟧]+⟧/.test(document.getElementById('main').innerHTML), false, `${lazyId} has unresolved lazy i18n key`);
+    }
 
     // Return home cleanly
     location.hash = '#/';

@@ -1,7 +1,7 @@
 // T06 — Democracy: L1 Concept map & assessor, L2 Early Indian traditions, L3 Parliamentary vs presidential, L4 Country comparison.
 import { mountLabs } from '../../components/lab-kit.js';
 import { loadGeoAll } from '../../engines/viz.js';
-import { democracyMap, earlyTraditions, institutions, countryCompare } from './labs-politics.js';
+import { democracyMap, earlyTraditions, institutions, countryCompare } from './t06-specs.js';
 
 export function mount(root) {
   const res = mountLabs(

@@ -1,8 +1,7 @@
 // T11 — Life on Earth: L1 World Biomes, L2 India Biosphere Reserves, L3 Forest Harvest & Food Web, L4 Fire Planner, L5 Traditional Conservation.
 import { mountLabs } from '../../components/lab-kit.js';
 import { loadGeoAll } from '../../engines/viz.js';
-import { harvest, foodweb } from './labs-air-water-life.js';
-import { biomeMap, reserveMap, firePlanner, traditionalConservation } from './labs-geo-extra.js';
+import { harvest, foodweb, biomeMap, reserveMap, firePlanner, traditionalConservation } from './t11-specs.js';
 
 export function mount(root) {
   const res = mountLabs(

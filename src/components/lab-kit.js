@@ -9,7 +9,7 @@ import * as store from '../core/store.js';
 import { playTap } from '../core/sound.js';
 import { slider, chips, toggle, tabs as mkTabs, bi, relabelBi, predict, mcq, biHtml, button } from './widgets.js';
 import { attachThreeStage } from './three-lab.js';
-import { createTheme3d } from './diorama-3d.js';
+import { hasTheme3d, loadTheme3d } from './diorama/loader.js';
 
 i18n.register({
   'lab.obj': { en: 'Learning objective', hi: 'सीखने का उद्देश्य' },
@@ -207,13 +207,10 @@ export function createLab(spec, themeId, { onDraw, skipAuto3d = false } = {}) {
     dock ? h('section', { class: 'lab-dock' }, dock.root) : null);
 
   let auto3d = null;
-  if (!skipAuto3d) {
-    const builder = createTheme3d(themeId);
-    if (builder) {
-      auto3d = attachThreeStage(el, () => S, builder, { themeId });
-      const prevOnDraw = onDraw;
-      onDraw = (st) => { prevOnDraw?.(st); auto3d?.update(st); };
-    }
+  if (!skipAuto3d && hasTheme3d(themeId)) {
+    auto3d = attachThreeStage(el, () => S, (api, host) => loadTheme3d(themeId).then((b) => b?.(api, host)), { themeId });
+    const prevOnDraw = onDraw;
+    onDraw = (st) => { prevOnDraw?.(st); auto3d?.update(st); };
   }
   draw();
   i18n.apply(el);
@@ -250,6 +247,23 @@ export function mountLabs(root, themeId, defs, tabs) {
     relabel() { labs.forEach((l) => l.relabel()); i18n.apply(root); },
     destroy() { labs.forEach((l) => l.destroy?.()); },
     debug: () => Object.fromEntries(labs.map((l, i) => [defs[i].id, l.debug()])),
+  };
+}
+
+export function createThreeLab(spec, themeId, create3dView, opts = {}) {
+  let stage3d = null;
+  const lab = createLab(spec, themeId, {
+    ...opts,
+    skipAuto3d: true,
+    onDraw: (S) => stage3d?.update(S),
+  });
+  stage3d = attachThreeStage(lab.el, () => lab.state, create3dView, { themeId, ...opts });
+  return {
+    ...lab,
+    enable: stage3d.enable,
+    disable: stage3d.disable,
+    relabel() { lab.relabel(); stage3d.relabel(); },
+    destroy() { stage3d.destroy(); lab.destroy?.(); },
   };
 }
 export { esc };
