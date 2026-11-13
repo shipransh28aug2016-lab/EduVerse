@@ -242,7 +242,60 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     document.querySelector('#topbar [data-lang="both"]').click();
     assert.match(document.querySelector('#main dl.gloss dd[data-term-def]').textContent, /[ऀ-ॿ]/, 'Glossary definition in both mode should include Hindi');
 
-    // Return home
+    // Return home & verify HUD cleanliness + quick links
+    location.hash = '#/';
+    window.dispatchEvent(new Event('hashchange'));
+    await new Promise((r) => setTimeout(r, 20));
+    assert.equal(document.querySelectorAll('#main .card').length, 16);
+    const homeHtml = document.getElementById('main').innerHTML;
+    assert.equal(/⟦[^⟧]+⟧/.test(homeHtml), false, 'Home page has unresolved i18n key');
+    assert.equal(/\b(NaN|undefined|Infinity)\b/.test(homeHtml), false, 'Home page HUD contains invalid literal');
+    assert.ok(document.querySelector('#main a[href="#/bridge"]'), 'Home HUD should link to #/bridge');
+    assert.ok(document.querySelector('#main a[href="#/portfolio"]'), 'Home HUD should link to #/portfolio');
+
+    // Verify NEP competency bridge + CBQ mounted on theme page (navigate to T01)
+    location.hash = '#/theme/T01';
+    window.dispatchEvent(new Event('hashchange'));
+    for (let i = 0; i < 40 && !document.querySelector('#main .nep-card'); i++) {
+      await new Promise((r) => setTimeout(r, 15));
+    }
+    assert.ok(document.querySelector('#main .nep-card'), 'Theme page should mount .nep-card');
+    assert.ok(document.querySelector('#main .cbq-card'), 'Theme page should mount .cbq-card');
+    const firstNepChip = document.querySelector('#main .nep-chip');
+    assert.ok(firstNepChip, 'Theme page should render NEP competency chips');
+    firstNepChip.click();
+    assert.equal(document.querySelector('#main .nep-comp-detail').hidden, false, 'Clicking NEP chip reveals competency detail');
+    const cbqOpt = document.querySelector('#main .cbq-card .mcq .opt');
+    assert.ok(cbqOpt, 'CBQ card should render Assertion-Reason options');
+    cbqOpt.click();
+    assert.ok(document.querySelector('#main .cbq-card .feedback').textContent.length > 0, 'CBQ answer gives immediate feedback');
+
+    // Navigate to #/bridge and verify India Board Map Lab + Locate-Me drill + IDP + 16-theme matrix
+    location.hash = '#/bridge';
+    window.dispatchEvent(new Event('hashchange'));
+    await new Promise((r) => setTimeout(r, 20));
+    assert.ok(document.querySelector('#main .bridge-map-host svg.geomap'), '#/bridge should render India SVG map');
+    const bridgePins = document.querySelectorAll('#main .bridge-pin');
+    assert.equal(bridgePins.length, 12, '#/bridge should render 12 board map pins');
+    bridgePins[0].dispatchEvent(new Event('click', { bubbles: true }));
+    assert.ok(document.querySelector('#main .bridge-pin-info').textContent.length > 10, 'Clicking map pin updates info card');
+    assert.equal(document.querySelectorAll('#main .idp-item').length, 5, '#/bridge should render 5 IDP project cards');
+    assert.equal(document.querySelectorAll('#main .bridge-matrix .bridge-row').length, 16, '#/bridge should link all 16 themes');
+    const bridgeHtml = document.getElementById('main').innerHTML;
+    assert.equal(/⟦[^⟧]+⟧/.test(bridgeHtml), false, '#/bridge has unresolved i18n key');
+    assert.equal(/\b(NaN|undefined|Infinity)\b/.test(bridgeHtml), false, '#/bridge contains invalid literal');
+
+    // Navigate to #/portfolio and verify KPIs + CG1-CG9 mastery bars
+    location.hash = '#/portfolio';
+    window.dispatchEvent(new Event('hashchange'));
+    await new Promise((r) => setTimeout(r, 20));
+    assert.equal(document.querySelectorAll('#main .port-kpis .kpi-card').length, 4, '#/portfolio should render 4 KPI cards');
+    assert.equal(document.querySelectorAll('#main .cg-bars .cg-row').length, 9, '#/portfolio should render all 9 Curricular Goals');
+    const portHtml = document.getElementById('main').innerHTML;
+    assert.equal(/⟦[^⟧]+⟧/.test(portHtml), false, '#/portfolio has unresolved i18n key');
+    assert.equal(/\b(NaN|undefined|Infinity)\b/.test(portHtml), false, '#/portfolio contains invalid literal');
+
+    // Return home cleanly
     location.hash = '#/';
     window.dispatchEvent(new Event('hashchange'));
     await new Promise((r) => setTimeout(r, 20));
@@ -312,5 +365,33 @@ test('every theme T01–T16 has bilingual glossary coverage', () => {
   for (const th of cur.themes) {
     const terms = gl.terms.filter((g) => (g.themes || []).includes(th.id));
     assert.ok(terms.length >= 2, `${th.id} expected >= 2 glossary terms, found ${terms.length}`);
+  }
+});
+
+test('NEP 2020 + Class X Bridge + 3D VR Tours + 32 CBQs cover all 16 themes bilingually', async () => {
+  const { CG_META, THEME_NEP } = await import('../src/data/nep-cbq.js');
+  const { xrSupport } = await import('../src/engines/xr.js');
+  const THREE = await import('../vendor/three/three.module.min.js');
+  assert.equal(Object.keys(CG_META).length, 9, 'Expected CG1–CG9 metadata');
+  assert.equal(typeof THREE.StereoCamera, 'function', 'Vendored Three.js must provide StereoCamera for VR split-screen');
+  const xr = await xrSupport();
+  assert.equal(typeof xr.vr, 'boolean');
+  for (let i = 1; i <= 16; i++) {
+    const id = `T${String(i).padStart(2, '0')}`;
+    const m = THEME_NEP[id];
+    assert.ok(m, `Missing THEME_NEP entry for ${id}`);
+    assert.ok(m.cgs.length >= 1 && m.cgs.every((c) => CG_META[c]), `${id} has invalid CG ref`);
+    assert.ok(m.codes.length >= 1, `${id} missing competency codes`);
+    assert.ok(m.skill?.en && /[ऀ-ॿ]/.test(m.skill?.hi || ''), `${id} skill must be bilingual`);
+    assert.ok(m.classX?.chapters?.en && /[ऀ-ॿ]/.test(m.classX?.chapters?.hi || ''), `${id} classX bridge must be bilingual`);
+    assert.equal(m.tours.length, 3, `${id} expected 3 VR spatial tour stops`);
+    for (const stop of m.tours) {
+      assert.ok(Number.isFinite(stop.az) && Number.isFinite(stop.pol) && Number.isFinite(stop.r), `${id} tour stop coords invalid`);
+      assert.ok(stop.en && /[ऀ-ॿ]/.test(stop.hi || ''), `${id} tour stop must be bilingual`);
+    }
+    assert.ok(['A', 'B', 'C', 'D'].includes(m.ar.correct), `${id} invalid A/R answer`);
+    assert.ok(m.ar.assertion.en && /[ऀ-ॿ]/.test(m.ar.assertion.hi), `${id} A/R assertion must be bilingual`);
+    assert.ok(m.caseQ.options.some((o) => o.id === m.caseQ.correct), `${id} caseQ correct option missing`);
+    assert.ok(m.caseQ.passage.en && /[ऀ-ॿ]/.test(m.caseQ.passage.hi), `${id} caseQ passage must be bilingual`);
   }
 });

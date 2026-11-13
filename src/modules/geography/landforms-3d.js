@@ -8,6 +8,7 @@ export function createLandform3d(api, labelHost) {
   let labels = [];
 
   const clear = () => {
+    api.clearPickables?.();
     for (const c of [...group.children]) {
       group.remove(c);
       c.traverse((o) => { o.geometry?.dispose?.(); o.material?.dispose?.(); });
@@ -50,6 +51,7 @@ export function createLandform3d(api, labelHost) {
       const stream = new THREE.Mesh(new THREE.BoxGeometry(1.1 + stage * 1.6, 0.4, 10.1), waterMat);
       stream.position.set(0, 2.1 - cut, 0);
       group.add(stream);
+      api.markPickable?.(stream, { en: 'River Carving V-Valley', hi: 'V-आकार की घाटी काटती नदी' });
       addLabel(new THREE.Vector3(-4.5, 2.4, 0), 'Valley slope', 'घाटी ढलान');
       addLabel(new THREE.Vector3(0, 2.3 - cut, 3), 'River channel', 'नदी चैनल');
     } else if (S.agent === 'waves') {

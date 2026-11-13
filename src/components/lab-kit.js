@@ -140,7 +140,7 @@ export function createLab(spec, themeId, { onDraw, skipAuto3d = false } = {}) {
   if (!skipAuto3d) {
     const builder = createTheme3d(themeId);
     if (builder) {
-      auto3d = attachThreeStage(el, () => S, builder);
+      auto3d = attachThreeStage(el, () => S, builder, { themeId });
       const prevOnDraw = onDraw;
       onDraw = (st) => { prevOnDraw?.(st); auto3d?.update(st); };
     }

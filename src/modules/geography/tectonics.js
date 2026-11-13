@@ -5,7 +5,9 @@ import { t } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { slider, button, toggle, chips, tabs, bi, relabelBi, predict, mcq } from '../../components/widgets.js';
 import { webglAvailable } from '../../engines/webgl.js';
+import { xrSupport } from '../../engines/xr.js';
 import { createScene } from '../../engines/three-scene.js';
+import { THEME_NEP } from '../../data/nep-cbq.js';
 import * as M from './models.js';
 import { profile } from './plate-profiles.js';
 import { svgProfile } from './plate-svg.js';
@@ -84,10 +86,13 @@ export function mount(root, ctx = {}) {
     const sec = h('div', { class: 'sec-box' }); // 2D section / fallback
     const glHost = h('div', { class: 'gl-host', 'aria-label': t('pb.gl.aria'), 'data-k-aria': 'pb.gl.aria' });
     const glLabels = h('div', { class: 'gl-labels', 'aria-hidden': 'true' });
-    const view3d = h('div', { class: 'view3d', hidden: true }, glHost, glLabels);
+    const inspectPill = h('div', { class: 'gl-inspect', hidden: true });
+    const tourPill = h('div', { class: 'gl-tour-pill', hidden: true });
+    const view3d = h('div', { class: 'view3d', hidden: true }, glHost, glLabels, inspectPill, tourPill);
     const read = h('div', { class: 'readout', role: 'status', 'aria-live': 'polite' });
     const modeNote = h('p', { class: 'note' });
-    let api = null, pv = null, wantGL = false;
+    let api = null, pv = null, lastPick = null, tourIdx = -1, currentStop = null;
+    const stops = THEME_NEP.T02.tours;
 
     const ch = chips({ name: 'btype', value: S.type, options: TYPE_KEYS, onSelect: (id) => { S.type = id; refresh(); } });
     const sSpeed = slider({ id: 'pb-speed', labelKey: 'pb.ctl.speed', min: M.SPEED.min, max: M.SPEED.max, step: M.SPEED.step, value: S.speed, format: (v) => `${v} cm/yr`, onInput: (v) => { S.speed = v; refresh(); } });
@@ -95,7 +100,11 @@ export function mount(root, ctx = {}) {
     const tLab = toggle({ id: 'pb-labels', labelKey: 'pb.ctl.labels', checked: S.labels, onChange: (v) => { S.labels = v; refresh(); } });
     const bPlay = button('pb.btn.play', () => togglePlay(), 'btn primary');
     const bReset = button('btn.reset', () => { Object.assign(S, M.initialTectonics()); sync(); }, 'btn');
-    const presets = h('div', { class: 'row' }, ...['overview', 'close', 'section', 'top'].map((p) => button(`pb.cam.${p}`, () => api?.preset(p), 'btn ghost')));
+    const bStereo = h('button', { type: 'button', class: 'btn ghost vr-btn', 'data-k': 'vr.stereo', 'aria-pressed': 'false', onclick: () => { if (!api) return; const on = api.setStereo(!api.isStereo()); bStereo.setAttribute('aria-pressed', on ? 'true' : 'false'); view3d.classList.toggle('gl-stereo', on); } }, t('vr.stereo'));
+    const bTour = h('button', { type: 'button', class: 'btn ghost vr-btn', 'data-k': 'vr.tour', onclick: () => { if (!api || !stops.length) return; tourIdx = (tourIdx + 1) % stops.length; currentStop = stops[tourIdx]; api.flyTo(currentStop, 900); tourPill.textContent = `🥽 (${tourIdx + 1}/${stops.length}) ${i18n.pair(currentStop.en, currentStop.hi)}`; tourPill.hidden = false; } }, t('vr.tour'));
+    const bXr = h('button', { type: 'button', class: 'btn primary vr-btn', 'data-k': 'vr.enter', hidden: true, onclick: async () => { await api?.enterWebXR?.(); } }, t('vr.enter'));
+    xrSupport().then((sup) => { if (!destroyed && sup.vr) bXr.hidden = false; }).catch(() => {});
+    const presets = h('div', { class: 'row' }, ...['overview', 'close', 'section', 'top'].map((p) => button(`pb.cam.${p}`, () => { currentStop = null; tourPill.hidden = true; api?.preset(p); }, 'btn ghost')), bTour, bStereo, bXr);
     presets.hidden = true;
 
     function stepPlay() { if (S.time >= M.TIME.max) { togglePlay(false); return; } S.time = Math.min(M.TIME.max, S.time + (store.get().reducedMotion ? 5 : 1)); sTime.set(S.time); refresh(); }
@@ -119,7 +128,13 @@ export function mount(root, ctx = {}) {
       if (api || lowG()) return;
       view3d.hidden = false; sec.classList.add('compact');
       try {
-        api = await createScene(glHost, { lowGraphics: store.get().lowGraphics, reducedMotion: store.get().reducedMotion, onAfterRender: () => pv?.place(S.labels) });
+        api = await createScene(glHost, {
+          lowGraphics: store.get().lowGraphics,
+          reducedMotion: store.get().reducedMotion,
+          vrStage: true,
+          onAfterRender: (st) => pv?.place(S.labels && !st),
+          onPick: (info) => { if (!info) return; lastPick = info; inspectPill.textContent = i18n.pair(info.en, info.hi); inspectPill.hidden = false; },
+        });
         if (destroyed) { api.dispose(); api = null; return; }
         pv = createPlateView(api, glLabels); presets.hidden = false; modeNote.textContent = t('pb.mode.3d'); modeNote.dataset.k = 'pb.mode.3d';
         refresh();
@@ -127,7 +142,7 @@ export function mount(root, ctx = {}) {
         api = null; pv = null; view3d.hidden = true; sec.classList.remove('compact'); modeNote.textContent = t('pb.mode.2d'); modeNote.dataset.k = 'pb.mode.2d';
       }
     }
-    function disable3D() { if (!api) return; pv?.dispose(); api.dispose(); api = null; pv = null; glHost.replaceChildren(); glLabels.replaceChildren(); view3d.hidden = true; sec.classList.remove('compact'); presets.hidden = true; modeNote.textContent = t('pb.mode.2d'); modeNote.dataset.k = 'pb.mode.2d'; }
+    function disable3D() { if (!api) return; pv?.dispose(); api.dispose(); api = null; pv = null; lastPick = null; currentStop = null; tourIdx = -1; glHost.replaceChildren(); glLabels.replaceChildren(); inspectPill.hidden = true; tourPill.hidden = true; view3d.classList.remove('gl-stereo'); bStereo.setAttribute('aria-pressed', 'false'); view3d.hidden = true; sec.classList.remove('compact'); presets.hidden = true; modeNote.textContent = t('pb.mode.2d'); modeNote.dataset.k = 'pb.mode.2d'; }
     const applyMode = () => { if (lowG()) { disable3D(); modeNote.textContent = t('pb.mode.2d'); modeNote.dataset.k = 'pb.mode.2d'; } else enable3D(); };
     modeNote.textContent = t(lowG() ? 'pb.mode.2d' : 'pb.mode.load'); modeNote.dataset.k = lowG() ? 'pb.mode.2d' : 'pb.mode.load';
 
@@ -149,7 +164,7 @@ export function mount(root, ctx = {}) {
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'hz.h' }, t('hz.h')), bi(HAZARD, { tag: 'p', cls: 'note' }), ta));
     return {
       el, enable: applyMode, pause: () => togglePlay(false), disable: disable3D,
-      relabel() { pr1.relabel(); pr2.relabel(); relabelBi(el); i18n.apply(el); bPlay.textContent = t(bPlay.dataset.k); ta.setAttribute('aria-label', t('hz.aria')); modeNote.textContent = t(modeNote.dataset.k); pv?.relabel(); refresh(); },
+      relabel() { pr1.relabel(); pr2.relabel(); relabelBi(el); i18n.apply(el); bPlay.textContent = t(bPlay.dataset.k); ta.setAttribute('aria-label', t('hz.aria')); modeNote.textContent = t(modeNote.dataset.k); if (lastPick && !inspectPill.hidden) inspectPill.textContent = i18n.pair(lastPick.en, lastPick.hi); if (currentStop && !tourPill.hidden) tourPill.textContent = `🥽 (${tourIdx + 1}/${stops.length}) ${i18n.pair(currentStop.en, currentStop.hi)}`; pv?.relabel(); refresh(); },
       debug: () => ({ api: !!api, canvas: !!glHost.querySelector('canvas'), type: S.type, speed: S.speed, time: S.time, km: M.convergenceKm(S.speed, S.time) }),
       host: glHost,
     };

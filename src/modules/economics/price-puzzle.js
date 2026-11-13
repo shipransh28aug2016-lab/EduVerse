@@ -185,7 +185,7 @@ export function mount(root, ctx) {
     sync();
     const el = h('div', { class: 'lab' }, h('div', { class: 'lab-grid' }, left, right),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), predBox));
-    stage3dMk = attachThreeStage(el, () => ({ price: m.price, eqP: M.equilibrium(m).P }), createTheme3d('T09'), { insertBeforeEl: chartBox });
+    stage3dMk = attachThreeStage(el, () => ({ price: m.price, eqP: M.equilibrium(m).P }), createTheme3d('T09'), { insertBeforeEl: chartBox, themeId: 'T09' });
     return { el, enable3d: () => stage3dMk.enable(), disable3d: () => stage3dMk.disable(), relabel() { mkImg.alt = i18n.pair('Indian neighborhood produce and spice stall with brass balance scale reflecting supply-and-demand prices.', 'स्थानीय सब्ज़ी व मसाला मंडी में पीतल तराजू — दैनिक माँग-पूर्ति से मूल्य निर्धारण।'); predEls.forEach((p) => p.relabel()); stage3dMk.relabel(); draw(); }, snapshot: () => ({ m: { ...m }, c: M.compute(m) }), destroy() { stage3dMk.destroy(); } };
   })();
 
@@ -312,7 +312,7 @@ export function mount(root, ctx) {
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.classify' }, t('pg.h.classify')), h('p', { class: 'note' }, bi({ en: 'A public good is BOTH non-excludable and non-rival. Decide each question for every item, then check.', hi: 'सार्वजनिक वस्तु अपवर्जन-रहित और प्रतिद्वंद्विता-रहित दोनों होती है। हर वस्तु के लिए दोनों प्रश्न तय करें, फिर जाँचें।' }, { tag: 'span' })), itemsBox),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.fr' }, t('pg.h.fr')), pgPlate, h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, frBox, frRead), h('div', { class: 'lab-side' }, sk.root, tx.root, h('p', { class: 'note', 'data-k': 'pg.fictional' }, t('pg.fictional')), h('div', { class: 'row' }, button('btn.reset', () => { g.k = 3; g.tax = false; sk.set(3); tx.set(false); draw(); })))),
         h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
-    stage3dPg = attachThreeStage(el, () => ({ k: g.k, tax: g.tax }), createTheme3d('T09'), { insertBeforeEl: frBox });
+    stage3dPg = attachThreeStage(el, () => ({ k: g.k, tax: g.tax }), createTheme3d('T09'), { insertBeforeEl: frBox, themeId: 'T09' });
     return { el, enable3d: () => stage3dPg.enable(), disable3d: () => stage3dPg.disable(), relabel() { pgImg.alt = i18n.pair('Glowing village streetlamp illuminating all ten cottages equally, illustrating non-excludable and non-rival public goods.', 'सभी दस घरों को समान रोशनी देता गली का लैंप — सार्वजनिक वस्तुओं का उदाहरण।'); pr.relabel(); relabelBi(el); i18n.apply(el); stage3dPg.relabel(); draw(); }, destroy() { stage3dPg.destroy(); } };
   })();
 
