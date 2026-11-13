@@ -8,6 +8,7 @@ export function createFort3d(api, labelHost) {
   let labels = [];
 
   const clear = () => {
+    api.clearPickables?.();
     for (const c of [...group.children]) {
       group.remove(c);
       c.traverse((o) => { o.geometry?.dispose?.(); o.material?.dispose?.(); });
@@ -68,6 +69,7 @@ export function createFort3d(api, labelHost) {
       const baffle = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.4, 0.45), darkStone);
       baffle.position.set(0, 0.25, 5.3);
       group.add(baffle);
+      api.markPickable?.(baffle, { en: 'Bent Gateway (Hatipol Defence)', hi: 'टेढ़ा मुख्य द्वार (हाथीपोल सुरक्षा)' });
       addLabel(new THREE.Vector3(0, 1.4, 5.3), 'Bent defensive gate', 'टेढ़ा मुख्य द्वार');
     }
 
@@ -76,12 +78,14 @@ export function createFort3d(api, labelHost) {
       const pool = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.18, 1.1), waterMat);
       pool.position.set(-1.6 + i * 1.3, -0.32, 1.3);
       group.add(pool);
+      api.markPickable?.(pool, { en: 'Rain-Fed Rock Cistern', hi: 'चट्टानी वर्षा जल कुंड' });
     }
 
     // Palace / Granary hall
     const hall = new THREE.Mesh(new THREE.BoxGeometry(2.8, 1.2, 1.8), stoneMat);
     hall.position.set(0, 0.2, -1.1);
     group.add(hall);
+    api.markPickable?.(hall, { en: 'Citadel Darbar & Granary', hi: 'मुख्य गढ़ व अन्नागार' });
 
     addLabel(new THREE.Vector3(4.8, 1.6, 0), 'Bastioned ramparts', 'बुर्ज व प्राचीर');
     addLabel(new THREE.Vector3(0, 0.5, 1.3), 'Rock-cut water tanks', 'वर्षा जल कुंड');

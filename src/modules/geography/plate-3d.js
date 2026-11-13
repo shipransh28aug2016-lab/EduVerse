@@ -15,7 +15,7 @@ export function createPlateView(api, labelHost) {
     transparent: kind === 'water', opacity: kind === 'water' ? 0.38 : 1, depthWrite: kind !== 'water',
   }));
   Object.keys(COL).forEach(mat);
-  const clearGroup = () => { for (const c of [...group.children]) { group.remove(c); c.traverse((o) => o.geometry?.dispose?.()); } };
+  const clearGroup = () => { api.clearPickables?.(); for (const c of [...group.children]) { group.remove(c); c.traverse((o) => o.geometry?.dispose?.()); } };
   let labels = [];
   const stressMat = new THREE.MeshBasicMaterial({ color: 0x2255ff });
 
@@ -37,6 +37,8 @@ export function createPlateView(api, labelHost) {
       const geo = new THREE.ExtrudeGeometry(shape, { depth: plan ? 1.2 : (sh.kind === 'water' ? DEPTH : DEPTH), bevelEnabled: false, steps: 1 });
       if (plan) { geo.rotateX(-Math.PI / 2); geo.translate(0, -1.2, 0); } else geo.translate(0, 0, -DEPTH / 2);
       const m = new THREE.Mesh(geo, mat(sh.kind)); if (sh.kind === 'water') m.renderOrder = 2; group.add(m);
+      const KIND_LABEL = { mantle: ['Convecting Mantle', 'संवहनी मैंटल'], magma: ['Rising Magma', 'उठता मैग्मा'], oceanic: ['Dense Oceanic Crust', 'सघन समुद्री पर्पटी'], continental: ['Continental Crust', 'महाद्वीपीय पर्पटी'], continental2: ['Continental Crust', 'महाद्वीपीय पर्पटी'], newcrust: ['New Volcanic Crust', 'नई ज्वालामुखी पर्पटी'] };
+      if (KIND_LABEL[sh.kind]) api.markPickable?.(m, { en: KIND_LABEL[sh.kind][0], hi: KIND_LABEL[sh.kind][1] });
     }
     if (plan) { // mantle slab under the plan-view plates + a boundary strip whose colour shows stress
       const mg = new THREE.Mesh(new THREE.BoxGeometry(17, 2.6, 8.4), mat('mantle')); mg.position.set(0, -2.5, 0); group.add(mg);

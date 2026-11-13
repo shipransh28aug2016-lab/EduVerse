@@ -8,6 +8,7 @@ export function createHarappan3d(api, labelHost) {
   let labels = [];
 
   const clear = () => {
+    api.clearPickables?.();
     for (const c of [...group.children]) {
       group.remove(c);
       c.traverse((o) => { o.geometry?.dispose?.(); o.material?.dispose?.(); });
@@ -49,12 +50,14 @@ export function createHarappan3d(api, labelHost) {
       const pool = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.2, 1.9), water);
       pool.position.set(-4.8, -0.1, -1.8);
       group.add(pool);
+      api.markPickable?.(pool, { en: 'Great Bath (Bitumen-Sealed Pool)', hi: 'विशाल स्नानागार (जलरोधी कुंड)' });
       addLabel(new THREE.Vector3(-4.8, 0.8, -1.8), 'Great Bath (Citadel)', 'विशाल स्नानागार (दुर्ग)');
     }
     if (S.granary) {
       const gran = new THREE.Mesh(new THREE.BoxGeometry(4.2, 1.2, 2.6), brick);
       gran.position.set(-4.8, 0.0, 2.2);
       group.add(gran);
+      api.markPickable?.(gran, { en: 'State Granary Storage', hi: 'राज्य अन्नागार भंडार' });
       addLabel(new THREE.Vector3(-4.8, 1.1, 2.2), 'Great Granary', 'विशाल अन्नागार');
     }
 

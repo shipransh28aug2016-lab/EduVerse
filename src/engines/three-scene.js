@@ -1,10 +1,12 @@
-// Interactive orbit-controlled Three.js scene host with hemisphere lighting, clickable raycasting, smooth camera presets & auto-spin.
-//  • three.js is loaded lazily on first use from the vendored copy: no CDN needed, works offline.
-//  • renders on demand (or smoothly while playing) → battery friendly; pointer/touch drag, wheel zoom, keyboard orbit & full dispose().
+// Interactive orbit-controlled Three.js scene host with WebXR VR, Cardboard Stereo VR, Gyro head-look, tap-to-inspect raycasting & camera tours.
+//  • three.js loads lazily offline from vendor/three/three.module.min.js.
+//  • renders on demand (or smoothly while playing / in stereo / auto-spin) → battery friendly.
+import { startWebXRSession } from './xr.js';
+
 let threePromise;
 export const loadThree = () => (threePromise ??= import('../../vendor/three/three.module.min.js'));
 
-export async function createScene(host, { lowGraphics = false, reducedMotion = false, onTick, onAfterRender, onPick, view: initView, autoRotate = false } = {}) {
+export async function createScene(host, { lowGraphics = false, reducedMotion = false, onTick, onAfterRender, onPick, view: initView, autoRotate = false, vrStage = false } = {}) {
   const THREE = await loadThree();
   const renderer = new THREE.WebGLRenderer({ antialias: !lowGraphics, alpha: true, powerPreference: 'low-power' });
   renderer.setPixelRatio(lowGraphics ? 1 : Math.min(2, window.devicePixelRatio || 1));
@@ -12,18 +14,21 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
   host.append(renderer.domElement);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 200);
+  const stereo = new THREE.StereoCamera();
+  stereo.aspect = 0.5;
+  stereo.eyeSep = 0.064;
   const target = new THREE.Vector3(0, -0.6, 0);
   const view = { az: initView?.az ?? 0.58, pol: initView?.pol ?? 1.15, r: initView?.r ?? 21 };
-  const goal = { ...view };
   let raf = 0, dirty = true, tween = null, disposed = false;
   let rotating = autoRotate && !reducedMotion;
+  let stereoOn = false, xrSession = null, gyroBase = null, gyroOn = false;
   const owned = [];
   const pickables = [];
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
 
   // Warm sunlit hemisphere + key sun + cool rim light for rich 3D miniature depth
-  const hemi = new THREE.HemisphereLight(0xe6f4ff, 0x7e6243, 0.9);
+  const hemi = new THREE.HemisphereLight(0xe6f4ff, 0x7e6243, 0.92);
   scene.add(hemi);
   const sun = new THREE.DirectionalLight(0xfff4de, 1.25);
   sun.position.set(8, 14, 10);
@@ -31,6 +36,15 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
   const rim = new THREE.DirectionalLight(0x90caf9, 0.45);
   rim.position.set(-10, 6, -9);
   scene.add(rim);
+
+  // Subtle VR spatial horizon ring only when vrStage requested (cleanly kept inside scene & disposed)
+  let horizonRing = null;
+  if (vrStage) {
+    horizonRing = new THREE.GridHelper(32, 16, 0x94a3b8, 0xcbd5e1);
+    horizonRing.position.y = -3.05;
+    if (horizonRing.material) { horizonRing.material.transparent = true; horizonRing.material.opacity = 0.25; }
+    scene.add(horizonRing);
+  }
 
   function place() {
     const s = Math.sin(view.pol);
@@ -43,10 +57,38 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
   }
   function resize() {
     const w = host.clientWidth || 600, h = host.clientHeight || 380;
-    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); dirty = true; schedule();
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    dirty = true;
+    schedule();
   }
   const ro = new ResizeObserver(resize); ro.observe(host);
   let lastNow = performance.now();
+
+  function renderView(now) {
+    place();
+    if (stereoOn && !xrSession) {
+      const w = host.clientWidth || 600, h = host.clientHeight || 380;
+      const hw = Math.floor(w / 2);
+      camera.updateMatrixWorld();
+      stereo.update(camera);
+      renderer.setScissorTest(true);
+      renderer.setScissor(0, 0, hw, h);
+      renderer.setViewport(0, 0, hw, h);
+      renderer.render(scene, stereo.cameraL);
+      renderer.setScissor(hw, 0, w - hw, h);
+      renderer.setViewport(hw, 0, w - hw, h);
+      renderer.render(scene, stereo.cameraR);
+      renderer.setScissorTest(false);
+      renderer.setViewport(0, 0, w, h);
+    } else {
+      renderer.setScissorTest(false);
+      renderer.render(scene, camera);
+    }
+    onAfterRender?.(stereoOn);
+  }
+
   function frame(now = performance.now()) {
     raf = 0; if (disposed) return;
     const dt = Math.min(0.08, (now - lastNow) / 1000);
@@ -63,10 +105,21 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
       dirty = true;
     }
     onTick?.(now, dt);
-    if (dirty || api.playing) { place(); renderer.render(scene, camera); dirty = false; onAfterRender?.(); }
-    if (tween || api.playing || rotating) schedule();
+    if (dirty || api.playing) { renderView(now); dirty = false; }
+    if (tween || api.playing || rotating || stereoOn) schedule();
   }
-  function schedule() { if (!raf && !disposed) raf = requestAnimationFrame(frame); }
+  function schedule() { if (!raf && !disposed && !xrSession) raf = requestAnimationFrame(frame); }
+
+  const onGyro = (ev) => {
+    if (!gyroOn || ev.alpha == null || ev.beta == null) return;
+    if (!gyroBase) gyroBase = { a: ev.alpha, b: ev.beta, az: view.az, pol: view.pol };
+    const dAz = ((ev.alpha - gyroBase.a) * Math.PI) / 180;
+    const dPol = ((ev.beta - gyroBase.b) * Math.PI) / 180;
+    view.az = gyroBase.az - dAz;
+    view.pol = Math.min(Math.PI - 0.1, Math.max(0.15, gyroBase.pol + dPol * 0.6));
+    dirty = true;
+    schedule();
+  };
 
   const api = {
     THREE, scene, camera, renderer, target, playing: false,
@@ -77,6 +130,44 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
     setPlaying(v) { api.playing = !!v; if (v) schedule(); },
     setAutoRotate(v) { rotating = !!v && !reducedMotion; if (rotating) schedule(); },
     isAutoRotate: () => rotating,
+    setStereo(v) {
+      stereoOn = !!v;
+      gyroOn = stereoOn && typeof window.DeviceOrientationEvent !== 'undefined';
+      gyroBase = null;
+      if (gyroOn) window.addEventListener('deviceorientation', onGyro);
+      else window.removeEventListener('deviceorientation', onGyro);
+      dirty = true;
+      schedule();
+      return stereoOn;
+    },
+    isStereo: () => stereoOn,
+    flyTo(toView, dur = 850) {
+      const to = {
+        az: toView.az ?? view.az,
+        pol: toView.pol ?? view.pol,
+        r: toView.r ?? view.r,
+      };
+      if (reducedMotion) { Object.assign(view, to); dirty = true; schedule(); }
+      else { tween = { from: { ...view }, to, t0: performance.now(), dur }; schedule(); }
+    },
+    async enterWebXR(onEnd) {
+      if (xrSession) { await xrSession.end().catch(() => {}); return false; }
+      const s = await startWebXRSession(renderer, () => {
+        xrSession = null;
+        renderer.setAnimationLoop(null);
+        dirty = true;
+        schedule();
+        onEnd?.();
+      });
+      if (!s) return false;
+      xrSession = s;
+      cancelAnimationFrame(raf); raf = 0;
+      renderer.setAnimationLoop((now) => {
+        onTick?.(now || performance.now(), 0.016);
+        renderer.render(scene, camera);
+      });
+      return true;
+    },
     preset(p) {
       const to = {
         overview: { az: initView?.az ?? 0.58, pol: initView?.pol ?? 1.15, r: initView?.r ?? 21 },
@@ -84,16 +175,18 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
         section: { az: 0, pol: Math.PI / 2, r: 20 },
         top: { az: 0, pol: 0.25, r: 19 },
       }[p] || { az: 0.58, pol: 1.15, r: 21 };
-      Object.assign(goal, to);
-      if (reducedMotion) { Object.assign(view, to); dirty = true; schedule(); }
-      else { tween = { from: { ...view }, to, t0: performance.now(), dur: 550 }; schedule(); }
+      api.flyTo(to, 550);
     },
     project(v3) {
       const v = v3.clone().project(camera);
-      return { x: (v.x * 0.5 + 0.5) * (host.clientWidth || 600), y: (-v.y * 0.5 + 0.5) * (host.clientHeight || 380), visible: v.z < 1 };
+      const w = host.clientWidth || 600, h = host.clientHeight || 380;
+      return { x: (v.x * 0.5 + 0.5) * (stereoOn ? w / 2 : w), y: (-v.y * 0.5 + 0.5) * h, visible: v.z < 1 };
     },
     dispose() {
       disposed = true; cancelAnimationFrame(raf); ro.disconnect();
+      window.removeEventListener('deviceorientation', onGyro);
+      if (xrSession) { try { xrSession.end(); } catch {} xrSession = null; }
+      renderer.setAnimationLoop(null);
       scene.traverse((o) => { o.geometry?.dispose?.(); const m = o.material; if (m) (Array.isArray(m) ? m : [m]).forEach((x) => { x.map?.dispose?.(); x.dispose?.(); }); });
       owned.forEach((o) => o.dispose?.());
       renderer.dispose(); renderer.forceContextLoss?.(); renderer.domElement.remove();
@@ -129,7 +222,9 @@ export async function createScene(host, { lowGraphics = false, reducedMotion = f
       const dist = Math.hypot(e.clientX - downPos.x, e.clientY - downPos.y);
       if (dist < 6) {
         const rect = el.getBoundingClientRect();
-        pointer.x = ((e.clientX - rect.left) / Math.max(1, rect.width)) * 2 - 1;
+        let nx = ((e.clientX - rect.left) / Math.max(1, rect.width)) * 2 - 1;
+        if (stereoOn) nx = nx < 0 ? (nx + 0.5) * 2 : (nx - 0.5) * 2;
+        pointer.x = nx;
         pointer.y = -((e.clientY - rect.top) / Math.max(1, rect.height)) * 2 + 1;
         raycaster.setFromCamera(pointer, camera);
         const hits = raycaster.intersectObjects(pickables, true);

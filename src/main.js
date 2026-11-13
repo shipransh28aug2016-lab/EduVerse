@@ -13,6 +13,8 @@ import { iconEl } from './engines/viz.js';
 import { webglAvailable } from './engines/webgl.js';
 import { createScene } from './engines/three-scene.js';
 import { createHeroGlobe3d } from './components/diorama-3d.js';
+import { createNepBridge } from './components/nep-bridge.js';
+import { renderBridge, renderPortfolio } from './modules/class-x-bridge.js';
 
 i18n.register(UI);
 const root = $('#main'), bar = $('#topbar'), foot = $('#foot');
@@ -75,11 +77,20 @@ function destroyCur() {
 }
 async function route() {
   destroyCur();
-  const m = location.hash.match(/^#\/theme\/(T\d\d)$/);
+  const hStr = location.hash;
   root.replaceChildren(); window.scrollTo(0, 0);
-  if (m && CUR.themes.some((x) => x.id === m[1])) await themePage(m[1]); else home();
+  if (hStr === '#/bridge') {
+    cur = { id: 'bridge', mod: renderBridge(root, CUR) };
+    document.title = 'Class X Bridge · Class IX Social Science';
+  } else if (hStr === '#/portfolio') {
+    cur = { id: 'portfolio', mod: renderPortfolio(root, CUR) };
+    document.title = 'NEP Portfolio · Class IX Social Science';
+  } else {
+    const m = hStr.match(/^#\/theme\/(T\d\d)$/);
+    if (m && CUR.themes.some((x) => x.id === m[1])) await themePage(m[1]); else home();
+    document.title = (m ? `${m[1]} · ` : '') + 'Class IX Social Science';
+  }
   i18n.apply(root); root.focus({ preventScroll: true });
-  document.title = (m ? `${m[1]} · ` : '') + 'Class IX Social Science';
 }
 function card(th) {
   const s = status(th);
@@ -164,7 +175,10 @@ function home() {
     h('div', { class: 'hud-stats' },
       h('span', { class: 'hud-chip' }, '⭐ ', h('strong', { class: 'hud-stars-n' }, String(stats.starCount)), ' ', h('span', { 'data-k': 'home.hud.stars' }, t('home.hud.stars'))),
       h('span', { class: 'hud-chip' }, '🧭 ', h('strong', {}, `${stats.visitedCount}/16`), ' ', h('span', { 'data-k': 'home.hud.explored' }, t('home.hud.explored'))),
-      surpriseBtn),
+      h('span', { class: 'hud-chip' }, '🎯 ', h('strong', {}, `${stats.cbqSolved}/32`), ' ', h('span', { 'data-k': 'home.hud.cbq' }, t('home.hud.cbq'))),
+      surpriseBtn,
+      h('a', { class: 'btn ghost hud-link', href: '#/bridge', 'data-k': 'home.bridgeBtn' }, t('home.bridgeBtn')),
+      h('a', { class: 'btn ghost hud-link', href: '#/portfolio', 'data-k': 'home.portBtn' }, t('home.portBtn'))),
     filterBar);
 
   const part = (n, label) => h('section', { class: 'part', 'aria-labelledby': `part${n}` }, h('h2', { id: `part${n}`, 'data-k': label, 'data-p': JSON.stringify({ h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) }) }, t(label, { h: CUR.themes.filter((x) => x.part === n).reduce((a, x) => a + x.hours, 0) })), h('div', { class: 'grid' }, ...CUR.themes.filter((x) => x.part === n).map(card)));
@@ -193,6 +207,7 @@ async function themePage(id) {
   const loChip = (l) => h('span', { class: `chip-lo ${l.status}` }, h('b', {}, l.id.split('.')[1]), ' ', bi({ en: l.en, hi: l.hi }, { tag: 'span' }), ' ', h('i', { 'data-k': `lo.${l.status}` }, t(`lo.${l.status}`)));
   const opening = OPENINGS[id];
   const modSlot = h('div', { class: 'module', id: 'module' });
+  const nepBridge = createNepBridge(id, CUR);
   const nav = h('nav', { class: 'pager', 'aria-label': 'Theme navigation' }, idx > 0 ? h('a', { href: `#/theme/${CUR.themes[idx - 1].id}`, rel: 'prev' }, '← ', CUR.themes[idx - 1].id) : h('span'), h('a', { href: '#/', 'data-k': 'nav.all' }, t('nav.all')), idx < 15 ? h('a', { href: `#/theme/${CUR.themes[idx + 1].id}`, rel: 'next' }, CUR.themes[idx + 1].id, ' →') : h('span'));
   const glossary = (window.__glossary || []).filter((g) => (g.themes || []).includes(id));
   const teach = TEACHER[id];
@@ -226,6 +241,7 @@ async function themePage(id) {
       themeBannerEl(id)),
     h('section', { class: 'opening', 'aria-labelledby': 'op-h' }, h('h2', { id: 'op-h', 'data-k': 'th.opening' }, t('th.opening')), bi(opening, { tag: 'p', cls: 'q' })),
     modSlot,
+    nepBridge?.el,
     h('section', { class: 'subsec' }, h('h2', { 'data-k': 'th.lo' }, t('th.lo')), lst(th.learningObjects, loChip)),
     h('details', { class: 'subsec', open: th.learningObjects.every((l) => l.status === 'planned') ? '' : null }, h('summary', { 'data-k': 'th.src' }, t('th.src')), h('h3', { 'data-k': 'th.concepts' }, t('th.concepts')), lst(th.concepts, (c) => [bi({ en: c.display || c.text, hi: c.hi }, { tag: 'span' }), ' ', h('small', {}, `p.${c.pdfPage}`)]), h('h3', { 'data-k': 'th.outcomes' }, t('th.outcomes')), lst(th.outcomes, (o) => [bi({ en: o.display || o.text, hi: o.hi }, { tag: 'span' }), ' ', h('small', {}, `p.${o.pdfPage}`)])),
     glossBlock,
@@ -234,10 +250,25 @@ async function themePage(id) {
     nav].filter(Boolean));
   if (MODULES[id]) {
     modSlot.append(h('p', { class: 'note', 'data-k': 'th.loading' }, t('th.loading')));
-    try { const mod = await MODULES[id](); if (location.hash !== `#/theme/${id}`) return; modSlot.replaceChildren(); cur = { id, mod: mod.mount(modSlot, {}) }; }
-    catch (e) { console.error(e); modSlot.replaceChildren(h('p', { class: 'note err', 'data-k': 'th.err' }, t('th.err'))); }
+    try {
+      const mod = await MODULES[id]();
+      if (location.hash !== `#/theme/${id}`) return;
+      modSlot.replaceChildren();
+      const mounted = mod.mount(modSlot, {});
+      cur = {
+        id,
+        mod: {
+          relabel() { mounted?.relabel?.(); nepBridge?.relabel?.(); },
+          destroy() { mounted?.destroy?.(); },
+        },
+      };
+    } catch (e) {
+      console.error(e);
+      modSlot.replaceChildren(h('p', { class: 'note err', 'data-k': 'th.err' }, t('th.err')));
+    }
   } else {
     modSlot.append(h('div', { class: 'planned-box' }, h('h2', { 'data-k': 'th.planned.h' }, t('th.planned.h')), h('p', { 'data-k': 'th.planned.p' }, t('th.planned.p'))));
+    cur = { id, mod: { relabel() { nepBridge?.relabel?.(); }, destroy() {} } };
   }
 }
 // Offline / slow-network support: cache the app after the first visit (skipped on file:// and when unsupported).
