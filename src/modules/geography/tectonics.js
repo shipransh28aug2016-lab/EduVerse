@@ -4,6 +4,7 @@ import * as i18n from '../../core/i18n.js';
 import { t } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { slider, button, toggle, chips, tabs, bi, relabelBi, predict, mcq } from '../../components/widgets.js';
+import { createInteractivePlate } from '../../components/lab-kit.js';
 import { webglAvailable } from '../../engines/webgl.js';
 import { xrSupport } from '../../engines/xr.js';
 import { createScene } from '../../engines/three-scene.js';
@@ -22,6 +23,7 @@ async function loadGeo() {
   GEO.plates = p.plates; GEO.land = l.land; return GEO;
 }
 const INIT = () => ({ ...M.initialTectonics(), tab: 'map', depth: 0, trueScale: true, plateLayer: true, landLayer: true, done: {} });
+const b = (en, hi) => ({ en, hi });
 const TYPE_KEYS = M.BOUNDARY_TYPES.map((id) => ({ id, key: `pb.type.${id}` }));
 const PLATE_COLORS = ['#9ec5e8', '#f2c27b', '#a8d5a2', '#e8a0b4', '#c3b1e1', '#f7e08a', '#8fd3c8', '#f0a58f'];
 
@@ -75,10 +77,20 @@ export function mount(root, ctx = {}) {
       qLine.className = 'readout'; qLine.textContent = t('pm.quiz.ask', { name: quiz.target.name });
     }
     loadGeo().then((g) => { if (destroyed) return; plates = g.plates; draw(); }).catch(() => { box.innerHTML = `<p class="note" data-k="pm.err">${esc(t('pm.err'))}</p>`; });
+    const mapPlate = createInteractivePlate(() => ({
+      src: 'assets/images/plates/t02-hazards.jpg',
+      en: 'Himalayan convergent relief: tap pins to inspect major tectonic plates shaping uplift and quakes.',
+      hi: 'हिमालयी अभिसारी उच्चावच: पर्वत-निर्माण व भूकंप रचने वाली प्रमुख प्लेटों को पिन पर टैप करके चुनें।',
+      spots: [
+        { x: 70, y: 24, en: 'Indo-Australian Plate', hi: 'भारत-ऑस्ट्रेलियाई प्लेट', detail: b('Pushes northward ~5 cm/yr against Eurasia, crumpling the Himalaya.', 'लगभग 5 सेमी/वर्ष उत्तर की ओर बढ़कर हिमालय को ऊपर उठाती है।'), set: { selPlate: 'IN' } },
+        { x: 35, y: 30, en: 'Eurasian Plate', hi: 'यूरेशियाई प्लेट', detail: b('Receives Himalayan collision stress across Tibet and Central Asia.', 'तिब्बत व मध्य एशिया में टक्कर का दबाव सहती विशाल महाद्वीपीय प्लेट।'), set: { selPlate: 'EU' } },
+        { x: 50, y: 66, en: 'Pacific Ring of Fire', hi: 'प्रशांत अग्नि-वलय', detail: b('Dense oceanic subduction zones ringing the Pacific Basin.', 'प्रशांत महासागर के चारों ओर गहरे गर्तों व ज्वालामुखियों की पट्टी।'), set: { selPlate: 'PA' } },
+      ],
+    }), (patch) => { if (patch.selPlate && plates.length) choose(patch.selPlate); });
     const el = h('div', { class: 'lab' },
       h('p', { class: 'lead' }, bi({ en: 'The Earth’s surface is broken into large moving slabs called plates. Tap a plate to name it, then test yourself.', hi: 'पृथ्वी की सतह बड़ी गतिशील पट्टियों में टूटी है जिन्हें प्लेट कहते हैं। प्लेट पर टैप करके नाम जानें, फिर स्वयं को परखें।' })),
-      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, box, read), h('div', { class: 'lab-side' }, tp.root, tl.root, h('div', { class: 'row' }, qBtn), qLine, h('p', { class: 'note', 'data-k': 'pm.note' }, t('pm.note')))));
-    return { el, relabel() { relabelBi(el); i18n.apply(el); draw(); qBtn.textContent = t(qBtn.dataset.k); } };
+      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, mapPlate.el, box, read), h('div', { class: 'lab-side' }, tp.root, tl.root, h('div', { class: 'row' }, qBtn), qLine, h('p', { class: 'note', 'data-k': 'pm.note' }, t('pm.note')))));
+    return { el, relabel() { mapPlate.relabel(); relabelBi(el); i18n.apply(el); draw(); qBtn.textContent = t(qBtn.dataset.k); } };
   })();
 
   // ============================ BOUNDARY EXPLORER (L2) ============================
@@ -154,17 +166,27 @@ export function mount(root, ctx = {}) {
       explain: () => ({ en: `Magma rises in the gap and cools into new crust: ${fmt(M.convergenceKm(4, 30), 0)} km of new sea floor after 30 Myr at 4 cm/yr. Subduction destroys crust; at a transform boundary crust is neither made nor destroyed.`, hi: `दरार में मैग्मा ऊपर उठकर ठंडा होता है और नई पर्पटी बनती है: 4 सेमी/वर्ष पर 30 दस लाख वर्षों में ${fmt(M.convergenceKm(4, 30), 0)} किमी नया समुद्र-तल। धँसाव में पर्पटी नष्ट होती है; रूपांतर सीमा पर न बनती है न नष्ट होती है।` }) }, { done: S.done, onDone: persist });
     const ta = h('textarea', { class: 'reflect', rows: 3, 'data-k-aria': 'hz.aria', 'aria-label': t('hz.aria') }); ta.value = prog.hazard || '';
     ta.addEventListener('input', () => { prog.hazard = ta.value; store.saveProgress(); });
+    const bxPlate = createInteractivePlate(() => ({
+      src: 'assets/images/plates/t02-boundaries.jpg',
+      en: 'Tectonic landscapes: tap Himalayan fold peaks, deep ocean subduction trench or seafloor spreading rift.',
+      hi: 'विवर्तनिक भू-दृश्य: हिमालयी वलित पर्वत, महासागरीय गर्त या अपसारी दरार पर टैप कर सीमा मॉडल बदलें।',
+      spots: [
+        { x: 25, y: 34, en: 'Continent Collision (Himalaya)', hi: 'महाद्वीपीय टक्कर (हिमालय)', detail: b('Two buoyant continents buckle upward into fold peaks instead of sinking.', 'दो हल्के महाद्वीप धँसने के बजाय ऊपर मुड़कर वलित पर्वत बनाते हैं।'), set: { type: 'conv-cc', speed: 5, time: 45 } },
+        { x: 54, y: 48, en: 'Ocean–Continent Subduction', hi: 'महासागर-महाद्वीप अधोगमन', detail: b('Dense oceanic slab bends into the mantle, forming deep trenches & volcanoes.', 'भारी समुद्री प्लेट नीचे धँसकर गहरा गर्त व ज्वालामुखी चाप बनाती है।'), set: { type: 'conv-oc', speed: 6, time: 30 } },
+        { x: 82, y: 54, en: 'Divergent Seafloor Rift', hi: 'अपसारी समुद्र-तल दरार', detail: b('Plates pull apart while rising magma freezes into fresh oceanic crust.', 'प्लेटें दूर हटती हैं और उठता मैग्मा नई समुद्री पर्पटी बनाता है।'), set: { type: 'div', speed: 4, time: 30 } },
+      ],
+    }), (patch) => { Object.assign(S, patch); sync(); });
     sync();
     const el = h('div', { class: 'lab' },
       h('p', { class: 'lead' }, bi({ en: 'Pick a boundary, set the speed, then move the time slider to watch millions of years pass. Drag the 3D view to look around.', hi: 'सीमा चुनें, गति तय करें, फिर समय-स्लाइडर से लाखों वर्ष बीतते देखें। चारों ओर देखने के लिए 3D दृश्य को खींचें।' })),
       h('div', { class: 'lab-grid' },
-        h('div', { class: 'lab-main' }, view3d, presets, sec, read, modeNote),
+        h('div', { class: 'lab-main' }, bxPlate.el, view3d, presets, sec, read, modeNote),
         h('div', { class: 'lab-side' }, ch.root, sSpeed.root, sTime.root, tLab.root, h('div', { class: 'row' }, bPlay, bReset), h('p', { class: 'note', 'data-k': 'pb.limits' }, t('pb.limits')))),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr1, pr2),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'hz.h' }, t('hz.h')), bi(HAZARD, { tag: 'p', cls: 'note' }), ta));
     return {
       el, enable: applyMode, pause: () => togglePlay(false), disable: disable3D,
-      relabel() { pr1.relabel(); pr2.relabel(); relabelBi(el); i18n.apply(el); bPlay.textContent = t(bPlay.dataset.k); ta.setAttribute('aria-label', t('hz.aria')); modeNote.textContent = t(modeNote.dataset.k); if (lastPick && !inspectPill.hidden) inspectPill.textContent = i18n.pair(lastPick.en, lastPick.hi); if (currentStop && !tourPill.hidden) tourPill.textContent = `🥽 (${tourIdx + 1}/${stops.length}) ${i18n.pair(currentStop.en, currentStop.hi)}`; pv?.relabel(); refresh(); },
+      relabel() { bxPlate.relabel(); pr1.relabel(); pr2.relabel(); relabelBi(el); i18n.apply(el); bPlay.textContent = t(bPlay.dataset.k); ta.setAttribute('aria-label', t('hz.aria')); modeNote.textContent = t(modeNote.dataset.k); if (lastPick && !inspectPill.hidden) inspectPill.textContent = i18n.pair(lastPick.en, lastPick.hi); if (currentStop && !tourPill.hidden) tourPill.textContent = `🥽 (${tourIdx + 1}/${stops.length}) ${i18n.pair(currentStop.en, currentStop.hi)}`; pv?.relabel(); refresh(); },
       debug: () => ({ api: !!api, canvas: !!glHost.querySelector('canvas'), type: S.type, speed: S.speed, time: S.time, km: M.convergenceKm(S.speed, S.time) }),
       host: glHost,
     };
@@ -182,15 +204,17 @@ export function mount(root, ctx = {}) {
       for (let i = 1; i < pts.length; i++) if (d <= pts[i]) return R * (rr[i - 1] + (rr[i] - rr[i - 1]) * (d - pts[i - 1]) / (pts[i] - pts[i - 1]));
       return 0;
     }
-    const intPlateImg = h('img', {
+    const intPlate = createInteractivePlate(() => ({
       src: 'assets/images/plates/t02-interior.jpg',
-      alt: i18n.pair('3D cutaway diorama showing Earth crust, flowing orange mantle, liquid outer core and solid inner core.', 'भूपर्पटी, बहते नारंगी मैंटल, द्रव बाह्य क्रोड व ठोस आंतरिक क्रोड दिखाता 3D पृथ्वी मॉडल।'),
-      loading: 'eager',
-      decoding: 'async',
-    });
-    const intPlate = h('figure', { class: 'lab-plate' },
-      intPlateImg,
-      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: '3D layered cutaway: thin rocky crust over slow-flowing mantle, liquid iron outer core, and dense solid inner core.', hi: 'पृथ्वी की अनुप्रस्थ काट: पतली भूपर्पटी, धीमे बहता मैंटल, द्रव लोहे का बाह्य क्रोड और ठोस आंतरिक क्रोड।' })));
+      en: '3D layered cutaway: tap any depth pin on the globe to jump the seismic probe inside Earth.',
+      hi: 'पृथ्वी की अनुप्रस्थ काट: किसी भी गहराई बिंदु पर टैप कर सीस्मिक प्रोब को सीधे उस परत में भेजें।',
+      spots: [
+        { x: 38, y: 26, en: 'Thin Solid Crust (0–70 km)', hi: 'पतली ठोस भूपर्पटी (0–70 किमी)', detail: b('Paper-thin rocky outer shell where continents, oceans and quakes occur.', 'महाद्वीपों व महासागरों को धारण करने वाला बहुत पतला चट्टानी आवरण।'), set: { depth: 20 } },
+        { x: 64, y: 42, en: 'Convecting Mantle (70–2900 km)', hi: 'संवहनशील मैंटल (70–2900 किमी)', detail: b('Solid silicate rock under high heat that creeps slowly to drive tectonic plates.', 'उच्च दाब पर ठोस पर लाखों वर्षों में धीरे बहकर प्लेटें चलाने वाला स्तर।'), set: { depth: 1500 } },
+        { x: 56, y: 54, en: 'Liquid Outer Core (2900–5150 km)', hi: 'द्रव बाह्य क्रोड (2900–5150 किमी)', detail: b('Churning molten iron-nickel alloy that blocks S-waves & generates Earth’s magnetic field.', 'घूमता पिघला लोहा-निकेल जो भूकंपीय S-तरंगें रोकता व चुंबकीय क्षेत्र बनाता है।'), set: { depth: 3800 } },
+        { x: 50, y: 52, en: 'Solid Inner Core (5150–6371 km)', hi: 'ठोस आंतरिक क्रोड (5150–6371 किमी)', detail: b('Crushing pressure locks white-hot iron alloy solid at the very centre.', 'अत्यधिक दाब के कारण 5,000°C से अधिक पर भी ठोस लौह-निकेल केंद्र।'), set: { depth: 5900 } },
+      ],
+    }), (patch) => { Object.assign(S, patch); sDepth.set(S.depth); draw(); });
     function draw() {
       persist();
       const cx = 170, cy = 170, l = M.layerAtDepth(S.depth);
@@ -206,9 +230,9 @@ export function mount(root, ctx = {}) {
       explain: () => ({ en: 'At 1,500 km the mantle is hot but under huge pressure, so it is solid; over millions of years it flows slowly, like very thick dough. Only the outer core (2,900–5,150 km) is liquid.', hi: '1,500 किमी पर मैंटल गर्म पर भारी दाब में होने से ठोस है; लाखों वर्षों में यह गाढ़े आटे की तरह धीरे बहता है। केवल बाह्य क्रोड (2,900–5,150 किमी) द्रव है।' }) }, { done: S.done, onDone: persist });
     draw();
     const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Travel down from the surface. Which layer are you in, and is it solid or liquid? Switch scale to see how thin the crust really is.', hi: 'सतह से नीचे जाएँ। आप किस परत में हैं, और वह ठोस है या द्रव? पैमाना बदलकर देखें कि भूपर्पटी वास्तव में कितनी पतली है।' })),
-      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, intPlate, box, read), h('div', { class: 'lab-side' }, sDepth.root, tScale.root, h('p', { class: 'note', 'data-k': 'in.note' }, t('in.note')))),
+      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, intPlate.el, box, read), h('div', { class: 'lab-side' }, sDepth.root, tScale.root, h('p', { class: 'note', 'data-k': 'in.note' }, t('in.note')))),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), prM));
-    return { el, relabel() { intPlateImg.alt = i18n.pair('3D cutaway diorama showing Earth crust, flowing orange mantle, liquid outer core and solid inner core.', 'भूपर्पटी, बहते नारंगी मैंटल, द्रव बाह्य क्रोड व ठोस आंतरिक क्रोड दिखाता 3D पृथ्वी मॉडल।'); prM.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
+    return { el, relabel() { intPlate.relabel(); prM.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
   })();
 
   // ============================ EXIT + TABS ============================

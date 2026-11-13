@@ -61,6 +61,11 @@ export const systemMap = {
         src: 'assets/images/hero.jpg',
         en: 'One interconnected Indian landscape: rivers & hills (Geography), heritage (History), civic assembly (Politics) and bazaar (Economics).',
         hi: 'एक जुड़ा हुआ भारतीय परिदृश्य: नदियाँ व पहाड़ (भूगोल), धरोहर (इतिहास), ग्राम-सभा (राजनीति) और बाज़ार (अर्थशास्त्र)।',
+        spots: [
+          { x: 24, y: 46, en: 'Place & Nature', hi: 'स्थान व प्रकृति', detail: b('Monsoon valley and river plain create water & fertile soil — click to test a drought cascade.', 'मानसूनी घाटी व नदी मैदान जल व उपजाऊ मिट्टी देते हैं — सूखे का प्रभाव जाँचें।'), set: { focus: 'place', shock: true } },
+          { x: 48, y: 52, en: 'Institutions & Rules', hi: 'संस्थाएँ व नियम', detail: b('Panchayats, markets and laws coordinate how communities share water and infrastructure.', 'पंचायतें, बाज़ार और कानून तय करते हैं कि समुदाय संसाधन कैसे साझा करें।'), set: { focus: 'institutions', shock: false } },
+          { x: 74, y: 58, en: 'People & Collective Choices', hi: 'जनता व सामूहिक निर्णय', detail: b('Citizens, farmers and weavers connect geography, past rules and livelihoods in daily choices.', 'नागरिक, किसान व बुनकर रोज़मर्रा के निर्णयों में चारों विषयों को जोड़ते हैं।'), set: { focus: 'decisions', shock: false } },
+        ],
       },
       svg,
       aria: `Society system map focusing on ${S.focus}`,
@@ -161,6 +166,17 @@ export const lensExplorer = {
     const stateColors = { [p.state]: lensCol + '55' };
     const svg = indiaMapSvg({ w: 640, h: 430, stateColors, selectedState: p.state, markers, aria: `India map highlighting ${p.en} through the ${S.lens} lens` });
     return {
+      plate: {
+        src: 'assets/images/plates/t01-lenses.jpg',
+        en: 'Four lenses at one place: river basin (Geography), heritage stone (History), civic hall (Politics), vibrant market (Economics).',
+        hi: 'एक ही स्थान पर चार दृष्टिकोण: नदी-पहाड़ (भूगोल), धरोहर (इतिहास), ग्राम सभा (राजनीति), बाज़ार (अर्थशास्त्र)।',
+        spots: [
+          { x: 18, y: 52, en: 'Geography lens', hi: 'भूगोल लेंस', detail: b('Examines terrain, rivers, rainfall and climate constraints shaping settlement.', 'भू-आकृति, नदी, वर्षा और जलवायु की भूमिका परखता है।'), set: { lens: 'geo' } },
+          { x: 42, y: 46, en: 'History lens', hi: 'इतिहास लेंस', detail: b('Traces how craft traditions, trade highways and local monuments evolved over centuries.', 'देखता है कि शिल्प परंपराएँ, व्यापार मार्ग और स्मारक कैसे विकसित हुए।'), set: { lens: 'hist' } },
+          { x: 65, y: 50, en: 'Political Science lens', hi: 'राजनीति विज्ञान लेंस', detail: b('Asks who decides public rules, conservation laws and citizen rights.', 'पूछता है कि नियम, संरक्षण कानून और नागरिक अधिकार कौन तय करता है।'), set: { lens: 'pol' } },
+          { x: 86, y: 56, en: 'Economics lens', hi: 'अर्थशास्त्र लेंस', detail: b('Analyses weavers, tourism, wages, markets and scarce resource trade-offs.', 'बुनकरों, मज़दूरी, बाज़ार और सीमित संसाधनों के चुनाव का विश्लेषण करता है।'), set: { lens: 'econ' } },
+        ],
+      },
       svg,
       aria: `${p.en} — ${LENS_LBL[S.lens].en}`,
       lines: [
@@ -227,12 +243,25 @@ export const questionSorter = {
       const inOverlap = q.overlap.includes(d);
       const isPrimary = d === q.primary;
       const isPicked = d === S.guess;
+      g += `<g data-set='${esc(JSON.stringify({ guess: d }))}' role="button" tabindex="0" aria-label="${esc(P(DISC_NAMES[d].en, DISC_NAMES[d].hi))}">`;
       g += `<circle cx="${cx}" cy="${cy}" r="${isPrimary ? 52 : 42}" fill="${DISC_COLS[d]}" opacity="${inOverlap ? 0.85 : 0.2}"/>`;
       if (isPicked) g += `<circle cx="${cx}" cy="${cy}" r="58" fill="none" stroke="var(--ink)" stroke-width="3" stroke-dasharray="6 4"/>`;
       g += `<text class="txt sm b" x="${cx}" y="${cy + 4}" text-anchor="middle" fill="#fff">${esc(P(DISC_NAMES[d].en, DISC_NAMES[d].hi))}</text>`;
       if (isPrimary) g += `<text class="txt sm b" x="${cx}" y="${cy + 74}" text-anchor="middle">${esc(P('Lead lens', 'मुख्य लेंस'))}</text>`;
+      g += `</g>`;
     });
     return {
+      plate: {
+        src: 'assets/images/plates/t01-lenses.jpg',
+        en: 'Tap any pin or click a coloured discipline circle below to test how real questions span multiple Social Science lenses.',
+        hi: 'किसी भी पिन या नीचे रंगीन विषय-चक्र पर क्लिक कर परखें कि वास्तविक प्रश्न कैसे कई विषयों को जोड़ते हैं।',
+        spots: [
+          { x: 18, y: 52, en: 'Q1: Coastal Paddy & Cyclones', hi: 'प्र.1: तटीय धान व चक्रवात', detail: b('Load Question 1 — watch Geography lead while Economics overlaps.', 'प्रश्न 1 खोलें — देखें कैसे भूगोल के साथ अर्थशास्त्र जुड़ता है।'), set: { qid: 'q1', guess: 'geo' } },
+          { x: 42, y: 46, en: 'Q2: Railways on Trade Routes', hi: 'प्र.2: प्राचीन मार्गों पर रेल', detail: b('Load Question 2 — connects History of corridors, terrain passes and commerce.', 'प्रश्न 2 खोलें — मार्गों के इतिहास को भूगोल व व्यापार से जोड़ता है।'), set: { qid: 'q2', guess: 'hist' } },
+          { x: 65, y: 50, en: 'Q3: Municipal Bus Fares', hi: 'प्र.3: नगर बस किराया', detail: b('Load Question 3 — blends civic authority (Politics) and subsidies (Economics).', 'प्रश्न 3 खोलें — नागरिक अधिकार व सब्सिडी अर्थशास्त्र को जोड़ता है।'), set: { qid: 'q3', guess: 'pol' } },
+          { x: 86, y: 56, en: 'Q4: Hail & Onion Price Spike', hi: 'प्र.4: ओलावृष्टि व प्याज़ दाम', detail: b('Load Question 4 — climate shocks drive market scarcity and price spikes.', 'प्रश्न 4 खोलें — मौसम का झटका बाज़ार कीमत उछाल देता है।'), set: { qid: 'q4', guess: 'econ' } },
+        ],
+      },
       svg: `<svg viewBox="0 0 640 215" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `${q.q.en} — primary ${q.primary}, overlap ${q.overlap.join('+')}`,
       lines: [

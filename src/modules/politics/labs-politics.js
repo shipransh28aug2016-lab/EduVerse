@@ -48,6 +48,16 @@ export const democracyMap = {
     const svg = forceGraphSvg({ w: 640, h: 260, nodes, links, activeId: 'dem', aria: P('Democracy pillars concept graph', 'लोकतंत्र के स्तंभ अवधारणा ग्राफ़') });
     const cls = res.verdict === 'democratic' ? 'balanced' : res.verdict === 'flawed' ? 'warn' : 'warn';
     return {
+      plate: {
+        src: 'assets/images/plates/t06-pillars.jpg',
+        en: 'Constitutional democracy in action — tap polling queue, court scales of justice or free press desk to stress-test all 4 pillars.',
+        hi: 'संवैधानिक लोकतंत्र के स्तंभ — मतदान कतार, न्याय तराजू व स्वतंत्र प्रेस मेज़ पर टैप कर चारों मानदंड परखें।',
+        spots: [
+          { x: 18, y: 60, en: 'Full Democracy (4/4 Pillars)', hi: 'पूर्ण लोकतंत्र (4/4 स्तंभ)', detail: b('Free vote + multi-party competition + free press + equal law keep rulers accountable.', 'निष्पक्ष चुनाव, बहु-दलीय विकल्प, स्वतंत्र मीडिया व समान कानून जवाबदेही रखते हैं।'), set: { preset: 'full' } },
+          { x: 50, y: 64, en: 'Single-Party Ballot Trap', hi: 'एक-दलीय चुनाव जाल', detail: b('Notice voting alone without opposition or independent courts scores only 1/4!', 'विपक्ष और स्वतंत्र न्यायपालिका बिना केवल मतदान 4 में से 1 ही अंक देता है!'), set: { preset: 'oneparty' } },
+          { x: 84, y: 68, en: 'Media Censorship Failure', hi: 'मीडिया सेंसरशिप विफलता', detail: b('Silencing journalists blinds citizens between elections even with rival parties.', 'पत्रकारों को चुप कराना चुनावों के बीच नागरिकों की निगरानी छीन लेता है।'), set: { preset: 'pressban' } },
+        ],
+      },
       svg,
       aria: `Democracy score ${res.score} of 4: ${res.verdict}`,
       lines: [
@@ -118,11 +128,16 @@ export const earlyTraditions = {
       plate: {
         src: 'assets/images/plates/t06-democracy.jpg',
         en: S.trad === 'uttara'
-          ? 'Chola stone mandapa inscriptions and Uttaramerur Kudavolai palm-leaf ballot pot (c. 920 CE).'
-          : 'Early Indian deliberative stone mandapa and community assembly tradition.',
+          ? 'Chola stone mandapa inscriptions and Uttaramerur Kudavolai ballot pot — tap pins to inspect Vedic, Vajji and Chola rules.'
+          : 'Early Indian deliberative stone mandapa — tap pins to compare Sabha-Samiti, Vajji Sangha and Uttaramerur.',
         hi: S.trad === 'uttara'
-          ? 'चोल मंडप शिलालेख और ताड़पत्र पर्चियों वाला उत्तरमेरूर कुडवोलाई घड़ा (ल. 920 ई.)।'
-          : 'भारत की प्रारंभिक विमर्शकारी मंडप व सामुदायिक सभा परंपरा।',
+          ? 'चोल मंडप शिलालेख व उत्तरमेरूर कुडवोलाई घड़ा — वैदिक, वज्जि व चोल सभाएँ देखने हेतु पिन पर टैप करें।'
+          : 'प्राचीन भारतीय सभा-मंडप — सभा-समिति, वज्जि व उत्तरमेरूर की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 22, y: 46, en: 'Vedic Sabha & Samiti', hi: 'वैदिक सभा व समिति', detail: b('Council of elders & general folk assembly advising the rajan.', 'वरिष्ठों की सभा और जन-समिति द्वारा सार्वजनिक मामलों पर विमर्श।'), set: { trad: 'sabha', step: 3 } },
+          { x: 52, y: 68, en: 'Uttaramerur Kudavolai (c. 920 CE)', hi: 'उत्तरमेरूर कुडवोलाई (ल. 920 ई.)', detail: b('Palm-leaf lotteries from a pot with public audit disqualifications.', 'घड़े से ताड़पत्र पर्ची व पिछले खातों की सख्त लेखा-परीक्षा के नियम।'), set: { trad: 'uttara', step: 3 } },
+          { x: 80, y: 54, en: 'Vajji Santhagara Republic', hi: 'वज्जि संथागार गणसंघ', detail: b('Assemblies in Vaishali deciding collective policy through open debate & ballot sticks.', 'वैशाली की संथागार सभा में खुले विमर्श व शलाका मत-दंड से निर्णय।'), set: { trad: 'vajji', step: 3 } },
+        ],
       },
       svg,
       aria: `${tr.en} (${tr.year}) at ${tr.place}`,
@@ -184,6 +199,16 @@ export const countryCompare = {
       aria: P('World map locating five comparative constitutional systems', 'पाँच संवैधानिक प्रणालियों वाला विश्व मानचित्र'),
     });
     return {
+      plate: {
+        src: 'assets/images/t06.jpg',
+        en: 'Global constitutional systems: tap pins to compare India, USA, France and Canada on the world map.',
+        hi: 'विश्व की संवैधानिक प्रणालियाँ: भारत, अमेरिका, फ़्रांस व कनाडा की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 52, en: 'India: Parliamentary Republic', hi: 'भारत: संसदीय गणतंत्र', detail: b('Union + States federal structure; indirect President & PM accountable to Lok Sabha.', 'संघीय ढाँचा; अप्रत्यक्ष राष्ट्रपति व लोकसभा के प्रति उत्तरदायी प्रधानमंत्री।'), set: { country: 'in' } },
+          { x: 50, y: 46, en: 'USA: Presidential Republic', hi: 'अमेरिका: अध्यक्षीय गणतंत्र', detail: b('Same person is Head of State & Government with a fixed 4-year term.', 'एक ही राष्ट्रपति राष्ट्राध्यक्ष व शासनाध्यक्ष होता है (निश्चित 4-वर्षीय कार्यकाल)।'), set: { country: 'us' } },
+          { x: 76, y: 52, en: 'France & Canada Contrasts', hi: 'फ़्रांस (अर्ध-अध्यक्षीय) व कनाडा', detail: b('France blends direct President + PM; switch chips to inspect Canada & Russia too.', 'फ़्रांस में प्रत्यक्ष राष्ट्रपति व प्रधानमंत्री दोनों; कनाडा संवैधानिक राजतंत्र है।'), set: { country: 'fr' } },
+        ],
+      },
       svg,
       aria: `${c.en}: ${c.sys}. Head of state: ${c.hos}; Head of government: ${c.hog}`,
       lines: [
@@ -246,8 +271,14 @@ export const electionTimeline = {
     return {
       plate: {
         src: 'assets/images/plates/t07-elections.jpg',
-        en: 'Indian polling station courtyard: shaded voting booth, neat citizen queue and secret ballot box.',
-        hi: 'भारतीय मतदान केंद्र: छायादार मतदान बूथ, शांतिपूर्ण नागरिक कतार व गुप्त मतपेटी।',
+        en: 'Indian polling station courtyard: tap pins to walk step-by-step through the 4 ECI election phases.',
+        hi: 'भारतीय मतदान केंद्र: निर्वाचन आयोग के चारों चुनावी चरणों को देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 20, y: 60, en: 'Stage 1: Voter Roll Revision', hi: 'चरण 1: मतदाता सूची संशोधन', detail: b('Every citizen 18+ enters the roll under RPA 1950 before polls open.', 'RPA 1950 के अंतर्गत 18+ प्रत्येक पात्र नागरिक का नाम मतदाता सूची में दर्ज होता है।'), set: { stage: 1, independentEci: true } },
+          { x: 44, y: 44, en: 'Stage 2: Model Code of Conduct', hi: 'चरण 2: आदर्श आचार संहिता', detail: b('Article 324 freezes new ruling-party schemes once polling dates are announced.', 'तिथि घोषित होते ही सत्तापक्ष नई योजनाओं से सरकारी संसाधनों का लाभ नहीं उठा सकता।'), set: { stage: 2, independentEci: true } },
+          { x: 66, y: 54, en: 'Stage 3: Affidavits & Campaign', hi: 'चरण 3: शपथपत्र व चुनाव प्रचार', detail: b('Candidates disclose assets & legal records; campaigning pauses 48h pre-poll.', 'उम्मीदवार संपत्ति व आपराधिक विवरण देते हैं; मतदान से 48 घंटे पहले प्रचार बंद।'), set: { stage: 3, independentEci: true } },
+          { x: 84, y: 58, en: 'Stage 4: EVM/VVPAT Secret Ballot', hi: 'चरण 4: EVM/VVPAT गुप्त मतदान', detail: b('Article 326 guarantees equal universal suffrage with paper-trail audit.', 'अनुच्छेद 326 कागज़ी पर्ची मिलान संग समान सार्वभौमिक मताधिकार देता है।'), set: { stage: 4, independentEci: true } },
+        ],
       },
       svg,
       aria: `Stage ${st.id}: ${st.en}. Independent ECI: ${S.independentEci}`,
@@ -320,6 +351,16 @@ export const delimitationLab = {
     }).join('');
     const svg = `<svg viewBox="0 0 640 232" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${cells}${summary}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t07-delimitation.jpg',
+        en: 'Delimitation Commission workbench: tap district puzzle, voter roll or surveyor compass to test boundary drawing fairness.',
+        hi: 'परिसीमन आयोग कार्यमेज़: सीमा-मानचित्र, मतदाता सूची या दिशासूचक पर टैप कर निष्पक्षता परखें।',
+        spots: [
+          { x: 46, y: 56, en: 'Fair Horizontal Boundaries (300/seat)', hi: 'समान क्षैतिज परिसीमन', detail: b('Equal-population districts reflect the 51.1% vote majority cleanly.', 'समान जनसंख्या क्षेत्र 51.1% बहुमत के अनुरूप निष्पक्ष सीटें देते हैं।'), set: { scheme: 'rows' } },
+          { x: 16, y: 28, en: 'Voter Roll Eligibility Check (18+)', hi: 'मतदाता सूची पात्रता जांच', detail: b('Test citizen age & ordinary residence under enumerator rules.', 'प्रगणक नियमों के तहत आयु (18+) और सामान्य निवास पात्रता परखें।'), set: { voterAge: 18, resident: true } },
+          { x: 86, y: 72, en: 'Gerrymandering Trap (Pack A)', hi: 'पक्षपातपूर्ण परिसीमन (पैकिंग)', detail: b('Identical votes, twisted lines — watch the 48.9% minority win 2 of 3 seats!', 'वही मत, टेढ़ी रेखाएँ — 48.9% मत वाला दल 3 में से 2 सीटें जीत लेता है!'), set: { scheme: 'packedA' } },
+        ],
+      },
       svg,
       aria: `Delimitation ${S.scheme}: Seats A ${res.seatsA}, B ${res.seatsB}. Population spread ${res.popSpread}.`,
       lines: [
@@ -392,8 +433,13 @@ export const institutions = {
     return {
       plate: {
         src: 'assets/images/plates/t06-parliament.jpg',
-        en: 'India’s circular sandstone Parliament colonnade — where the elected Lok Sabha holds the Union Council of Ministers accountable.',
-        hi: 'भारत के संसद भवन का स्तंभ-मंडप — जहाँ निर्वाचित लोकसभा केंद्रीय मंत्रिपरिषद की जवाबदेही तय करती है।',
+        en: 'India’s circular sandstone Parliament colonnade — tap pins to contrast parliamentary confidence vs presidential fixed terms.',
+        hi: 'भारत का संसद भवन मंडप — संसदीय विश्वासमत बनाम अध्यक्षीय निश्चित कार्यकाल की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 50, en: 'Parliamentary Majority (62/100)', hi: 'संसदीय बहुमत (62/100)', detail: b('Cabinet holds Lok Sabha majority — bills pass & government stays secure.', 'लोकसभा बहुमत रहने तक मंत्रिपरिषद विधेयक पारित करती व कार्यरत रहती है।'), set: { system: 'parliamentary', support: 62, vote: false } },
+          { x: 54, y: 42, en: 'No-Confidence Resignation (42/100)', hi: 'अविश्वास मत इस्तीफ़ा (42/100)', detail: b('In a parliamentary system losing majority confidence forces immediate resignation.', 'संसदीय प्रणाली में बहुमत खोते ही सरकार को त्यागपत्र देना पड़ता है।'), set: { system: 'parliamentary', support: 42, vote: true } },
+          { x: 78, y: 56, en: 'Presidential Gridlock (42/100)', hi: 'अध्यक्षीय गतिरोध (42/100)', detail: b('A President stays for the fixed term even when opposition controls Congress.', 'विधायिका में बहुमत न होने पर भी राष्ट्रपति निश्चित कार्यकाल पूरा करता है।'), set: { system: 'presidential', support: 42, vote: true } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 368" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}${bar}</svg>`, aria: `${sys} system with ${S.support} of 100 supporters. ${S.vote ? cv.outcome : 'No vote.'}`, lines };
   },
@@ -439,8 +485,13 @@ export const coalition = {
     return {
       plate: {
         src: 'assets/images/plates/t07-coalition.jpg',
-        en: 'Semicircular parliamentary chamber showing rainbow coalition benches reaching a governing majority.',
-        hi: 'अर्धवृत्ताकार संसद कक्ष जहाँ विभिन्न दलों के सदस्य मिलकर बहुमत गठबंधन बनाते हैं।',
+        en: 'Semicircular parliamentary chamber: tap pins to compare hung Proportional coalition benches vs FPTP swing majority.',
+        hi: 'अर्धवृत्ताकार संसद कक्ष: आनुपातिक गठबंधन बनाम FPTP बहुमत देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 52, en: 'Proportional Hung House (Coalition)', hi: 'आनुपातिक त्रिशंकु सदन (गठबंधन)', detail: b('No single party hits 6/10 seats — partners negotiate a joint coalition.', 'कोई दल 6 सीटों तक नहीं पहुँचता — साझा कार्यक्रम पर गठबंधन बनता है।'), set: { system: 'proportional', swing: 0 } },
+          { x: 54, y: 44, en: 'FPTP Single-Party Majority', hi: 'FPTP एकल-दल बहुमत', detail: b('With the exact same votes, FPTP hands one party 7/10 seats!', 'इन्हीं मतों से FPTP एक ही दल को 10 में से 7 सीटें दे देता है!'), set: { system: 'fptp', swing: 0 } },
+          { x: 78, y: 60, en: '+10% Voter Swing Shift', hi: '+10% मत-झुकाव प्रभाव', detail: b('Watch a modest vote swing flip seat control across parties.', 'थोड़ा-सा मत-झुकाव भी सदन में बहुमत की तस्वीर कैसे बदलता है।'), set: { system: 'fptp', swing: 10 } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 342" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Seats: ${E.PARTIES.map((p) => `${p} ${r.seats[p]}`).join(', ')}.`, lines };
   },

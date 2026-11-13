@@ -34,8 +34,13 @@ export const trade = {
     return {
       plate: {
         src: 'assets/images/plates/t13-silkspice.jpg',
-        en: 'Overland Silk Road camel caravan and coastal Indian Ocean spice dhow routes trading across continents.',
-        hi: 'महाद्वीपों को जोड़ते रेशम मार्ग के कारवाँ और हिंद महासागर के मसाला व्यापारिक जहाज़।',
+        en: 'Overland Silk Road camel caravan and Indian Ocean spice dhow — tap pins to time-travel across major trade eras.',
+        hi: 'रेशम मार्ग काफ़िला व हिंद महासागर मसाला जहाज़ — ऐतिहासिक काल बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 56, en: '2000 BCE: Indus–Mesopotamia Gulf', hi: '2000 ई.पू.: सिंधु–मेसोपोटामिया', detail: b('Harappan coastal vessels carried carnelian beads, ivory & timber across the Persian Gulf.', 'हड़प्पा नावें खाड़ी के रास्ते कारनेलियन मनके व लकड़ी ले जाती थीं।'), set: { year: -2000 } },
+          { x: 54, y: 46, en: '100 CE: Silk Road & Roman Monsoon', hi: '100 ई.: रेशम मार्ग व रोमन व्यापार', detail: b('Both Eurasian Silk caravans and monsoon Muziris/Barygaza dhows peaked simultaneously!', 'रेशम मार्ग के काफ़िले और मानसूनी मुज़िरिस समुद्री व्यापार एक साथ चरम पर थे!'), set: { year: 100 } },
+          { x: 80, y: 58, en: '1050 CE: Bay of Bengal Spice Guilds', hi: '1050 ई.: बंगाल की खाड़ी संघ', detail: b('Chola & Southeast Asian fleets linked Coromandel textiles with Sumatra spices.', 'चोल व दक्षिण-पूर्व एशियाई बेड़े वस्त्र और मसाले ले जाते थे।'), set: { year: 1050 } },
+        ],
       },
       svg: `<svg viewBox="0 0 ${W} ${Hh}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Trade routes active in ${year(S.year)}: ${active.map((r) => r.id).join(', ') || 'none'}.`, lines };
   },

@@ -43,8 +43,14 @@ export const cutaway = {
     return {
       plate: {
         src: 'assets/images/plates/t03-atmosphere.jpg',
-        en: 'Atmospheric layers from clouds in the troposphere through the ozone jet belt up to aurora space.',
-        hi: 'क्षोभमंडल के बादलों व समतापमंडल के ओज़ोन स्तर से लेकर अंतरिक्ष ध्रुवीय ज्योति तक वायुमंडल की परतें।',
+        en: 'Atmospheric layers from clouds in the troposphere through the ozone jet belt up to aurora space — tap any pin to jump the probe.',
+        hi: 'क्षोभमंडल के बादलों व समतापमंडल के ओज़ोन स्तर से अंतरिक्ष तक परतें — प्रोब भेजने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 28, y: 78, en: 'Mt Everest & Weather (8.8 km)', hi: 'माउंट एवरेस्ट व मौसम (8.8 किमी)', detail: b('Troposphere: densest air, weather clouds & ~75% of atmospheric mass.', 'क्षोभमंडल: सबसे सघन वायु, बादल और वायुमंडल का ~75% द्रव्यमान।'), set: { alt: 8.8 } },
+          { x: 48, y: 54, en: 'Ozone Belt (25 km)', hi: 'ओज़ोन परत (25 किमी)', detail: b('Stratosphere: ozone absorbs UV light so temperature actually rises here.', 'समतापमंडल: ओज़ोन UV किरणें सोखती है जिससे तापमान ऊपर जाने पर बढ़ता है।'), set: { alt: 25 } },
+          { x: 65, y: 32, en: 'Meteor Burn Zone (65 km)', hi: 'उल्का दहन क्षेत्र (65 किमी)', detail: b('Mesosphere: coldest layer where space dust glows as shooting stars.', 'मध्यमंडल: सबसे ठंडा स्तर जहाँ उल्काएँ घर्षण से जलती हैं।'), set: { alt: 65 } },
+          { x: 78, y: 16, en: 'Aurora Zone (95 km)', hi: 'ध्रुवीय ज्योति (95 किमी)', detail: b('Thermosphere: ultra-thin ionised gas glowing with auroras.', 'तापमंडल: अत्यंत विरल आयनित गैस जहाँ ध्रुवीय ज्योति चमकती है।'), set: { alt: 95 } },
+        ],
       },
       svg: `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Atmosphere at ${S.alt} km: ${l.id}, ${fmt(T, 0)} degrees Celsius, ${fmt(pr, 0)} hectopascals.`,
       lines: [
@@ -102,6 +108,16 @@ export const breeze = {
     const breezeArrow = dir ? `<line x1="${320 - dir * 115}" y1="48" x2="${320 + dir * 115}" y2="48" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/><path d="M${320 + dir * 122},48 l${-dir * 16},-9 l0,18 z" fill="#0284c7"/>` : '';
     const diagram = `<svg viewBox="0 0 640 132" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="brz-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${skyTop}"/><stop offset="100%" stop-color="${skyBot}"/></linearGradient><linearGradient id="brz-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient><linearGradient id="brz-land" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#84cc16"/><stop offset="100%" stop-color="#b45309"/></linearGradient></defs><rect x="0" y="0" width="640" height="78" fill="url(#brz-sky)"/>${orb}${clouds}<path d="M0,78 Q40,72 80,78 T160,78 T240,78 T320,78 L320,132 L0,132 Z" fill="url(#brz-sea)"/><path d="M320,78 Q420,76 500,66 Q575,54 640,68 L640,132 L320,132 Z" fill="url(#brz-land)"/>${plume}${breezeArrow}<text class="txt b" x="155" y="114" fill="#ffffff" text-anchor="middle">${esc(P('Sea', 'समुद्र'))} ${fmt(cur.sea, 0)}°C</text><text class="txt b" x="485" y="114" fill="#ffffff" text-anchor="middle">${esc(P('Land', 'भूमि'))} ${fmt(cur.land, 0)}°C</text><rect x="170" y="4" width="300" height="22" rx="11" fill="#ffffff" opacity=".88"/><text class="txt sm b" x="320" y="19" text-anchor="middle">${esc(cur.kind === 'sea-breeze' ? P('Sea breeze (surface wind from sea)', 'समुद्री समीर (सतह पर समुद्र से आती हवा)') : cur.kind === 'land-breeze' ? P('Land breeze (surface wind from land)', 'स्थलीय समीर (सतह पर भूमि से आती हवा)') : P('Calm', 'शांत'))}</text></svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t03-wind.jpg',
+        en: 'Sunlit coastal breeze corridor: tap pins to jump between afternoon sea breeze, cloudy coast and night land breeze.',
+        hi: 'तटीय पवन गलियारा: दोपहर की समुद्री समीर, बादल व रात की स्थलीय समीर देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 18, y: 66, en: 'Daytime Heated Beach (15:00)', hi: 'दिन में तप्त तट (15:00)', detail: b('Sand warms quickly under afternoon sun, lifting warm air so cool sea wind rushes inland.', 'धूप में भूमि जल्दी गर्म होती है और हवा ऊपर उठने से ठंडी समुद्री समीर अंदर आती है।'), set: { hour: 15, cloud: 0 } },
+          { x: 25, y: 22, en: 'Inland Cloud Blanket', hi: 'घने बादल आवरण', detail: b('80% clouds shade the coast, flattening the land–sea temperature contrast.', '80% बादल धूप रोककर भूमि-समुद्र तापमान अंतर घटाते हैं।'), set: { hour: 15, cloud: 0.8 } },
+          { x: 68, y: 60, en: 'Night Fishing Boats (02:00)', hi: 'रात्रि नौका पवन (02:00)', detail: b('By 2 am land cools faster than ocean water, reversing wind outward as a land breeze.', 'रात 2 बजे भूमि समुद्र से ठंडी होकर तट से समुद्र की ओर स्थलीय समीर चलाती है।'), set: { hour: 2, cloud: 0 } },
+        ],
+      },
       svg: diagram + ch.html({ label: P('Land and sea temperature through the day', 'दिनभर भूमि और समुद्र का तापमान') }), aria: `At ${hourLabel(S.hour)} land ${fmt(cur.land, 0)} degrees, sea ${fmt(cur.sea, 0)} degrees: ${cur.kind}.`,
       lines: [
         { en: `At ${hourLabel(S.hour)} the land is ${fmt(cur.land, 0)} °C and the sea ${fmt(cur.sea, 0)} °C.`, hi: `${hourLabel(S.hour)} बजे भूमि ${fmt(cur.land, 0)} °C और समुद्र ${fmt(cur.sea, 0)} °C है।` },
@@ -142,6 +158,16 @@ export const tides = {
     const rad = (d) => (d * Math.PI) / 180, ex = 140, ey = 60, mx = ex + 90 * Math.cos(rad(psi + 0)), my = ey - 90 * Math.sin(rad(psi + 0));
     const small = `<svg viewBox="0 0 280 120" class="chart" role="img" xmlns="http://www.w3.org/2000/svg" style="max-height:140px"><circle class="sunmoon" cx="262" cy="60" r="14"/><text class="txt sm" x="262" y="92" text-anchor="middle">${esc(P('Sun', 'सूर्य'))}</text><circle class="earth" cx="${ex}" cy="${ey}" r="14"/><circle class="moon" cx="${mx.toFixed(0)}" cy="${my.toFixed(0)}" r="8"/><text class="txt sm" x="${ex}" y="${ey + 30}" text-anchor="middle">${esc(P('Earth', 'पृथ्वी'))}</text><text class="txt sm" x="${mx.toFixed(0)}" y="${(my - 12).toFixed(0)}" text-anchor="middle">${esc(P('Moon', 'चंद्रमा'))}</text></svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t10-tides.jpg',
+        en: 'Indian Ocean high-tide jetty, open sea & low-tide mudflats — tap pins to shift lunar phase between Spring and Neap tides.',
+        hi: 'उच्च ज्वार बंदरगाह, खुला सागर व निम्न ज्वार तट — वृहत् व निम्न ज्वार की चंद्र स्थिति बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 22, y: 66, en: 'New Moon Spring High Tide', hi: 'अमावस्या वृहत् उच्च ज्वार', detail: b('Sun and Moon align on one side — boats ride maximum high tide right up to the jetty.', 'सूर्य और चंद्रमा एक सीध में — दोनों के खिंचाव जुड़कर अधिकतम ज्वार लाते हैं।'), set: { phase: '0' } },
+          { x: 58, y: 46, en: 'First Quarter Neap Tide', hi: 'अष्टमी निम्न ज्वार', detail: b('Sun and Moon pull at 90°, giving milder swells across the open harbour.', 'सूर्य-चंद्रमा 90° पर होने से आंशिक कटौती होती है और छोटा ज्वारीय परिसर मिलता है।'), set: { phase: '90' } },
+          { x: 88, y: 68, en: 'Full Moon Extreme Low Mudflat', hi: 'पूर्णिमा वृहत् निम्न जल तट', detail: b('Spring tides bring both the highest flood tides and the widest exposed low-tide flats.', 'पूर्णिमा पर उच्चतम ज्वार के साथ सबसे विस्तृत निम्न-जल तट भी उभरते हैं।'), set: { phase: '180' } },
+        ],
+      },
       svg: small + ch.html({ label: P('Tide height over three days', 'तीन दिन में ज्वार की ऊँचाई') }), aria: `Tide range ${fmt(range, 2)} metres at ${PH[psi].en}.`,
       lines: [
         { en: `${PH[psi].en}: tidal range ${fmt(range, 2)} m (high minus low).`, hi: `${PH[psi].hi}: ज्वारीय परिसर ${fmt(range, 2)} मी (उच्च घटा निम्न)।` },
@@ -186,8 +212,13 @@ export const tsunami = {
     return {
       plate: {
         src: 'assets/images/plates/t10-tsunami.jpg',
-        en: 'Offshore tsunami sensor buoy and elevated coastal emergency shelter protecting shoreline villages.',
-        hi: 'तटीय गाँवों की रक्षा हेतु समुद्र में सुनामी चेतावनी बोया और ऊँचा आपातकालीन आश्रय केंद्र।',
+        en: 'Offshore tsunami sensor buoy and elevated coastal emergency shelter — tap pins to compare deep-ocean speed vs near-shore shoaling.',
+        hi: 'समुद्री सुनामी चेतावनी बोया और ऊँचा आपातकालीन आश्रय — गहरे समुद्र व उथले तट की गति परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 54, en: 'DART Deep-Ocean Sensor (4,000 m)', hi: 'गहरा समुद्री सेंसर (4,000 मी)', detail: b('In 4,000 m water a tsunami races at jet speed (~713 km/h) yet stays under 1 m tall.', '4,000 मी गहरे पानी में सुनामी ~713 किमी/घं की जेट गति से चलती है पर ऊँचाई कम होती है।'), set: { depth: 4000, dist: 1000, siren: 25 } },
+          { x: 56, y: 66, en: 'Shallow Near-Shore Shoaling (20 m)', hi: 'तट के पास उथला जल (20 मी)', detail: b('As depth shrinks to 20 m, speed brakes sharply while kinetic energy piles the wave steeply upward!', '20 मी गहराई पर गति अचानक घटती है और ऊर्जा लहर को ऊँची दीवार बना देती है!'), set: { depth: 20, dist: 50, siren: 25 } },
+          { x: 82, y: 38, en: 'Elevated Coastal Shelter', hi: 'ऊँचा तटीय आश्रय', detail: b('Pre-planned evacuation paths clear low beaches well before distant warnings arrive.', 'पहले से तय निकासी मार्ग चेतावनी के बाद समय रहते लोगों को सुरक्षित ऊँचाई तक पहुँचाते हैं।'), set: { depth: 4000, dist: 1200, siren: 20 } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 ${y + 10}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Tsunami speed ${fmt(kmh, 0)} km/h; arrival ${fmt(w.minutes, 0)} minutes.`,
@@ -224,7 +255,19 @@ export const harvest = {
         : { en: `You harvest ${S.harvest} per year, within the sustainable yield: the forest settles at about ${fmt(r.final, 0)} and keeps producing.`, hi: `आप प्रति वर्ष ${S.harvest} काटते हैं, जो धारणीय उपज के भीतर है: वन लगभग ${fmt(r.final, 0)} पर स्थिर हो जाता है और उत्पादन देता रहता है।`, cls: 'balanced' },
       { en: `Total wood taken in 50 years: ${fmt(r.total, 0)}.`, hi: `50 वर्षों में कुल लकड़ी: ${fmt(r.total, 0)}।`, cls: 'note' },
     ];
-    return { svg: ch.html({ label: P('Forest stock over 50 years', '50 वर्षों में वन भंडार') }), aria: `Forest stock after 50 years: ${fmt(r.final, 0)}.`, lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t11-grove.jpg',
+        en: 'Forest stewardship & carrying capacity: tap pins to compare sustainable village harvest vs rapid over-logging.',
+        hi: 'वन प्रबंधन व धारण क्षमता: टिकाऊ कटाई बनाम अति-कटाई परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 42, en: 'Sustainable Community Harvest', hi: 'धारणीय सामुदायिक कटाई', detail: b('Taking 60 units/yr stays below natural regrowth, sustaining timber for generations.', 'प्रति वर्ष 60 इकाई कटाई प्राकृतिक पुनर्वृद्धि से कम रहती है और वन सदा बना रहता है।'), set: { harvest: 60, stock0: 800 } },
+          { x: 56, y: 58, en: 'Max Sustainable Yield (~Half Stock)', hi: 'अधिकतम धारणीय उपज', detail: b('Regrowth peaks near half forest capacity — check how close 95 units gets to the edge.', 'आधी क्षमता पर पुनर्वृद्धि सर्वाधिक होती है — 95 पर सीमा रेखा जाँचें।'), set: { harvest: 95, stock0: 800 } },
+          { x: 80, y: 48, en: 'Clear-Cut Over-Harvest', hi: 'अति-कटाई संकट', detail: b('Harvesting 135/yr outstrips regrowth and drives rapid ecological collapse.', '135/वर्ष कटाई पुनर्वृद्धि से आगे निकलकर पूरे वन को समाप्त कर देती है।'), set: { harvest: 135, stock0: 800 } },
+        ],
+      },
+      svg: ch.html({ label: P('Forest stock over 50 years', '50 वर्षों में वन भंडार') }), aria: `Forest stock after 50 years: ${fmt(r.final, 0)}.`, lines,
+    };
   },
   discover: [b('Raise the harvest slowly from 0. Find the highest value that still lets the forest survive.', 'कटाई को 0 से धीरे-धीरे बढ़ाएँ। वह सबसे अधिक मान खोजें जिस पर वन फिर भी बचा रहता है।'), b('Set harvest to 120. Does the total wood after 50 years beat a harvest of 90? Think about short-term gain and long-term loss.', 'कटाई 120 करें। क्या 50 वर्षों की कुल लकड़ी 90 की कटाई से अधिक है? अल्पकालिक लाभ और दीर्घकालिक हानि पर सोचें।')],
   predictions: [{ id: 'p1', stem: b('The forest regrows 100 units a year at best. You harvest 130 every year. What happens?', 'वन अधिक से अधिक प्रति वर्ष 100 इकाई पुनः उगता है। आप हर वर्ष 130 काटते हैं। क्या होगा?'), options: [opt('collapse', 'The forest collapses', 'वन समाप्त हो जाता है'), opt('stable', 'It settles at a lower, stable size', 'वह कम, स्थिर आकार पर टिक जाता है')],
@@ -255,7 +298,19 @@ export const foodweb = {
       { en: S.cull > 0 ? `After ${Math.round(S.cull * 100)}% of predators are removed in year ${S.cullYear}, herbivores can rise to ${fmt(pk(tr), 0)} (peak without removal: ${fmt(pk(base), 0)}).` : 'Without human action the two populations rise and fall in linked cycles: more prey feeds more predators; more predators eat the prey down again.', hi: S.cull > 0 ? `वर्ष ${S.cullYear} में ${Math.round(S.cull * 100)}% शिकारी हटाने पर शाकाहारी बढ़कर ${fmt(pk(tr), 0)} तक जा सकते हैं (बिना हटाए शिखर: ${fmt(pk(base), 0)})।` : 'मानव हस्तक्षेप के बिना दोनों जनसंख्याएँ जुड़े चक्रों में घटती-बढ़ती हैं: अधिक शिकार से अधिक शिकारी पलते हैं; अधिक शिकारी शिकार को फिर घटा देते हैं।' },
       { en: 'More herbivores eat more plants. A change at one level of the food web reaches every other level.', hi: 'अधिक शाकाहारी अधिक पौधे खाते हैं। खाद्य-जाल के एक स्तर का बदलाव हर दूसरे स्तर तक पहुँचता है।', cls: 'note' },
     ];
-    return { svg: ch.html({ label: P('Predator and prey populations', 'शिकारी और शिकार की जनसंख्या') }), aria: 'Predator and prey populations over 40 years.', lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t11-reserves.jpg',
+        en: 'Deer grazing beside forest stream & patrol edge — tap pins to simulate intact food webs vs predator removal.',
+        hi: 'नदी किनारे हिरण व वन्य खाद्य-जाल — प्राकृतिक शिकारी संतुलन बनाम शिकारी हटाने का प्रभाव पिन से परखें।',
+        spots: [
+          { x: 20, y: 56, en: 'Intact Deer–Predator Web', hi: 'संतुलित हिरण-शिकारी जाल', detail: b('Predators keep herbivore surges in check so forest undergrowth regenerates safely.', 'शिकारी शाकाहारियों को संतुलित रखकर नए पौधों को बढ़ने देते हैं।'), set: { cull: 0, cullYear: 10 } },
+          { x: 50, y: 66, en: 'Remove 80% Top Predators', hi: '80% शीर्ष शिकारी हटाना', detail: b('Watch herbivore numbers spike after year 10, overgrazing young saplings!', 'वर्ष 10 के बाद शाकाहारियों में तेज़ उछाल और वनस्पति पर दबाव देखें!'), set: { cull: 0.8, cullYear: 10 } },
+          { x: 80, y: 58, en: 'Early Year-4 Disturbance', hi: 'वर्ष 4 का प्रारंभिक हस्तक्षेप', detail: b('Removing predators early in year 4 destabilises trophic cycles right away.', 'वर्ष 4 में ही शिकारी हटने पर पूरा खाद्य-चक्र तुरंत डगमगा जाता है।'), set: { cull: 0.7, cullYear: 4 } },
+        ],
+      },
+      svg: ch.html({ label: P('Predator and prey populations', 'शिकारी और शिकार की जनसंख्या') }), aria: 'Predator and prey populations over 40 years.', lines,
+    };
   },
   discover: [b('With no removal, notice that the red line peaks AFTER the green line. Why is there a delay?', 'बिना हटाए देखें कि लाल रेखा हरी रेखा के बाद शिखर पर पहुँचती है। यह देरी क्यों है?'), b('Remove 90% of predators in year 10. What happens to the herbivores?', 'वर्ष 10 में 90% शिकारी हटाएँ। शाकाहारियों का क्या होता है?')],
   predictions: [{ id: 'p1', stem: b('Most predators are removed from a forest. In the next few years the herbivores will…', 'किसी वन से अधिकांश शिकारी हटा दिए जाते हैं। अगले कुछ वर्षों में शाकाहारी…'), options: [opt('up', 'Increase, then strain the plants', 'बढ़ेंगे, फिर पौधों पर दबाव डालेंगे'), opt('down', 'Decrease', 'घटेंगे'), opt('same', 'Stay the same', 'वही रहेंगे')],

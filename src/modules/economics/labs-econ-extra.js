@@ -47,8 +47,13 @@ export const scarcityGame = {
     return {
       plate: {
         src: 'assets/images/plates/t08-choices.jpg',
-        en: 'Everyday student scarcity trade-offs: allocating limited pocket money across notebooks, snacks and mobile data.',
-        hi: 'दैनिक छात्र चयन: सीमित जेब-खर्च को पुस्तकों, नाश्ते और मोबाइल डेटा में संतुलित करना।',
+        en: 'Everyday student scarcity trade-offs — tap pins to compare study-first vs balanced vs overspent ₹100 plans.',
+        hi: 'दैनिक छात्र चयन — ₹100 के बजट में अध्ययन, संतुलन व अधिक खर्च की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 54, en: 'Books Priority (₹60 + ₹20 + ₹20)', hi: 'पुस्तक प्राथमिकता (₹60+20+20)', detail: b('Fits ₹100 cleanly with the highest learning utility score.', '₹100 में सटीक फिट और उच्चतम अध्ययन उपयोगिता स्कोर।'), set: { books: 60, snack: 20, data: 20 } },
+          { x: 54, y: 48, en: '₹10 Savings Buffer (₹40+30+20)', hi: '₹10 बचत बफर (₹40+30+20)', detail: b('Leaves ₹10 unspent for unexpected pencil/bus expenses.', 'आकस्मिक आवश्यकता के लिए ₹10 सुरक्षित बचते हैं।'), set: { books: 40, snack: 30, data: 20 } },
+          { x: 80, y: 58, en: '₹130 Deficit Trap', hi: '₹130 बजट घाटा जाल', detail: b('Wanting ₹50 books + ₹40 snacks + ₹40 data overshoots ₹100 — scarcity bites!', 'सभी इच्छाएँ एक साथ पूरी करने पर ₹30 का घाटा दिखता है!'), set: { books: 50, snack: 40, data: 40 } },
+        ],
       },
       svg,
       aria: `Spent ${r.spent} of 100 rupees; ${r.over ? 'over budget' : `${r.remaining} unspent`}; utility index ${r.wellBeing}`,
@@ -117,8 +122,13 @@ export const econFlow = {
     return {
       plate: {
         src: 'assets/images/plates/t08-economy.jpg',
-        en: 'Interconnected local economy: handloom weavers, grain traders, potters and small workshops.',
-        hi: 'परस्पर जुड़ी स्थानीय अर्थव्यवस्था: हथकरघा, अनाज व्यापार, कुम्हारी और लघु कार्यशालाएँ।',
+        en: 'Interconnected local economy: weavers, grain traders & workshops — tap pins to shift What, How & For Whom.',
+        hi: 'स्थानीय अर्थव्यवस्था: बुनकर, अनाज व्यापारी व कार्यशालाएँ — क्या, कैसे व किसके लिए बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 50, en: 'WHAT: Consumer Food vs Machines', hi: 'क्या: दैनिक उपभोग बनाम मशीनें', detail: b('Heavy consumer focus feeds today’s families; shifting toward machines raises future growth.', 'अधिक उपभोग आज का पेट भरता है जबकि मशीनें भविष्य की क्षमता बढ़ाती हैं।'), set: { consumerShare: 80, labourShare: 60 } },
+          { x: 52, y: 48, en: 'HOW: Handloom Labour vs Factory', hi: 'कैसे: श्रम-प्रधान बनाम स्वचालित', detail: b('85% labour-intensive production maximises immediate rural jobs.', '85% श्रम-प्रधान विधि तात्कालिक रोज़गार को अधिकतम करती है।'), set: { labourShare: 85 } },
+          { x: 78, y: 56, en: 'FOR WHOM: Broad Wage & Welfare', hi: 'किसके लिए: व्यापक मज़दूरी व समता', detail: b('Stronger wage & welfare reach spreads produced goods to vulnerable homes.', 'मज़दूरी व कल्याण का विस्तार ज़रूरतमंद परिवारों तक पहुँच बढ़ाता है।'), set: { equityTransfer: 80 } },
+        ],
       },
       svg,
       aria: `What ${S.consumerShare}% consumer goods, How ${S.labourShare}% labour, For Whom ${S.equityTransfer}% reach. Jobs index ${jobs}, growth index ${futureGrowth}`,
@@ -186,6 +196,16 @@ export const econSystems = {
     });
     const svg = `<svg viewBox="0 0 640 225" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t08-economy.jpg',
+        en: 'Market stalls, public cooperatives & mixed shops — tap pins to compare Free Market, Centrally Planned & Mixed economies.',
+        hi: 'बाज़ार दुकानें व सार्वजनिक उपक्रम — मुक्त बाज़ार, नियोजित व मिश्रित अर्थव्यवस्था की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 52, en: 'Free Market (Private Price Signals)', hi: 'मुक्त बाज़ार अर्थव्यवस्था', detail: b('Fast efficiency & choice (92), but lowest equity (38) without welfare.', 'तेज़ दक्षता व विकल्प, पर कल्याण के बिना असमानता अधिक।'), set: { sys: 'market' } },
+          { x: 52, y: 46, en: 'Centrally Planned (State Targets)', hi: 'केंद्रीयकृत नियोजित प्रणाली', detail: b('Higher basic equity (78), but suffers bottlenecks & low efficiency (46).', 'बुनियादी समता अधिक, पर आपूर्ति में कमी व धीमी दक्षता का जोखिम।'), set: { sys: 'planned' } },
+          { x: 78, y: 54, en: 'Mixed Economy (India’s Path)', hi: 'मिश्रित अर्थव्यवस्था (भारत)', detail: b('Pairs private markets & startups with public infrastructure & safety nets.', 'निजी बाज़ार व स्टार्टअप के साथ सार्वजनिक अवसंरचना व सुरक्षा-जाल।'), set: { sys: 'mixed' } },
+        ],
+      },
       svg,
       aria: `${e.en}: efficiency ${e.eff}, equity ${e.eq}, choice ${e.free}`,
       lines: [
@@ -239,6 +259,16 @@ export const safetyNet = {
       + `<rect x="24" y="172" width="592" height="40" rx="8" fill="${r.debtRisk ? '#fee2e2' : '#dcfce7'}" stroke="${r.debtRisk ? '#b91c1c' : '#15803d'}"/>`
       + `<text class="txt b" x="320" y="197" text-anchor="middle">${esc(r.debtRisk ? P(`Debt Trap Risk: Needs ${rs(r.gap)} High-Interest Loan (${r.monthsToRecover} mo recovery)`, `कर्ज़ संकट: ${rs(r.gap)} उधार की आवश्यकता (${r.monthsToRecover} माह सुधार)`) : P(`Shock Absorbed! Remaining Savings: ${rs(r.savingsLeft)}`, `संकट संभाला गया! शेष बचत: ${rs(r.savingsLeft)}`))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t08-safetynet.jpg',
+        en: 'Solar village health clinic, community grain bank & women’s SHG — tap pins to stress-test a household against medical shocks.',
+        hi: 'ग्राम स्वास्थ्य केंद्र, सामुदायिक अन्न बैंक व महिला सहायता समूह — संकट सुरक्षा-जाल परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 42, y: 24, en: 'Public Health Clinic (70% Cover)', hi: 'जन-स्वास्थ्य केंद्र (70% सुरक्षा)', detail: b('Public health insurance shrinks a ₹15,000 hospital shock to ₹4,500 — absorbed by savings!', 'स्वास्थ्य बीमा ₹15,000 के संकट को ₹4,500 कर देता है — बचत से पूरा!'), set: { shockCost: 15000, safetyNetCoverPct: 70 } },
+          { x: 62, y: 25, en: 'Grain Bank Buffer (₹8,000 Shock)', hi: 'सामुदायिक अन्न बैंक (₹8,000 संकट)', detail: b('Food rations & 50% cover keep crop-loss bills well below household savings.', 'राशन व 50% सहायता से छोटा संकट बिना कर्ज़ के पार हो जाता है।'), set: { shockCost: 8000, safetyNetCoverPct: 50 } },
+          { x: 48, y: 72, en: 'Zero Safety Net Debt Trap (0%)', hi: 'शून्य सुरक्षा-जाल: कर्ज़ जाल (0%)', detail: b('Without coverage a ₹15,000 bill wipes ₹6,000 savings and forces high-interest debt!', 'बिना सुरक्षा के ₹15,000 का बिल परिवार को महँगे कर्ज़ में धकेल देता है!'), set: { shockCost: 15000, safetyNetCoverPct: 0 } },
+        ],
+      },
       svg: `<svg viewBox="0 0 640 225" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Net shock ${r.netShock} rupees; debt risk ${r.debtRisk}`,
       lines: [
@@ -304,8 +334,13 @@ export const planBuilder = {
     return {
       plate: {
         src: 'assets/images/plates/t15-startup.jpg',
-        en: 'Indian craft-tech founders testing bamboo water filter, solar lamp and handloom prototypes.',
-        hi: 'बाँस जल-फ़िल्टर, सौर लैंप और हथकरघा प्रोटोटाइप पर काम करते भारतीय युवा उद्यमी।',
+        en: 'Craft-tech founders building bamboo water filters & solar lamps — tap pins to stress-test customer proof, margin & runway.',
+        hi: 'बाँस फ़िल्टर व सौर लैंप प्रोटोटाइप — ग्राहक प्रमाण, लाभ-मार्जिन व पूंजी बफर परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 36, y: 48, en: 'Strong MVP & Survey Proof', hi: 'मज़बूत प्रोटोटाइप व ग्राहक जांच', detail: b('Clear water-filtration need + village testing lifts score into launch-ready.', 'स्पष्ट समस्या व प्रोटोटाइप परीक्षण उद्यम को लॉन्च-रेडी बनाते हैं।'), set: { problemClarity: 5, customerProof: 5, unitMarginOk: true, capitalBufferMonths: 4 } },
+          { x: 54, y: 68, en: 'Low-Runway Cash Pinch (0 Mo)', hi: 'शून्य कार्यशील पूंजी संकट', detail: b('Zero cash runway means one delayed customer payment stalls wages!', 'शून्य पूंजी बफर होने पर भुगतान में थोड़ी भी देरी काम रोक देती है!'), set: { capitalBufferMonths: 0 } },
+          { x: 68, y: 86, en: 'Negative Unit Margin Trap', hi: 'नकारात्मक इकाई मार्जिन खतरा', detail: b('Selling below unit cost causes every extra order to lose more money!', 'लागत से कम कीमत रखने पर हर अतिरिक्त बिक्री घाटा बढ़ाती है!'), set: { unitMarginOk: false } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 236" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Business plan readiness ${res.score} out of 100 (${res.stage})`,
@@ -368,6 +403,16 @@ export const ecosystemMap = {
       aria: P('India startup and MSME hubs map', 'भारत स्टार्टअप और एमएसएमई केंद्र मानचित्र'),
     });
     return {
+      plate: {
+        src: 'assets/images/plates/t15-ecosystem.jpg',
+        en: 'India’s enterprise ecosystem — tap EV/UPI startups, textile MSME workshop or rural artisan shipping hub.',
+        hi: 'भारत का उद्यम पारिस्थितिकी तंत्र — EV/UPI स्टार्टअप, वस्त्र MSME कार्यशाला व कारीगर पैकिंग केंद्र पर टैप करें।',
+        spots: [
+          { x: 20, y: 68, en: 'Startup India & UPI Tech Hubs', hi: 'स्टार्टअप इंडिया व डिजिटल केंद्र', detail: b('Explore DPIIT startups powered by instant digital payments across hubs.', 'UPI व डिजिटल अवसंरचना से जुड़े स्टार्टअप केंद्र देखें।'), set: { focus: 'hubs', hubIdx: 0 } },
+          { x: 48, y: 64, en: 'Make in India MSME Clusters', hi: 'मेक इन इंडिया MSME क्लस्टर', detail: b('Inspect Surat/Coimbatore-style small factories creating widespread local jobs.', 'स्थानीय रोज़गार रचने वाले लघु व मध्यम उद्योग क्लस्टर देखें।'), set: { focus: 'msme', hubIdx: 3 } },
+          { x: 88, y: 56, en: 'Artisans & Unorganised Sector', hi: 'असंगठित क्षेत्र व कारीगर', detail: b('See how formal bank credit & e-commerce uplift small craft workers.', 'बैंक ऋण व डिजिटल पहुँच से कारीगरों को मिलने वाली शक्ति देखें।'), set: { focus: 'unorg', hubIdx: 5 } },
+        ],
+      },
       svg,
       aria: `${cur.en}, lens ${info.en}`,
       lines: [
@@ -422,6 +467,16 @@ export const creativeDestruction = {
     ch.text(10, res.newJobs[10][1], P('new-tech jobs', 'नई तकनीक रोज़गार'), 'lbl', 'end', -4, 14);
     ch.text(10, res.output[10][1], P('total output', 'कुल उत्पादन'), 'lbl', 'end', -4, -8);
     return {
+      plate: {
+        src: 'assets/images/plates/t15-ecosystem.jpg',
+        en: 'Creative destruction across traditional shops & EV/digital startups — tap pins to test disruption vs worker reskilling.',
+        hi: 'सृजनात्मक विनाश व तकनीकी परिवर्तन — बिना प्रशिक्षण विस्थापन बनाम कौशल-उन्नयन की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 48, y: 64, en: 'Fast Tech + Zero Reskilling (Stress)', hi: 'तेज़ बदलाव, शून्य प्रशिक्षण', detail: b('Old jobs vanish quickly while new roles lag behind — painful displacement!', 'पुरानी नौकरियाँ घटती हैं पर कौशल न मिलने से नए अवसर छूटते हैं!'), set: { techSpeed: 80, retrainSupport: 10 } },
+          { x: 20, y: 68, en: 'Fast Tech + 90% Upskilling Boost', hi: 'तेज़ बदलाव + 90% पुनर्प्रशिक्षण', detail: b('Vocational training turns disruption into net job expansion & rising output!', 'कौशल प्रशिक्षण विस्थापन को शुद्ध रोज़गार व उत्पादन वृद्धि में बदलता है!'), set: { techSpeed: 80, retrainSupport: 90 } },
+          { x: 88, y: 56, en: 'Gradual Steady Adaptation (30%)', hi: 'धीमा क्रमिक तकनीकी बदलाव', detail: b('Slower adoption softens short-term shocks while lifting output moderately.', 'धीमा परिवर्तन अल्पकालिक झटका कम कर मध्यम वृद्धि देता है।'), set: { techSpeed: 30, retrainSupport: 50 } },
+        ],
+      },
       svg: ch.html({ label: P('Creative destruction jobs and output over 10 years', '10 वर्षों में सृजनात्मक विनाश के रोज़गार व उत्पादन वक्र') }),
       aria: `Final combined jobs index ${res.finalNetJobs}, displaced peak ${res.displacedPeak}`,
       lines: [
@@ -487,6 +542,16 @@ export const riskReturn = {
     g += `<rect x="16" y="192" width="608" height="40" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>`
       + `<text class="txt sm b" x="320" y="217" text-anchor="middle">${esc(P(`🛡️ Insurance Pool: ${S.poolSize} families × ₹40,000 cover → Fair premium ≈ ${rs(pool.fairPremium)}/yr`, `🛡️ बीमा पूल: ${S.poolSize} परिवार × ₹40,000 सुरक्षा → उचित प्रीमियम ≈ ${rs(pool.fairPremium)}/वर्ष`))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t16-inflation.jpg',
+        en: 'Emergency cash, growing compound sapling & brass insurance shield — tap pins to match horizon & risk protection.',
+        hi: 'आपातकालीन नकद, बढ़ता निवेश पौधा व बीमा कवच — अवधि व जोखिम सुरक्षा मिलाने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 58, en: '2-Year Horizon (Safety First)', hi: '2-वर्षीय लक्ष्य (सुरक्षा पहले)', detail: b('Short goals need steady Savings/FD rather than short-term equity swings.', 'अल्पकालिक लक्ष्यों के लिए स्थिर बचत या FD उपयुक्त है।'), set: { horizon: 2, poolSize: 200, claimProbPct: 3 } },
+          { x: 54, y: 42, en: '18-Year Wealth Gap (Index Curve)', hi: '18-वर्षीय दीर्घकालिक वृद्धि', detail: b('Over decades higher-return compounding pulls dramatically ahead of plain cash!', 'दशकों में उच्च प्रतिफल चक्रवृद्धि सुरक्षित विकल्पों से कहीं आगे निकलता है!'), set: { horizon: 18, poolSize: 200, claimProbPct: 3 } },
+          { x: 76, y: 58, en: 'High-Risk Insurance Shield (8%)', hi: 'उच्च जोखिम बीमा पूल (8%)', detail: b('Watch 200 households pool together to absorb frequent ₹40,000 shocks safely.', '200 परिवार मिलकर ₹40,000 के संकट को सहज वार्षिक प्रीमियम में बाँट लेते हैं।'), set: { poolSize: 200, claimProbPct: 8 } },
+        ],
+      },
       svg: `<svg viewBox="0 0 640 242" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Over ${S.horizon} years ₹10,000 grows fastest in higher-risk index fund; insurance fair premium ${pool.fairPremium} rupees`,
       lines: [
@@ -548,8 +613,14 @@ export const taxFlow = {
     return {
       plate: {
         src: 'assets/images/plates/t16-tax.jpg',
-        en: 'Public infrastructure funded by citizen taxes: public schools, clinics, paved roads, bridges and clean water towers.',
-        hi: 'नागरिक कर से निर्मित साझा सार्वजनिक सेवाएँ: सरकारी विद्यालय, चिकित्सालय, सड़कें, पुल व जल मीनार।',
+        en: 'Public schools, health clinics, roads, bridges & clean water towers — tap any landmark to test progressive tax slabs vs zero-tax.',
+        hi: 'सरकारी विद्यालय, चिकित्सालय, सड़क-पुल व जल मीनार — प्रगतिशील कर-स्तर बनाम शून्य कर परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 20, y: 42, en: 'Basic Exempt Tier (4 Units = 0% Tax)', hi: 'कर-मुक्त मूल स्तर (0% कर)', detail: b('First 4 income units stay 100% exempt so basic needs are never squeezed.', 'प्रथम 4 आय इकाइयाँ पूरी तरह कर-मुक्त रहती हैं ताकि मूल आवश्यकताएँ सुरक्षित रहें।'), set: { incomeUnits: 4, progressivity: 1 } },
+          { x: 65, y: 42, en: 'Clinic & Middle Income (12 Units)', hi: 'मध्यम आय व जन-चिकित्सालय (12)', detail: b('Only units above the threshold pay moderate tax, leaving higher take-home income.', 'केवल सीमा से ऊपर की आय पर मध्यम कर लगता है, जिससे शेष आय बढ़ती है।'), set: { incomeUnits: 12, progressivity: 1 } },
+          { x: 48, y: 68, en: 'Highway Bridge & Top Tier (22 Units)', hi: 'उच्च स्तर व पुल निर्माण (22)', detail: b('Progressive upper slices fund major public highways, bridges & schools fairly.', 'ऊपरी स्तर का योगदान बड़े राजमार्ग, पुल व विद्यालय बनाता है।'), set: { incomeUnits: 22, progressivity: 1 } },
+          { x: 88, y: 26, en: 'Zero Public Pool Test', hi: 'शून्य कर कोष परीक्षण', detail: b('Turn off taxes — household take-home looks full, yet shared schools & water dry up!', 'कर शून्य करते ही साझा जल, सड़क व विद्यालयों का कोष समाप्त हो जाता है!'), set: { incomeUnits: 14, progressivity: 0 } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 212" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Income ${S.incomeUnits} units, conceptual tax ${r.effectiveTax} (${r.effectivePct}%), take-home ${r.takeHome}`,

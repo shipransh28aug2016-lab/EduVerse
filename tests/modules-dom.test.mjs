@@ -82,9 +82,20 @@ test('DOM + module mount/relabel/a11y/interaction check across all 16 themes (T0
         await new Promise((r) => setTimeout(r, 5));
       }
 
-      // Exercise sliders, radios, switches, and MCQ buttons
+      // Exercise sliders, radios, switches, interactive 2D plate hotspots, SVG [data-set] nodes, and MCQ buttons
       for (const tab of tabs.length ? tabs : [null]) {
         if (tab) tab.click();
+        const spots = [...modSlot.querySelectorAll('.lab-plate .plate-spot')];
+        assert.ok(spots.length >= 2, `${th.id}${tab ? ' tab ' + tab.textContent : ''}: expected >=2 clickable .plate-spot pins on 2D visual`);
+        for (const sp of spots) {
+          assert.ok((sp.getAttribute('aria-label') || '').trim().length > 0, `${th.id} .plate-spot missing aria-label`);
+          sp.click();
+          const callout = sp.closest('.lab-plate')?.querySelector('.plate-callout');
+          assert.ok(callout && !callout.hidden && callout.textContent.trim().length > 10, `${th.id} clicking .plate-spot should show callout explanation`);
+        }
+        for (const el of modSlot.querySelectorAll('svg [data-set]')) {
+          el.dispatchEvent(new Event('click', { bubbles: true }));
+        }
         for (const r of modSlot.querySelectorAll('input[type=range]')) {
           const labelOk = !!(r.getAttribute('aria-label') || r.getAttribute('aria-labelledby') || (r.id && modSlot.querySelector(`label[for="${r.id}"]`)));
           assert.ok(labelOk, `${th.id} slider lacks accessible label`);

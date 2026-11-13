@@ -6,6 +6,7 @@ import { t, pairHtml } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { Chart, sampleCurve } from '../../engines/chart.js';
 import { slider, button, toggle, chips, tabs, bi, relabelBi, predict, mcq, biHtml } from '../../components/widgets.js';
+import { createInteractivePlate } from '../../components/lab-kit.js';
 import { attachThreeStage } from '../../components/three-lab.js';
 import { createTheme3d } from '../../components/diorama-3d.js';
 import * as M from './models.js';
@@ -165,17 +166,17 @@ export function mount(root, ctx) {
     const predBox = h('div', { class: 'predicts' });
     const predEls = preds.map((p) => { const el = predict(p, { done: S.done, onDone: persist }); predBox.append(el); return el; });
 
-    const mkImg = h('img', {
+    const mkPlate = createInteractivePlate(() => ({
       src: 'assets/images/plates/t09-market.jpg',
-      alt: i18n.pair('Indian neighborhood produce and spice stall with brass balance scale reflecting supply-and-demand prices.', 'स्थानीय सब्ज़ी व मसाला मंडी में पीतल तराजू — दैनिक माँग-पूर्ति से मूल्य निर्धारण।'),
-      loading: 'eager',
-      decoding: 'async',
-    });
-    const mkPlate = h('figure', { class: 'lab-plate' },
-      mkImg,
-      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'Every mandi stall clears daily supply against shopper demand — surplus spoils by evening, shortage drives prices up.', hi: 'मंडी की हर दुकान पर दैनिक पूर्ति और ग्राहक माँग का संतुलन तय होता है — अधिशेष बचने से दाम गिरते और कमी से बढ़ते हैं।' })),
-    );
-    const left = h('div', { class: 'lab-main' }, mkPlate, chartBox, legend, read, h('details', { class: 'fold' }, h('summary', { 'data-k': 'mk.tbl.title' }, t('mk.tbl.title')), tableBox), desc);
+      en: 'Neighborhood produce & spice stall with brass balance scale — tap pins to create a Surplus, Shortage, Festival Demand Shift or Price Ceiling.',
+      hi: 'स्थानीय सब्ज़ी व मसाला मंडी — अधिशेष, कमी, त्योहारी माँग या मूल्य सीमा तुरंत देखने हेतु पिन पर टैप करें।',
+      spots: [
+        { x: 24, y: 56, en: 'Price ₹75 Surplus (Unsold Stock)', hi: '₹75 पर अधिशेष (बचा माल)', detail: { en: 'Sellers offer far more than buyers want at ₹75 — prices must fall toward P*.', hi: '₹75 पर विक्रेता बहुत माल लाते हैं पर खरीदार कम हैं — कीमत घटानी पड़ती है।' }, set: { price: 75, ceilingOn: false, sD: 0, sS: 0 } },
+        { x: 52, y: 46, en: 'Festival Demand Shift (+20 D)', hi: 'त्योहारी माँग उछाल (+20 D)', detail: { en: 'Whole demand curve shifts right (see dashed original) raising both P* & Q*!', hi: 'पूरा माँग वक्र दाईं ओर खिसकने से संतुलन मूल्य और मात्रा दोनों बढ़ते हैं!' }, set: { sD: 20, sS: 0, ceilingOn: false, price: 60 } },
+        { x: 80, y: 54, en: '₹35 Price Ceiling Shortage', hi: '₹35 मूल्य सीमा (कमी व काला बाज़ार)', detail: { en: 'Capping price below P* leaves excess demand & creates black-market pressure!', hi: 'संतुलन से नीचे अधिकतम कीमत तय करने पर कमी और काला बाज़ार दबाव बनता है!' }, set: { ceilingOn: true, ceiling: 35, price: 35, sD: 0, sS: 0 } },
+      ],
+    }), (patch) => { Object.assign(m, patch); clampShifts(); sync(); });
+    const left = h('div', { class: 'lab-main' }, mkPlate.el, chartBox, legend, read, h('details', { class: 'fold' }, h('summary', { 'data-k': 'mk.tbl.title' }, t('mk.tbl.title')), tableBox), desc);
     const right = h('div', { class: 'lab-side' },
       h('h3', { 'data-k': 'mk.h.scen' }, t('mk.h.scen')), sc.root, scNote,
       h('h3', { 'data-k': 'mk.h.vars' }, t('mk.h.vars')), sPrice.root, sD.root, sS.root,
@@ -186,7 +187,7 @@ export function mount(root, ctx) {
     const el = h('div', { class: 'lab' }, h('div', { class: 'lab-grid' }, left, right),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), predBox));
     stage3dMk = attachThreeStage(el, () => ({ price: m.price, eqP: M.equilibrium(m).P }), createTheme3d('T09'), { insertBeforeEl: chartBox, themeId: 'T09' });
-    return { el, enable3d: () => stage3dMk.enable(), disable3d: () => stage3dMk.disable(), relabel() { mkImg.alt = i18n.pair('Indian neighborhood produce and spice stall with brass balance scale reflecting supply-and-demand prices.', 'स्थानीय सब्ज़ी व मसाला मंडी में पीतल तराजू — दैनिक माँग-पूर्ति से मूल्य निर्धारण।'); predEls.forEach((p) => p.relabel()); stage3dMk.relabel(); draw(); }, snapshot: () => ({ m: { ...m }, c: M.compute(m) }), destroy() { stage3dMk.destroy(); } };
+    return { el, enable3d: () => stage3dMk.enable(), disable3d: () => stage3dMk.disable(), relabel() { mkPlate.relabel(); predEls.forEach((p) => p.relabel()); stage3dMk.relabel(); draw(); }, snapshot: () => ({ m: { ...m }, c: M.compute(m) }), destroy() { stage3dMk.destroy(); } };
   })();
 
   // ============================ EXTERNALITY LAB (L4) ============================
@@ -220,10 +221,20 @@ export function mount(root, ctx) {
       options: ['more', 'less', 'same'].map(opt), run: () => { e.kind = 'negative'; e.x = 18; kind.select('negative'); sx.set(18); draw(); const r = M.externality(e); return r.gap < -1e-9 ? 'more' : r.gap > 1e-9 ? 'less' : 'same'; },
       explain: () => { const r = M.externality({ kind: 'negative', x: 18 }); return { en: `The factory counts only its own cost, so it makes ${fmt(r.Qm, 0)} units. Counting the neighbours’ cost too, the best quantity is ${fmt(r.Qopt, 0)}. The ${fmt(r.Qm - r.Qopt, 0)} extra units cost society more than they are worth: a welfare loss of ₹${fmt(r.dwl, 0)} per day.`, hi: `कारखाना केवल अपनी लागत गिनता है, इसलिए ${fmt(r.Qm, 0)} इकाई बनाता है। पड़ोसियों की लागत भी जोड़ें तो सर्वश्रेष्ठ मात्रा ${fmt(r.Qopt, 0)} है। ये अतिरिक्त ${fmt(r.Qm - r.Qopt, 0)} इकाइयाँ समाज को अपने मूल्य से अधिक महँगी पड़ती हैं: प्रतिदिन ₹${fmt(r.dwl, 0)} की कल्याण-हानि।` }; } }, { done: S.done, onDone: persist });
     draw();
+    const exPlate = createInteractivePlate(() => ({
+      src: 'assets/images/plates/t09-externality.jpg',
+      en: 'Side-effects outside the price tag — tap pins to compare smoky factory over-production vs positive orchard/solar spillovers.',
+      hi: 'कीमत से बाहर पड़ने वाले प्रभाव — धुआँ छोड़ते कारखाने के अति-उत्पादन बनाम हरित बाग़/सौर लाभ हेतु पिन पर टैप करें।',
+      spots: [
+        { x: 28, y: 46, en: 'Negative: Smokestack Cost (₹24)', hi: 'नकारात्मक: धुआँ बाहरी लागत (₹24)', detail: { en: 'Factory counts only private costs and over-produces past Q*, creating red welfare loss!', hi: 'कारखाना पड़ोसी लागत अनदेखा कर Q* से अधिक उत्पादन करता है जिससे कल्याण हानि होती है!' }, set: { kind: 'negative', x: 24 } },
+        { x: 54, y: 60, en: 'Clean Ideal (₹0 Spillover)', hi: 'शून्य बाहरी प्रभाव (₹0)', detail: { en: 'When private and social costs align, market equilibrium Qm matches social optimum Q*.', hi: 'जब निजी और सामाजिक लागत समान हों, तो बाज़ार संतुलन ही सर्वश्रेष्ठ मात्रा होती है।' }, set: { kind: 'negative', x: 0 } },
+        { x: 78, y: 52, en: 'Positive: Solar / Tree Benefits (₹24)', hi: 'सकारात्मक: बाग़ व सौर ऊर्जा लाभ (₹24)', detail: { en: 'Because buyers ignore benefits to neighbours, the market under-produces below Q*!', hi: 'खरीदार पड़ोसियों को मिलने वाले लाभ न गिनने से बाजार सामाजिक आदर्श से कम उत्पादन करता है!' }, set: { kind: 'positive', x: 24 } },
+      ],
+    }), (patch) => { Object.assign(e, patch); kind.select(e.kind); sx.set(e.x); draw(); });
     const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Some costs and benefits fall on people who are not part of the deal. The market ignores them. Slide the outside cost (or benefit) and compare the market quantity with the quantity that is best for society.', hi: 'कुछ लागतें और लाभ उन लोगों पर पड़ते हैं जो सौदे में शामिल नहीं हैं। बाज़ार उन्हें अनदेखा करता है। बाहरी लागत (या लाभ) बदलें और बाज़ार की मात्रा की तुलना समाज के लिए सर्वश्रेष्ठ मात्रा से करें।' }, { tag: 'span' })),
-      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, box, read), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'ex.h.kind' }, t('ex.h.kind')), kind.root, sx.root, h('div', { class: 'row' }, button('btn.reset', () => { Object.assign(e, { kind: 'negative', x: 18 }); kind.select('negative'); sx.set(18); draw(); })))),
+      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, exPlate.el, box, read), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'ex.h.kind' }, t('ex.h.kind')), kind.root, sx.root, h('div', { class: 'row' }, button('btn.reset', () => { Object.assign(e, { kind: 'negative', x: 18 }); kind.select('negative'); sx.set(18); draw(); })))),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
-    return { el, relabel() { pr.relabel(); relabelBi(el); draw(); } };
+    return { el, relabel() { exPlate.relabel(); pr.relabel(); relabelBi(el); draw(); } };
   })();
 
   // ============================ PUBLIC GOODS (L5) ============================
@@ -298,22 +309,22 @@ export function mount(root, ctx) {
       options: ['yes', 'no'].map(opt), run: () => { g.tax = false; g.k = 5; tx.set(false); sk.set(5); draw(); return M.freeRider(5).lit ? 'yes' : 'no'; },
       explain: () => { const r = M.freeRider(5); return { en: `5 × ₹10 = ₹${fmt(r.collected, 0)}, less than the ₹60 needed, so the light stays off. Each household hopes the others will pay (free-riding), and if too many wait, nobody gets the light. At least ${r.needed} must pay, or the cost can be collected from everyone as a tax.`, hi: `5 × ₹10 = ₹${fmt(r.collected, 0)}, जो ज़रूरी ₹60 से कम है, इसलिए बत्ती बंद रहती है। हर परिवार आशा करता है कि दूसरे भुगतान करेंगे (फ्री-राइडिंग), और अधिक लोग रुकें तो किसी को बत्ती नहीं मिलती। कम से कम ${r.needed} को भुगतान करना होगा, या खर्च सबसे कर के रूप में वसूला जा सकता है।` }; } }, { done: S.done, onDone: persist });
     draw();
-    const pgImg = h('img', {
+    const pgPlate = createInteractivePlate(() => ({
       src: 'assets/images/plates/t09-publicgoods.jpg',
-      alt: i18n.pair('Glowing village streetlamp illuminating all ten cottages equally, illustrating non-excludable and non-rival public goods.', 'सभी दस घरों को समान रोशनी देता गली का लैंप — सार्वजनिक वस्तुओं का उदाहरण।'),
-      loading: 'eager',
-      decoding: 'async',
-    });
-    const pgPlate = h('figure', { class: 'lab-plate' },
-      pgImg,
-      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'One shared streetlamp lights every passerby equally — once lit, non-payers cannot be shut out (free-rider dilemma).', hi: 'साझा स्ट्रीट-लैंप हर राहगीर को समान रोशनी देता है — एक बार जलने पर भुगतान न करने वालों को भी रोका नहीं जा सकता।' })),
-    );
+      en: 'Glowing village streetlamp lighting all ten cottages equally — tap pins to see Free-Rider blackout vs Shared Tax funding.',
+      hi: 'सभी दस घरों को रोशनी देता साझा स्ट्रीट-लैंप — मुफ़्तखोरी से अंधकार बनाम साझा कर से प्रकाश हेतु पिन पर टैप करें।',
+      spots: [
+        { x: 24, y: 66, en: 'Only 3 Volunteer (Dark Street)', hi: 'केवल 3 योगदान (अंधेरा)', detail: { en: '₹30 falls short of the ₹60 lamp bill — everyone stays in the dark!', hi: '₹30 जुटने से ₹60 का बिल पूरा नहीं होता — पूरी गली अंधेरे में रहती है!' }, set: { k: 3, tax: false } },
+        { x: 52, y: 36, en: '6 Payers Lit (4 Free-Riders)', hi: '6 योगदान: लैंप जला (4 मुफ़्तखोर)', detail: { en: '6 households fund the light while 4 non-payers still enjoy full illumination.', hi: '6 परिवार खर्च उठाते हैं और बिना दिए भी 4 घर बराबर रोशनी पाते हैं!' }, set: { k: 6, tax: false } },
+        { x: 80, y: 66, en: 'Equal ₹6 Civic Tax (All Lit)', hi: 'समान ₹6 नागरिक कर (सबका लाभ)', detail: { en: 'Sharing the ₹60 cost equally across all 10 homes cuts each bill from ₹10 to ₹6!', hi: 'सभी 10 घरों में बराबर बाँटने से प्रति घर खर्च ₹10 से घटकर ₹6 रह जाता है!' }, set: { tax: true } },
+      ],
+    }), (patch) => { Object.assign(g, patch); sk.set(g.k); tx.set(g.tax); draw(); });
     const el = h('div', { class: 'lab' },
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.classify' }, t('pg.h.classify')), h('p', { class: 'note' }, bi({ en: 'A public good is BOTH non-excludable and non-rival. Decide each question for every item, then check.', hi: 'सार्वजनिक वस्तु अपवर्जन-रहित और प्रतिद्वंद्विता-रहित दोनों होती है। हर वस्तु के लिए दोनों प्रश्न तय करें, फिर जाँचें।' }, { tag: 'span' })), itemsBox),
-      h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.fr' }, t('pg.h.fr')), pgPlate, h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, frBox, frRead), h('div', { class: 'lab-side' }, sk.root, tx.root, h('p', { class: 'note', 'data-k': 'pg.fictional' }, t('pg.fictional')), h('div', { class: 'row' }, button('btn.reset', () => { g.k = 3; g.tax = false; sk.set(3); tx.set(false); draw(); })))),
+      h('section', { class: 'subsec' }, h('h3', { 'data-k': 'pg.h.fr' }, t('pg.h.fr')), pgPlate.el, h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, frBox, frRead), h('div', { class: 'lab-side' }, sk.root, tx.root, h('p', { class: 'note', 'data-k': 'pg.fictional' }, t('pg.fictional')), h('div', { class: 'row' }, button('btn.reset', () => { g.k = 3; g.tax = false; sk.set(3); tx.set(false); draw(); })))),
         h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
     stage3dPg = attachThreeStage(el, () => ({ k: g.k, tax: g.tax }), createTheme3d('T09'), { insertBeforeEl: frBox, themeId: 'T09' });
-    return { el, enable3d: () => stage3dPg.enable(), disable3d: () => stage3dPg.disable(), relabel() { pgImg.alt = i18n.pair('Glowing village streetlamp illuminating all ten cottages equally, illustrating non-excludable and non-rival public goods.', 'सभी दस घरों को समान रोशनी देता गली का लैंप — सार्वजनिक वस्तुओं का उदाहरण।'); pr.relabel(); relabelBi(el); i18n.apply(el); stage3dPg.relabel(); draw(); }, destroy() { stage3dPg.destroy(); } };
+    return { el, enable3d: () => stage3dPg.enable(), disable3d: () => stage3dPg.disable(), relabel() { pgPlate.relabel(); pr.relabel(); relabelBi(el); i18n.apply(el); stage3dPg.relabel(); draw(); }, destroy() { stage3dPg.destroy(); } };
   })();
 
   // ============================ INFORMATION ASYMMETRY (L6) ============================
@@ -341,10 +352,20 @@ export function mount(root, ctx) {
       options: ['fair', 'withdraw'].map(opt), run: () => { i.g = 0.5; i.inspect = false; sg.set(50); ti.set(false); draw(); return M.usedBikes(0.5, false).goodTrades ? 'fair' : 'withdraw'; },
       explain: () => { const r = M.usedBikes(0.5, false); return { en: `Buyers can only offer the average value, ₹${fmt(r.offer, 0)}k, which is below the ₹60k that good-bike owners want. They withdraw, mostly poor bikes remain, and the market shrinks. Switch on “inspection report” to see trade return.`, hi: `खरीदार केवल औसत मूल्य ₹${fmt(r.offer, 0)} हज़ार दे सकते हैं, जो अच्छी बाइक के मालिकों के ₹60 हज़ार से कम है। वे बाइक हटा लेते हैं, ज़्यादातर खराब बाइकें बचती हैं और बाज़ार सिकुड़ जाता है। “निरीक्षण रिपोर्ट” चालू करके देखें कि व्यापार वापस आ जाता है।` }; } }, { done: S.done, onDone: persist });
     draw();
+    const iaPlate = createInteractivePlate(() => ({
+      src: 'assets/images/plates/t09-lemons.jpg',
+      en: 'Used-bike repair courtyard — tap the glossy uninspected bike, mechanic’s inspection loupe or reliable commuter bike.',
+      hi: 'पुरानी साइकिल मरम्मत कार्यशाला — बिना जाँची चमकदार साइकिल, मिस्त्री की जाँच व टिकाऊ साइकिल पर टैप करें।',
+      spots: [
+        { x: 20, y: 68, en: 'Only 40% Good Bikes (Collapse)', hi: 'केवल 40% अच्छी (बाज़ार सिमटा)', detail: { en: 'Average offer drops below ₹60k — good owners pull out leaving hidden lemons!', hi: 'औसत प्रस्ताव ₹60k से नीचे गिरता है — अच्छे विक्रेता हट जाते हैं!' }, set: { g: 0.4, inspect: false } },
+        { x: 62, y: 42, en: 'Certified Mechanic Inspection ON', hi: 'प्रमाणित मिस्त्री जाँच चालू', detail: { en: 'Independent inspection reveals true condition so both good and poor bikes trade fairly!', hi: 'स्वतंत्र जांच असली गुणवत्ता दिखाती है जिससे दोनों का उचित व्यापार होता है!' }, set: { g: 0.4, inspect: true } },
+        { x: 84, y: 66, en: '80% Good Bikes (Quality Survives)', hi: '80% अच्छी साइकिलें (विश्वास बना)', detail: { en: 'When enough quality sellers stay, the average offer stays above ₹60k.', hi: 'पर्याप्त अच्छी गुणवत्ता होने पर औसत प्रस्ताव ₹60k पार रहता है।' }, set: { g: 0.8, inspect: false } },
+      ],
+    }), (patch) => { Object.assign(i, patch); sg.set(Math.round(i.g * 100)); ti.set(i.inspect); draw(); });
     const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'When the seller knows more than the buyer, the buyer can only offer an average price. Move the share of good bikes and see who leaves the market.', hi: 'जब विक्रेता खरीदार से अधिक जानता है, तो खरीदार केवल औसत कीमत दे सकता है। अच्छी बाइकों का अनुपात बदलें और देखें कि कौन बाज़ार छोड़ता है।' }, { tag: 'span' })),
-      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, box, read), h('div', { class: 'lab-side' }, sg.root, ti.root, h('p', { class: 'note', 'data-k': 'ia.fictional' }, t('ia.fictional')), h('div', { class: 'row' }, button('btn.reset', () => { i.g = 0.6; i.inspect = false; sg.set(60); ti.set(false); draw(); })))),
+      h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, iaPlate.el, box, read), h('div', { class: 'lab-side' }, sg.root, ti.root, h('p', { class: 'note', 'data-k': 'ia.fictional' }, t('ia.fictional')), h('div', { class: 'row' }, button('btn.reset', () => { i.g = 0.6; i.inspect = false; sg.set(60); ti.set(false); draw(); })))),
       h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
-    return { el, relabel() { pr.relabel(); relabelBi(el); draw(); } };
+    return { el, relabel() { iaPlate.relabel(); pr.relabel(); relabelBi(el); draw(); } };
   })();
 
   // ============================ EXIT TICKET + REFLECTION ============================

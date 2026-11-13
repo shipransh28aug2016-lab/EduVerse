@@ -5,13 +5,14 @@ import * as i18n from '../../core/i18n.js';
 import { t } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { chips, tabs, bi, relabelBi, predict, mcq, biHtml } from '../../components/widgets.js';
-import { createLab } from '../../components/lab-kit.js';
+import { createLab, createInteractivePlate } from '../../components/lab-kit.js';
 import { createThreeLab } from '../../components/three-lab.js';
 import { createHarappan3d } from './harappan-3d.js';
 import { loadGeoAll } from '../../engines/viz.js';
 import * as M from './models.js';
 import { settlementLab, harappanCity, civAtlas } from './labs-history-early.js';
 
+const b = (en, hi) => ({ en, hi });
 const o = (id, en, hi, why) => ({ id, en, hi, ...(why ? { why } : {}) });
 const COL = { palaeo: '#b5651d', meso: '#8a9a3a', neo: '#2e8b57', harappa: '#7b3fa0', later: '#555' };
 const ITEMS = [
@@ -55,7 +56,8 @@ export function mount(root) {
     }
     function draw() {
       persist();
-      const ya = M.MILESTONES.find((m) => m.id === S.mark).ya, c = M.clockLabel(ya);
+      const ms = M.MILESTONES.find((m) => m.id === S.mark) || M.MILESTONES[0];
+      const ya = ms.ya, c = M.clockLabel(ya);
       const minLeft = M.minutesBeforeMidnight(ya);
       const angDeg = Math.min(359, Math.max(0.5, (minLeft / 60) * 30)); // wedge on 12-hour analog clock near midnight
       const rad = ((90 + angDeg) * Math.PI) / 180;
@@ -69,21 +71,22 @@ export function mount(root) {
       box.innerHTML = `<svg viewBox="0 0 640 190" class="chart" role="img" aria-label="${esc(t('tl.aria'))}" xmlns="http://www.w3.org/2000/svg" style="color:var(--ink)">${barNarrow(M.linearPos, 40, t('tl.lin'), ya)}${barNarrow(M.logPos, 120, t('tl.log'), ya)}${dial}<text class="tick" x="26" y="180">${esc(t('tl.left'))}</text><text class="tick" x="466" y="180" text-anchor="end">${esc(t('tl.right'))}</text></svg>` + `<div class="legend">${M.AGES.map((a) => `<span class="lg"><i style="background:${COL[a.id]}"></i><b>${esc(aname(a.id))}</b></span>`).join('')}</div>`;
       read.innerHTML = `<div class="ro-line">${esc(t('tl.ro.ya', { ya: fmt(ya, 0), age: aname(M.ageOf(ya) ?? 'later') }))}</div><div class="ro-line"><strong>${esc(t('tl.ro.clock', { time: c.text, min: fmt(c.minutes, 1) }))}</strong></div><div class="ro-line note">${esc(t('tl.note'))}</div>`;
     }
-    const tlImg = h('img', {
+    const tlPlate = createInteractivePlate(() => ({
       src: 'assets/images/plates/t04-timeline.jpg',
-      alt: i18n.pair('24-hour deep-time clock compressing human prehistory alongside miniature stone tools and clay grains.', '20 लाख वर्ष के मानव इतिहास को 24-घंटे की घड़ी और पाषाण-युग से आरंभिक खेती के मॉडलों में दर्शाता चित्र।'),
-      loading: 'eager',
-      decoding: 'async',
-    });
-    const tlPlate = h('figure', { class: 'lab-plate' },
-      tlImg,
-      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'Two million years of stone-tool history compressed onto one 24-hour dial — farming and cities appear only minutes before midnight.', hi: '20 लाख वर्षों का पाषाण इतिहास 24 घंटे की घड़ी पर — खेती और नगर मध्यरात्रि से कुछ ही मिनट पहले दिखते हैं।' })));
+      en: 'Two million years of stone-tool history compressed onto one 24-hour dial — tap pins to jump between key milestones.',
+      hi: '20 लाख वर्षों का पाषाण इतिहास 24 घंटे की घड़ी पर — प्रमुख पड़ावों पर जाने हेतु पिन पर टैप करें।',
+      spots: [
+        { x: 24, y: 58, en: 'First Stone Choppers (~2 Myr)', hi: 'प्रथम पाषाण औज़ार (~20 लाख ई.पू.)', detail: b('Oldest stone tools appear near 00:00 midnight on our 24-hour clock.', '24 घंटे की घड़ी की शुरुआत में सबसे प्राचीन पत्थर औज़ार दिखाई देते हैं।'), set: { mark: 'tools' } },
+        { x: 64, y: 60, en: 'Neolithic Farming (~8,000 ya)', hi: 'नवपाषाण कृषि (~8,000 वर्ष पूर्व)', detail: b('Farming starts only in the final ~9 minutes before midnight!', 'खेती मध्यरात्रि से केवल अंतिम ~9 मिनट पहले शुरू होती है!'), set: { mark: 'farming' } },
+        { x: 84, y: 42, en: 'Harappan Cities & Writing (~4,600 ya)', hi: 'हड़प्पा नगर व लेखन (~4,600 वर्ष पूर्व)', detail: b('Bronze Age cities emerge in the last ~3 minutes of the cosmic day.', 'कांस्य-युगीन नगर घड़ी के अंतिम ~3 मिनट में उभरते हैं।'), set: { mark: 'cities' } },
+      ],
+    }), (patch) => { if (patch.mark) { S.mark = patch.mark; ch.select(S.mark); draw(); } });
     const pr = predict({ id: 't1', stem: { en: 'Squeeze the last 2 million years into ONE day (midnight = today). Farming began about 8,000 years ago. How long before midnight is that?', hi: 'पिछले 20 लाख वर्षों को एक दिन में समेट दें (मध्यरात्रि = आज)। खेती लगभग 8,000 वर्ष पहले शुरू हुई। यह मध्यरात्रि से कितना पहले है?' }, options: [o('min', 'A few minutes', 'कुछ मिनट'), o('hour', 'About an hour', 'लगभग एक घंटा'), o('hours', 'Several hours', 'कई घंटे')],
       run: () => { S.mark = 'farming'; ch.select('farming'); draw(); const m = M.minutesBeforeMidnight(8000); return m < 30 ? 'min' : m < 180 ? 'hour' : 'hours'; },
       explain: () => ({ en: `8,000 ÷ 2,000,000 × 24 hours = ${fmt(M.minutesBeforeMidnight(8000), 1)} minutes. Almost the whole story of human tool-making happened before farming; farming, cities and writing all fit in the last few minutes.`, hi: `8,000 ÷ 20,00,000 × 24 घंटे = ${fmt(M.minutesBeforeMidnight(8000), 1)} मिनट। मानव द्वारा औज़ार बनाने की लगभग पूरी कहानी खेती से पहले की है; खेती, नगर और लेखन सब अंतिम कुछ मिनटों में आते हैं।` }) }, { done: S.done, onDone: persist });
     draw();
-    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Pick a moment and see where it falls on a straight timeline and on a stretched (log) timeline.', hi: 'कोई क्षण चुनें और देखें कि वह सीधी समय-रेखा और खिंची हुई (लघुगणकीय) समय-रेखा पर कहाँ आता है।' })), h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, tlPlate, box, read), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'tl.h' }, t('tl.h')), ch.root)), h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
-    return { el, relabel() { tlImg.alt = i18n.pair('24-hour deep-time clock compressing human prehistory alongside miniature stone tools and clay grains.', '20 लाख वर्ष के मानव इतिहास को 24-घंटे की घड़ी और पाषाण-युग से आरंभिक खेती के मॉडलों में दर्शाता चित्र।'); pr.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
+    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Pick a moment and see where it falls on a straight timeline and on a stretched (log) timeline.', hi: 'कोई क्षण चुनें और देखें कि वह सीधी समय-रेखा और खिंची हुई (लघुगणकीय) समय-रेखा पर कहाँ आता है।' })), h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, tlPlate.el, box, read), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'tl.h' }, t('tl.h')), ch.root)), h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), pr));
+    return { el, relabel() { tlPlate.relabel(); pr.relabel(); relabelBi(el); i18n.apply(el); draw(); } };
   })();
 
   // ---- L2 evidence vs inference
@@ -101,12 +104,18 @@ export function mount(root) {
       }));
     }
     render();
-    const plate = h('figure', { class: 'lab-plate' },
-      h('img', { src: 'assets/images/plates/t04-tools.jpg', alt: i18n.pair('Bhimbetka cave art, Palaeolithic handaxe, microliths, Neolithic axe and charred wheat grains.', 'भीमबेटका गुफ़ा चित्र, पुरापाषाण हस्त-कुठार, सूक्ष्म-पाषाण, नवपाषाण कुल्हाड़ी व जले गेहूँ के दाने।'), loading: 'eager', decoding: 'async' }),
-      h('figcaption', { class: 'lab-plate-cap' }, bi({ en: 'Material finds (cave art, stone blades, polished axe, charred grain) form direct archaeological evidence before interpretation.', hi: 'भौतिक अवशेष (गुफ़ा चित्र, पाषाण फलक, पॉलिश कुल्हाड़ी, जले दाने) व्याख्या से पहले के प्रत्यक्ष पुरातात्विक प्रमाण हैं।' })),
-    );
-    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Archaeologists find things (evidence) and then explain them (inference). Sort each statement.', hi: 'पुरातत्वविद् वस्तुएँ पाते हैं (प्रमाण) और फिर उनकी व्याख्या करते हैं (निष्कर्ष)। हर कथन को छाँटें।' })), plate, list, h('p', { class: 'note', 'data-k': 'ev.fictional' }, t('ev.fictional')), h('div', { class: 'row' }, h('button', { type: 'button', class: 'btn', 'data-k': 'btn.reset', onclick: () => { S.ev = {}; persist(); render(); } }, t('btn.reset'))));
-    return { el, relabel() { render(); relabelBi(el); i18n.apply(el); } };
+    const plate = createInteractivePlate(() => ({
+      src: 'assets/images/plates/t04-tools.jpg',
+      en: 'Material finds (cave art, blades, polished axe, charred grain) — tap pins to distinguish physical Evidence from historian Inference.',
+      hi: 'भौतिक अवशेष (गुफ़ा चित्र, पाषाण फलक, पॉलिश कुल्हाड़ी, जले दाने) — प्रत्यक्ष प्रमाण बनाम निष्कर्ष समझने हेतु पिन पर टैप करें।',
+      spots: [
+        { x: 22, y: 42, en: 'Bhimbetka Rock Shelter Painting', hi: 'भीमबेटका शैलचित्र', detail: b('Evidence: red ochre dancers/animals painted on sandstone; Inference: seasonal group ritual or hunting stories.', 'प्रमाण: बलुआ पत्थर पर लाल गेरू चित्र; निष्कर्ष: सामुदायिक अनुष्ठान या शिकार कथाएँ।') },
+        { x: 46, y: 66, en: 'Acheulean Stone Handaxe', hi: 'पुरापाषाण हस्त-कुठार', detail: b('Evidence: bifacial flaked stone found in river gravel; Inference: shaped for heavy chopping & butchery.', 'प्रमाण: नदी बजरी में मिला तराशा पत्थर; निष्कर्ष: काटने व शिकार प्रसंस्करण हेतु निर्मित।') },
+        { x: 76, y: 60, en: 'Charred Wheat & Grinding Stone', hi: 'जले गेहूँ व सिलबट्टा', detail: b('Evidence: carbonised seeds beside house hearth; Inference: systematic Neolithic harvest & flour grinding.', 'प्रमाण: चूल्हे के पास जले दाने; निष्कर्ष: स्थायी नवपाषाण खेती व अनाज पिसाई।') },
+      ],
+    }));
+    const el = h('div', { class: 'lab' }, h('p', { class: 'lead' }, bi({ en: 'Archaeologists find things (evidence) and then explain them (inference). Sort each statement.', hi: 'पुरातत्वविद् वस्तुएँ पाते हैं (प्रमाण) और फिर उनकी व्याख्या करते हैं (निष्कर्ष)। हर कथन को छाँटें।' })), plate.el, list, h('p', { class: 'note', 'data-k': 'ev.fictional' }, t('ev.fictional')), h('div', { class: 'row' }, h('button', { type: 'button', class: 'btn', 'data-k': 'btn.reset', onclick: () => { S.ev = {}; persist(); render(); } }, t('btn.reset'))));
+    return { el, relabel() { plate.relabel(); render(); relabelBi(el); i18n.apply(el); } };
   })();
 
   // ---- L3, L4 (3D+2D), L5

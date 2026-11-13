@@ -1331,5 +1331,9 @@ export const UI = {
 "port.logTitle":{
 "en":"Theme-by-Theme Assessment Evidence",
 "hi":"विषयवार मूल्यांकन प्रमाण"
+},
+"plate.tapHint":{
+"en":"👆 Tap glowing pins on the realistic 2D visual to inspect concepts & drive the simulation",
+"hi":"👆 अवधारणाएँ समझने व सिमुलेशन चलाने के लिए चित्र के चमकते बिंदुओं पर टैप करें"
 }
 };

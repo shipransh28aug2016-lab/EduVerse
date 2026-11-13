@@ -65,7 +65,24 @@ test('control values: init inside range; every control extreme renders without N
       if (v.plate) {
         assert.ok(v.plate.src && fs.existsSync(path.resolve(import.meta.dirname, '..', v.plate.src)), `${s.id} ${what}: missing plate ${v.plate.src}`);
         assert.ok(v.plate.en && v.plate.hi && DEV.test(v.plate.hi), `${s.id} ${what}: plate lacks bilingual caption`);
+        assert.ok(Array.isArray(v.plate.spots) && v.plate.spots.length >= 2, `${s.id} ${what}: expected >=2 interactive hotspots on 2D plate`);
+        for (const sp of v.plate.spots) {
+          assert.ok(sp.x >= 0 && sp.x <= 100 && sp.y >= 0 && sp.y <= 100, `${s.id} ${what}: spot coords out of 0..100`);
+          assert.ok(sp.en && sp.hi && DEV.test(sp.hi), `${s.id} ${what}: spot lacks bilingual title`);
+          assert.ok(sp.detail?.en && sp.detail?.hi && DEV.test(sp.detail.hi), `${s.id} ${what}: spot lacks bilingual detail`);
+          if (sp.set) {
+            for (const [k, val] of Object.entries(sp.set)) {
+              const ctl = s.controls.find((c) => c.id === k);
+              assert.ok(ctl, `${s.id} ${what}: spot.set key "${k}" is not a valid control`);
+              if (ctl.type === 'chips') assert.ok(ctl.options.some((o) => o.id === val), `${s.id} ${what}: spot.set.${k}=${val} not a chip option`);
+              if (ctl.type === 'slider') assert.ok(val >= ctl.min && val <= ctl.max, `${s.id} ${what}: spot.set.${k}=${val} outside slider [${ctl.min}..${ctl.max}]`);
+            }
+            const nextV = s.view({ ...S, ...sp.set });
+            assert.ok(nextV.svg.includes('<svg') && !BAD.test(nextV.svg), `${s.id} ${what}: spot.set produced bad svg`);
+          }
+        }
       }
+      assert.ok(v.plate, `${s.id} ${what}: every LO lab must render an interactive 2D plate`);
       assert.ok(v.lines.length >= 1);
       for (const l of v.lines) {
         assert.ok(l.en && l.hi && DEV.test(l.hi), `${s.id} ${what}: line lacks Hindi`);
