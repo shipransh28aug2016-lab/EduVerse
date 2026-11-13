@@ -1,6 +1,6 @@
 # Test report
 
-Run: 2026-11-12, branch `arena/608ccdb8-eduverse`. Environment: Node `v22.22.3`, `jsdom` DOM harness (Chromium/Playwright binaries not available in the sandbox environment).
+Run: 2026-11-12, branch `arena/f1b4ae79-eduverse`. Environment: Node `v22.22.3`, `jsdom` DOM harness (Chromium/Playwright binaries not available in the sandbox environment).
 
 ## Summary
 
@@ -8,7 +8,7 @@ Run: 2026-11-12, branch `arena/608ccdb8-eduverse`. Environment: Node `v22.22.3`,
 |---|---|---|
 | Engine unit tests (`tests/engines.test.mjs`) | `npm test` | 18 / 18 pass (terrain, atmosphere, ocean, ecosystem, timeline, tradeRoutes, institutions, election, market, startup, finance, tectonics, history, society) |
 | Lab-spec validation (`tests/labs.test.mjs`) | `npm test` | 7 / 7 pass across all 67 `lab-kit` specs (uniqueness, pedagogy structure, Devanagari Hindi parity, extreme control sweeps, prediction live runs, single-answer exit tickets, scientific spot checks, XR guard, `v.plate` asset & caption checks) |
-| Runtime DOM & HTTP verify (`tests/modules-dom.test.mjs`) | `npm test` | 4 / 4 pass (boots `src/main.js`, checks Home + all 16 modules `T01`–`T16` mounting/tabs/controls/relabel/EN+HI+BOTH/zero `NaN`/`undefined`/`Infinity`/SVG `aria-label`s, `.lab-plate` 2D lab figures across all 16 themes `T01`–`T16`, verifies all 87 `sw.js` files exist, verifies HTTP 200 static serving including all `assets/images/t01..16.jpg` & 18 `assets/images/plates/*.jpg`) |
+| Runtime DOM, glossary & HTTP verify (`tests/modules-dom.test.mjs`) | `npm test` | 5 / 5 pass (boots `src/main.js`, live-relabels LO chips, concepts/outcomes & `dd[data-term-def]` glossary definitions across `en`/`hi`/`both`, checks Home + all 16 modules `T01`–`T16` mounting/tabs/controls/relabel/SVG `aria-label`s, `.lab-plate` 2D lab figures across all 16 themes `T01`–`T16`, verifies >=2 bilingual glossary entries per theme across 88 terms in `data/glossary.json`, verifies all 87 `sw.js` files exist, verifies HTTP 200 static serving across all `t01..16.jpg` & 26 `assets/images/plates/*.jpg`) |
 | Catalogue generator | `npm run catalog` | 78 learning objects, 78 implemented, 0 planned, 79 simulations (27 prior Chromium QA-verified in `data/coverage/qa-passed.json`) |
 | Service worker precache | `npm run sw` | 87 files precached |
 | Chromium smoke (`tests/lab-smoke.cjs`) | `npm run smoke` | Not executed here (no Chromium/Playwright binary in sandbox) |

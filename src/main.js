@@ -87,7 +87,7 @@ async function themePage(id) {
   const th = CUR.themes.find((x) => x.id === id), s = status(th), idx = CUR.themes.indexOf(th);
   const media = THEME_MEDIA[id];
   store.progress(id).visited = true; store.saveProgress();
-  const loChip = (l) => h('span', { class: `chip-lo ${l.status}` }, h('b', {}, l.id.split('.')[1]), ' ', i18n.pair(l.en, l.hi), ' ', h('i', { 'data-k': `lo.${l.status}` }, t(`lo.${l.status}`)));
+  const loChip = (l) => h('span', { class: `chip-lo ${l.status}` }, h('b', {}, l.id.split('.')[1]), ' ', bi({ en: l.en, hi: l.hi }, { tag: 'span' }), ' ', h('i', { 'data-k': `lo.${l.status}` }, t(`lo.${l.status}`)));
   const opening = OPENINGS[id];
   const modSlot = h('div', { class: 'module', id: 'module' });
   const nav = h('nav', { class: 'pager', 'aria-label': 'Theme navigation' }, idx > 0 ? h('a', { href: `#/theme/${CUR.themes[idx - 1].id}`, rel: 'prev' }, '← ', CUR.themes[idx - 1].id) : h('span'), h('a', { href: '#/', 'data-k': 'nav.all' }, t('nav.all')), idx < 15 ? h('a', { href: `#/theme/${CUR.themes[idx + 1].id}`, rel: 'next' }, CUR.themes[idx + 1].id, ' →') : h('span'));
@@ -104,8 +104,8 @@ async function themePage(id) {
     h('section', { class: 'opening', 'aria-labelledby': 'op-h' }, h('h2', { id: 'op-h', 'data-k': 'th.opening' }, t('th.opening')), bi(opening, { tag: 'p', cls: 'q' })),
     modSlot,
     h('section', { class: 'subsec' }, h('h2', { 'data-k': 'th.lo' }, t('th.lo')), lst(th.learningObjects, loChip)),
-    h('details', { class: 'subsec', open: th.learningObjects.every((l) => l.status === 'planned') ? '' : null }, h('summary', { 'data-k': 'th.src' }, t('th.src')), h('h3', { 'data-k': 'th.concepts' }, t('th.concepts')), lst(th.concepts, (c) => [i18n.pair(c.display || c.text, c.hi), ' ', h('small', {}, `p.${c.pdfPage}`)]), h('h3', { 'data-k': 'th.outcomes' }, t('th.outcomes')), lst(th.outcomes, (o) => [i18n.pair(o.display || o.text, o.hi), ' ', h('small', {}, `p.${o.pdfPage}`)])),
-    glossary.length ? h('details', { class: 'subsec' }, h('summary', { 'data-k': 'th.gloss' }, t('th.gloss')), h('dl', { class: 'gloss' }, ...glossary.flatMap((g) => [h('dt', { 'data-term': g.id }, i18n.term(g.id)), h('dd', {}, i18n.termDef(g.id))]))) : null,
+    h('details', { class: 'subsec', open: th.learningObjects.every((l) => l.status === 'planned') ? '' : null }, h('summary', { 'data-k': 'th.src' }, t('th.src')), h('h3', { 'data-k': 'th.concepts' }, t('th.concepts')), lst(th.concepts, (c) => [bi({ en: c.display || c.text, hi: c.hi }, { tag: 'span' }), ' ', h('small', {}, `p.${c.pdfPage}`)]), h('h3', { 'data-k': 'th.outcomes' }, t('th.outcomes')), lst(th.outcomes, (o) => [bi({ en: o.display || o.text, hi: o.hi }, { tag: 'span' }), ' ', h('small', {}, `p.${o.pdfPage}`)])),
+    glossary.length ? h('details', { class: 'subsec' }, h('summary', { 'data-k': 'th.gloss' }, t('th.gloss')), h('dl', { class: 'gloss' }, ...glossary.flatMap((g) => [h('dt', { 'data-term': g.id }, i18n.term(g.id)), h('dd', { 'data-term-def': g.id }, i18n.termDef(g.id))]))) : null,
     teach ? h('details', { class: 'subsec teacher-only' }, h('summary', { 'data-k': 'th.teacher' }, t('th.teacher')), h('ol', {}, ...teach.flow.map((f) => h('li', {}, bi({ en: (f.m ? `${f.m} min — ` : '') + f.en, hi: (f.m ? `${f.m} मिनट — ` : '') + f.hi }, { tag: 'div' })))), ...(teach.prompts ? [h('h3', { 'data-k': 'th.prompts' }, t('th.prompts')), ...teach.prompts.map((p) => bi(p, { tag: 'p' }))] : []), ...(teach.misconceptions ? [h('h3', { 'data-k': 'th.misc' }, t('th.misc')), ...teach.misconceptions.map((p) => bi(p, { tag: 'p' }))] : [])) : null,
     LIMITS[id] ? h('aside', { class: 'limits' }, h('strong', { 'data-k': 'th.limits' }, t('th.limits')), ' ', bi(LIMITS[id], { tag: 'span' })) : null,
     nav].filter(Boolean));

@@ -274,6 +274,11 @@ export const citizenScenario = {
     }).join('');
     const svg = `<svg viewBox="0 0 640 225" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t14-civic.jpg',
+        en: 'Open Gram Sabha / RTI transparency meeting where citizens calmly inspect official public records together.',
+        hi: 'खुली ग्राम सभा व सूचना-अधिकार बैठक जहाँ नागरिक शांतिपूर्वक सरकारी अभिलेखों की जाँच करते हैं।',
+      },
       svg,
       aria: `Issue ${S.issue}, stage ${wf.activeStage + 1}, resolution likelihood ${wf.resolutionChance}%`,
       lines: [

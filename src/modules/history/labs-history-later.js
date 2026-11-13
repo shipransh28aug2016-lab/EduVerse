@@ -226,6 +226,11 @@ export const bhaktiNetwork = {
     const markers = BHAKTI_SAINTS.map((x) => ({ lon: x.lon, lat: x.lat, r: x.id === S.focus ? 9.5 : 5.5, fill: x.id === S.focus ? '#9333ea' : '#64748b', pulse: x.id === S.focus, label: x.id === S.focus ? { en: x.en.split(' (')[0], hi: x.hi.split(' (')[0] } : null }));
     const svg = indiaMapSvg({ w: 640, h: 410, paths, markers, aria: `Bhakti network map highlighting ${cur.en}` });
     return {
+      plate: {
+        src: 'assets/images/plates/t12-bhakti.jpg',
+        en: 'Bhakti community gathering singing devotional songs in spoken vernaculars with ektara and cymbals.',
+        hi: 'इकतारा व मँजीरे के साथ लोकभाषा में भक्ति गीत गाता साझा सामुदायिक समागम।',
+      },
       svg,
       aria: cur.en,
       lines: [

@@ -213,8 +213,18 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     const mainHtml = document.getElementById('main').innerHTML;
     assert.ok(document.querySelector('#main .theme-banner img'), 'Theme page should render banner');
     assert.ok(document.querySelector('#module .lab'), 'Theme T12 should mount lab inside #module');
+    assert.ok(document.querySelector('#main dl.gloss dd[data-term-def]'), 'Theme T12 should render bilingual glossary definitions');
     assert.equal(/⟦[^⟧]+⟧/.test(mainHtml), false, 'Theme page has unresolved i18n key');
     assert.equal(/\b(NaN|undefined|Infinity)\b/.test(mainHtml), false, 'Theme page contains invalid literal');
+
+    // Verify live language switching updates LO chips & glossary <dd> definitions in place
+    const glossDdBefore = document.querySelector('#main dl.gloss dd[data-term-def]').textContent;
+    const loChipBefore = document.querySelector('#main .chip-lo').textContent;
+    document.querySelector('#topbar [data-lang="en"]').click();
+    assert.notEqual(document.querySelector('#main dl.gloss dd[data-term-def]').textContent, glossDdBefore, 'Glossary definition should update live on lang switch');
+    assert.notEqual(document.querySelector('#main .chip-lo').textContent, loChipBefore, 'LO chip should update live on lang switch');
+    document.querySelector('#topbar [data-lang="both"]').click();
+    assert.match(document.querySelector('#main dl.gloss dd[data-term-def]').textContent, /[ऀ-ॿ]/, 'Glossary definition in both mode should include Hindi');
 
     // Return home
     location.hash = '#/';
@@ -223,5 +233,18 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     assert.equal(document.querySelectorAll('#main .card').length, 16);
   } finally {
     globalThis.fetch = realFetch;
+  }
+});
+
+test('every theme T01–T16 has bilingual glossary coverage', () => {
+  const gl = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/glossary.json'), 'utf8'));
+  const cur = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/curriculum/curriculum.json'), 'utf8'));
+  for (const term of gl.terms) {
+    assert.ok(term.en && /[ऀ-ॿ]/.test(term.hi || ''), `Glossary ${term.id} missing Hindi term`);
+    assert.ok(term.defEn && /[ऀ-ॿ]/.test(term.defHi || ''), `Glossary ${term.id} missing Hindi def`);
+  }
+  for (const th of cur.themes) {
+    const terms = gl.terms.filter((g) => (g.themes || []).includes(th.id));
+    assert.ok(terms.length >= 2, `${th.id} expected >= 2 glossary terms, found ${terms.length}`);
   }
 });

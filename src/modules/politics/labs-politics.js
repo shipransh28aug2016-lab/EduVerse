@@ -389,7 +389,13 @@ export const institutions = {
     lines.push(sys === 'parliamentary'
       ? (lp.passes ? { en: 'The government commands a majority, so its bills can pass: executive and legislature work together.', hi: 'सरकार के पास बहुमत है, इसलिए उसके विधेयक पारित हो सकते हैं: कार्यपालिका और विधायिका साथ काम करती हैं।' } : { en: 'Without a majority the government cannot be sure of passing laws and can be voted out at any time.', hi: 'बहुमत के बिना सरकार कानून पारित होने का भरोसा नहीं कर सकती और कभी भी हटाई जा सकती है।', cls: 'warn' })
       : (lp.passes ? { en: 'The president’s party has a majority, so laws pass easily.', hi: 'राष्ट्रपति की पार्टी के पास बहुमत है, इसलिए कानून आसानी से पारित होते हैं।' } : { en: 'The legislature is controlled by others (divided government): laws may stall (gridlock), but the president stays in office.', hi: 'विधायिका पर अन्य का नियंत्रण है (विभाजित सरकार): कानून अटक सकते हैं (गतिरोध), पर राष्ट्रपति पद पर बना रहता है।', cls: 'warn' }));
-    return { svg: `<svg viewBox="0 0 640 368" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}${bar}</svg>`, aria: `${sys} system with ${S.support} of 100 supporters. ${S.vote ? cv.outcome : 'No vote.'}`, lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t06-parliament.jpg',
+        en: 'India’s circular sandstone Parliament colonnade — where the elected Lok Sabha holds the Union Council of Ministers accountable.',
+        hi: 'भारत के संसद भवन का स्तंभ-मंडप — जहाँ निर्वाचित लोकसभा केंद्रीय मंत्रिपरिषद की जवाबदेही तय करती है।',
+      },
+      svg: `<svg viewBox="0 0 640 368" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}${bar}</svg>`, aria: `${sys} system with ${S.support} of 100 supporters. ${S.vote ? cv.outcome : 'No vote.'}`, lines };
   },
   discover: [b('In the parliamentary system set support to 40 and hold a no-confidence vote. Then switch to the presidential system with the same numbers.', 'संसदीय प्रणाली में समर्थन 40 करें और अविश्वास मत कराएँ। फिर वही संख्याएँ रखकर अध्यक्षीय प्रणाली चुनें।'), b('Which system can end up with a government that cannot pass its laws but stays in office?', 'किस प्रणाली में ऐसी सरकार हो सकती है जो कानून पारित न करा पाए पर पद पर बनी रहे?')],
   predictions: [{ id: 'p1', stem: b('In a PARLIAMENTARY system, the government has 45 of 100 legislators and faces a no-confidence vote. What happens?', 'संसदीय प्रणाली में सरकार के 100 में से 45 विधायक हैं और उसके विरुद्ध अविश्वास मत आता है। क्या होता है?'), options: [opt('falls', 'The government must resign', 'सरकार को त्यागपत्र देना होगा'), opt('stays', 'The government continues until the next election', 'सरकार अगले चुनाव तक चलती है')],

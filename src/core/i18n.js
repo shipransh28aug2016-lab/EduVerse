@@ -66,5 +66,6 @@ export function apply(root = document) {
   root.querySelectorAll('[data-k-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.kAria)));
   root.querySelectorAll('[data-k-title]').forEach((el) => el.setAttribute('title', t(el.dataset.kTitle)));
   root.querySelectorAll('[data-term]').forEach((el) => { el.textContent = term(el.dataset.term); el.title = termDef(el.dataset.term); });
+  root.querySelectorAll('[data-term-def]').forEach((el) => { el.textContent = termDef(el.dataset.termDef); });
 }
 export const onChange = (f) => store.subscribe((s, keys) => { if (keys.includes('lang')) f(s.lang); });

@@ -45,6 +45,11 @@ export const scarcityGame = {
     });
     const svg = `<svg viewBox="0 0 640 225" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t08-choices.jpg',
+        en: 'Everyday student scarcity trade-offs: allocating limited pocket money across notebooks, snacks and mobile data.',
+        hi: 'दैनिक छात्र चयन: सीमित जेब-खर्च को पुस्तकों, नाश्ते और मोबाइल डेटा में संतुलित करना।',
+      },
       svg,
       aria: `Spent ${r.spent} of 100 rupees; ${r.over ? 'over budget' : `${r.remaining} unspent`}; utility index ${r.wellBeing}`,
       lines: [
@@ -532,6 +537,11 @@ export const taxFlow = {
       + `<text class="txt sm b" x="342" y="148">${esc(P('Funds Shared Public Services:', 'साझा सार्वजनिक सेवाओं का वित्तपोषण:'))}</text>`
       + `<text class="txt sm" x="342" y="170">${esc(P('Roads, Schools, Hospitals, Courts & Security', 'सड़कें, विद्यालय, अस्पताल, न्यायालय व सुरक्षा'))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t16-tax.jpg',
+        en: 'Public infrastructure funded by citizen taxes: public schools, clinics, paved roads, bridges and clean water towers.',
+        hi: 'नागरिक कर से निर्मित साझा सार्वजनिक सेवाएँ: सरकारी विद्यालय, चिकित्सालय, सड़कें, पुल व जल मीनार।',
+      },
       svg: `<svg viewBox="0 0 640 212" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Income ${S.incomeUnits} units, conceptual tax ${r.effectiveTax} (${r.effectivePct}%), take-home ${r.takeHome}`,
       lines: [
