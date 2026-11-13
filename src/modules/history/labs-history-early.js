@@ -190,34 +190,49 @@ export const civAtlas = {
   reflect: b('How is the Harappan script different from Mesopotamian cuneiform or Egyptian hieroglyphs for historians today?', 'आज के इतिहासकारों के लिए हड़प्पा लिपि मेसोपोटामिया की कीलाक्षर या मिस्र की चित्रलिपि से किस तरह अलग चुनौती है?'),
 };
 
-// ================================================================ T05.L1 Vedic & Early India dated map
+// ================================================================ T05.L1 Historical Geography up to 1000 CE (Sapta-Sindhu -> Chola Assemblies)
 const T05_ERAS = {
-  earlyVedic: { year: 'c. 1500–1000 BCE', yearHi: 'लगभग 1500–1000 ई.पू.', en: 'Early Vedic (Sapta-Sindhu)', hi: 'ऋग्वैदिक काल (सप्त-सिंधु)', states: { Punjab: '#eab308', Haryana: '#eab308', 'Jammu & Kashmir': '#fde047' }, pts: [{ lon: 74.8, lat: 31.6, l: b('Sapta-Sindhu rivers', 'सप्त-सिंधु नदियाँ') }], desc: b('Pastoral cattle-rearing clans along Indus tributaries; Sabha & Samiti assemblies; oral hymns composed in Sanskrit.', 'सिंधु सहायक नदियों के किनारे पशुपालक कबीले; सभा व समिति; संस्कृत में मौखिक ऋचाएँ।') },
-  janapada: { year: 'c. 600–400 BCE', yearHi: 'लगभग 600–400 ई.पू.', en: '16 Mahajanapadas (Magadha, Vajji, Kashi)', hi: '16 महाजनपद (मगध, वज्जि, काशी)', states: { Bihar: '#f97316', 'Uttar Pradesh': '#fb923c', 'Madhya Pradesh': '#fed7aa' }, pts: [{ lon: 85.1, lat: 25.6, l: b('Rajagriha / Pataliputra (Magadha)', 'राजगृह / पाटलिपुत्र (मगध)') }, { lon: 85.1, lat: 26.0, l: b('Vaishali (Vajji Gana-Sangha)', 'वैशाली (वज्जि गणसंघ)') }, { lon: 75.8, lat: 23.2, l: b('Ujjayini (Avanti)', 'उज्जयिनी (अवंति)') }], desc: b('Iron ploughshares cleared dense Ganga plains; second urbanisation brought walled cities, punch-marked coins, Buddhism & Jainism.', 'लोहे के हल से गंगा मैदान साफ हुए; द्वितीय नगरीकरण, आहत सिक्के, बौद्ध व जैन दर्शन का उदय।') },
-  maurya: { year: 'c. 321–185 BCE', yearHi: 'लगभग 321–185 ई.पू.', en: 'Mauryan Empire & Ashokan Edicts', hi: 'मौर्य साम्राज्य व अशोक के अभिलेख', states: { Bihar: '#b45309', 'Uttar Pradesh': '#d97706', Odisha: '#f59e0b', 'Madhya Pradesh': '#f59e0b', Maharashtra: '#fbbf24', Karnataka: '#fde68a', Gujarat: '#fbbf24' }, pts: [{ lon: 85.1, lat: 25.6, l: b('Pataliputra (Capital)', 'पाटलिपुत्र (राजधानी)') }, { lon: 85.8, lat: 20.2, l: b('Kalinga (Dhauli edict)', 'कलिंग (धौली अभिलेख)') }, { lon: 76.5, lat: 14.5, l: b('Brahmagiri edict', 'ब्रह्मगिरि अभिलेख') }], desc: b('First pan-Indian imperial administrative network spanning from Taxila to Karnataka; stone pillar & rock edicts inscribed in Prakrit/Brahmi.', 'तक्षशिला से कर्नाटक तक फैला पहला अखिल भारतीय प्रशासन; प्राकृत व ब्राह्मी लिपि में स्तंभ व शिलालेख।') },
-  gupta: { year: 'c. 320–550 CE & Sangam South', yearHi: 'लगभग 320–550 ई. व संगम दक्षिण', en: 'Gupta Empire & Sangam South', hi: 'गुप्त काल व संगम दक्षिण', states: { Bihar: '#7c3aed', 'Uttar Pradesh': '#8b5cf6', 'Madhya Pradesh': '#a78bfa', 'Tamil Nadu': '#10b981', Kerala: '#34d399' }, pts: [{ lon: 85.1, lat: 25.6, l: b('Pataliputra / Nalanda', 'पाटलिपुत्र / नालंदा') }, { lon: 78.1, lat: 9.9, l: b('Madurai (Sangam Pandya)', 'मदुरै (संगम पांड्य)') }], desc: b('Flourishing Sanskrit kavya, Aryabhata astronomy, Chola-Chera-Pandya Sangam trade, and early Nalanda monastery.', 'संस्कृत काव्य, आर्यभट खगोलशास्त्र, संगम तमिल व्यापार व नालंदा महाविहार का उत्कर्ष।') },
+  earlyVedic: { year: '1500–1000 BCE', yearHi: '1500–1000 ई.पू.', en: 'Early Vedic (Sapta-Sindhu)', hi: 'ऋग्वैदिक काल (सप्त-सिंधु)', form: b('Kin Assemblies (Sabha & Samiti)', 'कबीलाई सभा व समिति'), states: { Punjab: '#eab308', Haryana: '#eab308', 'Jammu & Kashmir': '#fde047' }, pts: [{ lon: 74.8, lat: 31.6, l: b('Sapta-Sindhu rivers', 'सप्त-सिंधु नदियाँ') }], desc: b('Pastoral clans along Indus tributaries governed through oral deliberation in Sabha (elders/council) & Samiti (general assembly).', 'सिंधु नदियों के किनारे पशुपालक जन सभा व समिति में संवाद से निर्णय लेते थे।') },
+  janapada: { year: '600–400 BCE', yearHi: '600–400 ई.पू.', en: '16 Mahajanapadas (Magadha & Vajji)', hi: '16 महाजनपद (मगध व वज्जि)', form: b('Kingdoms vs Gana-Sangha Republics', 'राजतंत्र बनाम गणसंघ'), states: { Bihar: '#f97316', 'Uttar Pradesh': '#fb923c', 'Madhya Pradesh': '#fed7aa' }, pts: [{ lon: 85.1, lat: 25.6, l: b('Rajagriha / Pataliputra (Magadha)', 'राजगृह / पाटलिपुत्र (मगध)') }, { lon: 85.1, lat: 26.2, l: b('Vaishali (Vajji Gana-Sangha)', 'वैशाली (वज्जि गणसंघ)') }, { lon: 75.8, lat: 23.2, l: b('Ujjayini (Avanti)', 'उज्जयिनी (अवंति)') }], desc: b('Iron ploughshares & punch-marked coins fuelled cities; Vaishali ruled by collective Gana-Sangha debate alongside monarchies like Magadha.', 'लोहे के हल और आहत सिक्कों से नगर बसे; मगध राजतंत्र के साथ वैशाली में सामूहिक गणसंघ सभा थी।') },
+  maurya: { year: '321–185 BCE', yearHi: '321–185 ई.पू.', en: 'Mauryan Empire & Ashokan Edicts', hi: 'मौर्य साम्राज्य व अशोक अभिलेख', form: b('Centralised Subcontinental Empire', 'केंद्रीकृत साम्राज्य'), states: { Bihar: '#b45309', 'Uttar Pradesh': '#d97706', Odisha: '#f59e0b', 'Madhya Pradesh': '#f59e0b', Maharashtra: '#fbbf24', Karnataka: '#fde68a', Gujarat: '#fbbf24' }, pts: [{ lon: 85.1, lat: 25.6, l: b('Pataliputra (Capital)', 'पाटलिपुत्र') }, { lon: 85.8, lat: 20.2, l: b('Kalinga (Dhauli edict)', 'कलिंग (धौली)') }, { lon: 76.5, lat: 14.5, l: b('Brahmagiri edict', 'ब्रह्मगिरि') }], desc: b('Salaried provincial Kumara governors, Uttarapatha highway, and stone edicts inscribed in spoken Prakrit (Brahmi/Kharoshthi) for public accountability.', 'वेतनभोगी प्रांतीय प्रशासन, उत्तरापथ राजमार्ग और जन-संवाद हेतु प्राकृत (ब्राह्मी) में पत्थर अभिलेख।') },
+  gupta: { year: '320–650 CE', yearHi: '320–650 ई.', en: 'Gupta, Sangam & Harsha Era', hi: 'गुप्त, संगम व हर्ष काल', form: b('Samanta Autonomy + Regional Kings', 'सामंत स्वायत्तता व क्षेत्रीय राज्य'), states: { Bihar: '#7c3aed', 'Uttar Pradesh': '#8b5cf6', 'Madhya Pradesh': '#a78bfa', 'Tamil Nadu': '#10b981', Kerala: '#34d399' }, pts: [{ lon: 85.4, lat: 25.1, l: b('Nalanda University', 'नालंदा विश्वविद्यालय') }, { lon: 78.1, lat: 9.9, l: b('Madurai (Sangam Pandya)', 'मदुरै (संगम)') }, { lon: 79.9, lat: 27.0, l: b('Kanauj (Harsha)', 'कन्नौज (हर्ष)') }], desc: b('Tax-free grants sustained Nalanda; Aryabhata/Varahamihira advanced astronomy while Sangam Chera-Chola-Pandya ports boomed with Indian Ocean ships.', 'कर-मुक्त ग्राम दान से नालंदा चला; आर्यभट के खगोल व संगम बंदरगाहों ने विश्व को जोड़ा।') },
+  chola1000: { year: '700–1000 CE', yearHi: '700–1000 ई.', en: 'Pala, Rashtrakuta & Chola Assemblies', hi: 'पाल, राष्ट्रकूट व चोल ग्राम सभाएँ', form: b('Tripartite States + Village Self-Rule', 'त्रिपक्षीय राज्य व ग्राम स्वशासन'), states: { 'Tamil Nadu': '#059669', Karnataka: '#0d9488', Maharashtra: '#14b8a6', Bihar: '#2563eb', 'West Bengal': '#3b82f6' }, pts: [{ lon: 79.7, lat: 12.6, l: b('Uttaramerur Sabha (Kudavolai)', 'उत्तरमेरूर चोल सभा') }, { lon: 77.2, lat: 17.2, l: b('Manyakheta (Rashtrakuta)', 'मान्यखेत (राष्ट्रकूट)') }, { lon: 87.2, lat: 25.3, l: b('Vikramashila (Pala)', 'विक्रमशिला (पाल)') }], desc: b('By 1000 CE, Chola temple inscriptions (Uttaramerur, c. 920 CE) record Kudavolai palm-leaf lottery elections for local tank, garden & justice committees.', '1000 ई. तक उत्तरमेरूर के चोल अभिलेखों (920 ई.) में ग्राम सभा व कुदावोलई (ताड़पत्र लॉटरी) चुनावों का प्रमाण मिलता है।') },
 };
 
 export const vedicDatedMap = {
   id: 'T05.L1',
-  objective: b('Track historical geography shifts from Sapta-Sindhu pastoral clans to Ganga Mahajanapadas, Mauryan edicts and classical kingdoms up to 1000 CE.', 'सप्त-सिंधु के कबीलों से गंगा महाजनपदों, मौर्य अभिलेखों और 1000 ई. तक के राज्यों तक भारत के ऐतिहासिक भूगोल को मानचित्र पर देखें।'),
-  note: { kind: 'reconstruction', en: 'Approximate cultural/political core regions mapped onto modern Indian state boundaries (datta07/INDIAN-SHAPEFILES).', hi: 'अनुमानित ऐतिहासिक क्षेत्रों को आधुनिक भारतीय राज्य सीमाओं पर दर्शाया गया है।' },
-  init: () => ({ era: 'earlyVedic' }),
-  controls: [{ id: 'era', type: 'chips', label: b('Historical period', 'ऐतिहासिक काल'), options: Object.entries(T05_ERAS).map(([id, o]) => ({ id, en: o.year, hi: o.yearHi })) }],
+  objective: b('Trace how political institutions evolved from Sapta-Sindhu assemblies and Vajji republics to Mauryan highways and 10th-century Chola village self-rule.', 'सप्त-सिंधु सभाओं और वज्जि गणसंघ से मौर्य राजमार्गों और 10वीं सदी के चोल ग्राम स्वशासन तक राजनीतिक संस्थाओं का विकास मानचित्र पर देखें।'),
+  note: { kind: 'reconstruction', en: 'Historical cores up to 1000 CE mapped onto modern Indian state boundaries; boundaries shifted over decades.', hi: '1000 ई. तक के ऐतिहासिक क्षेत्र आधुनिक राज्य सीमाओं पर दर्शाए गए हैं।' },
+  init: () => ({ era: 'earlyVedic', showTrade: true }),
+  controls: [
+    { id: 'era', type: 'chips', label: b('Historical period (up to 1000 CE)', 'ऐतिहासिक काल (1000 ई. तक)'), options: Object.entries(T05_ERAS).map(([id, o]) => ({ id, en: o.year, hi: o.yearHi })) },
+    { id: 'showTrade', type: 'toggle', label: b('Overlay river & maritime trade links', 'नदी व समुद्री व्यापार मार्ग दिखाएँ') },
+  ],
   view(S) {
-    const e = T05_ERAS[S.era];
+    const e = T05_ERAS[S.era] || T05_ERAS.earlyVedic;
     const markers = e.pts.map((p) => ({ lon: p.lon, lat: p.lat, r: 7.5, fill: '#b91c1c', pulse: true, label: p.l }));
-    const svg = indiaMapSvg({ w: 640, h: 410, stateColors: e.states, markers, aria: `Historical geography of India during ${e.en}` });
-    return { svg, aria: `${e.en} (${e.year})`, lines: [{ en: `${e.en} (${e.year})`, hi: `${e.hi} (${e.yearHi})`, cls: 'balanced' }, e.desc] };
+    const paths = S.showTrade ? [
+      { coords: [[72.8, 33.7], [77.2, 28.6], [85.1, 25.6], [87.9, 22.3]], stroke: '#b45309', width: 2.5, dash: '6 4' },
+      { coords: [[85.1, 25.6], [75.8, 23.2], [73.0, 21.7], [78.1, 9.9], [79.8, 11.1]], stroke: '#0284c7', width: 2.5, dash: '5 4' },
+    ] : [];
+    const svg = indiaMapSvg({ w: 640, h: 410, stateColors: e.states, markers, paths, aria: `Historical geography of India during ${e.en}` });
+    return {
+      svg,
+      aria: `${e.en} (${e.year})`,
+      lines: [
+        { en: `${e.en} (${e.year}) · Governance: ${e.form.en}.`, hi: `${e.hi} (${e.yearHi}) · शासन रूप: ${e.form.hi}।`, cls: 'balanced' },
+        e.desc,
+      ],
+    };
   },
-  discover: [b('Step through all four periods. Watch the political centre shift from northwest rivers eastward into the fertile iron-rich Ganga basin.', 'चारों कालों को क्रम से देखें। देखें कि राजनीतिक केंद्र उत्तर-पश्चिम नदियों से पूर्व की ओर उपजाऊ गंगा मैदान में कैसे आया।')],
+  discover: [b('Step from 1500–1000 BCE all the way to 700–1000 CE. Notice how local assemblies reappear from Vedic Sabhas to Vajji and Chola Uttaramerur!', '1500 ई.पू. से 700–1000 ई. तक क्रम से देखें। वैदिक सभा से वज्जि और चोल उत्तरमेरूर तक स्थानीय सभाएँ बार-बार कैसे उभरीं!')],
   predictions: [
     {
       id: 'p1',
-      stem: b('Why did the Ganga basin (Magadha) rise as the dominant power base by c. 500 BCE?', 'लगभग 500 ई.पू. तक गंगा मैदान (मगध) सबसे शक्तिशाली केंद्र क्यों बन गया?'),
-      options: [opt('iron', 'Fertile alluvial soil, iron ore/elephants nearby, and river-boat highways', 'उपजाऊ जलोढ़ भूमि, पास में लौह अयस्क/हाथी और नदी परिवहन मार्ग'), opt('snow', 'Heavy desert dunes prevented farming', 'मरुस्थलीय रेत ने खेती रोक दी')],
-      run: (S) => { S.era = 'janapada'; return 'iron'; },
-      explain: () => b('Magadha combined iron weapons/ploughs from Jharkhand, river trade on Ganga-Son, and dense rice yields.', 'मगध को उपजाऊ धान भूमि, निकटवर्ती लोहा, जंगल से हाथी और गंगा-सोन नदी व्यापार का लाभ मिला।'),
+      stem: b('When you advance to 700–1000 CE in Tamil Nadu (Uttaramerur), what surprising civic institution appears carved in temple stone?', 'तमिलनाडु (उत्तरमेरूर, 700–1000 ई.) में मंदिर शिलालेख पर कौन-सी अनोखी नागरिक संस्था खुदी मिलती है?'),
+      options: [opt('kudavolai', 'Village Sabha committees chosen by Kudavolai (palm-leaf lotteries) with strict public ethics rules', 'ग्राम सभा समितियाँ जो कुदावोलई (ताड़पत्र लॉटरी) व सख्त आचार नियमों से चुनी जाती थीं'), opt('secret', 'No village administration at all', 'कोई ग्राम प्रशासन नहीं था')],
+      run: (S) => { S.era = 'chola1000'; return 'kudavolai'; },
+      explain: () => b('Parantaka Chola I’s Uttaramerur inscriptions (919–921 CE) specify voter qualifications, lottery pot selection, and financial accountability.', 'चोल नरेश परांतक प्रथम के उत्तरमेरूर अभिलेख (919–921 ई.) में योग्यता, लॉटरी घड़े व हिसाब-किताब की पूरी विधि अंकित है।'),
     },
   ],
   exit: [
@@ -229,60 +244,71 @@ export const vedicDatedMap = {
         { id: 'gana', ...b('It was a Gana-Sangha (republic) where multiple rajas ruled collectively by assembly.', 'यह एक गण-संघ था जहाँ अनेक राजा सभा द्वारा सामूहिक रूप से शासन करते थे।') },
         { id: 'emperor', ...b('It had one absolute emperor for life.', 'यहाँ आजीवन एक ही निरंकुश सम्राट होता था।'), why: b('Buddhist and Jain texts specifically record Vaishali’s collective assembly.', 'बौद्ध व जैन ग्रंथ वैशाली की सामूहिक सभा का स्पष्ट उल्लेख करते हैं।') },
       ],
-      explain: b('Ancient India featured both monarchical mahajanapadas and oligarchic/republican gana-sanghas.', 'प्राचीन भारत में राजतंत्रात्मक महाजनपदों के साथ गण-संघ भी विद्यमान थे।'),
+      explain: b('Ancient India featured both monarchical mahajanapadas and collective republican gana-sanghas.', 'प्राचीन भारत में राजतंत्रात्मक महाजनपदों के साथ गण-संघ भी विद्यमान थे।'),
       hint: b('Open the 600–400 BCE Mahajanapadas period.', '600–400 ई.पू. महाजनपद काल चुनें।'),
     },
   ],
-  reflect: b('Why did Emperor Ashoka place rock and pillar edicts along major highways and pilgrimage routes?', 'सम्राट अशोक ने अपने शिलालेख और स्तंभलेख प्रमुख राजमार्गों और तीर्थ मार्गों पर ही क्यों लगवाए?'),
+  reflect: b('Instead of memorising dynasty dates, explain WHY political centres grew where fertile floodplains, iron ore, and river/sea routes met.', 'वंशावली रटने के बजाय समझाएँ कि उपजाऊ मैदान, लोहा व नदी-समुद्र मार्ग मिलने वाले क्षेत्रों में ही बड़े राज्य क्यों पनपे?'),
 };
 
-// ================================================================ T05.L2 Source reading room
+// ================================================================ T05.L2 Primary Source & Corroboration Workbench
 const SOURCES_T05 = {
   inscription: {
-    en: 'Epigraphy: Ashoka’s Rock Edict XII (c. 250 BCE, Prakrit/Brahmi)',
-    hi: 'अभिलेख: अशोक का शिलालेख XII (लगभग 250 ई.पू., प्राकृत/ब्राह्मी)',
-    excerpt: b('“Whoever honours his own sect and disparages another’s merely out of attachment does great harm to his own sect. Concord (samavaya) is praiseworthy.”', '“जो अपने संप्रदाय का आदर और दूसरे की निंदा केवल आसक्ति से करता है, वह अपने ही संप्रदाय को हानि पहुँचाता है। सद्भाव (समवाय) ही श्रेयस्कर है।”'),
-    strength: b('Dated direct stone engraving ordered by the ruler himself, unaffected by later scribal copying errors.', 'शासक द्वारा सीधे पत्थर पर खुदवाया समकालीन प्रमाण, जो बाद की प्रतिलिपि भूलों से सुरक्षित रहता है।'),
+    en: 'Epigraphy: Ashoka Rock Edict XII & Uttaramerur Kudavolai (920 CE)',
+    hi: 'अभिलेख: अशोक शिलालेख XII व उत्तरमेरूर कुदावोलई अभिलेख (920 ई.)',
+    excerpt: b('Stone edicts capture contemporaneous civic policies: Ashoka urges inter-sect concord (samavaya), while Uttaramerur lists rules disqualifying corrupt officials from village lottery elections.', 'शिलालेख समकालीन नियम दर्ज करते हैं: अशोक सद्भाव (समवाय) की अपील करते हैं, और उत्तरमेरूर भ्रष्ट अधिकारियों को ग्राम चुनाव से अयोग्य ठहराता है।'),
+    biasAlert: b('Limit: Stone messages record official rules, not necessarily whether every villager always obeyed them.', 'सीमा: शिलालेख आधिकारिक नियम दिखाते हैं, यह नहीं कि हर व्यक्ति उनका पालन करता था या नहीं।'),
   },
   text: {
-    en: 'Textual Source: Sangam Poetry (Purananuru, c. 100 BCE–300 CE)',
-    hi: 'साहित्यिक स्रोत: संगम काव्य (पुरनानूरु, लगभग 100 ई.पू.–300 ई.)',
-    excerpt: b('Poems praised generous chieftains, salt-cart traders, coastal Muchiri pepper ports, and women poets (Avvaiyar).', 'कविताओं में उदार सरदारों, नमक-व्यापारी गाड़ियों, मुचिरी मसाला बंदरगाह और कवयित्री अव्वैयार का वर्णन मिलता है।'),
-    strength: b('Captures vivid everyday emotions, poets, and social values, though oral works were written down later.', 'दैनिक भावनाओं, कवियों व सामाजिक मूल्यों को सजीव दिखाता है, यद्यपि बाद में लिपिबद्ध हुआ।'),
+    en: 'Literature & Travelogues: Sangam Poetry & Xuanzang (7th CE)',
+    hi: 'साहित्य व यात्रा-वृत्तांत: संगम काव्य व ह्वेनसांग (7वीं सदी ई.)',
+    excerpt: b('Purananuru celebrates Tamil poets like Avvaiyar & coastal trade; Chinese monk Xuanzang documented Nalanda’s 10,000+ residents & open logical debates.', 'पुरनानूरु कवयित्री अव्वैयार व तटीय व्यापार का वर्णन करता है; चीनी यात्री ह्वेनसांग ने नालंदा के छात्र-जीवन व तर्क-शास्त्रार्थ लिखा।'),
+    biasAlert: b('Limit: Poets praise patrons and oral hymns were compiled later; travellers describe only places they personally visited.', 'सीमा: कवि प्रायः आश्रयदाता की प्रशंसा करते थे और यात्री केवल देखे गए स्थलों का वर्णन करते हैं।'),
   },
   material: {
-    en: 'Material Evidence: Silver Punch-Marked Coins (Karshapana) & NBPW Pottery',
-    hi: 'भौतिक साक्ष्य: चाँदी के आहत सिक्के (कार्षापण) व उत्तरी कृष्ण मार्जित मृद्भांड',
-    excerpt: b('Excavated coins stamped with sun, mountain, and tree symbols plus glossy black bowls found across North & South India.', 'सूर्य, पर्वत व वृक्ष चिह्नों वाले आहत सिक्के और चमकदार काले कटोरे उत्तर से दक्षिण तक खुदाई में मिले।'),
-    strength: b('Reveals trade volume and craft daily life of ordinary people whom royal inscriptions often omit.', 'सामान्य लोगों के व्यापार व शिल्प को दर्शाता है जिन्हें राज्याभिलेख अक्सर छोड़ देते हैं।'),
+    en: 'Material Evidence: Karshapana Coins, Roman Gold & NBPW Bowls',
+    hi: 'भौतिक साक्ष्य: आहत सिक्के, रोमन स्वर्ण व काले मृद्भांड',
+    excerpt: b('Stamped silver coins, Mediterranean amphorae at Arikamedu, and glossy black bowls preserve daily artisan and merchant life across strata.', 'चाँदी के आहत सिक्के, अरिकामेडु में रोमन पात्र और चमकदार मृद्भांड आम शिल्पियों व व्यापारियों का जीवन दर्शाते हैं।'),
+    biasAlert: b('Limit: Mute artefacts cannot directly tell us their makers’ names, debates, or religious philosophy.', 'सीमा: मौन पुरावशेष अपने निर्माताओं के नाम या विचार सीधे नहीं बोल सकते।'),
+  },
+  prashasti: {
+    en: 'Royal Eulogy: Samudragupta’s Prayaga Prashasti (c. 350 CE)',
+    hi: 'राजप्रशस्ति: समुद्रगुप्त का प्रयाग प्रशस्ति स्तंभ (ल. 350 ई.)',
+    excerpt: b('Composed in ornate Sanskrit by court poet Harishena, praising the emperor as undefeated across dozens of kings — an essential political map, yet clearly court-authored praise.', 'राजकवि हरिषेण द्वारा संस्कृत में रचित स्तंभलेख जो सम्राट को अजेय बताता है — महत्त्वपूर्ण मानचित्र है पर दरबारी प्रशंसा भी।'),
+    biasAlert: b('AI-Era Warning: Treating a royal prashasti alone as balanced fact mirrors trusting one-sided PR!', 'चेतावनी: केवल दरबारी प्रशस्ति को पूर्ण सत्य मानना एकतरफ़ा प्रचार पर भरोसा करने जैसा है!'),
   },
 };
 
 export const sourceRoom = {
   id: 'T05.L2',
-  objective: b('Compare inscriptions, literary texts and material artefacts as historical sources—identifying what each reveals and hides.', 'अभिलेखों, साहित्यिक ग्रंथों और भौतिक पुरावशेषों की तुलना करें—प्रत्येक क्या दिखाता और क्या छोड़ता है।'),
-  note: { kind: 'documented', en: 'Translated summaries of historical source classes; inspect strengths & limits of each.', hi: 'ऐतिहासिक स्रोत-वर्गों के सार; प्रत्येक की शक्ति व सीमा देखें।' },
-  init: () => ({ src: 'inscription' }),
-  controls: [{ id: 'src', type: 'chips', label: b('Source type', 'स्रोत प्रकार'), options: [opt('inscription', 'Inscriptions (stone/copper)', 'अभिलेख'), opt('text', 'Literary texts', 'साहित्यिक ग्रंथ'), opt('material', 'Coins & pottery', 'सिक्के व मृद्भांड')] }],
+  objective: b('Practise historian triangulation: compare inscriptions, texts, material finds and royal prashastis to spot bias and raise confidence.', 'इतिहासकार की त्रिकोणीय जाँच सीखें: अभिलेख, ग्रंथ, पुरावशेष और प्रशस्ति की तुलना कर पक्षपात पहचानें।'),
+  note: { kind: 'documented', en: 'Demonstrates historical corroboration — checking independent evidence classes before accepting a claim.', hi: 'ऐतिहासिक प्रमाण-मिलान दर्शाता है — किसी भी दावे से पहले स्वतंत्र स्रोतों की जाँच।' },
+  init: () => ({ src: 'inscription', corroborate: true }),
+  controls: [
+    { id: 'src', type: 'chips', label: b('Evidence category', 'साक्ष्य वर्ग'), options: [opt('inscription', 'Stone Edicts', 'शिलालेख'), opt('text', 'Texts / Travelogues', 'ग्रंथ / यात्रा-लेख'), opt('material', 'Coins & Pottery', 'सिक्के व मृद्भांड'), opt('prashasti', 'Royal Prashasti', 'राजप्रशस्ति')] },
+    { id: 'corroborate', type: 'toggle', label: b('Triangulate with other independent sources', 'अन्य स्वतंत्र स्रोतों से मिलान करें') },
+  ],
   view(S) {
-    const it = SOURCES_T05[S.src];
-    const col = S.src === 'inscription' ? '#92400e' : S.src === 'text' ? '#4c1d95' : '#065f46';
-    const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="158" rx="10" fill="var(--card)" stroke="${col}" stroke-width="3"/><rect x="38" y="38" width="84" height="114" rx="8" fill="${col}" opacity=".16"/><text class="txt b" x="80" y="102" text-anchor="middle" fill="${col}">${esc(S.src === 'inscription' ? '🪨' : S.src === 'text' ? '📜' : '🪙')}</text><text class="txt b" x="142" y="58">${esc(P(it.en, it.hi))}</text><text class="txt sm mut" x="142" y="92">${esc(P('Cross-check texts + stones + excavations for full truth', 'पूर्ण सत्य के लिए ग्रंथ + पत्थर + उत्खनन का मिलान करें'))}</text></svg>`;
+    const it = SOURCES_T05[S.src] || SOURCES_T05.inscription;
+    const col = S.src === 'inscription' ? '#92400e' : S.src === 'text' ? '#4c1d95' : S.src === 'material' ? '#065f46' : '#b91c1c';
+    const conf = S.corroborate ? (S.src === 'prashasti' ? 86 : 95) : (S.src === 'prashasti' ? 35 : 54);
+    const barW = Math.round((conf / 100) * 440);
+    const svg = `<svg viewBox="0 0 640 210" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="14" width="604" height="182" rx="10" fill="var(--card)" stroke="${col}" stroke-width="3"/><text class="txt b" x="36" y="46" fill="${col}">${esc(P(it.en, it.hi))}</text><rect x="36" y="68" width="560" height="44" rx="8" fill="var(--bg)" stroke="var(--line)"/><text class="txt sm" x="50" y="95">${esc(P(S.corroborate ? 'Corroboration ON: Texts + Stone + Excavations cross-checked' : 'Single Source ONLY: High risk of royal praise or blindspot!', S.corroborate ? 'मिलान चालू: ग्रंथ + अभिलेख + उत्खनन जाँचे गए' : 'केवल एक स्रोत: पक्षपात या अधूरी तस्वीर का जोखिम!'))}</text><text class="txt sm b" x="36" y="138">${esc(P(`Historical Confidence: ${conf}%`, `ऐतिहासिक विश्वसनीयता: ${conf}%`))}</text><rect x="36" y="148" width="440" height="16" rx="8" fill="#e2e8f0"/><rect x="36" y="148" width="${barW}" height="16" rx="8" fill="${conf >= 80 ? '#16a34a' : '#d97706'}"/></svg>`;
     const plate = S.src === 'inscription'
       ? { src: 'assets/images/plates/t05-sources.jpg', en: 'Carved stone relief, tied palm-leaf manuscript and black ceramic bowl with punch-marked silver coins.', hi: 'तराशा गया पत्थर अभिलेख, ताड़पत्र पांडुलिपि और आहत चाँदी के सिक्कों वाला काला मृद्भांड।' }
       : S.src === 'text'
-        ? { src: 'assets/images/plates/t05-knowledge.jpg', en: 'Bound palm-leaf Sanskrit manuscript and early vihara library veranda.', hi: 'ताड़पत्र पांडुलिपि और प्राचीन विहार का अध्ययन कक्ष।' }
-        : { src: 'assets/images/plates/t13-artefacts.jpg', en: 'Excavated coins, pottery shards and trade beads — daily-life archaeological record.', hi: 'उत्खनित सिक्के, मृद्भांड व मनके — दैनिक जीवन के पुरातात्विक प्रमाण।' };
-    return { plate, svg, aria: it.en, lines: [it.excerpt, it.strength] };
+        ? { src: 'assets/images/plates/t05-knowledge.jpg', en: 'Bound palm-leaf manuscript and brick vihara courtyard — classical textual & monastic archive.', hi: 'ताड़पत्र पांडुलिपि और प्राचीन विहार अध्ययन कक्ष।' }
+        : { src: 'assets/images/plates/t13-artefacts.jpg', en: 'Excavated coins, pottery shards and trade beads — silent physical proof of everyday exchange.', hi: 'उत्खनित सिक्के, मृद्भांड व मनके — दैनिक जीवन के भौतिक साक्ष्य।' };
+    return { plate, svg, aria: `${it.en}, confidence ${conf}%`, lines: [it.excerpt, { ...it.biasAlert, cls: S.corroborate ? 'balanced' : 'warn' }] };
   },
-  discover: [b('Compare all three sources. Which one tells us about ordinary artisans and farmers whom kings rarely carved on pillars?', 'तीनों स्रोतों की तुलना करें। साधारण शिल्पियों व किसानों के बारे में कौन-सा स्रोत बताता है?')],
+  discover: [b('Pick Royal Prashasti and toggle cross-checking OFF vs ON. Notice confidence jumps from 35% to 86% once corroborated!', 'राजप्रशस्ति चुनें और मिलान बंद बनाम चालू करें। त्रिकोणीय जाँच से विश्वसनीयता 35% से 86% तक बढ़ते देखें!')],
   predictions: [
     {
       id: 'p1',
-      stem: b('Why must historians cross-check a king’s royal inscription (e.g. a victory pillar) against archaeological remains and independent texts?', 'इतिहासकारों को राजा की प्रशस्ति या स्तंभलेख का मिलान पुरावशेषों व स्वतंत्र ग्रंथों से क्यों करना पड़ता है?'),
-      options: [opt('bias', 'Royal inscriptions often exaggerate triumphs and reflect the ruler’s official point of view', 'राज्याभिलेख प्रायः विजय बढ़ा-चढ़ाकर दिखाते हैं और शासक का पक्ष प्रस्तुत करते हैं'), opt('fake', 'Stone cannot hold letters', 'पत्थर पर अक्षर नहीं टिकते')],
-      run: (S) => { S.src = 'inscription'; return 'bias'; },
-      explain: () => b('Epigraphy gives exact contemporary dates and official edicts, yet cross-checking avoids one-sided royal propaganda.', 'अभिलेख सटीक तिथि व राज्यादेश देते हैं, पर अन्य स्रोतों से मिलान करके एकतरफ़ा प्रशंसा से बचा जाता है।'),
+      stem: b('Suppose you read Samudragupta’s Prayaga Prashasti claiming effortless conquests everywhere. How would a 21st-century historian test its accuracy?', 'मान लीजिए आप प्रयाग प्रशस्ति पढ़ते हैं जिसमें हर राजा पर सहज विजय का दावा है। आधुनिक इतिहासकार इसकी जाँच कैसे करेगा?'),
+      options: [opt('cross', 'Cross-check against local dynasties’ inscriptions, coins & geography to separate royal praise from verified control', 'स्थानीय राजवंशों के अभिलेखों, सिक्कों व भूगोल से मिलान कर प्रशंसा और वास्तविक नियंत्रण में अंतर करेगा'), opt('copy', 'Repeat every poetic adjective word-for-word as literal fact', 'हर काव्यात्मक विशेषण को ज्यों का त्यों तथ्य मान लेगा')],
+      run: (S) => { S.src = 'prashasti'; S.corroborate = true; return 'cross'; },
+      explain: () => b('Royal eulogies are precious clues to imperial ideology, yet must always be cross-checked against independent inscriptions and coins.', 'राजप्रशस्ति सम्राट के आदर्श बताती है पर वास्तविक सीमा जानने को अन्य सिक्कों व अभिलेखों से मिलान आवश्यक है।'),
     },
   ],
   exit: [
@@ -295,91 +321,133 @@ export const sourceRoom = {
         { id: 'contradict', ...b('Sources contradicting each other completely.', 'स्रोतों का पूरी तरह खंडन।'), why: b('Coins and poems align to prove flourishing sea trade.', 'सिक्के और कविता दोनों समृद्ध समुद्री व्यापार की पुष्टि करते हैं।') },
       ],
       explain: b('Historians gain highest confidence when texts, inscriptions and excavated artefacts agree.', 'जब ग्रंथ, अभिलेख और उत्खनित वस्तुएँ मेल खाती हैं तब ऐतिहासिक निष्कर्ष सबसे मज़बूत होता है।'),
-      hint: b('Compare Textual Source and Material Evidence.', 'साहित्यिक व भौतिक साक्ष्य देखें।'),
+      hint: b('Switch on Triangulate with other independent sources.', 'अन्य स्वतंत्र स्रोतों से मिलान चालू करें।'),
     },
   ],
-  reflect: b('Imagine a historian 1,000 years from now studying our era from ONLY advertisements vs ONLY rubbish dumps—how would their story differ?', 'कल्पना करें 1,000 वर्ष बाद का इतिहासकार हमारे समय को केवल विज्ञापनों बनाम केवल कचरे के अवशेषों से पढ़े—क्या अंतर होगा?'),
+  reflect: b('Imagine a historian 1,000 years from now studying our era from ONLY viral AI posts vs corroborated public archives—how would their story differ?', 'कल्पना करें 1,000 वर्ष बाद का इतिहासकार हमारे युग को केवल वायरल पोस्ट बनाम प्रमाणित अभिलेखों से पढ़े—क्या अंतर होगा?'),
 };
 
-// ================================================================ T05.L3 Early empire administration flow
+// ================================================================ T05.L3 Saptanga & State-vs-Society Governance Lab
 export const empireAdmin = {
   id: 'T05.L3',
-  objective: b('Trace how early empires (such as Mauryan & Gupta states) organised revenue, provinces, roads and justice, and test over-taxation risks.', 'समझें कि प्राचीन साम्राज्यों (मौर्य व गुप्त) ने राजस्व, प्रांत, सड़कें और न्याय कैसे संगठित किए, और अत्यधिक कर के जोखिम परखें।'),
-  note: { kind: 'reconstruction', en: 'Inspired by Arthashastra & Ashokan edicts; illustrative administrative simulation.', hi: 'अर्थशास्त्र व अशोक अभिलेखों से प्रेरित; प्रशासनिक शिक्षण-मॉडल।' },
-  init: () => ({ taxRate: 17, roadsInvest: 50, decentralized: false }),
+  objective: b('Test Kautilya’s Saptanga statecraft model up to 1000 CE: balance taxes, highways, irrigation and local assemblies (Gana, Maurya, Samanta, Chola Sabha).', '1000 ई. तक के सप्तांग राज्य-मॉडल को परखें: कर, राजमार्ग, सिंचाई और स्थानीय सभाओं (गणसंघ, मौर्य, सामंत, चोल सभा) में संतुलन बनाएँ।'),
+  note: { kind: 'schematic', en: 'Models Arthashastra Saptanga limbs + Chola Uttaramerur local assembly trade-offs.', hi: 'अर्थशास्त्र सप्तांग सिद्धांत और चोल ग्राम सभा के संतुलन का शिक्षण-मॉडल।' },
+  init: () => ({ govMode: 'maurya', taxRate: 17, roadsInvest: 50, irrigationInvest: 50 }),
   controls: [
-    { id: 'taxRate', type: 'slider', label: b('Agricultural tax share (bhaga %)', 'कृषि कर अंश (भाग %)'), min: 8, max: 40, step: 1, fmt: (v) => `${v}%` },
-    { id: 'roadsInvest', type: 'slider', label: b('Public works (canals, roads, inns)', 'लोक निर्माण (नहरें, सड़कें, सराय)'), min: 10, max: 90, step: 10, fmt: (v) => `${v}%` },
-    { id: 'decentralized', type: 'toggle', label: b('Samanta / local provincial autonomy', 'सामंत / प्रांतीय स्वायत्तता') },
+    { id: 'govMode', type: 'chips', label: b('State architecture', 'शासन प्रणाली'), options: [opt('gana', 'Gana-Sangha (Vajji)', 'गणसंघ (वज्जि)'), opt('maurya', 'Mauryan Central', 'मौर्य केंद्रीकृत'), opt('samanta', 'Samanta Feudatory', 'सामंत प्रणाली'), opt('chola', 'Chola + Village Sabha', 'चोल + ग्राम सभा')] },
+    { id: 'taxRate', type: 'slider', label: b('Agricultural tax (bhaga %)', 'कृषि कर (भाग %)'), min: 8, max: 40, step: 1, fmt: (v) => `${v}%` },
+    { id: 'roadsInvest', type: 'slider', label: b('Highways, inns & wells (%)', 'राजमार्ग, सराय व कुएँ (%)'), min: 10, max: 90, step: 10, fmt: (v) => `${v}%` },
+    { id: 'irrigationInvest', type: 'slider', label: b('Canals & village tanks (%)', 'नहरें व ग्राम तालाब (%)'), min: 10, max: 90, step: 10, fmt: (v) => `${v}%` },
   ],
   view(S) {
-    const leg = Math.max(5, Math.min(100, Math.round(75 - (S.taxRate - 16) * 2.1 + S.roadsInvest * 0.35)));
-    const treasury = Math.round(S.taxRate * (1 - S.roadsInvest * 0.004) * (S.decentralized ? 0.8 : 1.05) * 4);
+    const r = H.saptangaEmpireSim({ governanceMode: S.govMode, taxRate: S.taxRate, roadsInvest: S.roadsInvest, irrigationInvest: S.irrigationInvest });
     const nodes = [
-      { id: 'king', label: b('Samrat & Mantriparishad', 'सम्राट व मंत्रिपरिषद'), rw: 145, stroke: '#b45309' },
-      { id: 'prov', label: b(S.decentralized ? 'Local Samantas' : 'Kumara Governors', S.decentralized ? 'स्थानीय सामंत' : 'प्रांतीय कुमार'), rw: 132, stroke: '#0b5cad' },
-      { id: 'village', label: b('Gramika & Farmers', 'ग्रामिक व कृषक'), rw: 130, stroke: '#2e8b57' },
-      { id: 'works', label: b('Irrigation & Highways', 'सिंचाई व राजमार्ग'), rw: 138, stroke: '#0284c7' },
+      { id: 'king', label: b(S.govMode === 'gana' ? 'Assembly Rajas' : 'Samrat & Council', S.govMode === 'gana' ? 'गणसंघ सभा' : 'सम्राट व परिषद'), rw: 145, stroke: '#b45309' },
+      { id: 'prov', label: b(S.govMode === 'samanta' ? 'Autonomous Samantas' : S.govMode === 'chola' ? 'Nadu / Village Sabha' : 'Kumara Officials', S.govMode === 'samanta' ? 'स्वायत्त सामंत' : S.govMode === 'chola' ? 'नाडु व ग्राम सभा' : 'प्रांतीय अधिकारी'), rw: 142, stroke: '#0b5cad' },
+      { id: 'village', label: b('Farmers & Artisans', 'कृषक व शिल्पी'), rw: 132, stroke: '#2e8b57' },
+      { id: 'works', label: b('Canals & Highways', 'नहरें व राजमार्ग'), rw: 136, stroke: '#0284c7' },
     ];
     const links = [
       { source: 'village', target: 'prov', label: b(`${S.taxRate}% bhaga`, `${S.taxRate}% भाग`) },
-      { source: 'prov', target: 'king', label: b('tribute/report', 'कर व सूचना') },
-      { source: 'king', target: 'works', label: b(`${S.roadsInvest}% budget`, `${S.roadsInvest}% व्यय`) },
+      { source: 'prov', target: 'king', label: b(S.govMode === 'samanta' ? 'feudatory tribute' : 'revenue & order', S.govMode === 'samanta' ? 'सामंत कर' : 'राजस्व व व्यवस्था') },
+      { source: 'king', target: 'works', label: b(`${Math.round((S.roadsInvest + S.irrigationInvest) / 2)}% works`, 'लोक व्यय') },
       { source: 'works', target: 'village', label: b('water & trade', 'जल व व्यापार') },
     ];
-    const svg = forceGraphSvg({ w: 640, h: 300, nodes, links, activeId: leg < 45 ? 'village' : 'king', aria: 'Empire administration flow between ruler, provinces, farmers and public works' });
+    const netSvg = forceGraphSvg({ w: 640, h: 250, nodes, links, activeId: r.legitimacy < 45 ? 'village' : 'king', aria: 'State and society resource circulation diagram' });
+    const bars = r.limbs.map((lb, idx) => {
+      const y = 18 + idx * 24;
+      const bw = Math.round((lb.val / 100) * 320);
+      const col = lb.val >= 65 ? '#16a34a' : lb.val >= 40 ? '#d97706' : '#dc2626';
+      return `<text class="txt sm b" x="14" y="${y + 12}">${esc(P(lb.en, lb.hi))}</text><rect x="230" y="${y}" width="320" height="14" rx="7" fill="var(--bg)" stroke="var(--line)"/><rect x="230" y="${y}" width="${bw}" height="14" rx="7" fill="${col}"/><text class="txt sm b" x="560" y="${y + 12}">${lb.val}%</text>`;
+    }).join('');
+    const barSvg = `<svg viewBox="0 0 640 148" class="chart" role="img" aria-label="${esc(P('Saptanga state health indicators', 'सप्तांग राज्य स्वास्थ्य सूचक'))}" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="632" height="140" rx="10" fill="var(--card)" stroke="var(--line)"/>${bars}</svg>`;
     return {
-      svg,
-      aria: `Tax ${S.taxRate}%, public works ${S.roadsInvest}%, legitimacy ${leg}%`,
+      svg: netSvg + barSvg,
+      aria: `${S.govMode}: legitimacy ${r.legitimacy}%, village ${r.villageResilience}%, breakaway risk ${r.breakawayRisk}%`,
       lines: [
-        { en: `Tax ${S.taxRate}% (traditional norm ~1/6 = 16.7%): Citizen loyalty ${leg}%, Treasury balance ${treasury} units.`, hi: `कर ${S.taxRate}% (पारंपरिक मान ~1/6 = 16.7%): प्रजा संतोष ${leg}%, राजकोष ${treasury} इकाई।`, cls: leg < 45 ? 'warn' : 'balanced' },
-        S.decentralized ? b('Note: Gupta-era samanta decentralisation lowered imperial costs yet allowed strong local chiefs to break away later.', 'नोट: गुप्तकालीन सामंत प्रणाली से केंद्रीय खर्च घटा पर स्थानीय शासकों के स्वतंत्र होने का जोखिम बढ़ा।') : b('Mauryan salaried officials answered to Pataliputra directly, requiring steady tax flow and efficient roads.', 'मौर्य वेतनभोगी अधिकारी सीधे पाटलिपुत्र के अधीन थे, जिसके लिए नियमित कर व सड़क संपर्क आवश्यक था।'),
+        { en: `Legitimacy ${r.legitimacy}% · Village Tank/Crop Resilience ${r.villageResilience}% · Treasury ${r.treasury}% · Breakaway Risk ${r.breakawayRisk}%.`, hi: `प्रजा विश्वास ${r.legitimacy}% · ग्राम कृषि स्थिरता ${r.villageResilience}% · राजकोष ${r.treasury}% · विखंडन जोखिम ${r.breakawayRisk}%।`, cls: r.legitimacy < 45 || r.breakawayRisk > 60 ? 'warn' : 'balanced' },
+        S.govMode === 'chola'
+          ? b('Chola model combines imperial reach with self-governing village Sabhas & tank committees — sustaining local resilience!', 'चोल मॉडल साम्राज्य के साथ स्वायत्त ग्राम सभा व तालाब समितियों को जोड़ता है — स्थानीय स्थिरता बढ़ती है!')
+          : S.govMode === 'samanta'
+            ? b('Samanta autonomy lowers central administration cost, yet powerful feudatories risk breaking away if central oversight weakens.', 'सामंत स्वायत्तता केंद्रीय खर्च घटाती है पर शक्तिशाली सामंत स्वतंत्र होने का जोखिम बढ़ाते हैं।')
+            : b('Traditional Arthashastra bhaga (~1/6 = 16.7%) keeps citizens supportive; heavy taxes (>28%) erode long-term revenue.', 'पारंपरिक 1/6 (16.7%) कर व लोक निर्माण राज्य-समाज संतुलन बनाए रखते हैं; अत्यधिक कर (>28%) विश्वास तोड़ता है।'),
       ],
     };
   },
-  discover: [b('Raise agricultural tax from 16% to 38% with low public works. Watch citizen loyalty drop!', 'कम लोक-निर्माण पर कृषि कर 16% से 38% बढ़ाएँ। प्रजा संतोष गिरते देखें!')],
+  discover: [b('Compare Chola + Village Sabha vs Samanta Feudatory at 24% tax and 70% canal investment. Watch breakaway risk vs village resilience!', '24% कर व 70% सिंचाई पर सामंत बनाम चोल ग्राम सभा देखें। विखंडन जोखिम और ग्राम स्थिरता में अंतर परखें!')],
   predictions: [
     {
       id: 'p1',
-      stem: b('According to ancient treatises like Arthashastra, if a king raises taxes far above the customary 1/6th share without building irrigation or safety…', 'अर्थशास्त्र जैसे प्राचीन ग्रंथों के अनुसार यदि राजा सिंचाई व सुरक्षा दिए बिना पारंपरिक छठे भाग से बहुत अधिक कर वसूले…'),
-      options: [opt('revolt', 'Farmers abandon fields or rebel, shrinking long-term revenue', 'किसान खेत छोड़ते या विद्रोह करते हैं, जिससे दीर्घकालिक राजस्व घटता है'), opt('happy', 'Everyone grows richer', 'सब अधिक धनी हो जाते हैं')],
-      run: (S) => { S.taxRate = 38; S.roadsInvest = 10; return 'revolt'; },
-      explain: () => b('Kautilya compared fair taxation to picking ripe fruit without uprooting the orchard.', 'कौटिल्य ने न्यायसंगत कर की तुलना पके फल तोड़ने से की—पेड़ को जड़ से उखाड़ने से नहीं।'),
+      stem: b('According to Arthashastra Saptanga logic, if a ruler pushes tax above 35% while cutting irrigation and roads…', 'अर्थशास्त्र सप्तांग तर्क के अनुसार यदि शासक सिंचाई व सड़कें घटाकर 35% से अधिक कर वसूले…'),
+      options: [opt('collapse', 'Citizen trust (Janapada) plunges and breakaway risk spikes', 'जन-विश्वास (जनपद) गिरता है और विद्रोह/विखंडन जोखिम तेजी से बढ़ता है'), opt('eternal', 'Treasury stays permanently strong', 'राजकोष हमेशा के लिए मजबूत रहता है')],
+      run: (S) => { S.taxRate = 38; S.roadsInvest = 10; S.irrigationInvest = 10; return 'collapse'; },
+      explain: () => b('Kautilya’s Saptanga treats prosperous citizens (Janapada) as the root of Kosha (treasury); squeezing farmers ruins both.', 'कौटिल्य के सप्तांग में समृद्ध प्रजा ही राजकोष की जड़ है; अत्यधिक कर दोनों को नष्ट कर देता है।'),
     },
   ],
   exit: [
     {
       id: 'e1',
-      stem: b('Why did the Mauryan empire invest heavily in the Uttarapatha highway and roadside wells/inns?', 'मौर्य साम्राज्य ने उत्तरापथ राजमार्ग व सड़क किनारे कुओं-सरायों पर भारी निवेश क्यों किया?'),
-      correct: 'admin',
+      stem: b('Why did Chola inscriptions highlight local Kudavolai village committees alongside the king’s army and treasury?', 'चोल अभिलेखों में राजा की सेना व कोष के साथ स्थानीय कुदावोलई ग्राम समितियों का इतना महत्त्व क्यों था?'),
+      correct: 'local',
       options: [
-        { id: 'admin', ...b('Fast communication, trade tax collection, and movement of officials across a vast subcontinent.', 'तेज़ संवाद, व्यापार कर संग्रह व विशाल उपमहाद्वीप में प्रशासनिक नियंत्रण के लिए।') },
-        { id: 'fun', ...b('Only for chariots to race on Sundays.', 'केवल रथ दौड़ प्रतियोगिताओं के लिए।'), why: b('Highways tied distant provinces and ports together.', 'राजमार्गों ने दूरस्थ प्रांतों और बंदरगाहों को जोड़ा।') },
+        { id: 'local', ...b('Village Sabhas maintained irrigation tanks, justice and fair taxes locally across centuries.', 'ग्राम सभाएँ सदियों तक सिंचाई तालाबों, स्थानीय न्याय व करों की देखरेख करती थीं।') },
+        { id: 'ignore', ...b('Because Chola villages had zero agriculture.', 'क्योंकि चोल गाँवों में खेती नहीं होती थी।'), why: b('Kaveri delta wet-rice irrigation depended directly on village tank committees.', 'कावेरी डेल्टा की धान सिंचाई ग्राम तालाब समितियों पर निर्भर थी।') },
       ],
-      explain: b('Infrastructure turned geographic expanse into a connected state and trade network.', 'सड़क व सराय नेटवर्क ने विशाल भूभाग को एक जुड़े हुए राज्य व बाज़ार में बदला।'),
-      hint: b('Move the Public works slider up and read the loyalty index.', 'लोक निर्माण स्लाइडर ऊपर ले जाकर पढ़ें।'),
+      explain: b('Effective states before 1000 CE coupled higher coordination with resilient self-governing communities.', '1000 ई. से पूर्व सफल राज्यों ने केंद्रीय समन्वय को मजबूत स्थानीय ग्राम संस्थाओं से जोड़ा।'),
+      hint: b('Select Chola + Village Sabha and watch the Janapada bar.', 'चोल + ग्राम सभा चुनकर जनपद पट्टी देखें।'),
     },
   ],
-  reflect: b('Why did emperors appoint officers like Dhamma-mahamattas or maintain secret reporters alongside tax collectors?', 'सम्राटों ने कर संग्रहकर्ताओं के साथ धम्म-महामात्र जैसे अधिकारी या गुप्तचर क्यों नियुक्त किए?'),
+  reflect: b('Which principle from Saptanga or Chola village assemblies matters most for democratic municipal governance in your town today?', 'सप्तांग या चोल ग्राम सभा का कौन-सा सिद्धांत आज आपके नगर या पंचायत शासन के लिए सबसे प्रासंगिक है?'),
 };
 
-// ================================================================ T05.L4 Knowledge traditions gallery
+// ================================================================ T05.L4 Indian Knowledge Systems & AI Parallels
 const KT_ITEMS = {
-  lang: { en: 'Panini’s Ashtadhyayi (c. 5th BCE)', hi: 'पाणिनि की अष्टाध्यायी (ल. 5वीं शती ई.पू.)', body: b('Systematised Sanskrit grammar in ~4,000 compact algebraic rules (sutras), centuries before modern formal language theory.', 'लगभग 4,000 सूत्र-नियमों में संस्कृत व्याकरण का वैज्ञानिक व्यवस्थीकरण, आधुनिक औपचारिक भाषा सिद्धांत से सदियों पहले।') },
-  med: { en: 'Charaka & Sushruta Samhitas (Ayurveda)', hi: 'चरक व सुश्रुत संहिता (आयुर्वेद)', body: b('Classified medicinal herbs, diet, diagnostic methods, and surgical instruments (including rhinoplasty & cataract couching).', 'औषधीय पौधों, आहार, निदान तथा शल्य-चिकित्सा उपकरणों व विधियों का विस्तृत वर्णन।') },
-  math: { en: 'Zero, Place-Value & Aryabhata (499 CE)', hi: 'शून्य, स्थानीय मान व आर्यभट (499 ई.)', body: b('Decimal place-value notation with zero, π approximation (3.1416), and Aryabhata’s insight that Earth rotates on its axis.', 'दशमलव स्थानीय मान व शून्य, π का मान (3.1416) तथा पृथ्वी के अपनी धुरी पर घूमने की खोज।') },
-  uni: { en: 'Takshashila & Nalanda Mahavihara', hi: 'तक्षशिला व नालंदा महाविहार', body: b('Residential centres attracting scholars from China, Tibet, Korea & Central Asia to debate logic, medicine, astronomy & Buddhist texts.', 'चीन, तिब्बत, कोरिया व मध्य एशिया से आए विद्वानों के आवासीय केंद्र जहाँ तर्क, चिकित्सा व खगोल पढ़ाए जाते थे।') },
+  lang: {
+    en: 'Panini’s Ashtadhyayi (c. 5th BCE) · Generative Rules',
+    hi: 'पाणिनि की अष्टाध्यायी · सूत्र-आधारित भाषा प्रणाली',
+    body: b('Encoded Sanskrit grammar in ~4,000 algebraic sutras using meta-rules & recursion — recognised globally as an ancient ancestor of formal programming & NLP syntax.', 'लगभग 4,000 संक्षिप्त सूत्रों में संस्कृत व्याकरण का वैज्ञानिक व्यवस्थीकरण — आधुनिक औपचारिक व्याकरण व एआई भाषा-नियमों का प्राचीन पूर्वज।'),
+    aiParallel: b('AI Parallel: Just like modern parsers generate valid sentences from compact rules, Panini derived vast vocabulary algorithmically from root stems.', 'एआई समानता: आधुनिक कंप्यूटर पार्सर की तरह पाणिनि ने संक्षिप्त नियमों से संपूर्ण भाषा-संरचना उत्पन्न की।'),
+  },
+  math: {
+    en: 'Zero, Aryabhata (499 CE) & Brahmagupta (628 CE)',
+    hi: 'शून्य, आर्यभट (499 ई.) व ब्रह्मगुप्त (628 ई.)',
+    body: b('Decimal place-value with zero, negative numbers, rules of zero arithmetic, π ≈ 3.1416, and Earth’s daily axial rotation causing apparent star motion.', 'दशमलव स्थानीय मान व शून्य के नियम, ऋणात्मक संख्याएँ, π ≈ 3.1416 और पृथ्वी के अपनी धुरी पर घूमने की खोज।'),
+    aiParallel: b('AI Parallel: Binary & decimal place-value notation plus algorithmic step-by-step calculation underpin every computer chip today.', 'एआई समानता: स्थानीय मान व चरणबद्ध कलन-विधि (एल्गोरिदम) आज के हर प्रोसेसर की आधारशिला हैं।'),
+  },
+  med: {
+    en: 'Charaka & Sushruta Samhitas (Empirical Medicine)',
+    hi: 'चरक व सुश्रुत संहिता (आयुर्वेद विज्ञान)',
+    body: b('Systematic observation of symptoms, dietetics, hundreds of medicinal plants, sterile wound care, and 120+ surgical instruments (including reconstructive rhinoplasty).', 'रोग लक्षणों का व्यवस्थित अवलोकन, औषधीय पौधे, शल्य-चिकित्सा के 120+ यंत्र और नासिका-पुनर्निर्माण विधियाँ।'),
+    aiParallel: b('AI Parallel: Clinical triage follows decision trees—observe evidence, test hypotheses, and track patient outcomes before prescribing.', 'एआई समानता: आधुनिक नैदानिक निर्णय-वृक्ष की तरह प्रमाण देखें, परिकल्पना परखें और परिणाम जांचें।'),
+  },
+  metal: {
+    en: 'Mehrauli Iron Pillar (c. 400 CE) & Wootz Crucible Steel',
+    hi: 'महरौली लौह स्तंभ व वूट्ज़ इस्पात धातुकर्म',
+    body: b('A 7.2-metre 6-tonne forge-welded iron pillar standing outdoors in Delhi for 1,600+ years without rust thanks to phosphorus-iron passive film; South Indian crucible Wootz steel traded worldwide.', '1,600 वर्षों से बिना जंग लगे खड़ा 7.2 मीटर महरौली स्तंभ (फॉस्फोरस-युक्त लौह परत) और दक्षिण भारत का विश्वप्रसिद्ध वूट्ज़ इस्पात।'),
+    aiParallel: b('AI Parallel: Materials engineering combines controlled heat chemistry and empirical testing — proving ancient craft labs did rigorous experiments.', 'एआई समानता: नियंत्रित ताप-रसायन व परीक्षण दिखाते हैं कि प्राचीन शिल्पशालाएँ वास्तविक प्रयोगशालाएँ थीं।'),
+  },
+  uni: {
+    en: 'Takshashila, Nalanda & Vikramashila (up to 1000 CE)',
+    hi: 'तक्षशिला, नालंदा व विक्रमशिला विश्वविद्यालय',
+    body: b('Residential international centres (up to 1000 CE) funded by village grants, drawing scholars from China, Tibet, Korea & Central Asia for logic (nyaya), astronomy & open Shastrartha debates.', 'ग्राम-दान से पोषित आवासीय केंद्र जहाँ चीन, तिब्बत व कोरिया के विद्वान तर्कशास्त्र, खगोल व खुले शास्त्रार्थ में भाग लेते थे।'),
+    aiParallel: b('AI Parallel: Shastrartha (rules of structured counter-argument & testing flaws) works exactly like peer review and adversarial AI fact-checking!', 'एआई समानता: शास्त्रार्थ (तर्क व खंडन से त्रुटि पकड़ना) आधुनिक वैज्ञानिक सहकर्मी-समीक्षा और एआई तथ्य-जाँच जैसा ही है!'),
+  },
 };
 
 export const knowledgeGallery = {
   id: 'T05.L4',
-  objective: b('Explore India’s early knowledge traditions across grammar, medicine, mathematics/astronomy and residential universities.', 'व्याकरण, चिकित्सा, गणित/खगोल और आवासीय विश्वविद्यालयों में भारत की प्राचीन ज्ञान परंपराओं का अन्वेषण करें।'),
-  note: { kind: 'documented', en: 'Historically attested works and sites up to 1000 CE; exact dates debated by scholars.', hi: '1000 ई. तक के प्रमाणित ग्रंथ व संस्थान; सटीक तिथियों पर शोध जारी है।' },
-  init: () => ({ topic: 'math' }),
-  controls: [{ id: 'topic', type: 'chips', label: b('Knowledge strand', 'ज्ञान क्षेत्र'), options: Object.entries(KT_ITEMS).map(([id, o]) => ({ id, en: o.en.split(' (')[0], hi: o.hi.split(' (')[0] })) }],
+  objective: b('Explore India’s ancient knowledge systems up to 1000 CE — grammar algorithms, zero, surgery, metallurgy & Nalanda/Vikramashila debates — and connect them to AI-era thinking.', '1000 ई. तक की भारतीय ज्ञान परंपराओं — व्याकरण सूत्र, शून्य, शल्य-चिकित्सा, धातुकर्म और नालंदा-विक्रमशिला शास्त्रार्थ — को एआई युग की सोच से जोड़ें।'),
+  note: { kind: 'documented', en: 'Historically attested treatises and sites; dates are scholarly estimates.', hi: 'प्रमाणित प्राचीन ग्रंथ व स्थल; तिथियाँ विद्वानों द्वारा आकलित हैं।' },
+  init: () => ({ topic: 'lang', compareAi: true }),
+  controls: [
+    { id: 'topic', type: 'chips', label: b('Knowledge tradition', 'ज्ञान परंपरा'), options: Object.entries(KT_ITEMS).map(([id, o]) => ({ id, en: o.en.split(' (')[0].split(' ·')[0], hi: o.hi.split(' (')[0].split(' ·')[0] })) },
+    { id: 'compareAi', type: 'toggle', label: b('Highlight 21st-century AI & STEM connection', '21वीं सदी एआई / विज्ञान जुड़ाव दिखाएँ') },
+  ],
   view(S) {
-    const it = KT_ITEMS[S.topic];
-    const svg = `<svg viewBox="0 0 640 180" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="148" rx="12" fill="#fef9c3" stroke="#ca8a04" stroke-width="2.5"/><text class="txt b" x="320" y="68" text-anchor="middle">${esc(P(it.en, it.hi))}</text><text class="txt sm mut" x="320" y="106" text-anchor="middle">${esc(P('Observation · Logic · Debate · Oral & Manuscript Transmission', 'प्रेक्षण · तर्क · शास्त्रार्थ · मौखिक व पांडुलिपि परंपरा'))}</text></svg>`;
+    const it = KT_ITEMS[S.topic] || KT_ITEMS.lang;
+    const badge = S.compareAi ? '⚡ 21st-Century Algorithmic & Empirical Method' : 'Observation · Logic · Manuscript Tradition';
+    const badgeHi = S.compareAi ? '⚡ 21वीं सदी एल्गोरिदमिक व प्रयोग-आधारित दृष्टिकोण' : 'प्रेक्षण · तर्क · पांडुलिपि परंपरा';
+    const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="14" width="604" height="162" rx="12" fill="${S.compareAi ? '#eff6ff' : '#fef9c3'}" stroke="${S.compareAi ? '#0b5cad' : '#ca8a04'}" stroke-width="2.5"/><text class="txt b" x="320" y="64" text-anchor="middle">${esc(P(it.en, it.hi))}</text><rect x="64" y="88" width="512" height="40" rx="8" fill="var(--card)" stroke="var(--line)"/><text class="txt sm b" x="320" y="113" text-anchor="middle">${esc(P(badge, badgeHi))}</text><text class="txt sm mut" x="320" y="156" text-anchor="middle">${esc(P('Rule Systems · Debate (Shastrartha) · Cross-Cultural Exchange', 'नियम-प्रणाली · शास्त्रार्थ · वैश्विक ज्ञान आदान-प्रदान'))}</text></svg>`;
     return {
       plate: {
         src: 'assets/images/plates/t05-knowledge.jpg',
@@ -388,79 +456,90 @@ export const knowledgeGallery = {
       },
       svg,
       aria: it.en,
-      lines: [{ en: it.en, hi: it.hi, cls: 'balanced' }, it.body],
+      lines: [
+        { en: it.en, hi: it.hi, cls: 'balanced' },
+        it.body,
+        ...(S.compareAi ? [{ ...it.aiParallel, cls: 'balanced' }] : []),
+      ],
     };
   },
-  discover: [b('Click through all four cards. Notice how scholars across medicine, grammar and mathematics used structured rule systems.', 'चारों कार्ड देखें। ध्यान दें कि चिकित्सा, व्याकरण और गणित में नियमबद्ध प्रणालियाँ प्रयोग हुईं।')],
+  discover: [b('Inspect Panini’s Grammar and Vikramashila/Nalanda with the 21st-Century AI toggle ON. Why is rule-based testing + open debate still essential in the AI era?', 'पाणिनि व नालंदा कार्ड पर एआई जुड़ाव चालू कर देखें। आज के एआई युग में नियम-जाँच और खुला शास्त्रार्थ क्यों ज़रूरी है?')],
   predictions: [
     {
       id: 'p1',
-      stem: b('Why was Nalanda famous across Asia by the 7th century CE?', 'सातवीं सदी ई. तक नालंदा पूरे एशिया में क्यों प्रसिद्ध था?'),
-      options: [opt('uni', 'It was a vast residential library & debating centre attracting international scholars like Xuanzang', 'यह विशाल आवासीय पुस्तकालय व वाद-विवाद केंद्र था जहाँ ह्वेनसांग जैसे विदेशी विद्वान आते थे'), opt('fort', 'It was an iron foundry for cannons', 'यह तोप ढालने का कारखाना था')],
+      stem: b('Why did scholars from China, Tibet and Korea travel thousands of kilometres to Nalanda and Vikramashila up to 1000 CE?', '1000 ई. तक चीन, तिब्बत और कोरिया से विद्वान हजारों किलोमीटर चलकर नालंदा व विक्रमशिला क्यों आते थे?'),
+      options: [opt('uni', 'To study vast residential libraries, logic (nyaya), medicine & challenge ideas in open Shastrartha debates', 'विशाल पुस्तकालय, न्याय-तर्क, चिकित्सा पढ़ने और खुले शास्त्रार्थ में विचारों की परख करने'), opt('weapons', 'To mine coal in the library courtyard', 'पुस्तकालय में कोयला खोदने')],
       run: (S) => { S.topic = 'uni'; return 'uni'; },
-      explain: () => b('Nalanda housed thousands of monks and students supported by tax-free village grants, teaching diverse philosophies.', 'नालंदा में हजारों छात्र रहते थे जहाँ तर्कशास्त्र, दर्शन, चिकित्सा और खगोल का गहन अध्ययन होता था।'),
+      explain: () => b('Nalanda and Vikramashila were collaborative, tax-funded learning ecosystems where ideas had to survive rigorous questioning.', 'नालंदा व विक्रमशिला में हर विचार को खुले प्रश्न-उत्तर और तर्क की कसौटी पर खरा उतरना पड़ता था।'),
     },
   ],
   exit: [
     {
       id: 'e1',
-      stem: b('Which breakthrough made large astronomical calculations in ancient India vastly simpler than Roman numerals?', 'प्राचीन भारत की किस खोज ने बड़ी गणनाओं को रोमन अंकों की तुलना में बहुत सरल बना दिया?'),
-      correct: 'dec',
+      stem: b('How is Panini’s Ashtadhyayi connected to modern computer science and AI language technology?', 'पाणिनि की अष्टाध्यायी आधुनिक कंप्यूटर विज्ञान और एआई भाषा तकनीक से कैसे जुड़ी है?'),
+      correct: 'rules',
       options: [
-        { id: 'dec', ...b('The decimal place-value system with zero', 'शून्य के साथ दशमलव स्थानीय मान प्रणाली') },
-        { id: 'tally', ...b('Counting solely on stones', 'केवल पत्थरों से गिनना'), why: b('Zero as a placeholder unlocked modern arithmetic worldwide.', 'शून्य के स्थानीय मान ने आधुनिक अंकगणित का मार्ग खोला।') },
+        { id: 'rules', ...b('It expressed complex human language using ~4,000 compact generative rules & recursion — like formal syntax engines.', 'इसने लगभग 4,000 संक्षिप्त जनरेटिव नियमों व आवर्तन से जटिल भाषा व्यक्त की — औपचारिक सिंटैक्स इंजन की तरह।') },
+        { id: 'electricity', ...b('Panini built silicon microchips in Taxila.', 'पाणिनि ने तक्षशिला में सिलिकॉन चिप बनाई।'), why: b('Panini worked with formal symbolic logic on palm/oral systems centuries before electricity.', 'पाणिनि ने बिजली से सदियों पहले अमूर्त तार्किक नियम-प्रणाली रची।') },
       ],
-      explain: b('From India, decimal place-value travelled through West Asian scholars to transform global science and trade.', 'भारत से दशमलव प्रणाली पश्चिम एशिया के विद्वानों द्वारा पूरे विश्व में पहुँची।'),
-      hint: b('Open the Zero, Place-Value & Aryabhata card.', 'शून्य व आर्यभट कार्ड खोलें।'),
+      explain: b('Formal rule systems and recursive substitution invented in grammar laid intellectual foundations recognised by computer scientists.', 'व्याकरण में विकसित औपचारिक नियम-प्रणाली को आज भी कंप्यूटर वैज्ञानिक आदर्श मानते हैं।'),
+      hint: b('Click the Panini card with the AI connection toggle ON.', 'एआई जुड़ाव चालू करके पाणिनि कार्ड देखें।'),
     },
   ],
-  reflect: b('Why is open debate (shastrartha) important for keeping knowledge traditions alive and self-correcting?', 'ज्ञान परंपराओं को जीवित व त्रुटि-सुधार योग्य रखने के लिए खुला शास्त्रार्थ क्यों ज़रूरी है?'),
+  reflect: b('How is ancient Indian Shastrartha (testing arguments for contradictions) a superpower against blindly believing AI chatbots today?', 'प्राचीन भारतीय शास्त्रार्थ (तर्क में दोष खोजना) आज एआई चैटबॉट पर आँख मूंदकर भरोसा करने से कैसे बचाता है?'),
 };
 
-// ================================================================ T05.L5 Trade routes & guilds (shreni)
+// ================================================================ T05.L5 Trade routes, Shreni guilds & Bay of Bengal Commerce
 export const guildTrade = {
   id: 'T05.L5',
-  objective: b('Plan caravan and coastal shipments along India’s ancient Uttarapatha and Dakshinapatha routes and understand how merchant guilds (shrenis) lowered risk.', 'प्राचीन भारत के उत्तरापथ व दक्षिणापथ मार्गों पर व्यापार योजना बनाएँ और जानें कि श्रेणी (व्यापारी संघ) ने जोखिम कैसे घटाया।'),
-  note: { kind: 'reconstruction', en: 'Historic arteries mapped on datta07/INDIAN-SHAPEFILES; prices/profits are schematic teaching units.', hi: 'ऐतिहासिक मार्ग; कीमतें व लाभ शिक्षण-इकाइयाँ हैं।' },
-  init: () => ({ route: 'uttarapatha', shreniJoin: true }),
+  objective: b('Simulate overland and maritime commerce along Uttarapatha, Dakshinapatha & Bay of Bengal guild routes up to 1000 CE (Shreni, Manigramam, Ayyavole 500).', '1000 ई. तक उत्तरापथ, दक्षिणापथ व बंगाल की खाड़ी मार्गों पर श्रेणी, मणिग्रामम व अय्यावोले संघों के व्यापार व जोखिम का अनुकरण करें।'),
+  note: { kind: 'reconstruction', en: 'Historic corridors on datta07/INDIAN-SHAPEFILES; financial figures are schematic teaching units.', hi: 'ऐतिहासिक गलियारे; आर्थिक आंकड़े शिक्षण-सरलीकरण हैं।' },
+  init: () => ({ route: 'uttarapatha', shreniJoin: true, monsoonInsurance: false, cargoValue: 120 }),
   controls: [
-    { id: 'route', type: 'chips', label: b('Trade corridor', 'व्यापार गलियारा'), options: [opt('uttarapatha', 'Uttarapatha (Taxila → Tamralipti)', 'उत्तरापथ (तक्षशिला → ताम्रलिप्ति)'), opt('dakshinapatha', 'Dakshinapatha (Pataliputra → Barygaza / Muziris)', 'दक्षिणापथ (पाटलिपुत्र → भृगुकच्छ / मुज़िरिस)')] },
-    { id: 'shreniJoin', type: 'toggle', label: b('Operate inside a Shreni (merchant guild)', 'श्रेणी (व्यापारी संघ) में शामिल हों') },
+    { id: 'route', type: 'chips', label: b('Trade corridor (up to 1000 CE)', 'व्यापार मार्ग (1000 ई. तक)'), options: [opt('uttarapatha', 'Uttarapatha (Taxila → Tamralipti)', 'उत्तरापथ'), opt('dakshinapatha', 'Dakshinapatha (Barygaza / Muziris)', 'दक्षिणापथ'), opt('maritime', 'Chola / Pala Bay of Bengal Sea Guilds', 'समुद्री व्यापार (कावेरीपट्टिनम → पूर्व)')] },
+    { id: 'cargoValue', type: 'slider', label: b('Shipment capital (gold units)', 'व्यापार पूंजी (स्वर्ण इकाई)'), min: 60, max: 240, step: 20 },
+    { id: 'shreniJoin', type: 'toggle', label: b('Join a Guild (Shreni / Manigramam)', 'श्रेणी / व्यापार संघ में शामिल हों') },
+    { id: 'monsoonInsurance', type: 'toggle', label: b('Pooled caravan / sea risk fund', 'सामूहिक जोखिम सुरक्षा कोष') },
   ],
   view(S) {
-    const ut = S.route === 'uttarapatha';
+    const ut = S.route === 'uttarapatha', sea = S.route === 'maritime';
     const coords = ut
       ? [[72.8, 33.7], [77.2, 28.6], [77.7, 27.5], [83.0, 25.3], [85.1, 25.6], [87.9, 22.3]]
-      : [[85.1, 25.6], [78.6, 23.8], [75.8, 23.2], [73.0, 21.7], [76.2, 10.2]];
+      : sea
+        ? [[87.9, 22.3], [85.8, 20.1], [80.3, 13.0], [79.8, 11.1], [86.0, 10.5], [93.5, 9.2]]
+        : [[85.1, 25.6], [78.6, 23.8], [75.8, 23.2], [73.0, 21.7], [76.2, 10.2]];
     const markers = ut
-      ? [{ lon: 77.7, lat: 27.5, r: 6, fill: '#b45309', label: b('Mathura', 'मथुरा') }, { lon: 85.1, lat: 25.6, r: 7, fill: '#b45309', label: b('Pataliputra', 'पाटलिपुत्र') }, { lon: 87.9, lat: 22.3, r: 7, fill: '#0369a1', label: b('Tamralipti port', 'ताम्रलिप्ति') }]
-      : [{ lon: 75.8, lat: 23.2, r: 6.5, fill: '#b45309', label: b('Ujjayini', 'उज्जयिनी') }, { lon: 73.0, lat: 21.7, r: 7, fill: '#0369a1', label: b('Barygaza (Bharuch)', 'भृगुकच्छ') }, { lon: 76.2, lat: 10.2, r: 7, fill: '#0369a1', label: b('Muziris', 'मुज़िरिस') }];
-    const svg = indiaMapSvg({ w: 640, h: 410, paths: [{ coords, stroke: ut ? '#b45309' : '#7c3aed', width: 4 }], markers, aria: `${S.route} trade corridor across India` });
-    const profit = S.shreniJoin ? 145 : 80;
-    const risk = S.shreniJoin ? 'low (pooled escorts + guild credit)' : 'high (lone trader risk)';
+      ? [{ lon: 77.7, lat: 27.5, r: 6, fill: '#b45309', label: b('Mathura', 'मथुरा') }, { lon: 85.1, lat: 25.6, r: 7, fill: '#b45309', label: b('Pataliputra', 'पाटलिपुत्र') }, { lon: 87.9, lat: 22.3, r: 7, fill: '#0369a1', label: b('Tamralipti', 'ताम्रलिप्ति') }]
+      : sea
+        ? [{ lon: 87.9, lat: 22.3, r: 6.5, fill: '#0369a1', label: b('Tamralipti (Pala)', 'ताम्रलिप्ति') }, { lon: 79.8, lat: 11.1, r: 7.5, fill: '#059669', label: b('Kaveripattinam (Chola)', 'कावेरीपट्टिनम') }, { lon: 93.0, lat: 9.5, r: 6, fill: '#7c3aed', label: b('To Suvarnabhumi →', 'सुवर्णभूमि की ओर →') }]
+        : [{ lon: 75.8, lat: 23.2, r: 6.5, fill: '#b45309', label: b('Ujjayini', 'उज्जयिनी') }, { lon: 73.0, lat: 21.7, r: 7, fill: '#0369a1', label: b('Barygaza', 'भृगुकच्छ') }, { lon: 76.2, lat: 10.2, r: 7, fill: '#0369a1', label: b('Muziris', 'मुज़िरिस') }];
+    const sim = H.guildRiskSim({ route: S.route, shreniJoin: S.shreniJoin, cargoValue: S.cargoValue, monsoonInsurance: S.monsoonInsurance });
+    const svg = indiaMapSvg({ w: 640, h: 410, paths: [{ coords, stroke: ut ? '#b45309' : sea ? '#059669' : '#7c3aed', width: 4 }], markers, aria: `${S.route} trade corridor across India` });
     return {
       plate: {
         src: 'assets/images/plates/t05-guilds.jpg',
-        en: 'Ancient Uttarapatha merchant guild (shreni): spice sacks, terracotta jars, silver punch-marked coins and ivory trade seal.',
-        hi: 'प्राचीन उत्तरापथ की श्रेणी (व्यापारी संघ): मसालों की बोरियाँ, मिट्टी के घड़े, चाँदी के आहत सिक्के व व्यापारिक मुहर।',
+        en: 'Ancient merchant guild (shreni): spice sacks, terracotta jars, silver punch-marked coins and ivory trade seal.',
+        hi: 'प्राचीन श्रेणी (व्यापारी संघ): मसालों की बोरियाँ, घड़े, चाँदी के आहत सिक्के व व्यापारिक मुहर।',
       },
       svg,
-      aria: `${S.route} with shreni=${S.shreniJoin}`,
+      aria: `${S.route} net ${sim.netReturn}, risk ${sim.riskPct}%`,
       lines: [
-        ut ? b('Uttarapatha carried horses, lapis, wool, Ganga textiles & fine bowls toward the Bay of Bengal port of Tamralipti.', 'उत्तरापथ से घोड़े, ऊन, रत्न व गंगा वस्त्र बंगाल की खाड़ी के ताम्रलिप्ति बंदरगाह तक जाते थे।')
-          : b('Dakshinapatha linked northern cities via Ujjayini to western ports (Barygaza/Bharuch) and Kerala spice ports (Muziris).', 'दक्षिणापथ उज्जयिनी से होते हुए भृगुकच्छ और केरल के मुज़िरिस मसाला बंदरगाह को जोड़ता था।'),
-        { en: `Net shipment outcome: ${profit} gold-unit score · Risk: ${risk}. Shrenis acted like early banks, setting quality rules & lending at fixed interest.`, hi: `अनुमानित व्यापार परिणाम: ${profit} · जोखिम: ${S.shreniJoin ? 'कम (सामूहिक सुरक्षा व ऋण)' : 'अधिक'}। श्रेणियाँ आरंभिक बैंकों व गुणवत्ता मानकों का काम करती थीं।`, cls: S.shreniJoin ? 'balanced' : 'warn' },
+        ut ? b('Uttarapatha carried horses, lapis, wool, Ganga textiles & bowls to the Bay of Bengal port of Tamralipti.', 'उत्तरापथ से घोड़े, ऊन, रत्न व वस्त्र बंगाल की खाड़ी के ताम्रलिप्ति बंदरगाह तक जाते थे।')
+          : sea
+            ? b('By 800–1000 CE, South Indian merchant guilds (Manigramam & Ayyavole 500) sailed across the Bay of Bengal linking Kaveripattinam & Bengal with Southeast Asia.', '800–1000 ई. तक मणिग्रामम व अय्यावोले 500 जैसे दक्षिण भारतीय संघ कावेरीपट्टिनम व बंगाल से दक्षिण-पूर्व एशिया तक समुद्री व्यापार करते थे।')
+            : b('Dakshinapatha linked northern cities via Ujjayini to western ports (Barygaza) and Kerala spice harbours (Muziris).', 'दक्षिणापथ उज्जयिनी से होकर भृगुकच्छ और मुज़िरिस मसाला बंदरगाहों को जोड़ता था।'),
+        { en: `Net return: ${sim.netReturn} units · Loss Risk: ${sim.riskPct}% · Guild/Pool Fee: ${sim.fee} units. Pooling escorts and guild credit beats going alone on high-value routes.`, hi: `शुद्ध लाभ: ${sim.netReturn} इकाई · हानि जोखिम: ${sim.riskPct}% · संघ शुल्क: ${sim.fee} इकाई। सामूहिक सुरक्षा व साख से लंबी दूरी का व्यापार सुरक्षित बनता है।`, cls: sim.riskPct > 30 ? 'warn' : 'balanced' },
       ],
     };
   },
-  discover: [b('Compare profits and risks with the Shreni toggle ON vs OFF.', 'श्रेणी विकल्प चालू और बंद कर लाभ व जोखिम की तुलना करें।')],
+  discover: [b('Select Bay of Bengal Sea Guilds with high cargo capital (240). Toggle Shreni & Pooled Risk Fund ON vs OFF to see risk drop!', 'उच्च पूंजी (240) पर समुद्री व्यापार चुनकर श्रेणी और सुरक्षा कोष चालू-बंद करें। जोखिम घटते देखें!')],
   predictions: [
     {
       id: 'p1',
-      stem: b('How did ancient Indian shrenis (craft and merchant guilds) support long-distance trade?', 'प्राचीन भारतीय श्रेणियों (शिल्प व व्यापारी संघों) ने लंबी दूरी के व्यापार में कैसे मदद की?'),
-      options: [opt('bank', 'They accepted deposits, lent working capital, hired caravan guards and guaranteed craft quality', 'वे जमा स्वीकार करतीं, ऋण देतीं, काफ़िला सुरक्षा रखतीं और गुणवत्ता की गारंटी देती थीं'), opt('forbid', 'They banned ships from using rivers', 'उन्होंने नदियों में नावें बंद कर दीं')],
+      stem: b('How did ancient Indian shrenis and early medieval guilds (Manigramam, Ayyavole 500) support long-distance trade?', 'प्राचीन श्रेणियों और मणिग्रामम/अय्यावोले जैसे संघों ने लंबी दूरी के व्यापार में कैसे मदद की?'),
+      options: [opt('bank', 'They accepted deposits, lent working capital, hired caravan/ship guards and guaranteed craft quality', 'वे जमा स्वीकार करतीं, ऋण देतीं, काफ़िला/जहाज़ सुरक्षा रखतीं और गुणवत्ता की गारंटी देती थीं'), opt('forbid', 'They banned ships from using rivers', 'उन्होंने नदियों में नावें बंद कर दीं')],
       run: (S) => { S.shreniJoin = true; return 'bank'; },
-      explain: () => b('Inscriptions at Mathura and Nasik record guilds managing endowments and reliable financial trust.', 'मथुरा व नासिक अभिलेखों से पता चलता है कि श्रेणियाँ ब्याज व दान निधियों का भरोसेमंद संचालन करती थीं।'),
+      explain: () => b('Inscriptions at Mathura, Nasik and South India record guilds acting as self-governing banks, courts and charitable endowments.', 'मथुरा, नासिक व दक्षिण भारत के अभिलेख दिखाते हैं कि श्रेणियाँ बैंक, गुणवत्ता नियम और दान निधियाँ चलाती थीं।'),
     },
   ],
   exit: [
@@ -476,5 +555,78 @@ export const guildTrade = {
       hint: b('Select Dakshinapatha on the map.', 'मानचित्र पर दक्षिणापथ चुनें।'),
     },
   ],
-  reflect: b('Why are shared trade trusts and standard weights almost as vital as good roads for expanding commerce?', 'व्यापार बढ़ाने के लिए अच्छी सड़कों जितना ही महत्त्वपूर्ण साझा विश्वास और मानक बाट क्यों होते हैं?'),
+  reflect: b('Why are shared institutional trust, quality standards and pooled insurance just as vital as physical highways and ports?', 'भौतिक सड़कों व बंदरगाहों जितना ही महत्त्वपूर्ण साझा संस्थागत विश्वास और गुणवत्ता मानक क्यों होते हैं?'),
 };
+
+// ================================================================ T05.L6 AI-Era Historian Audit Studio (Non-Rote Source Critique)
+const AI_CLAIMS = {
+  ashoka: {
+    botTitle: b('AI Bot Output #1: “Ashoka’s 260 BCE Paper Flyers”', 'एआई बॉट दावा #1: “अशोक के 260 ई.पू. के कागज़ी पर्चे”'),
+    claim: b('“In 260 BCE, Emperor Ashoka printed thousands of paper pamphlets in Sanskrit to force every citizen into one uniform religion.”', '“260 ई.पू. में सम्राट अशोक ने संस्कृत में हजारों कागज़ी पर्चे छपवाकर हर नागरिक पर एक धर्म थोप दिया।”'),
+    fix: b('Truth from Evidence: Printing & rag paper did not exist in India in 260 BCE (Anachronism!). Edicts were carved in spoken Prakrit/Greek/Aramaic on pillars & rocks advocating inter-sect harmony (Dhamma/Samavaya).', 'प्रमाणित सत्य: 260 ई.पू. में मुद्रण व कागज़ नहीं थे (काल-दोष!)। अशोक ने स्तंभों-शिलाओं पर जनसामान्य की प्राकृत भाषा में सभी संप्रदायों के सद्भाव (धम्म/समवाय) का संदेश खुदवाया।'),
+  },
+  samanta: {
+    botTitle: b('AI Bot Output #2: “Zero Local Assemblies Before 1000 CE”', 'एआई बॉट दावा #2: “1000 ई. से पूर्व कोई स्थानीय सभा नहीं”'),
+    claim: b('“Before modern elections, ordinary villagers in ancient India up to 1000 CE had zero organised rules, votes, or local committees.”', '“आधुनिक चुनावों से पहले 1000 ई. तक प्राचीन भारत के गाँवों में कोई नियम, मतदान या स्थानीय समिति नहीं थी।”'),
+    fix: b('Truth from Evidence: Omission bias! Vajji Gana-Sangha debates (6th BCE) and Chola Uttaramerur temple inscriptions (919–921 CE) prove Kudavolai palm-leaf lottery committees with strict voter & audit rules.', 'प्रमाणित सत्य: तथ्य-लोप पक्षपात! वज्जि गणसंघ की सभाएँ और उत्तरमेरूर चोल अभिलेख (919–921 ई.) कुदावोलई ताड़पत्र चुनाव व लेखा-जाँच समितियों को सिद्ध करते हैं।'),
+  },
+  science: {
+    botTitle: b('AI Bot Output #3: “Pure Poetry With No Method Before 1000 CE”', 'एआई बॉट दावा #3: “1000 ई. से पूर्व केवल काव्य, कोई विज्ञान नहीं”'),
+    claim: b('“Indian writings before 1000 CE contained only mythological tales with no mathematical algorithms, grammar rules, or metallurgy.”', '“1000 ई. से पूर्व भारतीय लेखन में केवल पौराणिक कथाएँ थीं — कोई गणितीय सूत्र, व्याकरण नियम या धातुकर्म नहीं था।”'),
+    fix: b('Truth from Evidence: Panini’s 4,000 generative sutras, Aryabhata/Brahmagupta’s zero & π rules, Sushruta surgical tools, and the rust-free Mehrauli Iron Pillar prove empirical & formal rule traditions.', 'प्रमाणित सत्य: पाणिनि के 4,000 सूत्र, आर्यभट-ब्रह्मगुप्त के शून्य नियम, सुश्रुत शल्य-उपकरण और जंग-रहित महरौली स्तंभ वैज्ञानिक परंपरा प्रमाणित करते हैं।'),
+  },
+};
+
+export const aiAuditLab = {
+  id: 'T05.L6',
+  objective: b('Train AI-era historical discernment: audit plausible-sounding AI bot summaries using epigraphy, chronology and material remains instead of rote recall.', 'एआई युग का इतिहास-विवेक विकसित करें: रटने के बजाय अभिलेख, कालक्रम और पुरावशेषों से आकर्षक एआई दावों की तथ्य-जाँच करें।'),
+  note: { kind: 'documented', en: 'Inspired by 21st-century lateral reading & source-corroboration pedagogy — never accept an unverified summary blindly.', hi: 'आधुनिक स्रोत-जाँच शिक्षण पर आधारित — किसी भी सारांश को प्रमाण जाँचे बिना स्वीकार न करें।' },
+  init: () => ({ claimId: 'ashoka', checkEpigraphy: true, checkChronology: false, checkMaterial: false }),
+  controls: [
+    { id: 'claimId', type: 'chips', label: b('Choose AI bot claim to fact-check', 'जाँचने हेतु एआई दावा चुनें'), options: [opt('ashoka', 'Claim 1: Ashoka Pamphlets', 'दावा 1: अशोक पर्चे'), opt('samanta', 'Claim 2: No Village Rules', 'दावा 2: कोई ग्राम सभा नहीं'), opt('science', 'Claim 3: Zero Science', 'दावा 3: कोई विज्ञान नहीं')] },
+    { id: 'checkEpigraphy', type: 'toggle', label: b('Verify Stone & Copper Inscriptions', 'शिलालेख व ताम्रपत्र जाँचें') },
+    { id: 'checkChronology', type: 'toggle', label: b('Run Material & Date Anachronism Check', 'तिथि व तकनीक काल-दोष जाँचें') },
+    { id: 'checkMaterial', type: 'toggle', label: b('Verify Excavated Artefacts & Coins', 'उत्खनित पुरावशेष व सिक्के जाँचें') },
+  ],
+  view(S) {
+    const c = AI_CLAIMS[S.claimId] || AI_CLAIMS.ashoka;
+    const sim = H.sourceAuditSim(S);
+    const pill = (x, label, ok) => `<rect x="${x}" y="86" width="184" height="44" rx="8" fill="${ok ? '#dcfce7' : '#f1f5f9'}" stroke="${ok ? '#16a34a' : '#94a3b8'}" stroke-width="2"/><text class="txt sm b" x="${x + 92}" y="112" text-anchor="middle" fill="${ok ? '#14532d' : '#475569'}">${esc(label)}</text>`;
+    const svg = `<svg viewBox="0 0 640 206" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="12" width="612" height="182" rx="12" fill="var(--card)" stroke="${sim.status === 'debunked' ? '#16a34a' : '#d97706'}" stroke-width="3"/><text class="txt b" x="32" y="42">${esc(P(c.botTitle.en, c.botTitle.hi))}</text><text class="txt sm mut" x="32" y="64">${esc(P(`Forensic Checks Active: ${sim.checksDone}/3 · Flaws Exposed: ${sim.caught}/${sim.totalFlaws}`, `सक्रिय जाँच: ${sim.checksDone}/3 · पकड़ी गई त्रुटियाँ: ${sim.caught}/${sim.totalFlaws}`))}</text>${pill(28, P(S.checkEpigraphy ? '✓ Epigraphy Checked' : '○ Epigraphy Off', S.checkEpigraphy ? '✓ अभिलेख जाँच' : '○ अभिलेख बंद'), S.checkEpigraphy)}${pill(228, P(S.checkChronology ? '✓ Chronology Checked' : '○ Chronology Off', S.checkChronology ? '✓ कालक्रम जाँच' : '○ कालक्रम बंद'), S.checkChronology)}${pill(428, P(S.checkMaterial ? '✓ Artefacts Checked' : '○ Artefacts Off', S.checkMaterial ? '✓ पुरावशेष जाँच' : '○ पुरावशेष बंद'), S.checkMaterial)}<rect x="28" y="148" width="584" height="30" rx="8" fill="${sim.status === 'debunked' ? '#dcfce7' : sim.status === 'partial' ? '#fef3c7' : '#fee2e2'}"/><text class="txt sm b" x="320" y="168" text-anchor="middle" fill="#1e293b">${esc(P(sim.status === 'debunked' ? `✓ HALLUCINATION EXPOSED (${sim.verifiedPct}% confidence)` : sim.status === 'partial' ? `⚠ Partial clues (${sim.caught}/${sim.totalFlaws}) — run another check!` : 'Unchecked Bot Claim — Do NOT copy blindly!', sim.status === 'debunked' ? `✓ एआई भ्रम पकड़ा गया (${sim.verifiedPct}% प्रमाणित)` : sim.status === 'partial' ? `⚠ आंशिक जाँच — एक और प्रमाण जाँचें!` : 'अप्रमाणित एआई दावा — बिना जाँचे न मानें!'))}</text></svg>`;
+    return {
+      svg,
+      aria: `${c.botTitle.en}, flaws caught ${sim.caught} of ${sim.totalFlaws}`,
+      lines: [
+        { en: c.claim.en, hi: c.claim.hi, cls: 'note' },
+        sim.status === 'debunked'
+          ? { en: c.fix.en, hi: c.fix.hi, cls: 'balanced' }
+          : b('Switch ON Epigraphy, Chronology and Artefacts checks above to expose every factual distortion in this AI output.', 'ऊपर अभिलेख, कालक्रम और पुरावशेष जाँच चालू कर इस एआई दावे की सभी त्रुटियाँ उजागर करें।'),
+      ],
+    };
+  },
+  discover: [b('Audit all 3 AI claims by toggling the 3 forensic verification switches. Notice how fluent AI sentences hide anachronisms until cross-checked!', 'तीनों एआई दावों पर तीनों प्रमाण-जाँच चालू करें। देखें कि सुंदर वाक्यों में छिपे काल-दोष कैसे पकड़े जाते हैं!')],
+  predictions: [
+    {
+      id: 'p1',
+      stem: b('When an AI claims Ashoka distributed “printed Sanskrit paper pamphlets in 260 BCE”, which TWO checks immediately shatter that claim?', 'जब कोई एआई कहता है कि अशोक ने “260 ई.पू. में छपे कागज़ी संस्कृत पर्चे” बाँटे, तो कौन-सी दो जाँचें तुरंत इस दावे को तोड़ती हैं?'),
+      options: [opt('epichron', 'Chronology check (no printing press in 260 BCE) + Epigraphy check (stone pillars in spoken Prakrit)', 'कालक्रम जाँच (260 ई.पू. में प्रिंटिंग प्रेस नहीं थी) + अभिलेख जाँच (प्राकृत शिलालेख)'), opt('font', 'Checking font colour on the screen', 'स्क्रीन के रंग बदलना')],
+      run: (S) => { S.claimId = 'ashoka'; S.checkEpigraphy = true; S.checkChronology = true; return 'epichron'; },
+      explain: () => b('Combining technology timelines (chronology) with real primary edicts (epigraphy) instantly exposes AI anachronisms and language errors.', 'तकनीकी कालक्रम और वास्तविक शिलालेखों का मिलान एआई की काल्पनिक गलतियाँ तुरंत पकड़ लेता है।'),
+    },
+  ],
+  exit: [
+    {
+      id: 'e1',
+      stem: b('In the AI era, why is learning how to verify inscriptions, material remains and dates MORE valuable than memorising textbook summaries?', 'एआई युग में पाठ्यपुस्तक रटने से अधिक उपयोगी अभिलेखों, पुरावशेषों और तिथियों से जाँच करना क्यों है?'),
+      correct: 'verify',
+      options: [
+        { id: 'verify', ...b('Because AI generates fast summaries — including confident errors — so only citizens skilled in corroboration can separate fact from fiction.', 'क्योंकि एआई तेज़ सारांश तो बना देता है पर गलतियाँ भी गढ़ सकता है; केवल प्रमाण-मिलान जानने वाला विद्यार्थी ही सच-झूठ परख सकता है।') },
+        { id: 'obsolete', ...b('Because primary inscriptions never existed.', 'क्योंकि प्राचीन अभिलेख कभी थे ही नहीं।'), why: b('Ashokan and Chola inscriptions remain physical stone evidence anyone can verify.', 'अशोक व चोल अभिलेख आज भी प्रत्यक्ष पत्थर प्रमाण हैं।') },
+      ],
+      explain: b('Historical thinking transforms you from a passive consumer of summaries into an active verifier of evidence.', 'ऐतिहासिक सोच आपको निष्क्रिय पाठक से सक्रिय प्रमाण-परीक्षक बनाती है।'),
+      hint: b('Activate all three forensic checks and review the Truth from Evidence verdict.', 'तीनों जाँच चालू करके प्रमाणित सत्य पढ़ें।'),
+    },
+  ],
+  reflect: b('Next time you use an AI assistant to study history, list the 3 verification questions you will ask before trusting its answer.', 'अगली बार इतिहास पढ़ने के लिए एआई का उपयोग करते समय आप उत्तर पर भरोसा करने से पहले कौन-से 3 जाँच-प्रश्न पूछेंगे?'),
+};
+

@@ -270,6 +270,25 @@ test('src/main.js app shell boots, routes Home <-> Theme, toggles preferences & 
     cbqOpt.click();
     assert.ok(document.querySelector('#main .cbq-card .feedback').textContent.length > 0, 'CBQ answer gives immediate feedback');
 
+    // Verify T05 State & Society (upto 1000 CE) mounts all 6 interactive AI-era tabs (including AI Audit Studio)
+    location.hash = '#/theme/T05';
+    window.dispatchEvent(new Event('hashchange'));
+    for (let i = 0; i < 40 && !document.querySelector('#module [role="tab"]'); i++) {
+      await new Promise((r) => setTimeout(r, 15));
+    }
+    const t05Tabs = [...document.querySelectorAll('#module > .tabs > .tabbar > [role="tab"]')];
+    assert.equal(t05Tabs.length, 6, 'T05 should mount all 6 experiential labs (L1-L6)');
+    t05Tabs[5].click();
+    await new Promise((r) => setTimeout(r, 10));
+    const l6 = document.querySelector('#lab-T05-L6');
+    assert.ok(l6, 'T05.L6 AI Audit Studio should mount cleanly');
+    l6.querySelector('.chips .chip[data-id="ashoka"]').click();
+    const chronSw = l6.querySelector('#T05-L6-checkChronology');
+    const epiSw = l6.querySelector('#T05-L6-checkEpigraphy');
+    if (!epiSw.checked) epiSw.click();
+    if (!chronSw.checked) chronSw.click();
+    assert.match(l6.querySelector('.readout').textContent, /Prakrit|प्राकृत/, 'Auditing Ashoka bot claim reveals primary-source truth');
+
     // Navigate to #/bridge and verify India Board Map Lab + Locate-Me drill + IDP + 16-theme matrix
     location.hash = '#/bridge';
     window.dispatchEvent(new Event('hashchange'));
@@ -347,6 +366,18 @@ test('3D diorama library + Hero globe + T09 public goods plate build cleanly wit
     const api = mkApi();
     const inst = builder(api, labelHost);
     inst.update(st);
+    if (id === 'T05') {
+      for (const alt of [
+        { era: 'earlyVedic' },
+        { era: 'janapada' },
+        { era: 'chola1000' },
+        { topic: 'metal' },
+        { route: 'maritime', shreniJoin: true },
+        { claimId: 'ashoka', checkEpigraphy: true, checkChronology: true },
+      ]) {
+        inst.update(alt);
+      }
+    }
     inst.place(true);
     inst.tick?.(1200);
     inst.relabel();
