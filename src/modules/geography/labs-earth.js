@@ -117,6 +117,11 @@ export const landformGallery = {
       g += `<text class="txt b" x="320" y="30" text-anchor="middle">${esc(P('Limestone cavern & stalactites (Karst)', 'चूना-पत्थर कंदरा व स्टैलेक्टाइट'))}</text>`;
     }
     return {
+      plate: {
+        src: 'assets/images/plates/t02-landforms.jpg',
+        en: 'Himalayan fold peaks, braided river canyon and alluvial green valley shaped by uplift and gradation.',
+        hi: 'विवर्तनिक उत्थान व अपरदन-निक्षेपण से बने हिमालयी वलित शिखर, नदी घाटी व जलोढ़ मैदान।',
+      },
       svg: `<svg viewBox="0 0 640 230" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `${LF_NAMES[S.agent].en} landform cross-section`,
       lines: [

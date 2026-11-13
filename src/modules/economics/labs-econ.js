@@ -127,7 +127,14 @@ export const budget = {
     const ref = [[tgt.needs / 100, 'bar-n', `${tgt.needs}%`], [tgt.wants / 100, 'bar-w', `${tgt.wants}%`], [tgt.savings / 100, 'bar-s', `${tgt.savings}%`]];
     const g = bar(34, you, P('Your plan', 'आपकी योजना')) + bar(110, ref, P('Rule of thumb 50 / 30 / 20', 'अनुमान-नियम 50 / 30 / 20')) + (r.deficit ? `<text class="txt b" x="20" y="180" fill="var(--bad)">${esc(P('Spending is more than income!', 'खर्च आय से अधिक है!'))}</text>` : '');
     const yr = Math.max(0, r.savings) * 12;
-    return { svg: `<svg viewBox="0 0 640 195" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Savings ${r.savings} rupees a month.`, lines: [
+    return {
+      plate: {
+        src: 'assets/images/plates/t16-finance.jpg',
+        en: 'Household financial planning: stitched expense ledger (गृहस्थी खाता), clay gullak, coin jar and cash savings.',
+        hi: 'पारिवारिक वित्त योजना: गृहस्थी खाता बही, मिट्टी की गुल्लक, सिक्कों का पात्र व नकद बचत।',
+      },
+      svg: `<svg viewBox="0 0 640 195" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
+      aria: `Savings ${r.savings} rupees a month.`, lines: [
       r.deficit ? { en: `Needs + wants = ${rs(S.needs + S.wants)} is ${rs(-r.savings)} MORE than income. The gap must come from savings or borrowing, and borrowing costs interest.`, hi: `आवश्यकताएँ + इच्छाएँ = ${rs(S.needs + S.wants)}, आय से ${rs(-r.savings)} अधिक है। यह कमी बचत या उधार से पूरी होगी, और उधार पर ब्याज लगता है।`, cls: 'warn' }
         : { en: `Left for savings: ${rs(r.savings)} a month (${fmt(r.savingsPct, 0)}% of income), about ${rs(yr)} a year.`, hi: `बचत के लिए बचा: ${rs(r.savings)} प्रति माह (आय का ${fmt(r.savingsPct, 0)}%), लगभग ${rs(yr)} प्रति वर्ष।`, cls: r.savingsPct >= 20 ? 'balanced' : '' },
       { en: 'Needs are what you must pay to live and learn; wants are nice to have. Savings protect you against shocks like illness.', hi: 'आवश्यकताएँ वे हैं जो जीने और सीखने के लिए ज़रूरी हैं; इच्छाएँ अच्छी लगने वाली चीज़ें हैं। बचत बीमारी जैसे झटकों से बचाती है।', cls: 'note' }] };

@@ -104,9 +104,7 @@ test('DOM + module mount/relabel/a11y/interaction check across all 16 themes (T0
         assert.ok(src && fs.existsSync(path.join(ROOT, src)), `${th.id} .lab-plate missing file: ${src}`);
         assert.ok((img.getAttribute('alt') || '').trim().length > 0, `${th.id} .lab-plate missing alt text`);
       }
-      if (['T01', 'T04', 'T05', 'T06', 'T11', 'T12', 'T13', 'T14'].includes(th.id)) {
-        assert.ok(main.querySelectorAll('.lab-plate img').length >= 1, `${th.id} expected at least one .lab-plate 2D image inside labs`);
-      }
+      assert.ok(main.querySelectorAll('.lab-plate img').length >= 1, `${th.id} expected at least one .lab-plate 2D image inside labs`);
       for (const lang of ['en', 'hi', 'both']) {
         store.set({ lang });
         i18n.apply(main);
