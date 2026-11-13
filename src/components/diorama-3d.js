@@ -229,30 +229,109 @@ const BUILDERS = {
     }
   },
 
-  // T05: Ashokan Pillar, Stupa & Palm-Leaf Knowledge Courtyard
+  // T05: Living State & Society Courtyard (Vedic Sabha -> Mahajanapada -> Mauryan Pillar/Stupa -> Nalanda/Iron Pillar -> Chola Kudavolai + Shreni Trade + AI Fact-Check)
   T05(tk, S) {
-    const { THREE, group, mat, box, cyl, cone, sph, addTree, addLabel, addPlinth, pick } = tk;
-    addPlinth(0xd6be94, 0x7c5c43, 15, 10);
-    // Hemispherical Sanchi-style Stupa
-    const drum = cyl(2.6, 2.7, 0.85, 24, mat(0xb86843), -3.2, -1.45, -0.5);
-    const dome = new THREE.Mesh(new THREE.SphereGeometry(2.35, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2), mat(0xc9885b));
-    dome.position.set(-3.2, -1.05, -0.5);
-    const harmika = box(0.9, 0.55, 0.9, mat(0xe6c38d), -3.2, 1.4, -0.5);
-    group.add(drum, dome, harmika);
-    pick(dome, 'Ancient Brick Stupa', 'प्राचीन ईंट स्तूप');
-    // Polished sandstone Ashokan Pillar
-    const shaft = cyl(0.32, 0.44, 4.2, 18, mat(0xd9b07e, { rough: 0.35, metal: 0.15 }), 2.2, 0.2, 0.2);
-    const cap = cyl(0.62, 0.42, 0.55, 14, mat(0xeab308, { metal: 0.45 }), 2.2, 2.45, 0.2);
+    const { THREE, group, mat, box, cyl, cone, sph, addTree, addHouse, addLabel, addPlinth, pick, animated } = tk;
+    const isVedic = S.era === 'earlyVedic';
+    const isJan = S.era === 'janapada';
+    const isChola = S.era === 'chola1000' || S.govMode === 'chola';
+    const isSea = S.route === 'maritime';
+    addPlinth(isChola ? 0xd9e8c8 : 0xd6be94, 0x7c5c43, 15.5, 10.5);
+
+    // 1. Centerpiece Architecture adapting to Era / Tab
+    if (isVedic) {
+      // Sapta-Sindhu silver-blue river ribbon + Timber Sabha circular assembly + glowing Agni altar
+      const river = box(15.2, 0.09, 2.2, mat(0x38bdf8, { rough: 0.25 }), 0, -1.86, -3.5);
+      group.add(river);
+      pick(river, 'Sapta-Sindhu River Valley', 'सप्त-सिंधु नदी घाटी');
+      for (let i = 0; i < 8; i++) {
+        const a = (i / 8) * Math.PI * 2;
+        const post = cyl(0.18, 0.2, 1.8, 10, mat(0x8a5a2b), Math.cos(a) * 3.1 - 2.6, -1.0, Math.sin(a) * 2.7);
+        group.add(post);
+      }
+      const altar = box(1.2, 0.4, 1.2, mat(0xb45309), -2.6, -1.7, 0);
+      const flame = cone(0.42, 0.9, 10, mat(0xf97316, { emissive: 0xea580c, emissiveIntensity: 0.7 }), -2.6, -1.05, 0);
+      group.add(altar, flame);
+      pick(altar, 'Sabha & Samiti Assembly', 'सभा व समिति जन-सभा');
+      animated.push({ fn: (t) => { flame.scale.y = 0.85 + Math.sin(t * 7) * 0.2; } });
+      addLabel(new THREE.Vector3(-2.6, 0.4, 0), 'Sabha & Samiti', 'सभा व समिति');
+    } else if (isJan) {
+      // Fortified Mahajanapada Brick Gate + Vaishali Gana-Sangha Council Hall + Iron Smelter
+      const gateL = box(1.3, 3.0, 1.4, mat(0xb45309), -4.5, -0.4, 0);
+      const gateR = box(1.3, 3.0, 1.4, mat(0xb45309), -1.8, -0.4, 0);
+      const lintel = box(4.4, 0.65, 1.5, mat(0x9a3412), -3.15, 1.25, 0);
+      const council = cyl(2.1, 2.2, 0.45, 16, mat(0xd97706), 1.6, -1.68, -1.8);
+      group.add(gateL, gateR, lintel, council);
+      pick(lintel, 'Mahajanapada Fortified City', 'महाजनपद प्राचीर नगर');
+      pick(council, 'Vaishali Gana-Sangha Assembly', 'वैशाली गणसंघ सभा');
+      addLabel(new THREE.Vector3(-3.15, 2.1, 0), 'Mahajanapada Gate', 'महाजनपद द्वार');
+      addLabel(new THREE.Vector3(1.6, -0.6, -1.8), 'Vajji Gana-Sangha', 'वज्जि गणसंघ');
+    } else if (isChola) {
+      // Chola Stone Temple Vimana + Irrigation Tank Sluice + Kudavolai Village Ballot Pot!
+      const base = box(3.4, 1.4, 3.4, mat(0x94a3b8), -3.4, -1.2, -0.6);
+      const tier1 = box(2.5, 1.1, 2.5, mat(0xa8a29e), -3.4, 0.05, -0.6);
+      const tier2 = box(1.6, 0.9, 1.6, mat(0xd6d3d1), -3.4, 1.05, -0.6);
+      const kalasha = cone(0.45, 0.85, 12, mat(0xeab308, { metal: 0.6 }), -3.4, 1.9, -0.6);
+      const tank = box(4.2, 0.2, 2.8, mat(0x0284c7, { rough: 0.2 }), 2.2, -1.78, -2.5);
+      const pot = cyl(0.55, 0.72, 1.1, 18, mat(0xc2410c, { metal: 0.25 }), 0.2, -1.35, 1.9);
+      const palm = box(0.26, 0.6, 0.08, mat(0xfef08a), 0.2, -0.55, 1.9);
+      group.add(base, tier1, tier2, kalasha, tank, pot, palm);
+      pick(base, 'Uttaramerur Temple Inscription', 'उत्तरमेरूर मंदिर शिलालेख');
+      pick(pot, 'Kudavolai Palm-Leaf Ballot Pot', 'कुदावोलई ताड़पत्र चुनाव घड़ा');
+      pick(tank, 'Sabha Village Irrigation Tank', 'ग्राम सभा सिंचाई तालाब');
+      animated.push({ fn: (t) => { palm.rotation.y = t * 1.4; } });
+      addLabel(new THREE.Vector3(-3.4, 2.6, -0.6), 'Chola Inscription', 'चोल मंदिर अभिलेख');
+      addLabel(new THREE.Vector3(0.2, 0.35, 1.9), 'Kudavolai Election Pot', 'कुदावोलई चुनाव घड़ा');
+    } else {
+      // Mauryan / Gupta Core: Sanchi Stupa + Stone Torana + Nalanda / Mehrauli Iron Pillar
+      const drum = cyl(2.5, 2.6, 0.8, 24, mat(0xb86843), -3.4, -1.48, -0.5);
+      const dome = new THREE.Mesh(new THREE.SphereGeometry(2.25, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2), mat(0xc9885b));
+      dome.position.set(-3.4, -1.1, -0.5);
+      const harmika = box(0.88, 0.52, 0.88, mat(0xe6c38d), -3.4, 1.3, -0.5);
+      const torL = box(0.28, 2.1, 0.28, mat(0xd9b07e), -1.1, -0.85, -0.1);
+      const torR = box(0.28, 2.1, 0.28, mat(0xd9b07e), -1.1, -0.85, -0.9);
+      const torTop = box(0.22, 0.26, 1.45, mat(0xd9b07e), -1.1, 0.25, -0.5);
+      group.add(drum, dome, harmika, torL, torR, torTop);
+      pick(dome, 'Ancient Brick Stupa & Torana', 'प्राचीन स्तूप व तोरण द्वार');
+      addLabel(new THREE.Vector3(-3.4, 1.95, -0.5), 'Monument & Stupa', 'स्मारक व स्तूप');
+    }
+
+    // 2. Ashokan Sandstone Pillar OR Gupta Rust-Free Iron Pillar
+    const ironMode = S.topic === 'metal';
+    const shaft = cyl(ironMode ? 0.24 : 0.32, ironMode ? 0.28 : 0.44, 4.1, 18, mat(ironMode ? 0x334155 : 0xd9b07e, { rough: 0.3, metal: ironMode ? 0.8 : 0.18 }), 2.0, 0.15, -0.1);
+    const cap = cyl(0.58, 0.4, 0.5, 14, mat(0xeab308, { metal: 0.5 }), 2.0, 2.35, -0.1);
     const wheel = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.07, 8, 20), mat(0xfacc15, { metal: 0.6 }));
-    wheel.position.set(2.2, 3.15, 0.2);
+    wheel.position.set(2.0, 3.05, -0.1);
     group.add(shaft, cap, wheel);
-    pick(shaft, 'Polished Pillar Edict', 'पॉलिश स्तंभ अभिलेख');
-    // Manuscript stone table & terracotta pots
-    group.add(box(2.2, 0.45, 1.3, mat(0x9a7b56), 5.0, -1.65, 2.2), box(1.3, 0.12, 0.6, mat(0xfff1c9), 5.0, -1.35, 2.2));
-    addTree(-5.8, -1.85, 3.2, 1.0, 0x4b8f4c);
-    addLabel(new THREE.Vector3(-3.2, 2.0, -0.5), 'Monument & Stupa', 'स्मारक व स्तूप');
-    addLabel(new THREE.Vector3(2.2, 3.6, 0.2), 'Stone Inscription Pillar', 'शिलालेख स्तंभ');
-    addLabel(new THREE.Vector3(5.0, -0.7, 2.2), 'Palm-Leaf Archive', 'ताड़पत्र अभिलेख');
+    animated.push({ fn: (t) => { wheel.rotation.z = t * 0.5; } });
+    pick(shaft, ironMode ? 'Mehrauli Rustless Iron Pillar' : 'Ashokan Edict Pillar', ironMode ? 'जंग-रहित महरौली लौह स्तंभ' : 'अशोक धम्म स्तंभ अभिलेख');
+    addLabel(new THREE.Vector3(2.0, 3.7, -0.1), ironMode ? 'Gupta Iron Pillar' : 'Ashokan Edict Pillar', ironMode ? 'महरौली लौह स्तंभ' : 'शिलालेख स्तंभ');
+
+    // 3. Knowledge / AI Audit Desk & Trade Guild / Saptanga Highway
+    const isDebunked = S.claimId && S.checkEpigraphy && (S.checkChronology || S.checkMaterial);
+    const desk = box(2.4, 0.48, 1.4, mat(0x9a7b56), 5.1, -1.65, 2.1);
+    const scroll = box(1.4, 0.12, 0.65, mat(isDebunked ? 0x86efac : S.corroborate ? 0x93c5fd : 0xfff1c9), 5.1, -1.34, 2.1);
+    group.add(desk, scroll);
+    pick(desk, 'Palm-Leaf & Epigraphy Archive', 'ताड़पत्र व प्रमाण अभिलेखागार');
+    addLabel(new THREE.Vector3(5.1, -0.65, 2.1), S.claimId ? 'Evidence Verification Desk' : 'Nalanda & IKS Archive', S.claimId ? 'प्रमाण सत्यापन मेज़' : 'नालंदा ज्ञान अभिलेख');
+
+    // Highway + Shreni Guild Caravan / Maritime Dock
+    const roadW = S.roadsInvest ? 0.8 + (S.roadsInvest / 100) * 1.4 : 1.1;
+    const road = box(14.6, 0.08, roadW, mat(isSea ? 0x0284c7 : 0xa8916b), 0, -1.87, 3.5);
+    group.add(road);
+    if (S.shreniJoin || isSea || S.taxRate) {
+      const taxAlert = (S.taxRate ?? 17) > 28;
+      addHouse(-5.4, -1.85, 2.8, taxAlert ? 0xfca5a5 : 0xfde68a, taxAlert ? 0xb91c1c : 0x16a34a, 0.82, !taxAlert);
+      const cart = box(1.3, 0.6, 0.8, mat(S.shreniJoin ? 0xd97706 : 0x64748b), 2.8, -1.52, 3.5);
+      group.add(cart);
+      if (isSea) {
+        const sail = cone(0.65, 1.4, 4, mat(0xfef3c7), 2.8, -0.6, 3.5);
+        group.add(sail);
+      }
+      pick(cart, S.shreniJoin ? 'Shreni Guild Caravan / Ship' : 'Uninsured Solo Trader', S.shreniJoin ? 'श्रेणी व्यापारी काफ़िला / जहाज़' : 'अकेला व्यापारी जोखिम');
+      animated.push({ fn: (t) => { cart.position.x = 1.5 + Math.sin(t * 0.9) * 2.4; } });
+    }
+    addTree(-6.0, -1.85, -3.2, 1.0, 0x4b8f4c);
   },
 
   // T06: Circular Parliament & Gram Sabha Rotunda

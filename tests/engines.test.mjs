@@ -125,4 +125,14 @@ test('history, politics, startup & finance extended engines produce consistent o
   assert.ok(E.startup.creativeDestruction({ retrainSupport: 100 }).finalNetJobs > E.startup.creativeDestruction({ retrainSupport: 0 }).finalNetJobs);
   near(E.finance.insurancePool({ poolSize: 200, claimProbPct: 3, claimAmount: 40000 }).fairPremium, 1200);
   near(E.finance.taxConceptAlloc({ incomeUnits: 4, progressivity: 1 }).effectiveTax, 0);
+  const sapFair = E.history.saptangaEmpireSim({ taxRate: 16, roadsInvest: 70, irrigationInvest: 70, governanceMode: 'chola' });
+  const sapSqueeze = E.history.saptangaEmpireSim({ taxRate: 38, roadsInvest: 10, irrigationInvest: 10, governanceMode: 'samanta' });
+  assert.ok(sapFair.legitimacy > sapSqueeze.legitimacy && sapFair.villageResilience > sapSqueeze.villageResilience);
+  assert.ok(sapSqueeze.breakawayRisk > sapFair.breakawayRisk);
+  assert.equal(sapFair.limbs.length, 5);
+  const gPool = E.history.guildRiskSim({ route: 'maritime', shreniJoin: true, cargoValue: 200, monsoonInsurance: true });
+  const gSolo = E.history.guildRiskSim({ route: 'maritime', shreniJoin: false, cargoValue: 200, monsoonInsurance: false });
+  assert.ok(gPool.riskPct < gSolo.riskPct && gPool.netReturn > gSolo.netReturn);
+  assert.equal(E.history.sourceAuditSim({ claimId: 'ashoka', checkEpigraphy: true, checkChronology: true }).status, 'debunked');
+  assert.equal(E.history.sourceAuditSim({ claimId: 'science', checkEpigraphy: false, checkChronology: false, checkMaterial: false }).status, 'unverified');
 });

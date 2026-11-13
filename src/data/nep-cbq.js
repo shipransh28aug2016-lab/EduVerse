@@ -157,9 +157,9 @@ export const THEME_NEP = {
       summary: b('From Ashokan edicts and palm-leaf manuscripts to Takshashila, Nalanda, and trade guilds, T05 builds the cultural-institutional root for Class X Print Culture and Nationhood.', 'अशोक के शिलालेखों व ताड़पत्रों से नालंदा और व्यापार श्रेणियों तक, T05 कक्षा X की मुद्रण संस्कृति व राष्ट्र-निर्माण की नींव रखता है।'),
     },
     tours: [
-      { az: -0.75, pol: 1.05, r: 15, en: 'Step 1 · Ancient Stupa: Hemispherical brick architecture preserving early communal memory.', hi: 'चरण 1 · प्राचीन स्तूप: ईंटों की गुंबद वास्तुकला जो प्रारंभिक परंपरा सहेजती है।' },
-      { az: 0.35, pol: 1.08, r: 14, en: 'Step 2 · Ashokan Pillar Edict: Public Prakrit/Brahmi messages engraved along trade roads.', hi: 'चरण 2 · अशोक स्तंभ लेख: व्यापार मार्गों पर जन-जन के लिए प्राकृत/ब्राह्मी संदेश।' },
-      { az: 1.1, pol: 1.05, r: 15, en: 'Step 3 · Palm-Leaf Archive: Classical mathematics, medicine & guild charters recorded.', hi: 'चरण 3 · ताड़पत्र अभिलेख: गणित, आयुर्वेद व श्रेणी नियमों का लेखन।' },
+      { az: -0.75, pol: 1.05, r: 15, en: 'Step 1 · Stupa / Sabha / Chola Temple: Switch periods (L1) to watch Vedic Sabha evolve into Mauryan & Chola local governance.', hi: 'चरण 1 · स्तूप / सभा / चोल मंदिर: कालखंड (L1) बदलकर वैदिक सभा से मौर्य व चोल ग्राम स्वशासन देखें।' },
+      { az: 0.35, pol: 1.08, r: 14, en: 'Step 2 · Edict & Metallurgy Pillar: Inspect Ashokan Prakrit stone edicts alongside Gupta rustless iron engineering.', hi: 'चरण 2 · अभिलेख व धातु स्तंभ: अशोक शिलालेख और गुप्तकालीन जंग-रहित लौह स्तंभ देखें।' },
+      { az: 1.1, pol: 1.05, r: 15, en: 'Step 3 · Evidence & Shreni Precint: Verify manuscripts, Kudavolai ballot pots, and guild trade along the Uttarapatha.', hi: 'चरण 3 · प्रमाण मेज़ व श्रेणी मार्ग: पांडुलिपि सत्यापन, कुदावोलई चुनाव घड़ा और श्रेणी व्यापार देखें।' },
     ],
     ar: {
       id: 'cbq-t05-ar',
