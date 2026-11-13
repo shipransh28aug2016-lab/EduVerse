@@ -269,7 +269,7 @@ export const sourceRoom = {
     const col = S.src === 'inscription' ? '#92400e' : S.src === 'text' ? '#4c1d95' : '#065f46';
     const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="158" rx="10" fill="var(--card)" stroke="${col}" stroke-width="3"/><rect x="38" y="38" width="84" height="114" rx="8" fill="${col}" opacity=".16"/><text class="txt b" x="80" y="102" text-anchor="middle" fill="${col}">${esc(S.src === 'inscription' ? '🪨' : S.src === 'text' ? '📜' : '🪙')}</text><text class="txt b" x="142" y="58">${esc(P(it.en, it.hi))}</text><text class="txt sm mut" x="142" y="92">${esc(P('Cross-check texts + stones + excavations for full truth', 'पूर्ण सत्य के लिए ग्रंथ + पत्थर + उत्खनन का मिलान करें'))}</text></svg>`;
     const plate = S.src === 'inscription'
-      ? { src: 'assets/images/t05.jpg', en: 'Ashokan sandstone pillar and ancient institutional architecture — official epigraphic record.', hi: 'अशोक का बलुआ पत्थर स्तंभ व प्राचीन स्थापत्य — राज्यादेश अभिलेख।' }
+      ? { src: 'assets/images/plates/t05-sources.jpg', en: 'Carved stone relief, tied palm-leaf manuscript and black ceramic bowl with punch-marked silver coins.', hi: 'तराशा गया पत्थर अभिलेख, ताड़पत्र पांडुलिपि और आहत चाँदी के सिक्कों वाला काला मृद्भांड।' }
       : S.src === 'text'
         ? { src: 'assets/images/plates/t05-knowledge.jpg', en: 'Bound palm-leaf Sanskrit manuscript and early vihara library veranda.', hi: 'ताड़पत्र पांडुलिपि और प्राचीन विहार का अध्ययन कक्ष।' }
         : { src: 'assets/images/plates/t13-artefacts.jpg', en: 'Excavated coins, pottery shards and trade beads — daily-life archaeological record.', hi: 'उत्खनित सिक्के, मृद्भांड व मनके — दैनिक जीवन के पुरातात्विक प्रमाण।' };

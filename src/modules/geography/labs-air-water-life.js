@@ -163,7 +163,16 @@ export const tsunami = {
         : { en: 'The wave arrives before people can reach high ground: warning must come earlier or the route must be shorter.', hi: 'लोगों के ऊँचे स्थान तक पहुँचने से पहले लहर आ जाती है: चेतावनी पहले मिलनी चाहिए या मार्ग छोटा होना चाहिए।', cls: 'warn' },
       { en: 'Near the shore the wave slows (shallow water) but its height grows; the water can keep rushing in for many minutes.', hi: 'तट के पास लहर धीमी हो जाती है (उथला जल) पर उसकी ऊँचाई बढ़ती है; जल कई मिनटों तक भीतर बहता रह सकता है।', cls: 'note' },
     ];
-    return { svg: `<svg viewBox="0 0 640 ${y + 10}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Tsunami speed ${fmt(kmh, 0)} km/h; arrival ${fmt(w.minutes, 0)} minutes.`, lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t10-tsunami.jpg',
+        en: 'Offshore tsunami sensor buoy and elevated coastal emergency shelter protecting shoreline villages.',
+        hi: 'तटीय गाँवों की रक्षा हेतु समुद्र में सुनामी चेतावनी बोया और ऊँचा आपातकालीन आश्रय केंद्र।',
+      },
+      svg: `<svg viewBox="0 0 640 ${y + 10}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
+      aria: `Tsunami speed ${fmt(kmh, 0)} km/h; arrival ${fmt(w.minutes, 0)} minutes.`,
+      lines,
+    };
   },
   discover: [b('Drag the depth from 4000 m down to 10 m. What happens to the speed? Why does the wave pile up near the shore?', 'गहराई 4000 मी से घटाकर 10 मी तक लाएँ। गति का क्या होता है? लहर तट के पास क्यों ऊँची हो जाती है?'), b('Set the distance to 300 km. Can people who need 60 minutes reach safety?', 'दूरी 300 किमी करें। क्या 60 मिनट चाहने वाले लोग सुरक्षित स्थान तक पहुँच सकते हैं?')],
   predictions: [{ id: 'p1', stem: b('A tsunami crossing the deep ocean (4000 m) travels…', 'गहरे महासागर (4000 मी) को पार करती सुनामी चलती है…'), options: [opt('slow', 'About as fast as a car (100 km/h)', 'लगभग कार जितनी तेज़ (100 किमी/घं)'), opt('jet', 'About as fast as a jet aircraft (700+ km/h)', 'लगभग जेट विमान जितनी तेज़ (700+ किमी/घं)'), opt('light', 'Much faster than any aircraft (3000 km/h)', 'किसी भी विमान से कहीं तेज़ (3000 किमी/घं)')],

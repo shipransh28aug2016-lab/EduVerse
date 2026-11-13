@@ -249,6 +249,11 @@ export const carbonFootprint = {
       g += `<text class="txt sm" x="15" y="${y + 18}">${esc(it.k)}</text><rect x="180" y="${y}" width="${w.toFixed(1)}" height="26" rx="4" fill="${it.c}"/><text class="txt sm b" x="${(188 + w).toFixed(1)}" y="${y + 18}">${fmt(it.v, 0)} kg</text>`;
     });
     return {
+      plate: {
+        src: 'assets/images/plates/t03-solar.jpg',
+        en: 'Clean energy & transit: rooftop solar school panels, electric city bus and bicycles cutting household emissions.',
+        hi: 'स्वच्छ ऊर्जा व परिवहन: स्कूल की छत पर सौर पैनल, इलेक्ट्रिक बस और साइकिल उत्सर्जन घटाते हुए।',
+      },
       svg: `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Annual footprint ${fmt(f.total, 0)} kg CO2e`,
       lines: [
