@@ -4,6 +4,7 @@ import * as i18n from '../../core/i18n.js';
 import { t } from '../../core/i18n.js';
 import * as store from '../../core/store.js';
 import { slider, button, chips, bi, relabelBi, predict, mcq } from '../../components/widgets.js';
+import { createInteractivePlate } from '../../components/lab-kit.js';
 import * as M from './models.js';
 
 const SYS = ['fptp', 'runoff', 'pr'];
@@ -57,12 +58,22 @@ export function mount(root) {
   const mcqs = EXIT.map((q) => { const e = mcq(q, { done: S.done, onDone: (id, v) => { prog.exit[id] = v; store.saveProgress(); persist(); } }); exitBox.append(h('div', { class: 'exit-q' }, e)); return e; });
   const ta = h('textarea', { class: 'reflect', rows: 3, 'data-k-aria': 'reflect.aria', placeholder: t('reflect.ph') }); ta.value = prog.reflection || '';
   ta.addEventListener('input', () => { prog.reflection = ta.value; store.saveProgress(); });
+  const elPlate = createInteractivePlate(() => ({
+    src: 'assets/images/plates/t07-elections.jpg',
+    en: 'One set of votes, three counting rules — tap pins to switch between FPTP, Runoff and Proportional systems live.',
+    hi: 'एक ही मत-समूह, मतगणना के तीन नियम — FPTP, दो-चरण और आनुपातिक प्रणाली बदलने हेतु पिन पर टैप करें।',
+    spots: [
+      { x: 26, y: 54, en: 'First-Past-The-Post (Plurality)', hi: 'सर्वाधिक मत से जीत (FPTP)', detail: { en: 'Most votes in each constituency wins — can create wide gap between vote% and seat%!', hi: 'हर क्षेत्र में सबसे आगे रहने वाला जीतता है — मत% व सीट% में बड़ा अंतर संभव!' }, set: { system: 'fptp', swing: 0 } },
+      { x: 54, y: 46, en: 'Two-Round Runoff (>50% Check)', hi: 'दो-चरणीय चुनाव (>50% बहुमत)', detail: { en: 'Top two candidates face a second round so every constituency winner tops 50%.', hi: 'शीर्ष दो उम्मीदवारों में पुनः मतदान ताकि हर सीट विजेता 50% पार करे।' }, set: { system: 'runoff', swing: 0 } },
+      { x: 80, y: 58, en: 'Proportional Representation', hi: 'समानुपातिक प्रतिनिधित्व', detail: { en: 'Seats match national vote share so smaller parties like Yellow gain fair seats.', hi: 'सीटें राष्ट्रीय मत-हिस्से से मिलती हैं जिससे छोटे दल भी प्रतिनिधित्व पाते हैं।' }, set: { system: 'pr', swing: 0 } },
+    ],
+  }), (patch) => { Object.assign(S, patch); ch.select(S.system); sw.set(S.swing); draw(); });
   draw();
   root.append(h('div', { class: 'lab' },
     h('p', { class: 'lead' }, bi({ en: 'One set of fictional votes, three ways to turn votes into seats. Change the system and compare the bars.', hi: 'काल्पनिक मतों का एक ही समूह, मतों को सीटों में बदलने के तीन तरीके। प्रणाली बदलें और पट्टियों की तुलना करें।' })),
-    h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, box, read, wins), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'el.h.sys' }, t('el.h.sys')), ch.root, sw.root, h('div', { class: 'row' }, bReset), h('p', { class: 'note', 'data-k': 'el.fictional' }, t('el.fictional')))),
+    h('div', { class: 'lab-grid' }, h('div', { class: 'lab-main' }, elPlate.el, box, read, wins), h('div', { class: 'lab-side' }, h('h3', { 'data-k': 'el.h.sys' }, t('el.h.sys')), ch.root, sw.root, h('div', { class: 'row' }, bReset), h('p', { class: 'note', 'data-k': 'el.fictional' }, t('el.fictional')))),
     h('section', { class: 'subsec' }, h('h3', { 'data-k': 'predict.h' }, t('predict.h')), p1, p2),
     h('section', { class: 'subsec' }, h('h3', { 'data-k': 'exit.h' }, t('exit.h')), exitBox, h('h3', { 'data-k': 'reflect.h' }, t('reflect.h')), bi(REFLECT, { tag: 'p', cls: 'note' }), ta, h('p', { class: 'note', 'data-k': 'reflect.local' }, t('reflect.local')))));
   i18n.apply(root);
-  return { relabel() { p1.relabel(); p2.relabel(); mcqs.forEach((q) => q.relabel()); relabelBi(root); i18n.apply(root); ta.placeholder = t('reflect.ph'); draw(); }, destroy() {}, debug: () => ({ S, run: M.run(S.system, S.swing) }) };
+  return { relabel() { elPlate.relabel(); p1.relabel(); p2.relabel(); mcqs.forEach((q) => q.relabel()); relabelBi(root); i18n.apply(root); ta.placeholder = t('reflect.ph'); draw(); }, destroy() {}, debug: () => ({ S, run: M.run(S.system, S.swing) }) };
 }

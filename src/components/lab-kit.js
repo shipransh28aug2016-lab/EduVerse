@@ -1,7 +1,7 @@
 // Visual-first interactive lab builder:
-//  • Interactive Visual Stage (3D Diorama + 2.5D SVG + 3D-style miniature plate) + Tactile Controls + Auto-Play
-//  • Compact collapsible Goal & Model Note drawer (eliminates prose walls before visuals)
-//  • Interactive 4-Pill Challenge Dock (Predict ⭐ | Try This | Quick Quiz | Reflect) keeping all DOM interactive nodes live.
+//  • Interactive 2D Realistic Plate with clickable concept hotspots (spots) + direct SVG [data-set] controls
+//  • Interactive Visual Stage (3D/VR Diorama + 2.5D SVG + 2D Realistic Plate) + Tactile Controls + Auto-Play
+//  • Compact collapsible Goal & Model Note drawer + 4-Pill Challenge Dock
 import { h, esc } from '../core/dom.js';
 import * as i18n from '../core/i18n.js';
 import { t } from '../core/i18n.js';
@@ -22,6 +22,44 @@ i18n.register({
   'lab.note.reconstruction': { en: 'A reconstruction: historians infer this from evidence and may disagree.', hi: 'यह पुनर्निर्माण है: इतिहासकार इसे साक्ष्य से अनुमानित करते हैं और उनमें मतभेद हो सकता है।' },
 });
 
+export function renderPlateHtml(plate, activeIdx = -1) {
+  if (!plate?.src) return '';
+  const spots = Array.isArray(plate.spots) ? plate.spots : [];
+  const active = activeIdx >= 0 && activeIdx < spots.length ? spots[activeIdx] : null;
+  const spotsHtml = spots.map((sp, i) => (
+    `<button type="button" class="plate-spot" data-spot="${i}" aria-pressed="${activeIdx === i ? 'true' : 'false'}" style="left:${sp.x}%;top:${sp.y}%" title="${esc(i18n.pair(sp.en, sp.hi))}" aria-label="${esc(i18n.pair(sp.en, sp.hi))}">${i + 1}</button>`
+  )).join('');
+  const calloutHtml = spots.length
+    ? `<div class="plate-callout${active ? ' active' : ''}">${active
+      ? `<strong>${activeIdx + 1}. ${biHtml({ en: active.en, hi: active.hi }, { block: false })}:</strong> ${biHtml(active.detail || { en: active.en, hi: active.hi }, { block: false })}`
+      : `<span data-k="plate.tapHint">${esc(t('plate.tapHint'))}</span>`}</div>`
+    : '';
+  return `<figure class="lab-plate"><div class="plate-stage"><img src="${esc(plate.src)}" alt="${esc(i18n.pair(plate.en, plate.hi))}" loading="eager" decoding="async">${spotsHtml}</div>${calloutHtml}<figcaption class="lab-plate-cap">${biHtml({ en: plate.en, hi: plate.hi }, { block: false })}</figcaption></figure>`;
+}
+
+export function createInteractivePlate(getPlate, onSet) {
+  const wrap = h('div', { class: 'plate-wrap' });
+  let activeIdx = -1;
+  function update() {
+    const p = typeof getPlate === 'function' ? getPlate() : getPlate;
+    if (!p?.src) { wrap.innerHTML = ''; return; }
+    if (activeIdx >= (p.spots?.length || 0)) activeIdx = -1;
+    wrap.innerHTML = renderPlateHtml(p, activeIdx);
+    wrap.querySelectorAll('[data-spot]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        playTap();
+        const idx = Number(btn.dataset.spot);
+        activeIdx = idx;
+        const sp = p.spots?.[idx];
+        if (sp?.set) onSet?.(sp.set);
+        update();
+      });
+    });
+  }
+  update();
+  return { el: wrap, update, relabel: update, reset() { activeIdx = -1; update(); } };
+}
+
 export function createLab(spec, themeId, { onDraw, skipAuto3d = false } = {}) {
   const S = store.simState(spec.id, spec.init());
   const base = spec.init(); for (const k of Object.keys(base)) if (!(k in S)) S[k] = base[k];
@@ -32,6 +70,8 @@ export function createLab(spec, themeId, { onDraw, skipAuto3d = false } = {}) {
   const dict = {};
   const widgets = {};
   let demoTimer = 0;
+  let activeSpotIdx = -1;
+  let lastPlate = null;
 
   const chartBox = h('div', { class: 'chart-box lab-graphic', 'aria-live': 'off' });
   const read = h('div', { class: 'readout', role: 'status', 'aria-live': 'polite' });
@@ -56,15 +96,46 @@ export function createLab(spec, themeId, { onDraw, skipAuto3d = false } = {}) {
     side.append(widgets[c.id].root);
   }
 
-  function sync() { for (const c of spec.controls) { const w = widgets[c.id]; if (c.type === 'chips') w.select(S[c.id]); else w.set(S[c.id]); } draw(); }
+  function sync() {
+    for (const c of spec.controls) {
+      const w = widgets[c.id];
+      if (!w) continue;
+      if (c.type === 'chips') w.select(S[c.id]);
+      else w.set(S[c.id]);
+    }
+    draw();
+  }
   function stopDemo() { if (demoTimer) { clearInterval(demoTimer); demoTimer = 0; demoBtn.dataset.k = 'lab.playDemo'; demoBtn.textContent = t('lab.playDemo'); demoBtn.setAttribute('aria-pressed', 'false'); } }
-  function reset() { stopDemo(); Object.assign(S, spec.init()); S.done = S.done ?? {}; sync(); }
+  function reset() { stopDemo(); activeSpotIdx = -1; Object.assign(S, spec.init()); S.done = S.done ?? {}; sync(); }
+
+  chartBox.addEventListener('click', (e) => {
+    const spotBtn = e.target.closest?.('[data-spot]');
+    if (spotBtn && lastPlate?.spots) {
+      playTap();
+      const idx = Number(spotBtn.dataset.spot);
+      activeSpotIdx = idx;
+      const sp = lastPlate.spots[idx];
+      if (sp?.set) { Object.assign(S, sp.set); sync(); }
+      else draw();
+      return;
+    }
+    const svgTarget = e.target.closest?.('[data-set]');
+    if (svgTarget) {
+      try {
+        const patch = JSON.parse(svgTarget.getAttribute('data-set'));
+        playTap();
+        Object.assign(S, patch);
+        sync();
+      } catch {}
+    }
+  });
+
   function draw() {
     persist();
     const v = spec.view(S);
-    const plateHtml = v.plate?.src
-      ? `<figure class="lab-plate"><img src="${esc(v.plate.src)}" alt="${esc(i18n.pair(v.plate.en, v.plate.hi))}" loading="eager" decoding="async"><figcaption class="lab-plate-cap">${biHtml({ en: v.plate.en, hi: v.plate.hi }, { block: false })}</figcaption></figure>`
-      : '';
+    lastPlate = v.plate || null;
+    if (activeSpotIdx >= (lastPlate?.spots?.length || 0)) activeSpotIdx = -1;
+    const plateHtml = renderPlateHtml(v.plate, activeSpotIdx);
     chartBox.innerHTML = plateHtml + v.svg;
     chartBox.querySelectorAll('svg[role="img"]').forEach((svg) => { if (v.aria && !svg.getAttribute('aria-label')) svg.setAttribute('aria-label', v.aria); });
     read.innerHTML = v.lines.map((l) => `<div class="ro-line ${l.cls ?? ''}">${biHtml(l, { block: true })}</div>`).join('');
@@ -122,7 +193,6 @@ export function createLab(spec, themeId, { onDraw, skipAuto3d = false } = {}) {
   const exitBox = exitEls.length ? h('div', { class: 'dock-panel' }, ...exitEls.map((e) => h('div', { class: 'exit-q' }, e))) : null;
   const noteBox = spec.reflect ? h('div', { class: 'dock-panel' }, bi(spec.reflect, { tag: 'p', cls: 'note' }), ta, h('p', { class: 'note', 'data-k': 'reflect.local' }, t('reflect.local'))) : null;
 
-  // Interactive 4-pill challenge dock keeps all challenge elements live in DOM while eliminating vertical prose clutter
   const dockList = [];
   if (predBox) dockList.push({ id: 'predict', key: 'lab.dock.predict', el: predBox });
   if (discover) dockList.push({ id: 'try', key: 'lab.dock.try', el: discover });

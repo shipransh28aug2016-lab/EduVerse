@@ -33,7 +33,19 @@ export const ppf = {
       { en: `Giving up the next 0.5 t of vegetables at this point buys only ${fmt(1 / (oc || Infinity) * 0.5 * 0 + 0.5, 1)} t more wheat; each extra tonne of wheat costs about ${fmt(oc, 2)} t of vegetables (opportunity cost).`, hi: `इस बिंदु पर अगला 0.5 टन गेहूँ बढ़ाने की कीमत लगभग ${fmt(oc * 0.5, 2)} टन सब्ज़ी है; यानी हर अतिरिक्त टन गेहूँ की अवसर-लागत लगभग ${fmt(oc, 2)} टन सब्ज़ी है।` },
       { en: 'The curve bends because land is better suited to one crop than the other: the more wheat you grow, the more vegetable land you give up per tonne.', hi: 'वक्र मुड़ा हुआ इसलिए है कि भूमि एक फ़सल के लिए दूसरी से अधिक उपयुक्त है: जितना अधिक गेहूँ उगाते हैं, प्रति टन उतनी अधिक सब्ज़ी भूमि छोड़नी पड़ती है।', cls: 'note' }];
     lines[1] = { en: `Moving from ${S.a} to ${S.a + 0.5} t of wheat along the frontier costs ${fmt(oc * 0.5, 2)} t of vegetables, so one more tonne of wheat costs about ${fmt(oc, 2)} t of vegetables (opportunity cost).`, hi: `सीमा-रेखा पर गेहूँ ${S.a} से ${S.a + 0.5} टन करने पर ${fmt(oc * 0.5, 2)} टन सब्ज़ी छोड़नी पड़ती है, यानी एक और टन गेहूँ की अवसर-लागत लगभग ${fmt(oc, 2)} टन सब्ज़ी है।` };
-    return { svg: ch.html({ label: P('Production possibility frontier', 'उत्पादन संभावना वक्र') }), aria: `Wheat ${S.a}, vegetables ${S.b}: ${pt.status}.`, lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t08-ppf.jpg',
+        en: 'Dividing one finite farm between golden wheat & fresh vegetables — tap pins to jump inside, onto, or beyond the frontier.',
+        hi: 'सीमित खेत को गेहूँ व सब्ज़ियों में बाँटना — वक्र के भीतर, ऊपर या बाहर जाने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 56, en: 'On Frontier (Full Efficiency)', hi: 'वक्र पर (पूर्ण दक्षता)', detail: b('6 t wheat + 8 t vegetables uses every acre — getting more wheat means sacrificing vegetables.', '6 टन गेहूँ + 8 टन सब्ज़ी पूरी क्षमता से उत्पादन है; एक बढ़ाने पर दूसरा घटेगा।'), set: { a: 6, b: 8, tech: false } },
+          { x: 54, y: 48, en: 'Inside Frontier (Idle Land)', hi: 'वक्र के भीतर (बेकार संसाधन)', detail: b('At (3, 4) farmland sits idle — we could grow more of BOTH without trade-off!', '(3, 4) पर भूमि बेकार है — बिना त्याग के दोनों फ़सलें बढ़ाई जा सकती हैं!'), set: { a: 3, b: 4, tech: false } },
+          { x: 80, y: 46, en: 'Hybrid Seeds & Drip Tech (+30%)', hi: 'नई तकनीक व सिंचाई (+30% विस्तार)', detail: b('Better seeds shift the entire boundary outward so (8, 8) becomes achievable!', 'उन्नत बीज व तकनीक पूरी उत्पादन संभावना सीमा को बाहर खिसका देते हैं!'), set: { a: 8, b: 8, tech: true } },
+        ],
+      },
+      svg: ch.html({ label: P('Production possibility frontier', 'उत्पादन संभावना वक्र') }), aria: `Wheat ${S.a}, vegetables ${S.b}: ${pt.status}.`, lines,
+    };
   },
   discover: [b('Place the point on the curve at 1 t of wheat, then at 8 t. Which move costs more vegetables per extra tonne of wheat?', 'बिंदु को वक्र पर 1 टन गेहूँ और फिर 8 टन पर रखें। गेहूँ के प्रति अतिरिक्त टन पर किसमें अधिक सब्ज़ी छोड़नी पड़ती है?'), b('Move the point outside the curve, then switch on “better seeds and tools”. What changed?', 'बिंदु को वक्र के बाहर ले जाएँ, फिर “बेहतर बीज और औज़ार” चालू करें। क्या बदला?')],
   predictions: [{ id: 'p1', stem: b('Moving along the frontier, the opportunity cost of one more tonne of wheat is…', 'वक्र पर चलते हुए एक और टन गेहूँ की अवसर-लागत…'), options: [opt('rises', 'Higher the more wheat you already grow', 'जितना अधिक गेहूँ पहले से उगे, उतनी अधिक'), opt('same', 'The same everywhere', 'हर जगह समान'), opt('falls', 'Lower the more wheat you already grow', 'जितना अधिक गेहूँ पहले से उगे, उतनी कम')],
@@ -66,7 +78,19 @@ export const unit = {
     const lines = [{ en: `Each glass earns ₹${u.contribution} after ingredients (contribution). Revenue ${rs(u.revenue)} − total cost ${rs(u.totalCost)} = ${u.profit >= 0 ? 'profit' : 'loss'} of ${rs(Math.abs(u.profit))}.`, hi: `सामग्री के बाद हर गिलास ₹${u.contribution} कमाता है (योगदान)। आय ${rs(u.revenue)} − कुल लागत ${rs(u.totalCost)} = ${rs(Math.abs(u.profit))} का ${u.profit >= 0 ? 'लाभ' : 'हानि'}।`, cls: u.profit > 0 ? 'balanced' : u.profit < 0 ? 'warn' : '' },
       Number.isFinite(u.breakEven) ? { en: `Break-even: you must sell at least ${u.breakEven} glasses just to cover the fixed costs (${rs(S.fixed)} ÷ ₹${u.contribution}). You have sold ${S.units}.`, hi: `सम-विच्छेद: केवल स्थिर लागत (${rs(S.fixed)} ÷ ₹${u.contribution}) निकालने के लिए भी कम से कम ${u.breakEven} गिलास बेचने होंगे। आपने ${S.units} बेचे हैं।` } : { en: 'The price is not above the ingredient cost, so every glass adds to the loss: raise the price or cut the cost.', hi: 'मूल्य सामग्री लागत से ऊपर नहीं है, इसलिए हर गिलास हानि बढ़ाता है: मूल्य बढ़ाएँ या लागत घटाएँ।', cls: 'warn' },
       { en: 'Profit margin: ' + fmt(u.marginPct, 0) + '% of revenue.', hi: 'लाभ-मार्जिन: आय का ' + fmt(u.marginPct, 0) + '%।', cls: 'note' }];
-    return { svg: ch.html({ label: P('Revenue and cost against glasses sold', 'बिके गिलासों के सापेक्ष आय और लागत') }), aria: `Profit ${u.profit} rupees; break-even ${u.breakEven} glasses.`, lines };
+    return {
+      plate: {
+        src: 'assets/images/plates/t15-startup.jpg',
+        en: 'School-fair enterprise workbench — tap pins to inspect selling price, variable fruit cost & fixed stall rent.',
+        hi: 'उद्यम कार्यमेज़ — बिक्री मूल्य, परिवर्ती सामग्री लागत व स्थिर किराए का प्रभाव देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 36, y: 48, en: 'Cut Variable Cost (₹25 → ₹18)', hi: 'सामग्री लागत घटाएँ (₹25 → ₹18)', detail: b('Bulk ingredient sourcing lifts contribution per cup and lowers break-even!', 'थोक खरीद से प्रति गिलास योगदान बढ़ता और सम-विच्छेद घटता है!'), set: { price: 40, varCost: 18, fixed: 1500, units: 120 } },
+          { x: 54, y: 68, en: 'Price ₹50 & 140 Cups Profit', hi: '₹50 मूल्य व 140 गिलास बिक्री', detail: b('Notice profit steepens fast once fixed rent is covered past break-even.', 'स्थिर किराया निकलते ही बिक्री बढ़ने पर लाभ तेज़ी से बढ़ता है।'), set: { price: 50, varCost: 25, fixed: 1500, units: 140 } },
+          { x: 68, y: 86, en: 'High Fixed Rent Trap (₹3,000)', hi: 'उच्च स्थिर किराया जाल (₹3,000)', detail: b('Doubling stall rent doubles the break-even glasses needed just to hit ₹0!', 'किराया दोगुना होने पर लागत निकालने के लिए भी दोगुने गिलास बेचने पड़ते हैं!'), set: { price: 40, varCost: 25, fixed: 3000, units: 120 } },
+        ],
+      },
+      svg: ch.html({ label: P('Revenue and cost against glasses sold', 'बिके गिलासों के सापेक्ष आय और लागत') }), aria: `Profit ${u.profit} rupees; break-even ${u.breakEven} glasses.`, lines,
+    };
   },
   discover: [b('Raise the price by ₹10. How does the break-even number change?', 'मूल्य ₹10 बढ़ाएँ। सम-विच्छेद की संख्या कैसे बदलती है?'), b('Double the fixed costs. Which line moves, and what happens to the break-even point?', 'स्थिर लागत दोगुनी करें। कौन-सी रेखा खिसकती है और सम-विच्छेद बिंदु का क्या होता है?'), b('Set the price equal to the ingredient cost. Can the stall ever make a profit?', 'मूल्य को सामग्री लागत के बराबर रखें। क्या स्टॉल कभी लाभ कमा सकता है?')],
   predictions: [{ id: 'p1', stem: b('If the price per glass rises (cost and fixed costs unchanged), the break-even number of glasses…', 'यदि प्रति गिलास मूल्य बढ़ता है (लागत और स्थिर लागत वही), तो सम-विच्छेद के गिलासों की संख्या…'), options: [opt('falls', 'Falls', 'घटती है'), opt('rises', 'Rises', 'बढ़ती है'), opt('same', 'Stays the same', 'वही रहती है')],
@@ -97,7 +121,18 @@ export const pnl = {
     const X = (v) => 190 + (v / scale) * 380;
     for (const [lab, v, cls] of rows) { const x0 = X(Math.min(run, run + v)), w = Math.abs(X(run + v) - X(run)); g += `<text class="txt sm" x="8" y="${y + 17}">${esc(lab)}</text><rect class="${cls}" x="${x0.toFixed(1)}" y="${y}" width="${Math.max(w, 1).toFixed(1)}" height="26"/><text class="txt sm b" x="${(x0 + w + 6).toFixed(1)}" y="${y + 18}">${v >= 0 ? '+' : '−'}${rs(Math.abs(v))}</text>`; run += v; y += 40; }
     g += `<text class="txt b" x="8" y="${y + 17}">${esc(profit >= 0 ? P('PROFIT', 'लाभ') : P('LOSS', 'हानि'))}</text><rect class="${profit >= 0 ? 'bar-s' : 'bar-bad'}" x="${X(Math.min(0, profit)).toFixed(1)}" y="${y}" width="${Math.max(Math.abs(X(profit) - X(0)), 1).toFixed(1)}" height="26"/><text class="txt b" x="${(X(Math.max(0, profit)) + 6).toFixed(1)}" y="${y + 18}">${rs(Math.abs(profit))}</text><line x1="${X(0)}" x2="${X(0)}" y1="4" y2="${y + 34}" stroke="var(--ink)"/>`;
-    return { svg: `<svg viewBox="0 0 640 ${y + 44}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Income ${income}, profit ${profit}.`, lines: [
+    return {
+      plate: {
+        src: 'assets/images/t15.jpg',
+        en: 'Small tailoring workshop waterfall — tap pins to simulate busy festival orders vs slow rent-heavy months.',
+        hi: 'लघु सिलाई कार्यशाला — व्यस्त त्योहारी ऑर्डर बनाम मंदी के महीने का लाभ-हानि देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 52, en: 'Festival Rush (90 Garments)', hi: 'त्योहारी भीड़ (90 कपड़े)', detail: b('High garment orders lift total income far above cloth, wages & shop rent.', 'अधिक ऑर्डर से आय कपड़ा, मज़दूरी व किराए से कहीं ऊपर निकल जाती है।'), set: { jobs: 90, rate: 400, rent: 4000 } },
+          { x: 52, y: 48, en: 'Balanced Normal Month (60 Garments)', hi: 'सामान्य संतुलित माह (60 कपड़े)', detail: b('Modest profit covers owner’s household margin after paying helpers.', 'सहायक की मज़दूरी व किराए के बाद मालिक के लिए ₹3,000 शुद्ध लाभ।'), set: { jobs: 60, rate: 400, cloth: 8000, wages: 9000, rent: 4000 } },
+          { x: 78, y: 56, en: 'Slow Month Loss (30 Garments)', hi: 'मंदा माह हानि (30 कपड़े)', detail: b('Rent and wages keep running even when orders fall, creating a monthly loss.', 'ऑर्डर घटने पर भी किराया व मज़दूरी चलती रहती है, जिससे हानि होती है।'), set: { jobs: 30, rate: 400, cloth: 5000, wages: 9000, rent: 6000 } },
+        ],
+      },
+      svg: `<svg viewBox="0 0 640 ${y + 44}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`, aria: `Income ${income}, profit ${profit}.`, lines: [
       { en: `Income ${rs(income)} − cloth ${rs(S.cloth)} − wages ${rs(S.wages)} − rent ${rs(S.rent)} = ${profit >= 0 ? 'profit' : 'loss'} ${rs(Math.abs(profit))}.`, hi: `आय ${rs(income)} − कपड़ा ${rs(S.cloth)} − मज़दूरी ${rs(S.wages)} − किराया ${rs(S.rent)} = ${profit >= 0 ? 'लाभ' : 'हानि'} ${rs(Math.abs(profit))}।`, cls: profit >= 0 ? 'balanced' : 'warn' },
       { en: profit >= 0 ? 'Profit is what the owner keeps (before the owner’s own tax and savings).' : 'A loss means the shop spent more than it earned; the owner must use savings or borrow to cover it.', hi: profit >= 0 ? 'लाभ वह है जो मालिक के पास रहता है (मालिक के अपने कर और बचत से पहले)।' : 'हानि का अर्थ है कि दुकान ने कमाई से अधिक खर्च किया; मालिक को बचत या उधार से इसकी भरपाई करनी होगी।', cls: 'note' }] };
   },
@@ -130,8 +165,13 @@ export const budget = {
     return {
       plate: {
         src: 'assets/images/plates/t16-finance.jpg',
-        en: 'Household financial planning: stitched expense ledger (गृहस्थी खाता), clay gullak, coin jar and cash savings.',
-        hi: 'पारिवारिक वित्त योजना: गृहस्थी खाता बही, मिट्टी की गुल्लक, सिक्कों का पात्र व नकद बचत।',
+        en: 'Household financial ledger (गृहस्थी खाता), clay gullak & savings — tap pins to compare 50-30-20 vs surplus vs overspending.',
+        hi: 'गृहस्थी खाता बही, मिट्टी की गुल्लक व बचत — 50-30-20 संतुलन व अधिक खर्च परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 38, y: 72, en: 'Balanced 50 / 30 / 20 Budget', hi: 'संतुलित 50 / 30 / 20 बजट', detail: b('₹10,000 needs + ₹6,000 wants leaves ₹4,000 (20%) monthly savings.', '₹10,000 आवश्यकता + ₹6,000 इच्छा के बाद ₹4,000 (20%) मासिक बचत बचती है।'), set: { income: 20000, needs: 10000, wants: 6000 } },
+          { x: 50, y: 26, en: 'Gullak Booster (40% Saved)', hi: 'गुल्लक बचत संवर्धन (40% बचत)', detail: b('Trimming wants to ₹3,000 builds ₹96,000/yr emergency cushion!', 'इच्छाएँ ₹3,000 रखने से सालाना ₹96,000 का मज़बूत सुरक्षा कोष बनता है!'), set: { income: 20000, needs: 9000, wants: 3000 } },
+          { x: 72, y: 74, en: 'Overspending Deficit Debt', hi: 'अति-व्यय से कर्ज़ घाटा', detail: b('When Needs + Wants exceed ₹20,000, household falls into debt.', 'जब आवश्यकता + इच्छा ₹20,000 पार करें, तो उधार लेना पड़ता है।'), set: { income: 20000, needs: 13000, wants: 10000 } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 195" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Savings ${r.savings} rupees a month.`, lines: [
@@ -164,7 +204,18 @@ export const interest = {
     const ch = new Chart({ xMax: S.years, yMax: ymax, xLabel: P('Years', 'वर्ष'), yLabel: P('Amount (₹)', 'राशि (₹)'), xTicks: Math.min(S.years, 8), yTicks: 5 });
     ch.axes(); ch.line(sr.map((p) => [p.year, p.simple]), 'curve s'); ch.line(sr.map((p) => [p.year, p.compound]), 'curve g');
     ch.text(S.years, end.compound, P('compound', 'चक्रवृद्धि'), 'lbl', 'end', -4, -8); ch.text(S.years, end.simple, P('simple', 'साधारण'), 'lbl', 'end', -4, 18);
-    return { svg: ch.html({ label: P('Simple and compound interest', 'साधारण और चक्रवृद्धि ब्याज') }), aria: `After ${S.years} years: simple ${fmt(end.simple, 0)}, compound ${fmt(end.compound, 0)}.`, lines: [
+    return {
+      plate: {
+        src: 'assets/images/plates/t16-finance.jpg',
+        en: 'Compounding wealth over time — tap pins to compare 5 years vs 20 years vs 35 years of steady saving.',
+        hi: 'समय के साथ चक्रवृद्धि वृद्धि — 5 वर्ष, 20 वर्ष व 35 वर्ष की बचत तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 38, y: 72, en: '5 Years (Curves Stay Close)', hi: '5 वर्ष (अंतर अभी छोटा)', detail: b('Early on simple and compound interest look nearly alike — patience pays later!', 'शुरू में साधारण और चक्रवृद्धि ब्याज लगभग बराबर दिखते हैं!'), set: { principal: 10000, rate: 8, years: 5 } },
+          { x: 50, y: 26, en: '20 Years at 8% (Doubles ×2.2)', hi: '8% पर 20 वर्ष (तीव्र उछाल)', detail: b('Rule of 72 (~9 yrs to double) compounds past ₹46,000 on ₹10,000 saved!', '72 के नियम से धन दोगुना होकर तेज़ी से बढ़ता है!'), set: { principal: 10000, rate: 8, years: 20 } },
+          { x: 72, y: 74, en: '35 Years at 12% (Snowball Curve)', hi: '12% पर 35 वर्ष (विशाल छलांग)', detail: b('Interest-on-interest rockets ₹10,000 past ₹5.2 lakh over 35 years!', 'ब्याज पर ब्याज 35 वर्षों में ₹10,000 को ₹5.2 लाख से ऊपर ले जाता है!'), set: { principal: 10000, rate: 12, years: 35 } },
+        ],
+      },
+      svg: ch.html({ label: P('Simple and compound interest', 'साधारण और चक्रवृद्धि ब्याज') }), aria: `After ${S.years} years: simple ${fmt(end.simple, 0)}, compound ${fmt(end.compound, 0)}.`, lines: [
       { en: `After ${S.years} years: simple interest gives ${rs(end.simple)}; compound interest gives ${rs(end.compound)}, which is ${rs(end.compound - end.simple)} more.`, hi: `${S.years} वर्ष बाद: साधारण ब्याज से ${rs(end.simple)}; चक्रवृद्धि ब्याज से ${rs(end.compound)}, जो ${rs(end.compound - end.simple)} अधिक है।` },
       { en: 'Simple interest is paid only on the original sum. Compound interest is also paid on interest already earned, so the curve bends upward.', hi: 'साधारण ब्याज केवल मूल राशि पर मिलता है। चक्रवृद्धि ब्याज पहले से मिले ब्याज पर भी मिलता है, इसलिए वक्र ऊपर की ओर मुड़ता है।', cls: 'note' },
       { en: `At ${S.rate}% money doubles in about ${fmt(d.exact, 1)} years (rule of 72: 72 ÷ ${S.rate} = ${fmt(d.rule72, 1)}).`, hi: `${S.rate}% पर धन लगभग ${fmt(d.exact, 1)} वर्षों में दोगुना होता है (72 का नियम: 72 ÷ ${S.rate} = ${fmt(d.rule72, 1)})।`, cls: 'balanced' }] };
@@ -195,7 +246,18 @@ export const inflation = {
     ch.axes(); ch.hline(1000, 'guide', 0, S.years); ch.line(rows.map((r) => [r.y, r.cash]), 'curve d'); ch.line(rows.map((r) => [r.y, r.saved]), 'curve g');
     const last = rows[rows.length - 1], rr = F.realRate(S.nominal, S.infl);
     ch.text(S.years, last.cash, P('kept as cash', 'नकद रखा'), 'lbl', 'end', -4, 18); ch.text(S.years, last.saved, P('saved with interest', 'ब्याज के साथ बचाया'), 'lbl', 'end', -4, -8);
-    return { svg: ch.html({ label: P('Buying power over time', 'समय के साथ क्रय-शक्ति') }), aria: `After ${S.years} years ₹1000 cash buys ${fmt(last.cash, 0)} rupees worth; saved buys ${fmt(last.saved, 0)}.`, lines: [
+    return {
+      plate: {
+        src: 'assets/images/t16.jpg',
+        en: 'Inflation vs real interest rate — tap pins to see cash eroding in a cupboard vs beating inflation in savings.',
+        hi: 'मुद्रास्फीति बनाम ब्याज — अलमारी में रखे नकद की घटती क्रय-शक्ति परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 50, en: 'Idle Cash Eroding (0% vs 6% Infl)', hi: 'अलमारी में नकद (0% ब्याज)', detail: b('₹1,000 kept as notes buys half as much after ~12 years at 6% inflation!', '6% महँगाई पर अलमारी में रखे नोटों की क्रय-शक्ति 12 वर्ष में आधी रह जाती है!'), set: { infl: 6, nominal: 0, years: 15 } },
+          { x: 54, y: 46, en: 'Negative Real Return (4% vs 6%)', hi: 'नकारात्मक वास्तविक लाभ (4% vs 6%)', detail: b('Even earning 4% interest loses real purchasing power if prices rise at 6%!', 'यदि कीमतें 6% बढ़ें और ब्याज 4% मिले, तब भी क्रय-शक्ति घटती है!'), set: { infl: 6, nominal: 4, years: 15 } },
+          { x: 80, y: 54, en: 'Positive Real Growth (9% vs 6%)', hi: 'वास्तविक धन वृद्धि (9% vs 6%)', detail: b('Beating inflation grows real purchasing power steadily over time.', 'मुद्रास्फीति से अधिक दर पर ही वास्तविक क्रय-शक्ति बढ़ती है।'), set: { infl: 6, nominal: 9, years: 15 } },
+        ],
+      },
+      svg: ch.html({ label: P('Buying power over time', 'समय के साथ क्रय-शक्ति') }), aria: `After ${S.years} years ₹1000 cash buys ${fmt(last.cash, 0)} rupees worth; saved buys ${fmt(last.saved, 0)}.`, lines: [
       { en: `A basket costing ₹100 today will cost about ${rs(last.price)} after ${S.years} years. So ₹1,000 kept as cash buys only what ₹${fmt(last.cash, 0)} buys today.`, hi: `जिस टोकरी की कीमत आज ₹100 है, ${S.years} वर्ष बाद लगभग ${rs(last.price)} होगी। इसलिए नकद रखे ₹1,000 से उतना ही ख़रीदा जा सकेगा जितना आज ₹${fmt(last.cash, 0)} से।` },
       rr >= 0 ? { en: `Interest (${S.nominal}%) beats inflation (${S.infl}%): the real return is ${fmt(rr, 1)}% a year, so buying power grows.`, hi: `ब्याज (${S.nominal}%) मुद्रास्फीति (${S.infl}%) से अधिक है: वास्तविक प्रतिफल ${fmt(rr, 1)}% प्रति वर्ष है, इसलिए क्रय-शक्ति बढ़ती है।`, cls: 'balanced' }
         : { en: `Inflation (${S.infl}%) is higher than interest (${S.nominal}%): the real return is ${fmt(rr, 1)}% a year, so even saved money loses buying power.`, hi: `मुद्रास्फीति (${S.infl}%) ब्याज (${S.nominal}%) से अधिक है: वास्तविक प्रतिफल ${fmt(rr, 1)}% प्रति वर्ष है, इसलिए बचाए गए धन की क्रय-शक्ति भी घटती है।`, cls: 'warn' }] };

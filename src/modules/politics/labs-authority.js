@@ -35,8 +35,13 @@ export const kautilyaExplorer = {
     return {
       plate: {
         src: 'assets/images/plates/t14-authority.jpg',
-        en: 'Palm-leaf Arthashastra treatise, brass scales of Nyaya (justice) and royal Dharma Chakra emblem.',
-        hi: 'ताड़पत्र अर्थशास्त्र ग्रंथ, न्याय की पीतल तराजू और राजधर्म चक्र प्रतीक।',
+        en: 'Palm-leaf Arthashastra treatise, brass scales of Nyaya & Dharma Chakra — tap pins to balance Danda vs Justice.',
+        hi: 'ताड़पत्र नीति ग्रंथ, न्याय तराजू व धर्म चक्र — दंड और न्याय का संतुलन परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 38, y: 72, en: 'Shukraniti: Ruler as Welfare Servant', hi: 'शुक्रनीति: लोक-कल्याण सेवक', detail: b('Bala serves Yoga-kshema (welfare), not private royal whim.', 'शासक का बल निजी स्वार्थ नहीं, बल्कि प्रजा के योगक्षेम के लिए है।'), set: { text: 'shukra', danda: 55, nyaya: 85 } },
+          { x: 52, y: 54, en: 'Balanced Danda + Nyaya (Rajadharma)', hi: 'संतुलित दंड व न्याय', detail: b('Measured rules (55%) guided by fairness (85%) prevent chaos without tyranny.', 'निष्पक्षता से बंधा संतुलित अनुशासन भय बिना शांति देता है।'), set: { text: 'kautilya', danda: 55, nyaya: 85 } },
+          { x: 66, y: 56, en: 'Matsya-nyaya vs Tyranny Test', hi: 'मत्स्य-न्याय बनाम दमन जाँच', detail: b('Drop justice to 20% while raising force to 90% — watch unrest flare!', 'न्याय 20% और बल 90% करने पर कैसे असंतोष भड़कता है!'), set: { danda: 90, nyaya: 20 } },
+        ],
       },
       svg,
       aria: `${tx.en}: Danda ${S.danda}%, Nyaya ${S.nyaya}% gives ${order}`,
@@ -104,6 +109,16 @@ export const authorityMap = {
     ];
     const svg = forceGraphSvg({ w: 640, h: 265, nodes, links, activeId: S.focus === 'legitimacy' ? 'leg' : S.focus === 'law' ? 'law' : 'jus', aria: P('Authority and citizen cycle', 'प्राधिकार और नागरिक चक्र') });
     return {
+      plate: {
+        src: 'assets/images/t14.jpg',
+        en: 'Constitutional authority loop: tap pins to trace consent, law & justice or see what breaks without citizen voice.',
+        hi: 'संवैधानिक प्राधिकार चक्र: सहमति, कानून व न्याय की कड़ियाँ परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 50, en: 'Citizen Consent → Legitimacy', hi: 'नागरिक सहमति → वैधता', detail: b('Elections and civic scrutiny turn raw power into lawful authority.', 'मतदान और नागरिक भागीदारी शक्ति को वैध प्राधिकार बनाती है।'), set: { focus: 'legitimacy', citizenVoice: true } },
+          { x: 54, y: 46, en: 'Rule of Law & Courts', hi: 'विधि-शासन व न्यायालय', detail: b('No ruler stands above constitutional law — courts guard rights daily.', 'कोई शासक कानून से ऊपर नहीं — न्यायालय प्रतिदिन अधिकारों की रक्षा करते हैं।'), set: { focus: 'law', citizenVoice: true } },
+          { x: 80, y: 56, en: 'Silent Voice Breakdown', hi: 'भागीदारी बंद होने का संकट', detail: b('Switch citizen consent OFF — watch every arrow in the legitimacy loop fracture!', 'नागरिक सहमति बंद करें — देखें वैधता चक्र की हर कड़ी कैसे टूटती है!'), set: { focus: 'justice', citizenVoice: false } },
+        ],
+      },
       svg,
       aria: `Authority cycle focused on ${S.focus}, citizen voice ${S.citizenVoice}`,
       lines: [
@@ -157,12 +172,22 @@ export const authorityTimeline = {
     let g = `<line x1="60" y1="110" x2="580" y2="110" stroke="var(--mut)" stroke-width="3"/>`;
     AUTH_ERAS.forEach((e, i) => {
       const act = i === S.eraIdx;
-      g += `<circle cx="${e.x}" cy="110" r="${act ? 14 : 9}" fill="${act ? '#1d4ed8' : '#64748b'}" stroke="#fff" stroke-width="2.5"/>`
+      g += `<g data-set='${esc(JSON.stringify({ eraIdx: i }))}' role="button" tabindex="0"><circle cx="${e.x}" cy="110" r="${act ? 14 : 9}" fill="${act ? '#1d4ed8' : '#64748b'}" stroke="#fff" stroke-width="2.5"/>`
         + `<text class="txt sm ${act ? 'b' : 'mut'}" x="${e.x}" y="${i % 2 ? 152 : 76}" text-anchor="middle">${esc(e.label.split(' (')[0])}</text>`
-        + `<text class="txt sm mut" x="${e.x}" y="${i % 2 ? 168 : 92}" text-anchor="middle">${esc('(' + (e.label.split(' (')[1] || ''))}</text>`;
+        + `<text class="txt sm mut" x="${e.x}" y="${i % 2 ? 168 : 92}" text-anchor="middle">${esc('(' + (e.label.split(' (')[1] || ''))}</text></g>`;
     });
     const svg = `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t14-authority.jpg',
+        en: 'From Janapada assemblies to the 1950 Constitution — tap pins or timeline nodes below to trace how sovereignty shifted.',
+        hi: 'जनपद सभाओं से 1950 संविधान तक — संप्रभुता का इतिहास देखने हेतु पिन या समय-बिंदु पर टैप करें।',
+        spots: [
+          { x: 24, y: 54, en: 'Janapada & Kautilya (~600–300 BCE)', hi: 'जनपद व कौटिल्य काल', detail: b('Ancient republics and Arthashastra linked ruler legitimacy to welfare.', 'प्राचीन गणसंघ और अर्थशास्त्र ने शासन को कल्याण से जोड़ा।'), set: { eraIdx: 0 } },
+          { x: 48, y: 54, en: 'Colonial Rule Without Consent (1757–1947)', hi: 'औपनिवेशिक शासन (सहमति बिना)', detail: b('Imposed laws without Indian suffrage sparked the Swaraj movement.', 'भारतीय सहमति के बिना थोपे कानूनों से स्वराज आंदोलन जन्मा।'), set: { eraIdx: 2 } },
+          { x: 76, y: 54, en: '1950 Constitution: We the People', hi: '1950 संविधान: हम भारत के लोग', detail: b('Fundamental Rights (Art 14–32) and independent courts turned favours into citizen rights.', 'मौलिक अधिकार व स्वतंत्र न्यायालयों ने न्याय को नागरिक अधिकार बनाया।'), set: { eraIdx: 3 } },
+        ],
+      },
       svg,
       aria: `${cur.label}: ${cur.en}`,
       lines: [
@@ -223,8 +248,13 @@ export const authorityTypes = {
     return {
       plate: {
         src: 'assets/images/plates/t14-justice.jpg',
-        en: 'Scales of justice beside constitutional law books and civic community shelter symbolising fair authority.',
-        hi: 'संविधान की पुस्तक व सामुदायिक न्याय-संतुलन के प्रतीक तराजू।',
+        en: 'Scales of justice & constitution — tap pins to compare Functional, Sensitive and Welfare-Oriented authority.',
+        hi: 'न्याय तराजू व संविधान — कार्यात्मक, संवेदनशील व कल्याणकारी प्राधिकार की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 52, en: 'Functional Authority (Traffic / Umpire)', hi: 'कार्यात्मक प्राधिकार (नियम समन्वय)', detail: b('Neutral, clear rules keep roads and sports fair and predictable.', 'निष्पक्ष व स्पष्ट नियम यातायात व खेलों को सुरक्षित रखते हैं।'), set: { atype: 'functional', listening: true } },
+          { x: 54, y: 46, en: 'Sensitive Authority (School Counsellor)', hi: 'संवेदनशील प्राधिकार (सहानुभूतिपूर्ण)', detail: b('Listens empathetically and protects student dignity while upholding norms.', 'परिस्थिति सुनकर नियमों संग व्यक्ति की गरिमा बचाता है।'), set: { atype: 'sensitive', listening: true } },
+          { x: 78, y: 56, en: 'Welfare Authority (Public Health / Relief)', hi: 'कल्याणकारी प्राधिकार (योगक्षेम)', detail: b('Directs public resources proactively to shield the vulnerable.', 'कमज़ोर वर्गों के उत्थान हेतु संसाधनों का सक्रिय उपयोग करता है।'), set: { atype: 'welfare', listening: true } },
+        ],
       },
       svg,
       aria: `${a.en}: trust ${trust}%, fairness ${fair}%`,
@@ -282,8 +312,13 @@ export const citizenScenario = {
     return {
       plate: {
         src: 'assets/images/plates/t14-civic.jpg',
-        en: 'Open Gram Sabha / RTI transparency meeting where citizens calmly inspect official public records together.',
-        hi: 'खुली ग्राम सभा व सूचना-अधिकार बैठक जहाँ नागरिक शांतिपूर्वक सरकारी अभिलेखों की जाँच करते हैं।',
+        en: 'Open Gram Sabha / RTI transparency meeting — tap pins to escalate a citizen grievance lawfully step by step.',
+        hi: 'खुली ग्राम सभा व सूचना-अधिकार बैठक — नागरिक शिकायत की वैध चरणबद्ध अपील हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 52, en: 'Day 4: Local Ward Receipt Filed', hi: 'दिन 4: वार्ड कार्यालय रसीद दर्ज', detail: b('Always log a dated written complaint number at the local desk first.', 'सबसे पहले स्थानीय कार्यालय में दिनांकित लिखित रसीद दर्ज कराएँ।'), set: { daysWaited: 4, escalated: false } },
+          { x: 54, y: 48, en: 'Day 18: Supervisor Follow-Up', hi: 'दिन 18: वरिष्ठ अधिकारी अनुवर्ती जाँच', detail: b('Delayed response escalates respectfully up to municipal officer level.', 'विलंब होने पर शांतिपूर्वक नगर अधिकारी के समक्ष प्रकरण रखें।'), set: { daysWaited: 18, escalated: false } },
+          { x: 80, y: 56, en: 'Day 30 + RTI / Ombudsperson', hi: 'दिन 30 + RTI / लोकपाल अपील', detail: b('Formal Right to Information petition drives accountability to ~90%+ resolution!', 'औपचारिक RTI व लोकपाल अपील संस्थागत जवाबदेही सुनिश्चित करती है!'), set: { daysWaited: 30, escalated: true } },
+        ],
       },
       svg,
       aria: `Issue ${S.issue}, stage ${wf.activeStage + 1}, resolution likelihood ${wf.resolutionChance}%`,

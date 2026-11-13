@@ -29,8 +29,13 @@ export const settlementLab = {
     return {
       plate: {
         src: 'assets/images/plates/t04-tools.jpg',
-        en: 'From Palaeolithic handaxe and microlith blades to polished Neolithic celts and charred wheat.',
-        hi: 'पुरापाषाण हस्त-कुठार व सूक्ष्म-पाषाण से नवपाषाण पॉलिश कुल्हाड़ी व जले गेहूँ तक।',
+        en: 'From Palaeolithic handaxe and microlith blades to polished Neolithic celts and charred wheat — tap pins to compare nomadic vs farming bands.',
+        hi: 'पुरापाषाण हस्त-कुठार से नवपाषाण कुल्हाड़ी व जले गेहूँ तक — घुमंतू बनाम स्थायी कृषक जीवन की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 42, en: 'Mobile Hunter-Gatherer Band', hi: 'घुमंतू शिकारी-संग्राहक', detail: b('Smaller group (~25–40) stays flexible by moving where wild fruit & game thrive.', 'छोटा समूह मौसमी भोजन के अनुसार स्थान बदलकर सूखे वर्षों में लचीला रहता है।'), set: { mode: 'forager', rainVar: 0.4, storage: 0.2 } },
+          { x: 52, y: 66, en: 'Settled Neolithic Village (High Granary)', hi: 'स्थायी नवपाषाण गाँव', detail: b('80% pit-granary storage absorbs drought dips, allowing population & crafts to grow.', '80% अन्नागार भंडारण सूखे की मार झेलकर जनसंख्या व शिल्प को बढ़ाता है।'), set: { mode: 'farmer', rainVar: 0.3, storage: 0.9 } },
+          { x: 78, y: 60, en: 'Famine Shock (Low Storage)', hi: 'कम भंडारण संकट', detail: b('Fixed village + 70% weather swings + tiny granary exposes crop failure risk!', 'अत्यधिक मौसम उतार-चढ़ाव व कम भंडारण पर स्थायी गाँव पर अकाल का संकट आता है!'), set: { mode: 'farmer', rainVar: 0.7, storage: 0.1 } },
+        ],
       },
       svg: ch.html({ label: P('Forager vs farmer population and storage over 15 years', '15 वर्षों में जनसंख्या व अन्न भंडार') }),
       aria: `${S.mode}: final population ${r.finalPop}, stored food ${r.finalStore}`,
@@ -103,8 +108,13 @@ export const harappanCity = {
     return {
       plate: {
         src: 'assets/images/t04.jpg',
-        en: 'Harappan baked-brick urban grid, Great Bath courtyard and covered street drains.',
-        hi: 'हड़प्पा की पक्की ईंटों की नगर योजना, महास्नानागार आँगन व ढकी नालियाँ।',
+        en: 'Harappan baked-brick urban grid, Great Bath & drains — tap pins to inspect urban engineering features.',
+        hi: 'हड़प्पा की पक्की ईंटों की नगर योजना, महास्नानागार व नालियाँ — नगर अभियांत्रिकी परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 28, y: 46, en: 'Raised Citadel & Great Bath', hi: 'ऊँचा दुर्ग व महास्नानागार', detail: b('Bitumen-lined watertight pool & elevated brick granary safe above river floods.', 'डामर से जलरोधी स्नानागार और नदी बाढ़ से ऊपर सुरक्षित दुर्ग अन्नागार।'), set: { greatBath: true, granary: true } },
+          { x: 56, y: 62, en: 'Right-Angle Grid & Covered Drains', hi: 'समकोण सड़क व ढकी नालियाँ', detail: b('Kiln-brick street drains slope smoothly with inspection traps for civic hygiene.', 'पक्की ईंट की ढकी नालियाँ निरीक्षण हौजों संग गलियों को स्वच्छ रखती थीं।'), set: { gridStreets: true, coveredDrains: true } },
+          { x: 80, y: 54, en: 'Unplanned Without Drains', hi: 'बिना नाली अनियोजित बस्ती', detail: b('Turn off grids & drains to see sanitation score tumble sharply!', 'ग्रिड व नालियाँ बंद करके देखें कि स्वच्छता स्कोर कैसे गिरता है!'), set: { gridStreets: false, coveredDrains: false } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 250" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Harappan town plan: sanitation ${score.sanitation}%, flood safety ${score.floodSafety}%`,
@@ -156,6 +166,17 @@ export const civAtlas = {
     }));
     const svg = worldMapSvg({ w: 640, h: 310, markers, arcs: [{ coords: [[68.1, 27.3], [56, 25], [48, 29], [44.4, 32.5]], stroke: '#0284c7', dash: '6 4', width: 2.5 }], aria: `Bronze Age river civilisations highlighting ${cur.en}` });
     return {
+      plate: {
+        src: 'assets/images/plates/t04-rivercivs.jpg',
+        en: 'Four Bronze Age river civilisations in one display — tap any museum relic to inspect its river valley on the world map.',
+        hi: 'चार कांस्य-युगीन नदी सभ्यताएँ — विश्व मानचित्र पर देखने हेतु किसी भी पुरातात्त्विक प्रदर्श पर टैप करें।',
+        spots: [
+          { x: 20, y: 62, en: 'Indus Seals & Brick Drain', hi: 'हड़प्पा मुहर व ईंट नाली', detail: b('Harappan (c. 2600–1900 BCE): planned brick towns & undeciphered seal script.', 'हड़प्पा: नियोजित ईंट नगर, मानकीकृत बाट व चित्रलिपि मुहरें।'), set: { civ: 'harappan' } },
+          { x: 42, y: 56, en: 'Mesopotamian Cuneiform Tablet', hi: 'मेसोपोटामिया कीलाक्षर पट्टिका', detail: b('Tigris-Euphrates clay ledger recording barley rations and Meluhha sea trade.', 'दजला-फ़रात घाटी में जौ के हिसाब व मेलुहा समुद्री व्यापार का लेख।'), set: { civ: 'mesopotamia' } },
+          { x: 60, y: 62, en: 'Egyptian Nile Reed Boat', hi: 'मिस्र की नील नदी नौका', detail: b('Annual predictable Nile floods sustained unified kingdoms and hieroglyphs.', 'नील नदी की नियमित बाढ़ से पिरामिड व चित्रलिपि सभ्यता पनपी।'), set: { civ: 'egypt' } },
+          { x: 82, y: 56, en: 'Shang Bronze Ritual Vessel', hi: 'शांग कांस्य पात्र', detail: b('Yellow River cities famed for piece-mould bronze casting & oracle bones.', 'पीली नदी घाटी में उत्कृष्ट कांस्य ढलाई व अस्थि-लेख।'), set: { civ: 'china' } },
+        ],
+      },
       svg,
       aria: `${cur.en} (${cur.span}) on ${cur.river.en}`,
       lines: [
@@ -217,6 +238,17 @@ export const vedicDatedMap = {
     ] : [];
     const svg = indiaMapSvg({ w: 640, h: 410, stateColors: e.states, markers, paths, aria: `Historical geography of India during ${e.en}` });
     return {
+      plate: {
+        src: 'assets/images/t05.jpg',
+        en: 'Governance milestones from Sapta-Sindhu assemblies to 1000 CE — tap pins to shift historical era on the India map.',
+        hi: 'सप्त-सिंधु सभाओं से 1000 ई. तक राज्य व समाज — मानचित्र पर कालखंड बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 22, y: 42, en: 'Early Vedic Sabha & Samiti', hi: 'वैदिक सभा व समिति', detail: b('1500–1000 BCE: pastoral assemblies in Sapta-Sindhu deliberated policy.', 'सप्त-सिंधु में कबीलाई जन सभा व समिति में संवाद द्वारा निर्णय लेते थे।'), set: { era: 'earlyVedic' } },
+          { x: 46, y: 48, en: 'Vaishali Gana-Sangha & Magadha', hi: 'वैशाली गणसंघ व मगध', detail: b('600–400 BCE: urban coins, iron ploughs, and republican Vaishali assemblies.', 'आहत सिक्के, लोहे के हल व वैशाली की सामूहिक गणसंघ सभा।'), set: { era: 'janapada' } },
+          { x: 66, y: 42, en: 'Mauryan Highways & Ashokan Edicts', hi: 'मौर्य राजमार्ग व शिलालेख', detail: b('321–185 BCE: Uttarapatha linked Taxila to Pataliputra with Prakrit edicts.', 'तक्षशिला से पाटलिपुत्र उत्तरापथ व जनसामान्य की प्राकृत में शिलालेख।'), set: { era: 'maurya' } },
+          { x: 82, y: 58, en: 'Chola Uttaramerur Sabha (920 CE)', hi: 'चोल उत्तरमेरूर ग्राम सभा', detail: b('900–1000 CE: Kudavolai palm-leaf lottery elections for local tank & justice committees.', 'कुदावोलई ताड़पत्र लॉटरी से तालाब व न्याय ग्राम समितियों का चुनाव।'), set: { era: 'chola1000' } },
+        ],
+      },
       svg,
       aria: `${e.en} (${e.year})`,
       lines: [
@@ -295,10 +327,35 @@ export const sourceRoom = {
     const barW = Math.round((conf / 100) * 440);
     const svg = `<svg viewBox="0 0 640 210" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="14" width="604" height="182" rx="10" fill="var(--card)" stroke="${col}" stroke-width="3"/><text class="txt b" x="36" y="46" fill="${col}">${esc(P(it.en, it.hi))}</text><rect x="36" y="68" width="560" height="44" rx="8" fill="var(--bg)" stroke="var(--line)"/><text class="txt sm" x="50" y="95">${esc(P(S.corroborate ? 'Corroboration ON: Texts + Stone + Excavations cross-checked' : 'Single Source ONLY: High risk of royal praise or blindspot!', S.corroborate ? 'मिलान चालू: ग्रंथ + अभिलेख + उत्खनन जाँचे गए' : 'केवल एक स्रोत: पक्षपात या अधूरी तस्वीर का जोखिम!'))}</text><text class="txt sm b" x="36" y="138">${esc(P(`Historical Confidence: ${conf}%`, `ऐतिहासिक विश्वसनीयता: ${conf}%`))}</text><rect x="36" y="148" width="440" height="16" rx="8" fill="#e2e8f0"/><rect x="36" y="148" width="${barW}" height="16" rx="8" fill="${conf >= 80 ? '#16a34a' : '#d97706'}"/></svg>`;
     const plate = S.src === 'inscription'
-      ? { src: 'assets/images/plates/t05-sources.jpg', en: 'Carved stone relief, tied palm-leaf manuscript and black ceramic bowl with punch-marked silver coins.', hi: 'तराशा गया पत्थर अभिलेख, ताड़पत्र पांडुलिपि और आहत चाँदी के सिक्कों वाला काला मृद्भांड।' }
+      ? {
+          src: 'assets/images/plates/t05-sources.jpg',
+          en: 'Carved stone relief, palm-leaf manuscript and coin bowl — tap pins to inspect different evidence classes.',
+          hi: 'तराशा गया पत्थर अभिलेख, ताड़पत्र पांडुलिपि व सिक्का-पात्र — साक्ष्य वर्ग बदलने हेतु पिन पर टैप करें।',
+          spots: [
+            { x: 28, y: 54, en: 'Stone Epigraphy (Ashoka / Chola)', hi: 'शिलालेख प्रमाण', detail: b('Carved into durable stone during the rulers’ own lifetimes.', 'समकालीन शासकों के समय स्थायी पत्थर पर खुदे नियम व आदेश।'), set: { src: 'inscription', corroborate: true } },
+            { x: 56, y: 58, en: 'Palm-Leaf Literary Sources', hi: 'ताड़पत्र व यात्रा ग्रंथ', detail: b('Sangam verses & Xuanzang travelogue capture daily debates & cultural ideals.', 'संगम कविता व ह्वेनसांग के यात्रा-वृत्तांत जीवंत समाज दिखाते हैं।'), set: { src: 'text' } },
+            { x: 80, y: 60, en: 'Silver Karshapana Coins', hi: 'आहत चाँदी सिक्के', detail: b('Silent material finds confirm trade & artisan prosperity across strata.', 'भौतिक अवशेष दैनिक व्यापार व शिल्प समृद्धि सिद्ध करते हैं।'), set: { src: 'material' } },
+          ],
+        }
       : S.src === 'text'
-        ? { src: 'assets/images/plates/t05-knowledge.jpg', en: 'Bound palm-leaf manuscript and brick vihara courtyard — classical textual & monastic archive.', hi: 'ताड़पत्र पांडुलिपि और प्राचीन विहार अध्ययन कक्ष।' }
-        : { src: 'assets/images/plates/t13-artefacts.jpg', en: 'Excavated coins, pottery shards and trade beads — silent physical proof of everyday exchange.', hi: 'उत्खनित सिक्के, मृद्भांड व मनके — दैनिक जीवन के भौतिक साक्ष्य।' };
+        ? {
+            src: 'assets/images/plates/t05-knowledge.jpg',
+            en: 'Bound palm-leaf manuscript and brick vihara archive — tap pins to test royal prashasti bias vs triangulation.',
+            hi: 'ताड़पत्र पांडुलिपि और विहार अध्ययन कक्ष — राजप्रशस्ति व त्रिकोणीय जाँच परखने हेतु पिन पर टैप करें।',
+            spots: [
+              { x: 30, y: 50, en: 'Travelogue vs Court Praise', hi: 'यात्रा-वृत्तांत बनाम दरबारी प्रशस्ति', detail: b('Inspect Samudragupta’s Prashasti WITHOUT cross-checking — notice low confidence!', 'बिना मिलान के प्रशस्ति देखें — विश्वसनीयता केवल 35% रहती है!'), set: { src: 'prashasti', corroborate: false } },
+              { x: 64, y: 54, en: 'Triangulate Independent Sources', hi: 'त्रिकोणीय स्रोत मिलान', detail: b('Cross-check texts, inscriptions & coins together for 86–95% confidence!', 'ग्रंथ, शिलालेख व सिक्के एक साथ जाँचकर 86–95% विश्वसनीयता पाएँ!'), set: { corroborate: true } },
+            ],
+          }
+        : {
+            src: 'assets/images/plates/t13-artefacts.jpg',
+            en: 'Excavated coins, pottery shards and trade beads — tap pins to switch source classes.',
+            hi: 'उत्खनित सिक्के, मृद्भांड व मनके — साक्ष्य वर्ग बदलने हेतु पिन पर टैप करें।',
+            spots: [
+              { x: 34, y: 54, en: 'Coins & Amphora Material Proof', hi: 'सिक्के व पात्र भौतिक प्रमाण', detail: b('Direct physical stratigraphy verifies Roman/West Asian trade contacts.', 'भौतिक उत्खनन विदेशी व्यापार की सीधी पुष्टि करता है।'), set: { src: 'material', corroborate: true } },
+              { x: 68, y: 56, en: 'Cross-Check Against Epigraphy', hi: 'शिलालेख से मिलान', detail: b('Compare mute coins against carved Tamil/Ashokan inscriptions.', 'मौन सिक्कों की तुलना तराशे शिलालेखों से करें।'), set: { src: 'inscription', corroborate: true } },
+            ],
+          };
     return { plate, svg, aria: `${it.en}, confidence ${conf}%`, lines: [it.excerpt, { ...it.biasAlert, cls: S.corroborate ? 'balanced' : 'warn' }] };
   },
   discover: [b('Pick Royal Prashasti and toggle cross-checking OFF vs ON. Notice confidence jumps from 35% to 86% once corroborated!', 'राजप्रशस्ति चुनें और मिलान बंद बनाम चालू करें। त्रिकोणीय जाँच से विश्वसनीयता 35% से 86% तक बढ़ते देखें!')],
@@ -362,6 +419,17 @@ export const empireAdmin = {
     }).join('');
     const barSvg = `<svg viewBox="0 0 640 148" class="chart" role="img" aria-label="${esc(P('Saptanga state health indicators', 'सप्तांग राज्य स्वास्थ्य सूचक'))}" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="632" height="140" rx="10" fill="var(--card)" stroke="var(--line)"/>${bars}</svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t05-saptanga.jpg',
+        en: 'Saptanga statecraft diorama: tap boundary pillar (Danda), highway caravan (Kosha), canal sluice (Janapada) or fort (Durga) to rebalance governance.',
+        hi: 'सप्तांग राज्य-कौशल चित्र: दंड-स्तंभ, व्यापारी काफ़िला (कोश), नहर सिंचाई (जनपद) या दुर्ग पर टैप करके शासन संतुलन बदलें।',
+        spots: [
+          { x: 12, y: 72, en: 'Boundary Stone Pillar (Danda / Maurya)', hi: 'सीमा अभिलेख स्तंभ (दंड / मौर्य)', detail: b('Mauryan balanced ~1/6 bhaga tax (17%) & public law keep citizen trust high.', 'मौर्य ~1/6 भाग कर (17%) व कानून व्यवस्था जन-विश्वास ऊँचा रखते हैं।'), set: { govMode: 'maurya', taxRate: 17, roadsInvest: 60, irrigationInvest: 60 } },
+          { x: 46, y: 62, en: 'Highway Caravan (Kosha & Trade)', hi: 'राजमार्ग काफ़िला (कोश व व्यापार)', detail: b('80% road & serai investment multiplies merchant commerce along Uttarapatha.', 'राजमार्गों व सरायों में 80% निवेश से व्यापार और राजकोष बढ़ता है।'), set: { roadsInvest: 80, taxRate: 16 } },
+          { x: 72, y: 68, en: 'Village Canal & Tank (Chola Sabha)', hi: 'नहर व ग्राम तालाब (चोल सभा)', detail: b('Chola model pairs 80% canal/tank investment with autonomous local Kudavolai assemblies.', 'चोल मॉडल 80% सिंचाई निवेश को स्वायत्त ग्राम सभाओं संग जोड़ता है।'), set: { govMode: 'chola', irrigationInvest: 80, taxRate: 16 } },
+          { x: 88, y: 36, en: 'Frontier Watchtower (Samanta Stress)', hi: 'सीमांत दुर्ग (सामंत दबाव)', detail: b('Heavy 34% tax under Samanta feudatories spikes breakaway rebellion risk!', 'सामंत व्यवस्था में 34% भारी कर विखंडन व विद्रोह का खतरा बढ़ा देता है!'), set: { govMode: 'samanta', taxRate: 34, irrigationInvest: 20 } },
+        ],
+      },
       svg: netSvg + barSvg,
       aria: `${S.govMode}: legitimacy ${r.legitimacy}%, village ${r.villageResilience}%, breakaway risk ${r.breakawayRisk}%`,
       lines: [
@@ -451,8 +519,14 @@ export const knowledgeGallery = {
     return {
       plate: {
         src: 'assets/images/plates/t05-knowledge.jpg',
-        en: 'Palm-leaf grammar/astronomy manuscript, Ayurvedic mortar & brass armillary sphere at a brick vihara.',
-        hi: 'ताड़पत्र पांडुलिपि, आयुर्वेदिक खरल और ईंट विहार में पीतल का खगोल यंत्र।',
+        en: 'Palm-leaf grammar/astronomy manuscript, Ayurvedic mortar & brass armillary sphere — tap pins to explore each Indian Knowledge System.',
+        hi: 'ताड़पत्र पांडुलिपि, आयुर्वेदिक खरल व पीतल खगोल यंत्र — प्रत्येक ज्ञान परंपरा देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 58, en: 'Panini’s 4,000 Generative Rules', hi: 'पाणिनि की अष्टाध्यायी (सूत्र प्रणाली)', detail: b('Algorithmic meta-rules and recursion built formal syntax millennia before computers.', 'कंप्यूटर से सदियों पहले 4,000 सूत्रों में जनरेटिव व्याकरण प्रणाली।'), set: { topic: 'lang', compareAi: true } },
+          { x: 48, y: 54, en: 'Aryabhata & Zero Armillary Sphere', hi: 'आर्यभट, शून्य व खगोल यंत्र', detail: b('Decimal zero rules, π ≈ 3.1416 and Earth’s daily axial rotation (499 CE).', 'शून्य के नियम, दशमलव व पृथ्वी के घूर्णन की सटीक व्याख्या।'), set: { topic: 'math', compareAi: true } },
+          { x: 68, y: 62, en: 'Ayurveda & Sushruta Surgical Practice', hi: 'आयुर्वेद व सुश्रुत शल्य-चिकित्सा', detail: b('Hands-on dissection & sterile herbal training on botanical models.', 'पौधों व चमड़े के मॉडलों पर सुरक्षित शल्य अभ्यास व वनौषधि ज्ञान।'), set: { topic: 'med', compareAi: true } },
+          { x: 84, y: 40, en: 'Nalanda & Vikramashila Shastrartha', hi: 'नालंदा व विक्रमशिला शास्त्रार्थ', detail: b('Open international debates tested flaws — ancient twin of modern peer review!', 'अंतर्राष्ट्रीय आवासीय विहार जहाँ खुले तर्क से हर विचार की जाँच होती थी।'), set: { topic: 'uni', compareAi: true } },
+        ],
       },
       svg,
       aria: it.en,
@@ -518,8 +592,13 @@ export const guildTrade = {
     return {
       plate: {
         src: 'assets/images/plates/t05-guilds.jpg',
-        en: 'Ancient merchant guild (shreni): spice sacks, terracotta jars, silver punch-marked coins and ivory trade seal.',
-        hi: 'प्राचीन श्रेणी (व्यापारी संघ): मसालों की बोरियाँ, घड़े, चाँदी के आहत सिक्के व व्यापारिक मुहर।',
+        en: 'Ancient merchant guild (shreni): tap spice sacks, silver coins or guild seal to switch overland & Bay of Bengal routes.',
+        hi: 'प्राचीन श्रेणी (व्यापारी संघ): उत्तरापथ, दक्षिणापथ व बंगाल की खाड़ी मार्ग देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 56, en: 'Uttarapatha Overland Guilds', hi: 'उत्तरापथ स्थल संघ', detail: b('Caravans linked Taxila, Mathura & Pataliputra down to Bengal ports.', 'तक्षशिला, मथुरा व पाटलिपुत्र से ताम्रलिप्ति बंदरगाह तक काफ़िले।'), set: { route: 'uttarapatha', shreniJoin: true } },
+          { x: 54, y: 62, en: 'Dakshinapatha Coins & Spice Trade', hi: 'दक्षिणापथ व मुज़िरिस मसाले', detail: b('Ujjayini connected Ganga textiles to Barygaza & Kerala black pepper.', 'उज्जयिनी होते हुए भृगुकच्छ व मुज़िरिस मसाला बंदरगाहों तक व्यापार।'), set: { route: 'dakshinapatha', shreniJoin: true } },
+          { x: 78, y: 48, en: 'Chola/Pala Sea Guilds + Risk Pool', hi: 'समुद्री संघ व जोखिम कोष', detail: b('Join Manigramam/Ayyavole 500 + risk fund to cut monsoon losses sharply!', 'मणिग्रामम/अय्यावोले संघ व सामूहिक कोष से समुद्री जोखिम भारी घटता है!'), set: { route: 'maritime', shreniJoin: true, monsoonInsurance: true, cargoValue: 200 } },
+        ],
       },
       svg,
       aria: `${S.route} net ${sim.netReturn}, risk ${sim.riskPct}%`,
@@ -591,9 +670,19 @@ export const aiAuditLab = {
   view(S) {
     const c = AI_CLAIMS[S.claimId] || AI_CLAIMS.ashoka;
     const sim = H.sourceAuditSim(S);
-    const pill = (x, label, ok) => `<rect x="${x}" y="86" width="184" height="44" rx="8" fill="${ok ? '#dcfce7' : '#f1f5f9'}" stroke="${ok ? '#16a34a' : '#94a3b8'}" stroke-width="2"/><text class="txt sm b" x="${x + 92}" y="112" text-anchor="middle" fill="${ok ? '#14532d' : '#475569'}">${esc(label)}</text>`;
-    const svg = `<svg viewBox="0 0 640 206" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="12" width="612" height="182" rx="12" fill="var(--card)" stroke="${sim.status === 'debunked' ? '#16a34a' : '#d97706'}" stroke-width="3"/><text class="txt b" x="32" y="42">${esc(P(c.botTitle.en, c.botTitle.hi))}</text><text class="txt sm mut" x="32" y="64">${esc(P(`Forensic Checks Active: ${sim.checksDone}/3 · Flaws Exposed: ${sim.caught}/${sim.totalFlaws}`, `सक्रिय जाँच: ${sim.checksDone}/3 · पकड़ी गई त्रुटियाँ: ${sim.caught}/${sim.totalFlaws}`))}</text>${pill(28, P(S.checkEpigraphy ? '✓ Epigraphy Checked' : '○ Epigraphy Off', S.checkEpigraphy ? '✓ अभिलेख जाँच' : '○ अभिलेख बंद'), S.checkEpigraphy)}${pill(228, P(S.checkChronology ? '✓ Chronology Checked' : '○ Chronology Off', S.checkChronology ? '✓ कालक्रम जाँच' : '○ कालक्रम बंद'), S.checkChronology)}${pill(428, P(S.checkMaterial ? '✓ Artefacts Checked' : '○ Artefacts Off', S.checkMaterial ? '✓ पुरावशेष जाँच' : '○ पुरावशेष बंद'), S.checkMaterial)}<rect x="28" y="148" width="584" height="30" rx="8" fill="${sim.status === 'debunked' ? '#dcfce7' : sim.status === 'partial' ? '#fef3c7' : '#fee2e2'}"/><text class="txt sm b" x="320" y="168" text-anchor="middle" fill="#1e293b">${esc(P(sim.status === 'debunked' ? `✓ HALLUCINATION EXPOSED (${sim.verifiedPct}% confidence)` : sim.status === 'partial' ? `⚠ Partial clues (${sim.caught}/${sim.totalFlaws}) — run another check!` : 'Unchecked Bot Claim — Do NOT copy blindly!', sim.status === 'debunked' ? `✓ एआई भ्रम पकड़ा गया (${sim.verifiedPct}% प्रमाणित)` : sim.status === 'partial' ? `⚠ आंशिक जाँच — एक और प्रमाण जाँचें!` : 'अप्रमाणित एआई दावा — बिना जाँचे न मानें!'))}</text></svg>`;
+    const pill = (x, label, ok, key) => `<g data-set='${esc(JSON.stringify({ [key]: !S[key] }))}' role="button" tabindex="0"><rect x="${x}" y="86" width="184" height="44" rx="8" fill="${ok ? '#dcfce7' : '#f1f5f9'}" stroke="${ok ? '#16a34a' : '#94a3b8'}" stroke-width="2"/><text class="txt sm b" x="${x + 92}" y="112" text-anchor="middle" fill="${ok ? '#14532d' : '#475569'}">${esc(label)}</text></g>`;
+    const svg = `<svg viewBox="0 0 640 206" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="12" width="612" height="182" rx="12" fill="var(--card)" stroke="${sim.status === 'debunked' ? '#16a34a' : '#d97706'}" stroke-width="3"/><text class="txt b" x="32" y="42">${esc(P(c.botTitle.en, c.botTitle.hi))}</text><text class="txt sm mut" x="32" y="64">${esc(P(`Forensic Checks Active: ${sim.checksDone}/3 · Flaws Exposed: ${sim.caught}/${sim.totalFlaws}`, `सक्रिय जाँच: ${sim.checksDone}/3 · पकड़ी गई त्रुटियाँ: ${sim.caught}/${sim.totalFlaws}`))}</text>${pill(28, P(S.checkEpigraphy ? '✓ Epigraphy Checked' : '○ Epigraphy Off', S.checkEpigraphy ? '✓ अभिलेख जाँच' : '○ अभिलेख बंद'), S.checkEpigraphy, 'checkEpigraphy')}${pill(228, P(S.checkChronology ? '✓ Chronology Checked' : '○ Chronology Off', S.checkChronology ? '✓ कालक्रम जाँच' : '○ कालक्रम बंद'), S.checkChronology, 'checkChronology')}${pill(428, P(S.checkMaterial ? '✓ Artefacts Checked' : '○ Artefacts Off', S.checkMaterial ? '✓ पुरावशेष जाँच' : '○ पुरावशेष बंद'), S.checkMaterial, 'checkMaterial')}<rect x="28" y="148" width="584" height="30" rx="8" fill="${sim.status === 'debunked' ? '#dcfce7' : sim.status === 'partial' ? '#fef3c7' : '#fee2e2'}"/><text class="txt sm b" x="320" y="168" text-anchor="middle" fill="#1e293b">${esc(P(sim.status === 'debunked' ? `✓ HALLUCINATION EXPOSED (${sim.verifiedPct}% confidence)` : sim.status === 'partial' ? `⚠ Partial clues (${sim.caught}/${sim.totalFlaws}) — run another check!` : 'Unchecked Bot Claim — Do NOT copy blindly!', sim.status === 'debunked' ? `✓ एआई भ्रम पकड़ा गया (${sim.verifiedPct}% प्रमाणित)` : sim.status === 'partial' ? `⚠ आंशिक जाँच — एक और प्रमाण जाँचें!` : 'अप्रमाणित एआई दावा — बिना जाँचे न मानें!'))}</text></svg>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t05-chola-kudavolai.jpg',
+        en: 'Uttaramerur Chola stone inscription & Kudavolai palm-leaf ballot pot — tap pins to fact-check AI bot claims directly against physical archives.',
+        hi: 'उत्तरमेरूर चोल अभिलेख व कुदावोलई ताड़पत्र मतदान घड़ा — एआई दावों को वास्तविक प्रमाणों से परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 42, en: 'Verify Ashokan Stone Edict (Claim 1)', hi: 'अशोक शिलालेख जाँच (दावा 1)', detail: b('Cross-check date & Prakrit rock pillars: exposes “printed paper flyers” anachronism!', 'प्रिंटिंग-प्रेस काल-दोष व प्राकृत शिलालेख से एआई भ्रम तुरंत पकड़ा जाता है!'), set: { claimId: 'ashoka', checkEpigraphy: true, checkChronology: true, checkMaterial: true } },
+          { x: 52, y: 68, en: 'Verify Kudavolai Pot & Inscription (Claim 2)', hi: 'कुदावोलई घड़ा प्रमाण (दावा 2)', detail: b('920 CE temple stone proves organised village committees & strict ethics rules existed!', '920 ई. का मंदिर अभिलेख सिद्ध करता है कि संगठित ग्राम चुनाव व आचार नियम थे!'), set: { claimId: 'samanta', checkEpigraphy: true, checkChronology: true, checkMaterial: true } },
+          { x: 80, y: 50, en: 'Verify Treatises & Mehrauli Iron (Claim 3)', hi: 'ग्रंथ व महरौली लौह प्रमाण (दावा 3)', detail: b('Rust-free Iron Pillar + Panini + Aryabhata shatter “pure mythology” claim!', 'जंग-रहित लौह स्तंभ, पाणिनि व आर्यभट वैज्ञानिक परंपरा सिद्ध करते हैं!'), set: { claimId: 'science', checkEpigraphy: true, checkChronology: true, checkMaterial: true } },
+        ],
+      },
       svg,
       aria: `${c.botTitle.en}, flaws caught ${sim.caught} of ${sim.totalFlaws}`,
       lines: [

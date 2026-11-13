@@ -31,7 +31,19 @@ function viewGradation(S) {
     { en: `The source has been lowered by ${fmt(lowered, 0)}%. Dashed line = the starting land surface; tan blocks = new deposits.`, hi: `स्रोत ${fmt(lowered, 0)}% नीचे हो गया। बिंदुकित रेखा = शुरुआती धरातल; पीले खंड = नया निक्षेपण।`, cls: 'note' },
     AGENT_NOTE[S.agent],
   ];
-  return { svg: ch.html({ label: P('Land profile', 'भूमि का परिच्छेद') }), aria: `Land profile after ${S.years} years: ${fmt(r.eroded, 0)} eroded, ${fmt(r.deposited, 0)} deposited.`, lines };
+  return {
+    plate: {
+      src: 'assets/images/plates/t02-landforms.jpg',
+      en: 'From snowline glacier peaks down to meandering river floodplains — tap any pin to switch the gradation agent.',
+      hi: 'हिमनद चोटियों से विसर्पी नदी मैदानों तक — अपरदन-निक्षेपण कारक बदलने हेतु पिन पर टैप करें।',
+      spots: [
+        { x: 35, y: 20, en: 'Glacier Headwaters', hi: 'हिमनद उद्गम', detail: b('Carves broad U-shaped valleys and leaves unsorted moraine ridges.', 'चौड़ी U-आकार की घाटियाँ तराशता व हिमोढ़ छोड़ता है।'), set: { agent: 'glacier', years: 70 } },
+        { x: 38, y: 66, en: 'Braided River & Meanders', hi: 'नदी विसर्प व बाढ़ मैदान', detail: b('Cuts V-valleys upstream and deposits fertile alluvium across flat plains.', 'ऊपर V-घाटी काटती है और समतल मैदान में उपजाऊ जलोढ़ जमा करती है।'), set: { agent: 'river', rain: 0.7 } },
+        { x: 74, y: 74, en: 'Vegetated Terraces', hi: 'वनस्पति रक्षित ढाल', detail: b('Tree roots and crops bind topsoil — watch erosion plummet when vegetation rises.', 'जड़ें और वनस्पति मिट्टी को थामकर कटाव काफ़ी घटाती हैं।'), set: { veg: 0.85 } },
+      ],
+    },
+    svg: ch.html({ label: P('Land profile', 'भूमि का परिच्छेद') }), aria: `Land profile after ${S.years} years: ${fmt(r.eroded, 0)} eroded, ${fmt(r.deposited, 0)} deposited.`, lines,
+  };
 }
 const run = (S, o) => G.run({ rain: S.rain, rock: S.rock, agent: S.agent, vegetation: S.veg, ...o }, S.years);
 
@@ -119,8 +131,14 @@ export const landformGallery = {
     return {
       plate: {
         src: 'assets/images/plates/t02-landforms.jpg',
-        en: 'Himalayan fold peaks, braided river canyon and alluvial green valley shaped by uplift and gradation.',
-        hi: 'विवर्तनिक उत्थान व अपरदन-निक्षेपण से बने हिमालयी वलित शिखर, नदी घाटी व जलोढ़ मैदान।',
+        en: 'Himalayan fold peaks, braided river canyon and alluvial green valley — tap pins to switch between river, glacier, wind and wave landforms.',
+        hi: 'हिमालयी वलित शिखर, नदी घाटी व जलोढ़ मैदान — नदी, हिमनद, पवन व तरंग स्थलाकृतियाँ बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 36, y: 20, en: 'Glacial Peaks & Cirques', hi: 'हिमनद शिखर व सर्क', detail: b('Switch to Glacier U-valley and moraines.', 'हिमनद की U-घाटी व हिमोढ़ देखें।'), set: { agent: 'glacier', stage: 0.75 } },
+          { x: 38, y: 66, en: 'River Gorge & Floodplain', hi: 'नदी गॉर्ज व बाढ़ मैदान', detail: b('Switch to River V-valley erosion and delta deposits.', 'नदी की V-घाटी व डेल्टा निक्षेपण देखें।'), set: { agent: 'river', stage: 0.65 } },
+          { x: 14, y: 46, en: 'Dry Wind-Swept Ridge', hi: 'शुष्क पवन ढाल', detail: b('Switch to Wind mushroom rocks and barchan dunes.', 'पवन छत्रक शैल व बरखान टिब्बे देखें।'), set: { agent: 'wind', stage: 0.7 } },
+          { x: 64, y: 74, en: 'Wave & Karst Comparison', hi: 'सागरीय तरंग व कार्स्ट', detail: b('Switch to Sea cliffs, arches and stacks.', 'समुद्री भृगु व स्टैक देखें।'), set: { agent: 'waves', stage: 0.7 } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 230" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `${LF_NAMES[S.agent].en} landform cross-section`,
@@ -192,6 +210,16 @@ export const hazardLab = {
     g += `<text class="txt b" x="480" y="114" text-anchor="middle" fill="${col}">${res.riskPct}% · ${esc(P(res.status.toUpperCase(), res.status === 'critical' ? 'अत्यधिक जोखिम' : res.status === 'elevated' ? 'मध्यम जोखिम' : 'स्थिर'))}</text>`;
     if (S.glof) g += `<text class="txt sm" x="480" y="146" text-anchor="middle">${esc(P(`GLOF surge travel ~${res.glofPeakMinutes} min`, `GLOF लहर पहुँच ~${res.glofPeakMinutes} मि`))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/plates/t02-hazards.jpg',
+        en: 'Himalayan slope & GLOF watershed: tap pins to toggle forest roots, retaining walls or the glacial lake hazard.',
+        hi: 'हिमालयी ढलान व हिमनद झील: वन, प्रतिरोधी दीवार या GLOF जोखिम बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 22, y: 34, en: 'Conifer Slope Forest', hi: 'कोणधारी वन ढाल', detail: b('Deep tree roots anchor topsoil and soak cloudburst water (set forest 85%).', 'जड़ें मिट्टी को जकड़ती व भारी बारिश सोखती हैं (वन 85%)।'), set: { forest: 85, slope: 32 } },
+          { x: 68, y: 40, en: 'Moraine-Dammed Glacial Lake', hi: 'हिमोढ़-बाँध हिमनद झील', detail: b('Trigger an upstream GLOF hazard to inspect valley surge travel minutes.', 'ऊपरी GLOF झील सक्रिय करके घाटी बाढ़-लहर समय देखें।'), set: { glof: true, rain: 220 } },
+          { x: 44, y: 65, en: 'Gabion Wall & Highway Bench', hi: 'प्रतिरोधी दीवार व राजमार्ग', detail: b('Enable engineered retaining walls, weep-hole drains and sirens to stabilise road cuts.', 'सड़क कटाव थामने को प्रतिरोधी दीवार, निकास पाइप व सायरन चालू करें।'), set: { wall: true } },
+        ],
+      },
       svg: `<svg viewBox="0 0 640 240" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Slope ${S.slope} degrees, rainfall ${S.rain} mm: risk ${res.riskPct}% (${res.status}).`,
       lines: [

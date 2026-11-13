@@ -47,6 +47,16 @@ export const regionalPolitiesMap = {
     const markers = m.pts.map((p) => ({ lon: p.lon, lat: p.lat, r: 7.5, fill: '#b91c1c', pulse: true, label: p.l }));
     const svg = indiaMapSvg({ w: 640, h: 410, stateColors: m.states, markers, aria: m.en });
     return {
+      plate: {
+        src: 'assets/images/plates/t12-heritage.jpg',
+        en: 'Regional capitals & fortifications (1000–1700 CE) — tap pins to shift historical snapshot and test alliances.',
+        hi: '1000–1700 ई. की क्षेत्रीय शक्तियाँ व दुर्ग — ऐतिहासिक वर्ष व रक्षा गठबंधन बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 52, en: 'c. 1050 CE Chola & Paramara Realms', hi: 'ल. 1050 ई. चोल व परमार राज्य', detail: b('Maritime Cholas, Dhara & Pala universities flourished across vibrant regions.', 'तंजावुर, धार व पाल केंद्रों ने कला व समुद्री कूटनीति बढ़ाई।'), set: { year: '1050' } },
+          { x: 52, y: 42, en: 'c. 1350 CE Hampi, Mewar & Ahom', hi: 'ल. 1350 ई. हम्पी, मेवाड़ व अहोम', detail: b('Vijayanagara, Eastern Ganga & Ahom fortified regional states resiliently.', 'विजयनगर, ओडिशा व अहोम ने सुदृढ़ क्षेत्रीय स्वायत्तता खड़ी की।'), set: { year: '1350' } },
+          { x: 74, y: 66, en: 'c. 1680 CE Maratha Swarajya & Saraighat', hi: 'ल. 1680 ई. मराठा व सरायघाट', detail: b('Hill forts and Brahmaputra river tactics checked imperial overreach.', 'पहाड़ी दुर्ग व नदी युद्ध नीति ने साम्राज्य विस्तार को रोका।'), set: { year: '1680', alliance: true } },
+        ],
+      },
       svg,
       aria: m.en,
       lines: [
@@ -119,8 +129,13 @@ export const fortBuilder = {
     return {
       plate: {
         src: 'assets/images/t12.jpg',
-        en: 'Indian sandstone hill-fort bastions, double ramparts and stepped rainwater cistern.',
-        hi: 'भारतीय बलुआ पत्थर पहाड़ी दुर्ग के बुर्ज, दोहरी प्राचीर व सीढ़ीदार जल कुंड।',
+        en: 'Indian sandstone hill-fort bastions, double ramparts and stepped cistern — tap pins to configure siege defences.',
+        hi: 'पहाड़ी दुर्ग के बुर्ज, दोहरी प्राचीर व वर्षा-जल कुंड — घेराबंदी रक्षा परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 28, y: 44, en: '8 Flank Bastions + Double Rampart', hi: '8 बुर्ज व दोहरी प्राचीर', detail: b('Layered circular bastions give defenders cross-fire coverage.', 'गोलाकार बुर्ज व दोहरी दीवारें चारों ओर से रक्षकों को सुरक्षित कोण देती हैं।'), set: { bastions: 8, doubleWall: true } },
+          { x: 56, y: 64, en: 'Zig-Zag Bent Gate (Hathipol)', hi: 'टेढ़ा द्वार (हाथीपोल)', detail: b('Sharp 90° turn breaks war-elephant ramming charges instantly.', '90° का मोड़ भारी दरवाज़ों पर हाथी के सीधे प्रहार का वेग तोड़ देता है।'), set: { bentGate: true } },
+          { x: 80, y: 58, en: '5 Baori Cisterns + 12-Mo Granary', hi: '5 जल बावड़ी व 12 माह अन्न', detail: b('Captured monsoon rock cisterns let defenders outlast dry-season sieges.', 'चट्टानी वर्षा-जल कुंड सूखे मौसम की लंबी घेराबंदी में भी जीवन बचाते हैं।'), set: { cisterns: 5, granaryMonths: 12 } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 250" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Fort design score ${f.overall}%: defence ${f.defence}%, endurance ${f.siegeEndurance}%`,
@@ -173,8 +188,26 @@ export const heritageGallery = {
     const h = HERITAGE_T12[S.cat];
     const svg = `<svg viewBox="0 0 640 180" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="16" width="604" height="148" rx="12" fill="#fae8ff" stroke="#7e22ce" stroke-width="2.5"/><text class="txt b" x="320" y="68" text-anchor="middle">${esc(P(h.en, h.hi))}</text><text class="txt sm mut" x="320" y="106" text-anchor="middle">${esc(P('Craft Guilds · Patronage · Multilingual Exchange', 'शिल्पी संघ · संरक्षण · बहुभाषी आदान-प्रदान'))}</text></svg>`;
     const plate = S.cat === 'arch'
-      ? { src: 'assets/images/plates/t12-heritage.jpg', en: 'Carved mandapa pillars, scalloped sandstone arches and stepped temple reservoir.', hi: 'तराशे मंडप स्तंभ, मेहराबदार छतरी और सीढ़ीदार जल कुंड स्थापत्य।' }
-      : { src: 'assets/images/plates/t12-miniature.jpg', en: 'Artisan painting a regional miniature using mineral pigments beside a vernacular manuscript.', hi: 'खनिज रंगों से भारतीय लघुचित्र बनाते कलाकार व क्षेत्रीय पांडुलिपि।' };
+      ? {
+          src: 'assets/images/plates/t12-heritage.jpg',
+          en: 'Carved mandapa pillars, scalloped arches & stepped reservoir — tap pins to explore Architecture, Painting & Literature.',
+          hi: 'तराशे मंडप स्तंभ, मेहराब व सीढ़ीदार कुंड — स्थापत्य, चित्रकला व साहित्य देखने हेतु पिन पर टैप करें।',
+          spots: [
+            { x: 14, y: 52, en: 'Stone-Carved Pillars & Corbels', hi: 'तराशे पाषाण स्तंभ', detail: b('Indigenous craft guilds blended lotus carvings into Indo-Islamic arches.', 'भारतीय शिल्पियों ने स्थानीय नक्काशी को मेहराबों व गुंबदों से जोड़ा।'), set: { cat: 'arch' } },
+            { x: 46, y: 40, en: 'Miniature Painting Workshops', hi: 'लघु चित्रकला शालाएँ', detail: b('Switch exhibit to mineral-pigment court & hill miniatures.', 'खनिज रंगों की मुगल, राजस्थानी व पहाड़ी लघुचित्र शैली देखें।'), set: { cat: 'paint' } },
+            { x: 70, y: 74, en: 'Regional Vernacular Literature', hi: 'क्षेत्रीय लोकभाषा साहित्य', detail: b('Switch exhibit to Tamil, Marathi, Awadhi, Kannada & Assamese classics.', 'तमिल, मराठी, अवधी, कन्नड़ व असमिया साहित्य का उत्कर्ष देखें।'), set: { cat: 'lit' } },
+          ],
+        }
+      : {
+          src: 'assets/images/plates/t12-miniature.jpg',
+          en: 'Artisan painting a regional miniature using mineral pigments — tap pins to switch gallery exhibits.',
+          hi: 'खनिज रंगों से लघुचित्र बनाते कलाकार — प्रदर्श बदलने हेतु पिन पर टैप करें।',
+          spots: [
+            { x: 30, y: 46, en: 'Stone & Stepwell Architecture', hi: 'स्थापत्य संश्लेषण', detail: b('Inspect Hampi, Konark & Rani ki Vav craft traditions.', 'हम्पी, कोणार्क व रानी की वाव स्थापत्य परंपरा देखें।'), set: { cat: 'arch' } },
+            { x: 58, y: 58, en: 'Mineral Pigments & Ragamala Art', hi: 'खनिज रंग व लघुचित्र', detail: b('Inspect Mughal, Rajasthani & Pahari miniature albums.', 'मुगल, राजस्थानी व पहाड़ी चित्रकला शैली देखें।'), set: { cat: 'paint' } },
+            { x: 82, y: 66, en: 'Vernacular Epics & Plays', hi: 'लोकभाषा महाकाव्य व नाटक', detail: b('Inspect everyday spoken tongues replacing court exclusivity.', 'जनसामान्य की बोलियों में रचे गए साहित्य का विस्तार देखें।'), set: { cat: 'lit' } },
+          ],
+        };
     return { plate, svg, aria: h.en, lines: [{ en: h.en, hi: h.hi, cls: 'balanced' }, h.ex] };
   },
   discover: [b('Inspect Architecture, Paintings and Literature. How did temple/fort artisans borrow motifs across regions?', 'स्थापत्य, चित्रकला व साहित्य देखें। शिल्पकारों ने विभिन्न क्षेत्रों की शैलियों को आपस में कैसे जोड़ा?')],
@@ -228,8 +261,13 @@ export const bhaktiNetwork = {
     return {
       plate: {
         src: 'assets/images/plates/t12-bhakti.jpg',
-        en: 'Bhakti community gathering singing devotional songs in spoken vernaculars with ektara and cymbals.',
-        hi: 'इकतारा व मँजीरे के साथ लोकभाषा में भक्ति गीत गाता साझा सामुदायिक समागम।',
+        en: 'Bhakti community gathering in spoken vernaculars — tap pins to spotlight Warkari, Kabir/Ravidas or Guru Nanak traditions.',
+        hi: 'लोकभाषा में भक्ति कीर्तन समागम — वारकरी, कबीर/रविदास व गुरु नानक परंपरा देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 54, en: 'Maharashtra Warkari Abhangs', hi: 'महाराष्ट्र वारकरी अभंग', detail: b('Jnaneshwar, Tukaram & Janabai carried Marathi verse to pilgrims across castes.', 'ज्ञानेश्वर, तुकाराम व जनाबाई ने मराठी अभंगों से समता का संदेश दिया।'), set: { focus: 'warkari' } },
+          { x: 54, y: 48, en: 'Varanasi Nirguna Verse (Kabir/Ravidas)', hi: 'कबीर व रविदास (वाराणसी)', detail: b('Artisan-poets challenged empty ritual and caste division in sharp couplets.', 'बुनकर व चर्मकार संतों ने दोहों से आडंबर व जाति-भेद को चुनौती दी।'), set: { focus: 'kabir' } },
+          { x: 80, y: 60, en: 'Punjab Langar Equality (Guru Nanak)', hi: 'गुरु नानक व लंगर (पंजाब)', detail: b('Shared community meals made social equality everyday lived practice.', 'साझा लंगर ने समानता को कविता से दैनिक जीवन में उतारा।'), set: { focus: 'nanak' } },
+        ],
       },
       svg,
       aria: cur.en,
@@ -278,8 +316,20 @@ export const continuityTimeline = {
       money: { c: b('Continuity: Indian spices, cotton textiles & coastal ports remained prized globally.', 'निरंतरता: भारतीय मसाले, सूती वस्त्र व तटीय बंदरगाह विश्व-प्रसिद्ध बने रहे।'), ch: b('Change: Standard silver tanka/rupaiya coins + Hundi (paper bills of exchange) linked Surat, Agra & Dhaka banks.', 'परिवर्तन: मानक चाँदी का टंका/रुपया और हुंडी (कागज़ी विनिमय पत्र) ने सूरत, आगरा व ढाका के व्यापार को जोड़ा।') },
       state: { c: b('Continuity: Village panchayats & caste/craft guilds settled most daily local disputes.', 'निरंतरता: ग्राम पंचायतें व शिल्पी संघ रोज़मर्रा के स्थानीय विवाद सुलझाते रहे।'), ch: b('Change: Written land-revenue registers (zabt / Todar Mal surveys), gun-powder artillery & mansab/jagirdari ranks.', 'परिवर्तन: लिखित भूमि-राजस्व पंजिका (ज़ब्त प्रणाली), बारूद तोपखाना व मनसबदारी व्यवस्था आई।') },
     }[S.area];
-    const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><line x1="50" y1="95" x2="590" y2="95" stroke="var(--pri)" stroke-width="5"/><circle cx="90" cy="95" r="10" fill="var(--pri)"/><text class="txt sm b" x="90" y="72" text-anchor="middle">1000 CE</text><circle cx="320" cy="95" r="10" fill="var(--pri)"/><text class="txt sm b" x="320" y="72" text-anchor="middle">1350 CE</text><circle cx="550" cy="95" r="10" fill="var(--pri)"/><text class="txt sm b" x="550" y="72" text-anchor="middle">1700 CE</text><text class="txt b" x="320" y="148" text-anchor="middle">${esc(P('Both enduring village roots & accelerating innovations', 'ग्रामीण निरंतरता और तेज़ नवाचार दोनों एक साथ'))}</text></svg>`;
-    return { svg, aria: `Continuity and change in ${S.area}`, lines: [info.c, info.ch] };
+    const svg = `<svg viewBox="0 0 640 190" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><line x1="50" y1="95" x2="590" y2="95" stroke="var(--pri)" stroke-width="5"/><g data-set='{"area":"agri"}' role="button" tabindex="0"><circle cx="90" cy="95" r="${S.area === 'agri' ? 14 : 10}" fill="var(--pri)"/><text class="txt sm b" x="90" y="68" text-anchor="middle">1000 CE · ${esc(P('Farms & Rahat', 'कृषि व रहट'))}</text></g><g data-set='{"area":"money"}' role="button" tabindex="0"><circle cx="320" cy="95" r="${S.area === 'money' ? 14 : 10}" fill="var(--pri)"/><text class="txt sm b" x="320" y="68" text-anchor="middle">1350 CE · ${esc(P('Coins & Hundi', 'मुद्रा व हुंडी'))}</text></g><g data-set='{"area":"state"}' role="button" tabindex="0"><circle cx="550" cy="95" r="${S.area === 'state' ? 14 : 10}" fill="var(--pri)"/><text class="txt sm b" x="550" y="68" text-anchor="middle">1700 CE · ${esc(P('Panchayat & Zabt', 'पंचायत व ज़ब्त'))}</text></g><text class="txt b" x="320" y="148" text-anchor="middle">${esc(P('Both enduring village roots & accelerating innovations', 'ग्रामीण निरंतरता और तेज़ नवाचार दोनों एक साथ'))}</text></svg>`;
+    return {
+      plate: {
+        src: 'assets/images/plates/t12-heritage.jpg',
+        en: 'Seven centuries of continuity & transformation (1000–1700 CE) — tap pins or timeline nodes below.',
+        hi: '1000–1700 ई. में निरंतरता व परिवर्तन — नीचे पिन या समय-बिंदुओं पर टैप करके क्षेत्र बदलें।',
+        spots: [
+          { x: 26, y: 54, en: 'Persian Wheel & Columbian Crops', hi: 'रहट सिंचाई व नई फसलें', detail: b('Monsoon farming stayed rooted while chillies, potatoes & rahat wheels transformed farms.', 'मानसूनी खेती बनी रही पर रहट व आलू-मिर्च जैसी नई फसलों ने क्रांति लाई।'), set: { area: 'agri' } },
+          { x: 54, y: 44, en: 'Silver Tanka/Rupaiya & Hundi Bills', hi: 'टंका/रुपया व हुंडी साख-पत्र', detail: b('Indian textiles kept global leadership while Sarraf Hundi paper settled long-distance trade.', 'सूती वस्त्र अग्रणी रहे और हुंडी से बिना भारी सिक्के ढोए व्यापार चला।'), set: { area: 'money' } },
+          { x: 76, y: 74, en: 'Village Panchayats vs Land Registers', hi: 'ग्राम पंचायत बनाम ज़ब्त पंजिका', detail: b('Local councils settled everyday disputes even as Zabt surveys central-taxed crops.', 'केंद्रीय भूमि-पंजिका के बावजूद ग्राम पंचायतें दैनिक विवाद निपटाती रहीं।'), set: { area: 'state' } },
+        ],
+      },
+      svg, aria: `Continuity and change in ${S.area}`, lines: [info.c, info.ch],
+    };
   },
   discover: [b('Look across Agriculture, Currency and Governance. Notice daily village continuity persisted even when emperors changed!', 'कृषि, मुद्रा व शासन तीनों देखें। ध्यान दें कि सम्राट बदलने पर भी ग्रामीण ढाँचा कैसे टिका रहा!')],
   predictions: [
@@ -325,7 +375,19 @@ export const exchangeMap = {
     const arcs = [{ coords: it.coords, stroke: '#7c3aed', width: 3.5 }];
     const markers = it.coords.map((c, i) => ({ lon: c[0], lat: c[1], r: i === 0 ? 8 : 5.5, fill: i === 0 ? '#ea580c' : '#0284c7' }));
     const svg = worldMapSvg({ w: 640, h: 310, arcs, markers, aria: it.en });
-    return { svg, aria: it.en, lines: [{ en: it.en, hi: it.hi, cls: 'balanced' }, it.desc] };
+    return {
+      plate: {
+        src: 'assets/images/plates/t13-silkspice.jpg',
+        en: 'Silk Road caravans and Indian Ocean dhows — tap pins to trace numerals, Buddhism or Panchatantra stories across Asia.',
+        hi: 'रेशम मार्ग व हिंद महासागर जहाज़ — शून्य, बौद्ध विचार व पंचतंत्र कथाओं की यात्रा देखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 48, en: 'Decimal Numerals & Zero → Baghdad', hi: 'दशमलव व शून्य → बगदाद', detail: b('Indian place-value arithmetic travelled to Baghdad’s House of Wisdom & Europe.', 'भारतीय स्थानीय मान गणित बगदाद होते हुए विश्व के गणित की भाषा बना।'), set: { idea: 'numerals' } },
+          { x: 54, y: 52, en: 'Pilgrims & Gandhara Synthesis', hi: 'बौद्ध यात्री व गांधार कला', detail: b('Faxian, Xuanzang & monks carried manuscripts over passes & sea lanes.', 'फ़ाह्यान व ह्वेनसांग जैसे यात्रियों ने पर्वत दर्रों व समुद्र से ग्रंथ साझा किए।'), set: { idea: 'buddhism' } },
+          { x: 80, y: 56, en: 'Panchatantra Fables & Chess', hi: 'पंचतंत्र कथाएँ व शतरंज', detail: b('Animal fables & Chaturanga travelled via Persian/Arabic into global classics.', 'पंचतंत्र व चतुरंग फ़ारसी-अरबी अनुवादों से विश्व साहित्य व शतरंज बने।'), set: { idea: 'stories' } },
+        ],
+      },
+      svg, aria: it.en, lines: [{ en: it.en, hi: it.hi, cls: 'balanced' }, it.desc],
+    };
   },
   discover: [b('Compare how all three ideas moved alongside merchant caravans and monsoon ships.', 'तीनों विचारों की यात्रा देखें—कैसे वे व्यापारी काफ़िलों और मानसूनी जहाजों के साथ चले।')],
   predictions: [
@@ -387,8 +449,13 @@ export const iksGallery = {
     return {
       plate: {
         src: 'assets/images/plates/t13-iks.jpg',
-        en: 'Mehrauli Iron Pillar courtyard, brass armillary sphere, Wootz steel ingots & Sushruta surgical tools.',
-        hi: 'महरौली लौह स्तंभ, पीतल खगोल यंत्र, वुट्ज़ इस्पात व सुश्रुत शल्य उपकरण।',
+        en: 'Mehrauli Iron Pillar, armillary sphere, Wootz steel ingots & Sushruta tools — tap pins to read original texts.',
+        hi: 'महरौली लौह स्तंभ, खगोल यंत्र, वुट्ज़ इस्पात व सुश्रुत उपकरण — मूल स्रोत पढ़ने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 50, en: 'Aryabhata (499 CE) Boat Simile', hi: 'आर्यभट (499 ई.) नाव उपमा', detail: b('Explained stars appearing to spin westward via Earth’s own eastward rotation.', 'चलती नाव के उदाहरण से पृथ्वी के अपनी धुरी पर घूमने की व्याख्या की।'), set: { src: 'aryabhata' } },
+          { x: 54, y: 58, en: 'Sushruta Surgical Training Models', hi: 'सुश्रुत शल्य प्रशिक्षण मॉडल', detail: b('Practising stitches on gourds and leather before surgery protected real patients.', 'लौकी व चमड़े के थैलों पर अभ्यास कर सुरक्षित शल्य-कौशल सिखाया जाता था।'), set: { src: 'sushruta' } },
+          { x: 80, y: 44, en: 'Mehrauli Iron Pillar & Wootz Steel', hi: 'महरौली स्तंभ व वुट्ज़ इस्पात', detail: b('98% wrought iron with protective passive film resisted rust for 1,600 years.', 'फॉस्फोरस परत से युक्त लौह स्तंभ 1,600 वर्षों से बिना जंग के खड़ा है।'), set: { src: 'steel' } },
+        ],
       },
       svg,
       aria: it.en,
@@ -440,8 +507,13 @@ export const artefactProvenance = {
     return {
       plate: {
         src: 'assets/images/plates/t13-artefacts.jpg',
-        en: 'Excavated Roman amphora shard, gold Aurei coins, carnelian beads, black pepper & cinnamon.',
-        hi: 'उत्खनित रोमन एम्फ़ोरा, स्वर्ण औराई सिक्के, कारनेलियन मनके, काली मिर्च व दालचीनी।',
+        en: 'Excavated Roman amphora, gold Aurei coins & carnelian beads — tap any relic pin to trace its provenance.',
+        hi: 'उत्खनित रोमन एम्फ़ोरा, स्वर्ण सिक्के व कारनेलियन मनके — उत्पत्ति व व्यापार मार्ग जानने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 28, y: 56, en: 'Coimbatore Roman Gold Hoard', hi: 'कोयंबटूर रोमन स्वर्ण सिक्के', detail: b('Roman silver & gold coins paid directly for Malabar black pepper & beryl gems.', 'रोमन व्यापारियों ने केरल की काली मिर्च व रत्नों के बदले स्वर्ण सिक्के दिए।'), set: { art: 'aurei' } },
+          { x: 54, y: 62, en: 'Ur Royal Grave Indus Beads', hi: 'उर क़ब्रिस्तान में हड़प्पा मनके', detail: b('Gujarat carnelian beads excavated in Mesopotamia prove 2400 BCE sea trade.', 'मेसोपोटामिया में गुजरात के लाल अकीक मनके 2400 ई.पू. के समुद्री व्यापार का प्रमाण हैं।'), set: { art: 'bead' } },
+          { x: 78, y: 52, en: 'Arikamedu Wine Amphora Shards', hi: 'अरिकामेडु मदिरा पात्र अवशेष', detail: b('Mediterranean kiln-stamped jars beside Tamil bead kilns show seasonal sailor quarters.', 'तमिल मनका भट्टियों के पास भूमध्यसागरीय मटके अंतर्राष्ट्रीय बंदरगाह दिखाते हैं।'), set: { art: 'amphora' } },
+        ],
       },
       svg,
       aria: a.en,

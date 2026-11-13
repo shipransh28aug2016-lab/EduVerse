@@ -47,6 +47,16 @@ export const climateGrapher = {
     g += `<path d="${lineGen(st.temp)}" fill="none" stroke="var(--d)" stroke-width="3.5"/>`;
     g += `<text class="txt sm b" x="${x1 - 4}" y="16" text-anchor="end" fill="#2563eb">${esc(P('Bars: Rainfall (mm)', 'पट्टियाँ: वर्षा (मिमी)'))} · ${esc(P('Red: Primary °C', 'लाल: मुख्य °C'))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/t03.jpg',
+        en: 'India’s contrasting monsoon & altitude zones: tap pins to compare coastal Mumbai, arid Jaipur and high-altitude Leh.',
+        hi: 'भारत के विषम जलवायु क्षेत्र: तटीय मुंबई, शुष्क जयपुर और उच्च-ऊँचाई लेह की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 56, en: 'Mumbai (Coastal Monsoon)', hi: 'मुंबई (तटीय मानसून)', detail: b('Ocean moderation keeps temperatures mild year-round with heavy June–Sept rain.', 'समुद्र तापमान को सम रखता है; जून–सितंबर भारी मानसूनी वर्षा।'), set: { station: 'mumbai', compare: 'jaipur' } },
+          { x: 52, y: 42, en: 'Jaipur (Semi-Arid Inland)', hi: 'जयपुर (आंतरिक अर्ध-शुष्क)', detail: b('Far from sea, summer peaks and winter nights swing wildly.', 'समुद्र से दूरी के कारण गर्मी व सर्दी के तापमान में बहुत अंतर रहता है।'), set: { station: 'jaipur', compare: 'mumbai' } },
+          { x: 76, y: 24, en: 'Leh (High Rain-Shadow)', hi: 'लेह (उच्च वृष्टि-छाया)', detail: b('At ~3,500 m, thin mountain air drops below freezing with minimal rain.', '~3,500 मी ऊँचाई और हिमालयी वृष्टि-छाया से ठंडी व बहुत कम वर्षा।'), set: { station: 'leh', compare: 'mumbai' } },
+        ],
+      },
       svg: `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `${st.en}: annual rain ${st.totalRain} mm, temp ${st.minT} to ${st.maxT} C`,
       lines: [
@@ -119,8 +129,13 @@ export const monsoonMap = {
     return {
       plate: {
         src: 'assets/images/plates/t03-monsoon.jpg',
-        en: 'Advancing monsoon rain curtains sweeping across Sahyadri hills and green terraced paddy fields.',
-        hi: 'सह्याद्रि पहाड़ियों व हरे सीढ़ीदार धान खेतों पर बरसते मानसूनी बादल।',
+        en: 'Advancing monsoon rain curtains sweeping across Sahyadri hills — tap pins to toggle SW/NE winds and crops.',
+        hi: 'सह्याद्रि पहाड़ियों पर बरसते मानसूनी बादल — द.-प./उ.-पू. मानसून और आजीविका बदलने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 28, y: 38, en: 'Orographic Cloudburst (SW)', hi: 'पर्वतीय वर्षा (द.-प.)', detail: b('June–Sept winds slam against Western Ghats, soaking paddy terraces.', 'जून–सितं की हवाएँ पश्चिमी घाट से टकराकर धान खेतों को सींचती हैं।'), set: { season: 'sw', crop: 'rice' } },
+          { x: 64, y: 48, en: 'Retreating Bay Winds (NE)', hi: 'लौटता मानसून (उ.-पू.)', detail: b('Oct–Dec winds pick up Bay of Bengal moisture for Tamil Nadu winter crops.', 'अक्टू–दिसं की हवाएँ बंगाल की खाड़ी से नमी लेकर तमिलनाडु को वर्षा देती हैं।'), set: { season: 'ne', crop: 'rice' } },
+          { x: 46, y: 74, en: 'Rain-Shadow Millets', hi: 'वृष्टि-छाया मोटे अनाज', detail: b('Inland Deccan farms rely on drought-hardy jowar, bajra & ragi.', 'आंतरिक दक्कन में सूखा-सहिष्णु ज्वार, बाजरा व रागी बोई जाती हैं।'), set: { season: 'sw', crop: 'millet' } },
+        ],
       },
       svg,
       aria: `${sw ? 'SW monsoon' : 'NE monsoon'} and ${S.crop} livelihoods`,
@@ -187,8 +202,13 @@ export const catchment = {
     return {
       plate: {
         src: 'assets/images/plates/t03-watershed.jpg',
-        en: 'Forested watershed hills, stone check-dam reservoir and contour terraces conserving monsoon runoff.',
-        hi: 'वन आच्छादित जलग्रहण ढलान, पत्थर का चेक-डैम जलाशय व वर्षा-जल संरक्षण।',
+        en: 'Forested watershed hills and check-dam — tap pins to compare sponge forest, paved runoff and check-dam storage.',
+        hi: 'वन आच्छादित जलग्रहण और चेक-डैम — हरित सोख्ता, कंक्रीट अपवाह व बांध संचय की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 32, en: 'Forested Sponge Hills', hi: 'वन आच्छादित पहाड़ियाँ', detail: b('70% forest + 4 check-dams soak monsoon storms smoothly into aquifers.', '70% वन व 4 चेक-डैम तूफ़ानी बारिश को भूजल में उतारते हैं।'), set: { forest: 70, paved: 5, dams: 4 } },
+          { x: 54, y: 56, en: 'Check-Dam Reservoir', hi: 'चेक-डैम जलाशय', detail: b('Stone bunds trap silt and retain water months after monsoon ends.', 'पत्थर बंध मानसून के महीनों बाद तक जल संचित रखते हैं।'), set: { forest: 45, paved: 20, dams: 5 } },
+          { x: 78, y: 68, en: 'Urban Paved Flash Flood', hi: 'शहरी पक्की सतह बाढ़', detail: b('75% concrete with no ponds sends storm surge straight down drains!', '75% कंक्रीट व शून्य तालाब से सारा जल तुरंत बाढ़ बन जाता है!'), set: { forest: 10, paved: 75, dams: 0, rain: 200 } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Rain ${r.rainMm} mm: ${fmt(r.infiltrated, 0)} mm infiltrated, ${fmt(r.damStored, 0)} mm stored, ${fmt(r.surfaceRunoff, 0)} mm flood runoff`,
@@ -251,8 +271,13 @@ export const carbonFootprint = {
     return {
       plate: {
         src: 'assets/images/plates/t03-solar.jpg',
-        en: 'Clean energy & transit: rooftop solar school panels, electric city bus and bicycles cutting household emissions.',
-        hi: 'स्वच्छ ऊर्जा व परिवहन: स्कूल की छत पर सौर पैनल, इलेक्ट्रिक बस और साइकिल उत्सर्जन घटाते हुए।',
+        en: 'Clean energy & transit: tap rooftop solar, electric bus or bicycles to simulate cutting your annual emissions.',
+        hi: 'स्वच्छ ऊर्जा व परिवहन: छत सौर पैनल, इलेक्ट्रिक बस या साइकिल पर टैप कर वार्षिक उत्सर्जन घटते देखें।',
+        spots: [
+          { x: 76, y: 24, en: 'Rooftop Solar Array', hi: 'छत सौर ऊर्जा पैनल', detail: b('Raise clean electricity share to 80% — slashing grid coal emissions.', '80% स्वच्छ सौर बिजली से कोयला उत्सर्जन भारी घटता है।'), set: { solar: 80 } },
+          { x: 56, y: 62, en: 'Public Electric Bus', hi: 'सार्वजनिक इलेक्ट्रिक बस', detail: b('Shift 120 weekly km from car to shared public transit.', 'सप्ताह के 120 किमी निजी कार से बस/मेट्रो में बदलें।'), set: { car: 0, bus: 120 } },
+          { x: 80, y: 78, en: 'Bicycle + Low-Carbon Diet', hi: 'साइकिल व कम-कार्बन आहार', detail: b('Combine local veg diet with cycling & solar for minimum footprint.', 'स्थानीय शाकाहारी आहार, साइकिल व सौर ऊर्जा से न्यूनतम उत्सर्जन।'), set: { car: 0, bus: 30, solar: 90, diet: 'veg' } },
+        ],
       },
       svg: `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Annual footprint ${fmt(f.total, 0)} kg CO2e`,
@@ -309,8 +334,14 @@ export const oceanRelief = {
     return {
       plate: {
         src: 'assets/images/plates/t10-oceanfloor.jpg',
-        en: '3D oceanic trench, mid-ocean ridge volcanic vent and continental shelf cross-section.',
-        hi: 'महाद्वीपीय मग्नतट, मध्य-महासागरीय कटक और गहरे गर्त की 3D सागरीय काट।',
+        en: '3D oceanic trench, mid-ocean ridge volcanic vent and continental shelf — tap any seafloor feature pin to adjust depth.',
+        hi: 'समुद्र-तल उच्चावच: किसी भी पिन पर टैप करके मग्नतट, गहन मैदान, कटक व गर्त की गहराई बदलें।',
+        spots: [
+          { x: 22, y: 42, en: 'Sunlit Continental Shelf', hi: 'महाद्वीपीय मग्नतट (<200 मी)', detail: b('Widen the shallow sunlit shelf to 160 km where plankton & reefs thrive.', 'उथला 160 किमी मग्नतट जहाँ धूप से प्रवाल व मत्स्य जीवन फलता है।'), set: { shelfKm: 160 } },
+          { x: 44, y: 66, en: 'Abyssal Plain & ROV', hi: 'गहन समुद्री मैदान', detail: b('Vast flat deep-sea sediment basin miles beneath surface ships.', 'सतह से मीलों नीचे फैला समतल अवसादी महासागरीय मैदान।'), set: { shelfKm: 80, ridgeHeight: 2200, trenchDepth: 8500 } },
+          { x: 60, y: 56, en: 'Mid-Ocean Ridge Vent', hi: 'मध्य-महासागरीय कटक', detail: b('Raise volcanic divergent ridge to 3,200 m relief as plates spread.', 'प्लेटों के दूर हटने पर 3,200 मी ऊँचा ज्वालामुखी कटक उभरता है।'), set: { ridgeHeight: 3200 } },
+          { x: 82, y: 72, en: 'Deep Subduction Trench', hi: 'गहन अधोगमन गर्त', detail: b('Drop trench depth to 10,750 m where dense oceanic plate bends down.', 'अधोगमन सीमा पर 10,750 मी गहरा महासागरीय गर्त देखें।'), set: { trenchDepth: 10750 } },
+        ],
       },
       svg: `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="oc-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0369a1"/></linearGradient></defs>${g}</svg>`,
       aria: `Ocean floor profile: shelf ${S.shelfKm} km, trench ${S.trenchDepth} m`,
@@ -366,8 +397,13 @@ export const fisheries = {
     return {
       plate: {
         src: 'assets/images/plates/t10-fisheries.jpg',
-        en: 'Traditional coastal fishing boats moored beside protective mangrove roots in Kerala backwaters.',
-        hi: 'केरल के बैकवाटर में मैंग्रोव जड़ों के किनारे खड़ी पारंपरिक मत्स्य नावें।',
+        en: 'Coastal fishing boats beside Kerala mangrove nurseries — tap pins to test co-managed nets vs trawling collapse.',
+        hi: 'केरल में मैंग्रोव जड़ों के पास मछुआरा नावें — टिकाऊ जाल व अति-मत्स्यन की तुलना हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 24, y: 44, en: 'Mangrove Fish Nursery (90%)', hi: 'मैंग्रोव मत्स्य नर्सरी (90%)', detail: b('Tangled submerged roots shield young fry from predators & cyclones.', 'जटिल मैंग्रोव जड़ें छोटी मछलियों को सुरक्षित प्रजनन-स्थल देती हैं।'), set: { mangrove: 90, closed: 3 } },
+          { x: 54, y: 66, en: 'Selective 55 mm Nets', hi: 'बड़े 55 मिमी जाल', detail: b('45 boats + 55 mm mesh spare juvenile fish so yields hold steady for 25 yrs.', '45 नावें व बड़े छेद का जाल युवा मछलियाँ बचाकर 25 वर्षों तक आय सुरक्षित रखते हैं।'), set: { boats: 45, mesh: 55, closed: 2 } },
+          { x: 80, y: 58, en: 'Overfishing + Fine Mesh Crisis', hi: 'अति-मत्स्यन संकट', detail: b('110 boats + 20 mm fine mesh + 0 closed months collapses fish stocks!', '110 नावें व छोटे 20 मिमी जाल बिना बंद ऋतु के पूरा मत्स्य भंडार समाप्त कर देते हैं!'), set: { boats: 110, mesh: 20, closed: 0, mangrove: 20 } },
+        ],
       },
       svg: ch.html({ label: P('25-year coastal fish stock', '25 वर्षों में तटीय मत्स्य भंडार') }),
       aria: `Final fish stock ${fmt(r.finalStock, 0)}, total catch ${fmt(r.totalCatch, 0)}`,
@@ -435,7 +471,19 @@ export const maritimeCoop = {
       law: b('UNCLOS defines 12-nautical-mile Territorial Sea, 200-nm Exclusive Economic Zone (EEZ), and freedom of high-seas navigation.', 'UNCLOS 12 नॉटिकल मील प्रादेशिक सागर और 200 नॉटिकल मील अनन्य आर्थिक क्षेत्र (EEZ) तय करता है।'),
       blue: b('Sustainable fisheries, coral restoration, and marine protected areas guard ocean food security.', 'टिकाऊ मत्स्यन और समुद्री संरक्षित क्षेत्र महासागरीय खाद्य सुरक्षा बचाते हैं।'),
     };
-    return { svg, aria: `Maritime cooperation node ${S.focus}`, lines: [desc[S.focus]] };
+    return {
+      plate: {
+        src: 'assets/images/t10.jpg',
+        en: 'Shared ocean corridors: tap pins to inspect maritime law, shared tsunami sensors or blue-economy reef rules.',
+        hi: 'साझा महासागर गलियारे: समुद्री कानून, साझा सुनामी सेंसर व प्रवाल संरक्षण परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 48, en: 'UNCLOS 200-nm EEZ Rules', hi: 'UNCLOS 200 नॉटिकल मील नियम', detail: b('Defines peaceful coastal resource rights alongside open high-seas navigation.', 'तटीय संसाधन अधिकार व खुले समुद्र की शांतिपूर्ण नौवहन स्वतंत्रता तय करता है।'), set: { focus: 'law' } },
+          { x: 54, y: 38, en: 'Basin-Wide Tsunami Sensors', hi: 'साझा सुनामी चेतावनी नेटवर्क', detail: b('Cross-border warning buoys broadcast seismic sea alerts across Indian Ocean coasts.', 'सीमा-पार सेंसर बोया पूरे हिंद महासागर तटों को समय पर चेतावनी भेजते हैं।'), set: { focus: 'rescue' } },
+          { x: 78, y: 62, en: 'Blue Economy & Corals', hi: 'नीली अर्थव्यवस्था व प्रवाल', detail: b('Marine protected parks and green shipping keep ocean fisheries alive.', 'समुद्री उद्यान व स्वच्छ पोत-परिवहन सागरीय जीवन की रक्षा करते हैं।'), set: { focus: 'blue' } },
+        ],
+      },
+      svg, aria: `Maritime cooperation node ${S.focus}`, lines: [desc[S.focus]],
+    };
   },
   discover: [b('Select UNCLOS Maritime Law, then Cyclone Alerts. Why can neither work without cross-border sharing?', 'समुद्री कानून और फिर आपदा चेतावनी चुनें। दोनों सीमा-पार सहयोग के बिना क्यों अधूरे हैं?')],
   predictions: [
@@ -484,8 +532,14 @@ export const biomeMap = {
     return {
       plate: {
         src: 'assets/images/plates/t11-biomes.jpg',
-        en: 'Earth’s contrasting biome belts — tropical monsoon forest, savannah, desert dunes and snowline tundra.',
-        hi: 'पृथ्वी के प्रमुख बायोम क्षेत्र — उष्णकटिबंधीय वन, सवाना, मरुस्थल और हिमाच्छादित टुंड्रा।',
+        en: 'Earth’s contrasting biome belts — tap any ecosystem pin on the diorama to set matching temperature & rain.',
+        hi: 'पृथ्वी के प्रमुख बायोम क्षेत्र — तापमान व वर्षा मिलाने हेतु किसी भी पारिस्थितिकी पिन पर टैप करें।',
+        spots: [
+          { x: 20, y: 42, en: 'Tropical Rainforest', hi: 'उष्णकटिबंधीय वर्षावन', detail: b('Warm (26°C) + very wet (2,400 mm): towering evergreen biodiversity.', 'गर्म (26°C) + भारी वर्षा (2,400 मिमी): घना सदाबहार वन।'), set: { temp: 26, rain: 2400 } },
+          { x: 48, y: 45, en: 'Tropical Savanna', hi: 'उष्णकटिबंधीय सवाना', detail: b('Warm (24°C) + seasonal rain (960 mm): scattered acacia trees and grasslands.', 'गर्म (24°C) + मौसमी वर्षा (960 मिमी): घास मैदान व छितरे वृक्ष।'), set: { temp: 24, rain: 960 } },
+          { x: 66, y: 60, en: 'Hot Arid Desert', hi: 'गर्म मरुस्थल', detail: b('Hot (28°C) + scant rain (160 mm): cacti, succulents and Thar dunes.', 'तप्त (28°C) + बहुत कम वर्षा (160 मिमी): थार रेतीले टिब्बे व नागफनी।'), set: { temp: 28, rain: 160 } },
+          { x: 78, y: 22, en: 'Cold Alpine Tundra', hi: 'शीत पर्वतीय टुंड्रा', detail: b('Freezing (-6°C) + low precipitation (240 mm): high-Himalayan snow & lichens.', 'अति-शीत (-6°C) + कम वर्षण (240 मिमी): उच्च हिमालयी हिम व काई।'), set: { temp: -6, rain: 240 } },
+        ],
       },
       svg,
       aria: `Closest biome for ${S.temp}C and ${S.rain} mm: ${match.en}`,
@@ -546,12 +600,17 @@ export const reserveMap = {
         ? b('Buffer zone: surrounds the core; allows scientific research, environmental education, and carefully regulated eco-tourism.', 'बफ़र क्षेत्र: कोर के चारों ओर स्थित; यहाँ वैज्ञानिक शोध, शिक्षा व सीमित पारिस्थितिक पर्यटन की अनुमति होती है।')
         : b('Transition zone: outer belt where local communities farm, gather non-timber produce sustainably, and co-manage forests.', 'संक्रमण क्षेत्र: बाहरी पट्टी जहाँ स्थानीय समुदाय टिकाऊ खेती व वन-उपज सह-प्रबंधन करते हैं।');
     return {
-      svg,
-      aria: `${res.en} — ${res.species.en}`,
-      lines: [
-        { en: `${res.en} · Key species: ${res.species.en}.`, hi: `${res.hi} · प्रमुख प्रजातियाँ: ${res.species.hi}।`, cls: 'balanced' },
-        zInfo,
-      ],
+      plate: {
+        src: 'assets/images/t11.jpg',
+        en: 'India’s biosphere reserves: tap concentric zones (Core, Buffer, Transition) to see how wildlife & villages coexist.',
+        hi: 'भारत के जैवमंडल क्षेत्र: कोर, बफ़र व संक्रमण पट्टियों की भूमिका परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 44, en: 'Core Zone (Strict Refuge)', hi: 'कोर क्षेत्र (कठोर संरक्षण)', detail: b('Zero logging or construction — safe sanctuary where tigers, lion-tailed macaques & rare flora breed.', 'पूर्णतः सुरक्षित क्षेत्र जहाँ दुर्लभ वन्यजीव व वनस्पति बिना मानवीय दखल के पनपते हैं।'), set: { zone: 'core', reserve: 'nilgiri' } },
+          { x: 54, y: 54, en: 'Buffer Zone (Research & Patrol)', hi: 'बफ़र क्षेत्र (शोध व निगरानी)', detail: b('Field stations, regulated nature trails and ecological monitoring ring the Core.', 'वैज्ञानिक शोध, निगरानी व नियंत्रित पारिस्थितिक अध्ययन की मध्यवर्ती पट्टी।'), set: { zone: 'buffer', reserve: 'nanda' } },
+          { x: 80, y: 58, en: 'Transition Zone (Local Villages)', hi: 'संक्रमण क्षेत्र (समुदाय साझेदारी)', detail: b('Surrounding villages co-manage honey, bamboo & tourism sustainably alongside Sundarbans/Nilgiri ecosystems.', 'बाहरी गाँव टिकाऊ आजीविका व सामुदायिक संरक्षण में साझेदार बनते हैं।'), set: { zone: 'trans', reserve: 'sundarbans' } },
+        ],
+      },
+      svg, aria: `${res.en} — ${res.species.en}`, lines: [{ en: `${res.en} · Key species: ${res.species.en}.`, hi: `${res.hi} · प्रमुख प्रजातियाँ: ${res.species.hi}।`, cls: 'balanced' }, zInfo],
     };
   },
   discover: [b('Compare Nanda Devi (Himalaya) with Sundarbans (Delta) and Gulf of Mannar (Marine). Notice how reserves span mountains, coasts and islands.', 'नंदा देवी (हिमालय), सुंदरबन (डेल्टा) व मन्नार की खाड़ी (समुद्री) की तुलना करें।')],
@@ -607,6 +666,16 @@ export const firePlanner = {
     g += `<rect x="335" y="72" width="220" height="26" rx="6" fill="var(--line)"/><rect x="335" y="72" width="${(r.effectiveIndex * 2.2).toFixed(0)}" height="26" rx="6" fill="${col}"/>`;
     g += `<text class="txt b" x="445" y="122" text-anchor="middle" fill="${col}">${r.effectiveIndex}/100 · ${esc(P(`Spread: ${r.spreadMMin} m/min`, `फैलाव: ${r.spreadMMin} मी/मि`))}</text>`;
     return {
+      plate: {
+        src: 'assets/images/t11.jpg',
+        en: 'Mountain conifer & broadleaf canopy: tap pins to test dry pre-summer wind danger vs cleared firebreaks.',
+        hi: 'पर्वतीय वन आवरण: सूखी गर्मी में आग के जोखिम बनाम फायर-लाइन सुरक्षा परखने हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 42, en: 'Peak Summer Wind Danger', hi: 'ग्रीष्म पवन खतरा', detail: b('41°C heat, 15% dry air and 38 km/h wind with dense dry pine needles push danger extreme!', '41°C गर्मी, 15% सूखापन व 38 किमी/घं हवा में सूखी पिरुल आग को भड़काती है!'), set: { temp: 41, humidity: 15, wind: 38, litter: 0.9, firebreak: false } },
+          { x: 54, y: 56, en: '10 m Firebreak + Briquettes', hi: '10 मी फायर-लाइन सुरक्षा', detail: b('Turning dry needles into fuel briquettes & clearing strips breaks the fire triangle!', 'सूखी पत्तियाँ हटाने व 10 मी फायर-लाइन से ईंधन कड़ी टूट जाती है!'), set: { firebreak: true } },
+          { x: 80, y: 48, en: 'Moist Monsoon Canopy', hi: 'नम मानसूनी वन', detail: b('75% humidity and moist green floor halt wildfire spread naturally.', '75% आर्द्रता व हरी-नम सतह प्राकृतिक रूप से आग को रोक देती है।'), set: { temp: 24, humidity: 75, wind: 10, litter: 0.3 } },
+        ],
+      },
       svg: `<svg viewBox="0 0 640 205" class="chart" role="img" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,
       aria: `Fire index ${r.effectiveIndex} of 100, spread ${r.spreadMMin} m/min`,
       lines: [
@@ -659,8 +728,13 @@ export const traditionalConservation = {
     return {
       plate: {
         src: 'assets/images/plates/t11-grove.jpg',
-        en: 'Community-protected sacred grove beside a village johad water tank and blackbuck habitat.',
-        hi: 'ग्रामीण जोहड़ जल-कुंड व काले हिरण आवास के किनारे समुदाय-संरक्षित पवित्र उपवन।',
+        en: 'Community-protected sacred grove beside a village johad water tank — tap pins to explore India’s conservation traditions.',
+        hi: 'ग्रामीण जोहड़ जल-कुंड व समुदाय-संरक्षित पवित्र उपवन — भारतीय परंपराओं की खोज हेतु पिन पर टैप करें।',
+        spots: [
+          { x: 26, y: 42, en: 'Sacred Grove Canopy (Devrai / Sarna)', hi: 'पवित्र उपवन (देवराई / सरना)', detail: b('Moral custom bans felling — saving centuries-old medicinal seed trees & springs.', 'सामुदायिक नियम कटाई रोककर प्राचीन औषधीय वृक्ष व जलस्रोत बचाते हैं।'), set: { item: 'sacred' } },
+          { x: 56, y: 66, en: 'Bishnoi Desert Ethic (Khejri & Blackbuck)', hi: 'बिश्नोई समाज संरक्षण (खेजड़ी व हिरण)', detail: b('29 community precepts guard desert trees and wildlife alongside villages.', '29 नियम मरुस्थलीय वृक्षों और काले हिरण को गाँवों के साथ सुरक्षित रखते हैं।'), set: { item: 'bishnoi' } },
+          { x: 80, y: 54, en: 'Johad & Apatani Water-Forest', hi: 'जोहड़ व अपातानी जल-वन कृषि', detail: b('Earthen johad check-dams recharge wells and sustain wetland life without concrete.', 'मिट्टी के जोहड़ भूजल भरकर कुएँ और हरियाली पुनः जीवित करते हैं।'), set: { item: 'johad' } },
+        ],
       },
       svg,
       aria: `${it.en} (${it.place.en})`,
